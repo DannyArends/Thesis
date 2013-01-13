@@ -1,0 +1,172 @@
+\documentclass[10pt, oneside, a5paper]{report}
+\usepackage{color, graphicx, xcolor}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+\usepackage[T1]{fontenc}
+\usepackage{titlesec, blindtext, color}
+\usepackage[margin=0.75in]{geometry}
+\definecolor{gray75}{gray}{0.75}
+\definecolor{blue}{HTML}{33339F}
+\definecolor{darkblue}{HTML}{0000CC}
+\newcommand{\hsp}{\hspace{7pt}}
+\newcommand{\hssp}{\hspace{3pt}}
+\titleformat{\chapter}[hang]{\vspace{-2 cm}\huge\bfseries}{\thechapter\hsp\textcolor{blue}{|}\hsp}{0pt}{\huge\bfseries}
+\titleformat{\section}[hang]{\large}{\thesection\hssp}{0pt}{\large\bfseries}
+
+\newcommand{\authors}[1]{\small{#1}}
+\newcommand{\italic}[1]{\textit{#1}}
+\newcommand{\bold}[1]{{\bfseries #1}}
+\newcommand{\code}[1]{{\tt #1}}
+\newcommand{\mytitle}[1]{{\LARGE #1}}
+
+\pagestyle{headings}
+\renewcommand{\contentsname}{0\hsp\textcolor{blue}{|}\hsp Table of content}
+
+\begin{document}
+\pagenumbering{arabic}
+\thispagestyle{empty}
+\begin{center}
+  \mytitle{Methods and Software for Systems Genetics}\\
+    \vspace{10 mm}
+  \bold{Proefschrift}\\
+    \vspace{10 mm}
+  Ter verkrijging van het doctoraat in de \\
+  Wis- en natuur wetenschappen \\
+  aan de Rijksuniversiteit Groningen \\
+  op gezag van de \\
+  Rector Magnificus, \\ 
+  in het openbaar te verdedigen op \\
+  01/01/1900 \\
+  om 12:00 \\
+    \vspace{10 mm}
+  door\\
+    \vspace{10 mm}
+  Derk Arends\\
+    \vspace{10 mm}
+  Geboren op 15/07/1983\\
+  te Zwolle
+\end{center}
+
+\newpage
+\thispagestyle{empty}
+\begin{tabular}{ l l }
+Promotor:             & Prof. dr. R.C. Jansen \\
+Co-Promotor:          & dr. F. Johannes \\
+                      & dr. M. Swertz \\
+Beoordelingcommisie:  & Prof. dr. \\
+                      & Prof. dr. \\
+                      & Prof. dr. \\
+\end{tabular}
+
+\tableofcontents
+
+\chapter{Introduction}
+Text Text Text Text Text Text Text Text Text Text Text
+
+\chapter{Phenotypes and Genotypes}
+Using prior knowledge about phenotypes and how they arise / mix in sexual reproduction allows us to saturate existing genetic maps or create them de-novo when enough data is available. Using a sensitive pre-selection and mixture modeling approach the resolution of the genetic map of A. Thaliana was improved, and while doing so we discovered a region with novel trans-QTL association previously overlooked.
+\section{Phenotypes}
+Text Text Text Text Text Text Text Text Text Text Text
+
+\section{Markers and Maps}
+Text Text Text Text Text Text Text Text Text Text Text
+
+\chapter{(Multiple) QTL mapping}
+QTL mapping is the main analysis method used in the analysis of quantitative traits. This approach has been the subject of study for about ~30 years since its (re)discovery in 1980. Many variations to the basic single marker approach can be made, but none so fundamental as multiple QTL mapping using generalized lineair models. Computational and sample size problems were limiting the application of the approach. Novel experimental design and decreased costs have made sample size less of an issue, and by 'refreshing' the orginal algorithm we allow more wide-spread application of this improtant algortihm.
+\section{Single marker QTL mapping}
+Text Text Text Text Text Text\cite{Broman:2003, Arends:2010} Text Text Text Text Text
+
+\section{Multiple QTL mapping}
+Text Text Text Text Text Text Text Text Text Text Text
+
+\section{QTL and the environment}
+Text Text Text Text Text Text Text Text Text Text Text
+
+\chapter{High throughput data analysis}
+Problems in bioinformatics are the huge amount of data gathered and the multitude of technologies used. We developed the xQTL workbench system\cite{Arends:2012} to store large amounts of phenotype and genotype data in the XGAP\cite{Swertz:2010} dataformat. xQTL workbench can easily be adapted to a multitude of input and storage formats using the MOLGENIS\cite{Swertz:2004} generator. xQTL workbench uses the power of distibuted computing to allow massive parrallel QTL analysis and allows new analysis tools to be quickly added to the system, an application of the xQTL system is found in the WormQTL database \cite{Snoek:2012}.
+\section{Storage (Molgenis, XGAP)}
+Text Text Text Text Text Text Text Text Text Text Text
+
+\section{Analysis (xQTL workbench)}
+Text Text Text Text Text Text Text Text Text Text Text
+
+\chapter{Mapping correlation}
+\section{Differential correlations}
+Text Text Text Text Text Text Text Text Text Text Text
+
+\section{CTL and QTL}
+Text Text Text Text Text Text Text Text Text Text Text
+
+\section{Examples}
+Text Text Text Text Text Text Text Text Text Text Text
+
+\chapter{Thesis summary}
+Text Text Text Text Text Text Text Text Text Text Text
+
+\chapter{Additional for Dissertation}
+\section*{Nederlandse Samenvatting / Dutch Summary}
+\addcontentsline{toc}{section}{Nederlandse Samenvatting / Dutch Summary}
+Text Text Text TextTextText Text Text Text Text Text
+
+\section*{Abbreviations and acronyms}
+\addcontentsline{toc}{section}{Abbreviations and acronyms}
+\begin{tabular}{ l l }
+BC:          & Backcross \\
+bp:          & Base pair(s) \\
+cM:          & centi Morgan \\
+CTL:         & Correlated traits locus \\
+Mbp:         & Mega base pairs = 1.000.000 bp \\
+RIL:         & Recombinant inbred line \\
+QTL:         & Quantitative trait locus \\
+\end{tabular}
+
+\section*{Acknowledgements}
+\addcontentsline{toc}{section}{Acknowledgements}
+Text Text Text TextTextText Text Text Text Text Text
+
+\section*{List of publications}
+\addcontentsline{toc}{section}{List of publications}
+\subsection*{Authored}
+  \authors{Danny Arends, Pjotr Prins, Ritsert C. Jansen and Karl W. Broman}\\
+  R/qtl: high throughput Multiple QTL mapping\\
+  \bold{Bioinformatics} (2010)\\\\
+  \authors{Ronny V. L. Joosen*, Danny Arends*, Leo Willems, Wilco Ligterink, Henk Hilhorst, Ritsert C. Jansen}\\
+  Visualizing the genetic landscape of Arabidopsis seed performance\\
+  \bold{Plant Physiology} (2011)\\\\
+  \authors{Danny Arends*, K. Joeri van der Velde*, Pjotr Prins, Karl W. Broman, Steffen Moller, et al.}\\
+  xQTL workbench: a scalable web environment for multi-level QTL analysis\\
+  \bold{Bioinformatics} (2012)\\\\
+  \authors{L. Basten Snoek*, Joeri Van der Velde*, Danny Arends*, Yang Li*, Antje Beyer, Mark Elvin, et al.}\\
+  WormQTL: Public archive and analysis web portal for natural variation data in Caenorhabditis spp\\
+  \bold{Nucleic Acids Research} (2012)
+
+\subsection*{Co-authored}
+  \authors{Morris A Swertz, Martijn Dijkstra, Tomasz Adamusiak, Danny Arends, et al.}\\
+  The MOLGENIS toolkit: rapid prototyping of biosoftware at the push of a button\\
+  \bold{BMC Bioinformatics} (2010)\\\\
+  \authors{Morris A Swertz, K Joeri van der Velde, Bruno M Tesson, Danny Arends, et al.}\\
+  XGAP: a uniform and extensible data model and software platform for genotype and phenotype experiments\\
+  \bold{Genome Biology} (2010)\\\\
+  \authors{Klaus Schughart, Danny Arends, P. Andreux, R. Balling, Pjotr Prins, et al.}\\
+  SYSGENET: a meeting report from a new European network for systems genetics\\
+  \bold{Mammalian Genome} (2010)\\\\
+  \authors{Rudolf SN Fehrmann, Ritsert C. Jansen, Jan H. Veldink, Harm-Jan Westra, Danny Arends, et al.}\\
+  Trans-eQTLs Reveal that Independent Genetic Variants Associated With a Complex Phenotype Converge on Intermediate Genes, with a Major Role for the HLA\\
+  \bold{Plos Genetics} (2011)\\\\
+  \authors{Caroline Durrant, Morris A. Swertz, Rudi Alberts, Danny Arends, Klaus Schughart, et al.}\\
+  Bioinformatics tools and database resources for systems genetics analysis in mice - a short review and an evaluation of future needs\\
+  \bold{Briefings in Bioinformatics} (2011)
+
+\subsection*{Acknowledged in}
+  \authors{Yang Li, Morris A Swertz, Gonzalo Vera, Jingyuan Fu, Rainer Breitling and Ritsert C Jansen}\\
+  DesignGG: an R-package and web tool for the optimal design of genetical genomics experiments\\
+  \bold{BMC Bioinformatics}, 10:188 (2009)\\\\
+  \authors{Yang Li, Rainer Breitling and Ritsert C. Jansen}\\
+  Generalizing genetical genomics: getting added value from environmental perturbation\\
+  \bold{Trends in Genetics}, 24:518-524 (2008)
+
+\bibliographystyle{plain}
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{Thesis}
+
+\end{document}
