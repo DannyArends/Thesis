@@ -1,12 +1,11 @@
-\documentclass[10pt, oneside, a5paper]{report}
-\usepackage{color, graphicx, xcolor}
-\usepackage[sc]{mathpazo}
-\linespread{1.05}         % Palatino needs more leading (space between lines)
+\documentclass[11pt, twoside, a5paper]{report}
+\usepackage{titlesec, blindtext, color, graphicx, xcolor}
+\usepackage[light,condensed,math]{kurier}
 \usepackage[T1]{fontenc}
-\usepackage{titlesec, blindtext, color}
-\usepackage[margin=0.75in]{geometry}
+\usepackage[top=0.3in, bottom=0.4in, left=0.6in, right=0.4in]{geometry}
 \definecolor{gray75}{gray}{0.75}
 \definecolor{blue}{HTML}{33339F}
+\definecolor{BLUE}{HTML}{33339F}
 \definecolor{darkblue}{HTML}{0000CC}
 \newcommand{\hsp}{\hspace{7pt}}
 \newcommand{\hssp}{\hspace{3pt}}
@@ -24,6 +23,21 @@
 
 \begin{document}
 \pagenumbering{arabic}
+  \thispagestyle{empty}
+  \begin{center}
+  \mytitle{Methods and Software for Systems Genetics}\\
+  \end{center}
+\newpage
+  \thispagestyle{empty}
+  \noindent The work described in this thesis was carried out at the Groningen Bioinformatics Centre, University of Groningen, The netherlands.
+  This research was financially supported by\\
+  \vspace{130 mm}
+  
+  \noindent (c) 2013 by GBIC - Danny Arends\\
+  Printed by:\\
+  ISBN:\\
+\newpage
+
 \thispagestyle{empty}
 \begin{center}
   \mytitle{Methods and Software for Systems Genetics}\\
@@ -31,19 +45,19 @@
   \bold{Proefschrift}\\
     \vspace{10 mm}
   Ter verkrijging van het doctoraat in de \\
-  Wis- en natuur wetenschappen \\
+  Wiskunde en Natuurwetenschappen \\
   aan de Rijksuniversiteit Groningen \\
   op gezag van de \\
-  Rector Magnificus, \\ 
+  Rector Magnificus, dr. E. Sterken\\ 
   in het openbaar te verdedigen op \\
-  01/01/1900 \\
-  om 12:00 \\
+  Maandag 1 September 2013 \\
+  om 12.00 uur \\
     \vspace{10 mm}
   door\\
     \vspace{10 mm}
   Derk Arends\\
     \vspace{10 mm}
-  Geboren op 15/07/1983\\
+  Geboren op 15 juli 1983\\
   te Zwolle
 \end{center}
 
@@ -51,8 +65,10 @@
 \thispagestyle{empty}
 \begin{tabular}{ l l }
 Promotor:             & Prof. dr. R.C. Jansen \\
-Co-Promotor:          & dr. F. Johannes \\
+                      & \\
+Co-Promotors:         & dr. F. Johannes \\
                       & dr. M. Swertz \\
+                      & \\
 Beoordelingcommisie:  & Prof. dr. \\
                       & Prof. dr. \\
                       & Prof. dr. \\
