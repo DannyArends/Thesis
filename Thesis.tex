@@ -1,15 +1,46 @@
-\documentclass[11pt, twoside, a5paper]{report}
-\usepackage{titlesec, blindtext, color, graphicx, xcolor}
+\documentclass[8pt, twoside, a5paper]{report}
+\usepackage[usenames,dvipsnames, svgnames]{xcolor}
+\usepackage{titlesec, blindtext, color, graphicx}
 \usepackage[light,condensed,math]{kurier}
 \usepackage[T1]{fontenc}
-\usepackage[top=0.3in, bottom=0.4in, left=0.6in, right=0.4in]{geometry}
-\definecolor{gray75}{gray}{0.75}
-\definecolor{blue}{HTML}{33339F}
-\definecolor{BLUE}{HTML}{33339F}
-\definecolor{darkblue}{HTML}{0000CC}
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+\tcbuselibrary{skins,breakable}
+\usetikzlibrary{shadings,shadows}
+
+%\usepackage{lmodern} % to remove warnings of size substitution
+\usepackage[top=0.3in, bottom=0.5in, left=0.6in, right=0.4in]{geometry}
+
+\tcbuselibrary{skins,breakable}
+\usetikzlibrary{shadings,shadows}
+
+\newenvironment{myexampleblock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightGreen,colframe=DarkGreen,%
+    colbacklower=LimeGreen!75!LightGreen,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\newenvironment{myalertblock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightCoral,colframe=DarkRed,%
+    colbacklower=Tomato!75!LightCoral,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\newenvironment{myblock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightBlue,colframe=DarkBlue,%
+    colbacklower=DarkBlue!75!LightBlue,%
+    title=#1]}%
+    {\endtcolorbox}
+
 \newcommand{\hsp}{\hspace{7pt}}
 \newcommand{\hssp}{\hspace{3pt}}
-\titleformat{\chapter}[hang]{\vspace{-2 cm}\huge\bfseries}{\thechapter\hsp\textcolor{blue}{|}\hsp}{0pt}{\huge\bfseries}
+\titleformat{\chapter}[hang]{\vspace{-2 cm}\huge\bfseries}{\thechapter\hsp\textcolor{DarkGreen}{|}\hsp}{0pt}{\huge\bfseries}
 \titleformat{\section}[hang]{\large}{\thesection\hssp}{0pt}{\large\bfseries}
 
 \newcommand{\authors}[1]{\small{#1}}
@@ -80,9 +111,44 @@ Beoordelingcommisie:  & Prof. dr. \\
 Text Text Text Text Text Text Text Text Text Text Text
 
 \chapter{Phenotypes and Genotypes}
-Using prior knowledge about phenotypes and how they arise / mix in sexual reproduction allows us to saturate 
+
+\emph{Using prior knowledge about phenotypes and how they arise / mix in sexual reproduction allows us to saturate 
 existing genetic maps or create them de-novo when enough data is available. Using a sensitive pre-selection 
-and mixture modeling approach the resolution of the genetic map of \emph{A. thaliana} was improved.
+and mixture modeling approach the resolution of the genetic map of \emph{A. thaliana} was improved.}
+
+\null
+\vfill
+
+\begin{myexampleblock}{Under review:}
+  \authors{Danny Arends*, Konrad Zych*, K. Joeri van der Velde, Ronny V. L. Joosen, Wilco Ligterink and Ritsert C Jansen}\\
+  \emph{Pheno2Geno - High throughput generation of genetic markers and maps from molecular phenotypes}\\
+  \bold{BMC Bioinformatics} (2013)
+\end{myexampleblock}
+
+\newpage
+
+\section{Pheno2Geno}
+Pheno2geno is a package for the computational generation of markers and construction of genetic maps from 
+molecular phenotypes in segregating inbred line populations, what is possible because phenotypes with a 
+clearly separated bimodal or trimodal expression distribution can be used as genetic markers. Pheno2geno 
+offers: de novo map construction, saturation of existing maps and detection of sample mix-ups. 
+
+Pheno2geno starts by finding the phenotypes that are suitable as markers. These phenotypes should show 
+differential expression between founders and are selected using a Student's t-test or RankProd. In the 
+next step mixture modeling is used to select phenotypes that show bimodal (e.g. for RIL, BC) or trimodal 
+(e.g. for F2) expression patterns with mixing proportions comparable to the expected segregation 
+frequencies (e.g. 1 to 1 in RIL) across all the offspring individuals. Only these phenotypes are 
+transformed from continuous measurements into discrete markers.
+
+After marker detection the markers are used to create de novo map. Additional information, like known physical 
+and/or genetic positions for all/some of the markers could be used and it will improve the quality of the 
+resulting map. When a genetic map is available pheno2geno can be used to saturate it. For each of the markers 
+it is assessed whether it has a single significant QTL. If so, it is being placed on the map in the position 
+of this peak, if not it is dropped from the analysis.
+
+Pheno2geno can additionally be used to point out sample mix-ups and errors. Using QTL information the package 
+compares the observed phenotype value with the expected value. This results in calculating a mismatch score, 
+and obtaining phenotype-based idealized genotypes. 
 
 \section{Phenotypes}
 Text Text Text Text Text Text Text Text Text Text Text
@@ -90,17 +156,24 @@ Text Text Text Text Text Text Text Text Text Text Text
 \section{Markers and Maps}
 Text Text Text Text Text Text Text Text Text Text Text
 
-\section{Pheno2Geno}
-Text Text Text Text Text Text Text Text Text Text Text
-
 \chapter{(Multiple) QTL mapping}
-$ Originally published as: $
-QTL mapping is the main analysis method used in the analysis of quantitative traits. This approach has been 
+
+\emph{QTL mapping is the main analysis method used in the analysis of quantitative traits. This approach has been 
 the subject of study for about ~30 years since its (re)discovery in 1980. Many variations to the basic single 
 marker approach can be made, but none so fundamental as multiple QTL mapping using generalized lineair models. 
 Computational and sample size problems were limiting the application of the approach. Novel experimental 
 design and decreased costs have made sample size less of an issue, and by 'refreshing' the orginal algorithm 
-more wide-spread application of this important algorithm is possible.
+more wide-spread application of this important algorithm is possible.}
+\null
+\vfill
+
+\begin{myexampleblock}{Originally published as:}
+  \authors{Danny Arends, Pjotr Prins, Ritsert C. Jansen and Karl W. Broman}\\
+  \emph{R/qtl: High throughput Multiple QTL mapping}\\
+  \bold{Bioinformatics} (2010)
+\end{myexampleblock}
+
+\newpage
 
 \section{Single marker QTL mapping (R/qtl)}
 Text Text Text Text Text R/qtl\cite{Broman:2003, Arends:2010} Text Text Text Text Text
@@ -118,33 +191,73 @@ $Originally published as: $
 Text Text Text Text Text Text Text Text Text Text Text
 
 \chapter{High throughput data analysis}
-$ Originally published as: $
-Problems in bioinformatics are the huge amount of data gathered and the multitude of technologies used. We 
+
+\emph{Problems in bioinformatics are the huge amount of data gathered and the multitude of technologies used. We 
 developed the xQTL workbench system\cite{Arends:2012} to store large amounts of phenotype and genotype data 
-in the XGAP\cite{Swertz:2010} dataformat. xQTL workbench can easily be adapted to a multitude of input and 
+in the XGAP\cite{Swertz:2010a} dataformat. xQTL workbench can easily be adapted to a multitude of input and 
 storage formats using the MOLGENIS\cite{Swertz:2004} generator. xQTL workbench uses the power of distibuted 
 computing to allow massive parrallel QTL analysis and allows new analysis tools to be quickly added to the 
-system, an application of the xQTL system is found in the WormQTL database \cite{Snoek:2012}.
+system, an application of the xQTL system is found in the WormQTL database\cite{Snoek:2012}.}
+
+\null
+\vfill
+
+\begin{myexampleblock}{Originally published as:}
+  \authors{Danny Arends*, K. Joeri van der Velde*, Pjotr Prins, Karl W. Broman, Steffen Moller, et al.}\\
+  \emph{xQTL workbench: a scalable web environment for multi-level QTL analysis}\\
+  \bold{Bioinformatics} (2012)\\\\
+
+  \authors{L. Basten Snoek*, Joeri Van der Velde*, Danny Arends*, Yang Li*, Antje Beyer, et al.}\\
+  \emph{WormQTL: Public archive and analysis web portal for natural variation data in Caenorhabditis spp}\\
+  \bold{Nucleic Acids Research} (2012)
+\end{myexampleblock}
+
+\newpage
 
 \section{Storage (Molgenis, XGAP)}
-$ Originally published as: $
 Text Text Text Text Text Text Text Text Text Text Text
 
 \section{Analysis (xQTL workbench)}
-$ Originally published as: $
 Text Text Text Text Text Text Text Text Text Text Text
 
 \section{WormQTL}
-$ Originally published as: $
-Text Text Text Text Text Text Text Text Text Text Text
+We present WormQTL, a public web portal for the management of all these new data and integrated development 
+of suitable analysis tools. The web server provides a rich set of analysis tools available to use directly, 
+based on R/qtl \cite{Broman:2003, Arends:2010}. Users can upload and share new R scripts as 'plugin' for 
+colleagues in the community to use directly. New data can be uploaded and downloaded using XGAP-extensible 
+text format for genotype and phenotypes\cite{Swertz:2010a}. All data and tools can be accessed via web user 
+interfaces and programming interfaces to R, REST, and SOAP web services. Large consortia as well as individual 
+researchers, can have a private area that is under embargo for publication. All software is free for download 
+as MOLGENIS 'app'\cite{Swertz:2010b}. WormQTL is freely accessible without registration and is hosted on a 
+large computational cluster enabling high throughput analyses to all at http://www.wormqtl.org.
+
+  \subsection{WormQTL - introduction}
+  New biotechnologies enable exciting new experiments producing valuable data on genetic variation of gene 
+  expression, proteins, metabolites and many other complex traits. Over the past decade increased efforts 
+  have been made to explore the model species C. elegans as a platform for molecular quantitative genetics 
+  and the systems biology of natural variation \cite{Gaertner:2010, Kammenga:2008}. These efforts have 
+  resulted in a huge amount of phenotypic and genotypic data across developmental worm stages and environments. 
+  To facilitate the accessibility, comparative analysis and meta-analysis of all these data \cite{Swertz:2007} 
+
 
 \chapter{Mapping correlation}
-$ Originally published as: $
-In this chapter we take one step further then in the previous chapters and develop a new methodology for
+
+\emph{In this chapter we take one step further then in the previous chapters and develop a new methodology for
 quantitative genetics called Correlated Traits Locus (CTL) mapping, a method complementairy to QTL mapping. 
 Where QTL associates differences in mean, CTL, associate differences in correlation to genetic variation, i.e. 
 CTL identify regions in the genome for which one genotype leads to correlated expression between a pair of 
-traits, while the other genotype shows none (or significantly different) correlation. 
+traits, while the other genotype shows none (or significantly different) correlation.}
+
+\null
+\vfill
+
+\begin{myexampleblock}{In press:}
+  \authors{Danny Arends, Pjotr Prins, Yang Li, Lue Franke and Ritsert C. Jansen}\\
+  \emph{CTL mapping}\\
+  \bold{BMC Bioinformatics} (2013)
+\end{myexampleblock}
+
+\newpage
 
 \section{Differential correlations}
 Text Text Text Text Text Text Text Text Text Text Text
@@ -179,13 +292,17 @@ QTL:         & Quantitative trait locus \\
 GWA:         & Genome Wide Association \\
 \end{tabular}
 
+\newpage
+
 \section*{Acknowledgements}
 \addcontentsline{toc}{section}{Acknowledgements}
 Text Text Text TextTextText Text Text Text Text Text
 
+\newpage
+
 \section*{List of publications}
 \addcontentsline{toc}{section}{List of publications}
-\subsection*{Authored}
+\subsection*{Author:}
   \authors{Danny Arends, Pjotr Prins, Ritsert C. Jansen and Karl W. Broman}\\
   R/qtl: high throughput Multiple QTL mapping\\
   \bold{Bioinformatics} (2010)\\\\
@@ -199,7 +316,7 @@ Text Text Text TextTextText Text Text Text Text Text
   WormQTL: Public archive and analysis web portal for natural variation data in Caenorhabditis spp\\
   \bold{Nucleic Acids Research} (2012)
 
-\subsection*{Co-Authored}
+\subsection*{Co-Author:}
   \authors{Morris A Swertz, Martijn Dijkstra, Tomasz Adamusiak, Danny Arends, et al.}\\
   The MOLGENIS toolkit: rapid prototyping of biosoftware at the push of a button\\
   \bold{BMC Bioinformatics} (2010)\\\\
@@ -216,7 +333,15 @@ Text Text Text TextTextText Text Text Text Text Text
   Bioinformatics tools and database resources for systems genetics analysis in mice - a short review and an evaluation of future needs\\
   \bold{Briefings in Bioinformatics} (2011)
 
-\subsection*{Acknowledged in}
+\subsection*{In Press:}
+  \authors{Danny Arends*, Konrad Zych*, K. Joeri van der Velde, Ronny V. L. Joosen, Wilco Ligterink and Ritsert C Jansen}\\
+  \emph{Pheno2Geno - High throughput generation of genetic markers and maps from molecular phenotypes}\\
+  \bold{BMC Bioinformatics} (2013)\\\\
+  \authors{Danny Arends, Pjotr Prins, Yang Li, Lue Franke and Ritsert C. Jansen}\\
+  CTL mapping\\
+  \bold{BMC Bioinformatics} (2013)\\\\
+
+\subsection*{Acknowledged:}
   \authors{Yang Li, Morris A Swertz, Gonzalo Vera, Jingyuan Fu, Rainer Breitling and Ritsert C Jansen}\\
   DesignGG: an R-package and web tool for the optimal design of genetical genomics experiments\\
   \bold{BMC Bioinformatics}, 10:188 (2009)\\\\

@@ -2,4 +2,5 @@ latex Thesis.tex
 bibtex Thesis
 latex Thesis.tex
 latex Thesis.tex
-dvipdfm -p a5 Thesis.dvi
+dvips -ta5 Thesis.dvi
+ps2pdf Thesis.ps 
