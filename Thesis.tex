@@ -29,7 +29,7 @@
   \end{center}
 \newpage
   \thispagestyle{empty}
-  \noindent The work described in this thesis was carried out at the Groningen Bioinformatics Centre, University of Groningen, The netherlands.
+  \noindent The work described in this thesis was carried out at the Groningen Bioinformatics Centre, University of Groningen, The Netherlands.
   This research was financially supported by\\
   \vspace{130 mm}
   
@@ -80,33 +80,72 @@ Beoordelingcommisie:  & Prof. dr. \\
 Text Text Text Text Text Text Text Text Text Text Text
 
 \chapter{Phenotypes and Genotypes}
-Using prior knowledge about phenotypes and how they arise / mix in sexual reproduction allows us to saturate existing genetic maps or create them de-novo when enough data is available. Using a sensitive pre-selection and mixture modeling approach the resolution of the genetic map of A. Thaliana was improved, and while doing so we discovered a region with novel trans-QTL association previously overlooked.
+Using prior knowledge about phenotypes and how they arise / mix in sexual reproduction allows us to saturate 
+existing genetic maps or create them de-novo when enough data is available. Using a sensitive pre-selection 
+and mixture modeling approach the resolution of the genetic map of \emph{A. thaliana} was improved.
+
 \section{Phenotypes}
 Text Text Text Text Text Text Text Text Text Text Text
 
 \section{Markers and Maps}
 Text Text Text Text Text Text Text Text Text Text Text
 
-\chapter{(Multiple) QTL mapping}
-QTL mapping is the main analysis method used in the analysis of quantitative traits. This approach has been the subject of study for about ~30 years since its (re)discovery in 1980. Many variations to the basic single marker approach can be made, but none so fundamental as multiple QTL mapping using generalized lineair models. Computational and sample size problems were limiting the application of the approach. Novel experimental design and decreased costs have made sample size less of an issue, and by 'refreshing' the orginal algorithm we allow more wide-spread application of this improtant algortihm.
-\section{Single marker QTL mapping}
-Text Text Text Text Text Text\cite{Broman:2003, Arends:2010} Text Text Text Text Text
-
-\section{Multiple QTL mapping}
+\section{Pheno2Geno}
 Text Text Text Text Text Text Text Text Text Text Text
 
-\section{QTL and the environment}
+\chapter{(Multiple) QTL mapping}
+$ Originally published as: $
+QTL mapping is the main analysis method used in the analysis of quantitative traits. This approach has been 
+the subject of study for about ~30 years since its (re)discovery in 1980. Many variations to the basic single 
+marker approach can be made, but none so fundamental as multiple QTL mapping using generalized lineair models. 
+Computational and sample size problems were limiting the application of the approach. Novel experimental 
+design and decreased costs have made sample size less of an issue, and by 'refreshing' the orginal algorithm 
+more wide-spread application of this important algorithm is possible.
+
+\section{Single marker QTL mapping (R/qtl)}
+Text Text Text Text Text R/qtl\cite{Broman:2003, Arends:2010} Text Text Text Text Text
+
+\section{Multiple QTL mapping}
+$ Originally published as: $
+Text Text Text Text Text Text Text Text Text Text Text
+
+\section{Classical phenotypes in a DesignGG experiment}
+$Originally published as: $
+Text Text Text Text Text Text Text Text Text Text Text
+
+\section{Metabolites in a DesignGG experiment}
+$Originally published as: $
 Text Text Text Text Text Text Text Text Text Text Text
 
 \chapter{High throughput data analysis}
-Problems in bioinformatics are the huge amount of data gathered and the multitude of technologies used. We developed the xQTL workbench system\cite{Arends:2012} to store large amounts of phenotype and genotype data in the XGAP\cite{Swertz:2010} dataformat. xQTL workbench can easily be adapted to a multitude of input and storage formats using the MOLGENIS\cite{Swertz:2004} generator. xQTL workbench uses the power of distibuted computing to allow massive parrallel QTL analysis and allows new analysis tools to be quickly added to the system, an application of the xQTL system is found in the WormQTL database \cite{Snoek:2012}.
+$ Originally published as: $
+Problems in bioinformatics are the huge amount of data gathered and the multitude of technologies used. We 
+developed the xQTL workbench system\cite{Arends:2012} to store large amounts of phenotype and genotype data 
+in the XGAP\cite{Swertz:2010} dataformat. xQTL workbench can easily be adapted to a multitude of input and 
+storage formats using the MOLGENIS\cite{Swertz:2004} generator. xQTL workbench uses the power of distibuted 
+computing to allow massive parrallel QTL analysis and allows new analysis tools to be quickly added to the 
+system, an application of the xQTL system is found in the WormQTL database \cite{Snoek:2012}.
+
 \section{Storage (Molgenis, XGAP)}
+$ Originally published as: $
 Text Text Text Text Text Text Text Text Text Text Text
 
 \section{Analysis (xQTL workbench)}
+$ Originally published as: $
+Text Text Text Text Text Text Text Text Text Text Text
+
+\section{WormQTL}
+$ Originally published as: $
 Text Text Text Text Text Text Text Text Text Text Text
 
 \chapter{Mapping correlation}
+$ Originally published as: $
+In this chapter we take one step further then in the previous chapters and develop a new methodology for
+quantitative genetics called Correlated Traits Locus (CTL) mapping, a method complementairy to QTL mapping. 
+Where QTL associates differences in mean, CTL, associate differences in correlation to genetic variation, i.e. 
+CTL identify regions in the genome for which one genotype leads to correlated expression between a pair of 
+traits, while the other genotype shows none (or significantly different) correlation. 
+
 \section{Differential correlations}
 Text Text Text Text Text Text Text Text Text Text Text
 
@@ -115,6 +154,9 @@ Text Text Text Text Text Text Text Text Text Text Text
 
 \section{Examples}
 Text Text Text Text Text Text Text Text Text Text Text
+\subsection{A. thaliana}
+
+\subsection{H. sapiens}
 
 \chapter{Thesis summary}
 Text Text Text Text Text Text Text Text Text Text Text
@@ -122,7 +164,7 @@ Text Text Text Text Text Text Text Text Text Text Text
 \chapter{Additional for Dissertation}
 \section*{Nederlandse Samenvatting / Dutch Summary}
 \addcontentsline{toc}{section}{Nederlandse Samenvatting / Dutch Summary}
-Text Text Text TextTextText Text Text Text Text Text
+Text Text Text Text Text Text Text Text Text Text Text
 
 \section*{Abbreviations and acronyms}
 \addcontentsline{toc}{section}{Abbreviations and acronyms}
@@ -134,6 +176,7 @@ CTL:         & Correlated traits locus \\
 Mbp:         & Mega base pairs = 1.000.000 bp \\
 RIL:         & Recombinant inbred line \\
 QTL:         & Quantitative trait locus \\
+GWA:         & Genome Wide Association \\
 \end{tabular}
 
 \section*{Acknowledgements}
@@ -156,7 +199,7 @@ Text Text Text TextTextText Text Text Text Text Text
   WormQTL: Public archive and analysis web portal for natural variation data in Caenorhabditis spp\\
   \bold{Nucleic Acids Research} (2012)
 
-\subsection*{Co-authored}
+\subsection*{Co-Authored}
   \authors{Morris A Swertz, Martijn Dijkstra, Tomasz Adamusiak, Danny Arends, et al.}\\
   The MOLGENIS toolkit: rapid prototyping of biosoftware at the push of a button\\
   \bold{BMC Bioinformatics} (2010)\\\\
@@ -186,3 +229,4 @@ Text Text Text TextTextText Text Text Text Text Text
 \bibliography{Thesis}
 
 \end{document}
+
