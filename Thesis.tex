@@ -1,5 +1,5 @@
 \documentclass[8pt, twoside, a5paper]{report}
-\usepackage[usenames,dvipsnames, svgnames]{xcolor}
+\usepackage[usenames, dvipsnames, svgnames]{xcolor}
 \usepackage{titlesec, blindtext, color, graphicx}
 \usepackage[light,condensed,math]{kurier}
 \usepackage[T1]{fontenc}
@@ -7,9 +7,10 @@
 \usepackage{lipsum}
 \tcbuselibrary{skins,breakable}
 \usetikzlibrary{shadings,shadows}
+\definecolor{GREEN}{rgb}{0, 0.5, 0.1}
 
 %\usepackage{lmodern} % to remove warnings of size substitution
-\usepackage[top=0.3in, bottom=0.5in, left=0.6in, right=0.4in]{geometry}
+\usepackage[top=0.6in, bottom=0.6in, left=0.6in, right=0.4in]{geometry}
 
 \tcbuselibrary{skins,breakable}
 \usetikzlibrary{shadings,shadows}
@@ -22,25 +23,10 @@
     title=#1]}%
     {\endtcolorbox}
 
-\newenvironment{myalertblock}[1]{%
-    \tcolorbox[beamer,%
-    noparskip,breakable,
-    colback=LightCoral,colframe=DarkRed,%
-    colbacklower=Tomato!75!LightCoral,%
-    title=#1]}%
-    {\endtcolorbox}
-
-\newenvironment{myblock}[1]{%
-    \tcolorbox[beamer,%
-    noparskip,breakable,
-    colback=LightBlue,colframe=DarkBlue,%
-    colbacklower=DarkBlue!75!LightBlue,%
-    title=#1]}%
-    {\endtcolorbox}
-
 \newcommand{\hsp}{\hspace{7pt}}
 \newcommand{\hssp}{\hspace{3pt}}
-\titleformat{\chapter}[hang]{\vspace{-2 cm}\huge\bfseries}{\thechapter\hsp\textcolor{DarkGreen}{|}\hsp}{0pt}{\huge\bfseries}
+
+\titleformat{\chapter}[hang]{\vspace{-2 cm}\huge\bfseries}{\thechapter\hsp\textcolor{GREEN}{|}\hsp}{0pt}{\huge\bfseries}
 \titleformat{\section}[hang]{\large}{\thesection\hssp}{0pt}{\large\bfseries}
 
 \newcommand{\authors}[1]{\small{#1}}
@@ -50,7 +36,7 @@
 \newcommand{\mytitle}[1]{{\LARGE #1}}
 
 \pagestyle{headings}
-\renewcommand{\contentsname}{0\hsp\textcolor{blue}{|}\hsp Table of content}
+\renewcommand{\contentsname}{0\hsp\textcolor{GREEN}{|}\hsp Table of content}
 
 \begin{document}
 \pagenumbering{arabic}
@@ -108,13 +94,13 @@ Beoordelingcommisie:  & Prof. dr. \\
 \tableofcontents
 
 \chapter{Introduction}
-Text Text Text Text Text Text Text Text Text Text Text
+\lipsum[1-3]
 
 \chapter{Phenotypes and Genotypes}
 
 \emph{Using prior knowledge about phenotypes and how they arise / mix in sexual reproduction allows us to saturate 
 existing genetic maps or create them de-novo when enough data is available. Using a sensitive pre-selection 
-and mixture modeling approach the resolution of the genetic map of \emph{A. thaliana} was improved.}
+and mixture modeling approach the resolution of the genetic map of A. thaliana was improved.}
 
 \null
 \vfill
@@ -124,7 +110,6 @@ and mixture modeling approach the resolution of the genetic map of \emph{A. thal
   \emph{Pheno2Geno - High throughput generation of genetic markers and maps from molecular phenotypes}\\
   \bold{BMC Bioinformatics} (2013)
 \end{myexampleblock}
-
 \newpage
 
 \section{Pheno2Geno}
@@ -151,15 +136,15 @@ compares the observed phenotype value with the expected value. This results in c
 and obtaining phenotype-based idealized genotypes. 
 
 \section{Phenotypes}
-Text Text Text Text Text Text Text Text Text Text Text
+\lipsum
 
 \section{Markers and Maps}
-Text Text Text Text Text Text Text Text Text Text Text
+\lipsum
 
 \chapter{(Multiple) QTL mapping}
 
 \emph{QTL mapping is the main analysis method used in the analysis of quantitative traits. This approach has been 
-the subject of study for about ~30 years since its (re)discovery in 1980. Many variations to the basic single 
+the analysis method to study quantitative traits since its discovery in 1980. Many variations to the basic single 
 marker approach can be made, but none so fundamental as multiple QTL mapping using generalized lineair models. 
 Computational and sample size problems were limiting the application of the approach. Novel experimental 
 design and decreased costs have made sample size less of an issue, and by 'refreshing' the orginal algorithm 
@@ -168,27 +153,110 @@ more wide-spread application of this important algorithm is possible.}
 \vfill
 
 \begin{myexampleblock}{Originally published as:}
-  \authors{Danny Arends, Pjotr Prins, Ritsert C. Jansen and Karl W. Broman}\\
+  \authors{Danny Arends*, Pjotr Prins*, Ritsert C. Jansen and Karl W. Broman}\\
   \emph{R/qtl: High throughput Multiple QTL mapping}\\
-  \bold{Bioinformatics} (2010)
+  \bold{Bioinformatics} (2010) \\
+
+  \authors{Ronny V. L. Joosen*, Danny Arends*, Leo Willems, Wilco Ligterink, Henk Hilhorst, Ritsert C. Jansen}\\
+  Visualizing the genetic landscape of Arabidopsis seed performance\\
+  \bold{Plant Physiology} (2011)\\
+
+  \authors{Ronny V. L. Joosen*, Danny Arends*, Yang Li*, Leo Willems, Joost J.B. Keurentjes, Wilco Ligterink, 
+  Ritsert C. Jansen, Henk Hilhorst}\\
+  Identifying genotype-by-environment interactions in the metabolism of germinating Arabidopsis seeds using 
+  Generalized Genetical Genomics\\
+  \bold{Plant Physiology} (2013)
 \end{myexampleblock}
 
 \newpage
 
 \section{Single marker QTL mapping (R/qtl)}
-Text Text Text Text Text R/qtl\cite{Broman:2003, Arends:2010} Text Text Text Text Text
+
+R/qtl is an extensible, interactive environment for the mapping of quantitative trait loci (QTL) in experimental 
+crosses. It is implemented as an add-on package for the freely available and widely used statistical language/
+software R \cite{R:2009}. Since its introduction, R/qtl \cite{Broman:2003} has become a
+reference implementation with an extensive guide on QTL mapping \cite{RQTLGuide:2009}. R/qtl development is 
+continuous, with input from multiple collaborators and users.  We have introduced a full testing environment with 
+regression testing, updated the license to the GPL version 3, and hosted the source code repository on Github,
+which gives R/qtl software development high visibility and transparency. 
+
+The development of R/qtl reflects trends in quantitative genetics, in particular the use of larger datasets, larger 
+calculations and requirements for controlling the false discovery rate. These developments are partly driven by 
+high-throughput genetical genomics---the name coined for the study of gene expression QTL (eQTL)\cite{Jansen:2001}, 
+metabolite QTL (mQTL), protein QTL (pQTL).
 
 \section{Multiple QTL mapping}
-$ Originally published as: $
-Text Text Text Text Text Text Text Text Text Text Text
+
+Multiple QTL Mapping (MQM) belongs to a family of QTL mapping methods, that include Haley-Knott regression
+\cite{Haley:1992} and composite interval mapping CIM \cite{Zeng:1994}. MQM combines the strengths of generalized 
+linear model regression ith those of interval mapping \cite{Jansen:1993, Jansen:1994b}. 
+
+Recent developments in QTL mapping include Bayesian modelling of multiple QTL e.g. R/qtlbim package
+\cite{Yandell:2007, Banerjee:2008}. Bayesian modelling, however, is computationally expensive, and arguably has 
+little additional power when applied to high density maps, and (nearly) complete genotype data\cite{Handbook:Jansen:2007}. 
+Still, we intend to combine the strengths of the different methods in future versions of R/qtl.
+
+These days, with most experimenal setups and high density maps, improving precision may be achieved by increasing 
+the population size first. For more information on QTL mapping and Bayesian analysis we refer to the `Handbook of 
+Statisical Genetics` \cite{Handbook:2007}. MQM makes used of generalized linear models, thereby potentially 
+providing unified analysis of non-normal traits.
+
+MQM provides a practical, relevant and sensitive approach for mapping QTL in experimental populations. The 
+theoretical framework of MQM was introduced and explored by R.C. Jansen\cite{Jansen:1994a} and explained in the 
+`Handbook of Statistical Genetics' \cite{Handbook:Jansen:2007}. MQM has one known commercial implementation
+\cite{Mapqtl:2002}, which has been used effectively in practical research, resulting in hundreds of papers, e.g., 
+in mouse, plant, and fish, respectively\cite{DeMooij:2009, Jeuken:2009, Kitano:2009}.  Now, with MQM for R/qtl, 
+we present the first free and open source implementation of MQM, that is multi-platform, scalable and suitable 
+for automated procedures and large datasets.
+
+\subsection{Features}
+MQM for R/qtl is an automated three-stage procedure in which, in the first stage, missing genotype data is 'augmented'. 
+In other words, rather than guessing one likely genotype, multiple genotypes are modelled with their estimated 
+probabilities. In the second stage, important marker cofactors are selected by multiple regression and backward 
+elimination. The third stage, a QTL is moved along the chromosomes using these pre-selected markers as cofactors. 
+QTL are interval-mapped using the most informative model selected by either maximum likelihood or restricted maximum 
+likelihood. A refined and automated procedure for cases with large numbers of marker cofactors is included. 
+
+The method lets users test different QTL models by elimination of non-significant cofactors. MQM for R/qtl brings the 
+following advantages to QTL mapping:
+\begin{enumerate}\itemsep1pt
+\item Higher power, as long as the QTL explain a reasonable amount of variation.
+\item Protection against over-fitting, because MQM fixes the residual variance from the full model, which allows the 
+use of more cofactors than may be used in, for example, composite interval mapping\cite{Zeng:1994}.
+\item Prevention of ghost QTL detection (between two QTL in coupling phase).
+\item Detection of negating QTL (QTL in repulsion phase). 
+\item MQM gives (compared to CIM) a reduction in type I and type II error \cite{Handbook:Jansen:2007}.
+\item A pragmatic permutation strategy for controlling the false discovery rate (FDR) and prevention of locating 
+false QTL hot spots, as discussed in Breitling et al.\cite{Breitling:2008a}. Marker data is permuted, while keeping 
+the correlation structure in the trait data.
+\item High-performance computing by scaling on multi-CPU computers, as well as clustered computers, by calculating 
+phenotypes in parallel, through the Message Passing Interface (MPI) of the SNOW package for R\cite{Tierney:2009}.
+\item Visualizations for exploring interactions in a genomic circle plot (Fig. XXX) and cis- and trans-regulation (Fig. XXX).
+\end{enumerate}
+
+A 40-page tutorial for MQM explores, both the automated procedure, and the manual procedure of adding and removing 
+cofactors, in an \emph{Arabidopsis thaliana} recombinant inbred line (RIL) metabolite (mQTL) dataset with 24 metabolites 
+as phenotypes\cite{Fu:2007}. In addition, the tutorial visually explains the effects of data augmentation, cofactor 
+selection, model selection, and tweaking of input parameters, such as cofactor significance. Genetic interactions 
+(epistasis) are explored through effect plots, and an example is given of parallel computation. The tutorial is part 
+of the software distribution of R/qtl and is available online.
+
+\subsection{Conclusion and Discussion}
+MQM for R/qtl is a significant addition to the QTL mapper's toolbox. R/qtl provides the user with the most frequently 
+used statistical analysis methods: single-marker analysis, interval mapping, Haley-Knott regression \cite{Haley:1992}, 
+CIM \cite{Zeng:1994} and MQM \cite{Jansen:1994a}.  MQM has improved handling of missing data and allows more powerful 
+and precise detection of QTL, compared to many other methods. Not only is this new implementation of MQM available in the
+statistical R environment, which allows scripting for pipe-lined setups, it is also highly scalable through 
+parallelisation and paves the way for high-throughput QTL analysis. With MQM, R/qtl is a free and high-performance 
+comprehensive QTL mapping toolbox for the analysis of experimental populations. R/qtl now includes permutation strategies 
+for determining thresholds of significance relevant for QTL and QTL hot spots; the first step towards causal inference and
+network analysis.
 
 \section{Classical phenotypes in a DesignGG experiment}
-$Originally published as: $
-Text Text Text Text Text Text Text Text Text Text Text
+\lipsum
 
 \section{Metabolites in a DesignGG experiment}
-$Originally published as: $
-Text Text Text Text Text Text Text Text Text Text Text
+\lipsum
 
 \chapter{High throughput data analysis}
 
@@ -215,10 +283,10 @@ system, an application of the xQTL system is found in the WormQTL database\cite{
 \newpage
 
 \section{Storage (Molgenis, XGAP)}
-Text Text Text Text Text Text Text Text Text Text Text
+\lipsum
 
 \section{Analysis (xQTL workbench)}
-Text Text Text Text Text Text Text Text Text Text Text
+\lipsum
 
 \section{WormQTL}
 We present WormQTL, a public web portal for the management of all these new data and integrated development 
@@ -252,32 +320,32 @@ traits, while the other genotype shows none (or significantly different) correla
 \vfill
 
 \begin{myexampleblock}{In press:}
-  \authors{Danny Arends, Pjotr Prins, Yang Li, Lue Franke and Ritsert C. Jansen}\\
+  \authors{Danny Arends, Pjotr Prins, Yang Li, Lude Franke and Ritsert C. Jansen}\\
   \emph{CTL mapping}\\
   \bold{BMC Bioinformatics} (2013)
 \end{myexampleblock}
 
 \newpage
 
-\section{Differential correlations}
-Text Text Text Text Text Text Text Text Text Text Text
+\section{What is a CTL?}
+\lipsum[1]
 
-\section{CTL and QTL}
-Text Text Text Text Text Text Text Text Text Text Text
+\section{Combining CTL and QTL information}
+\lipsum
 
-\section{Examples}
-Text Text Text Text Text Text Text Text Text Text Text
-\subsection{A. thaliana}
+\section{Examples of CTL mapping}
+\lipsum
+\subsection{CTL mapping in an \emph{A. thaliana} RIL population}
 
-\subsection{H. sapiens}
+\subsection{CTL mapping using human GWA data}
 
 \chapter{Thesis summary}
-Text Text Text Text Text Text Text Text Text Text Text
+\lipsum[1-3]
 
 \chapter{Additional for Dissertation}
 \section*{Nederlandse Samenvatting / Dutch Summary}
 \addcontentsline{toc}{section}{Nederlandse Samenvatting / Dutch Summary}
-Text Text Text Text Text Text Text Text Text Text Text
+\lipsum[1]
 
 \section*{Abbreviations and acronyms}
 \addcontentsline{toc}{section}{Abbreviations and acronyms}
@@ -296,14 +364,14 @@ GWA:         & Genome Wide Association \\
 
 \section*{Acknowledgements}
 \addcontentsline{toc}{section}{Acknowledgements}
-Text Text Text TextTextText Text Text Text Text Text
+\lipsum[1]
 
 \newpage
 
 \section*{List of publications}
 \addcontentsline{toc}{section}{List of publications}
-\subsection*{Author:}
-  \authors{Danny Arends, Pjotr Prins, Ritsert C. Jansen and Karl W. Broman}\\
+\subsection*{Authored:}
+  \authors{Danny Arends*, Pjotr Prins*, Ritsert C. Jansen and Karl W. Broman}\\
   R/qtl: high throughput Multiple QTL mapping\\
   \bold{Bioinformatics} (2010)\\\\
   \authors{Ronny V. L. Joosen*, Danny Arends*, Leo Willems, Wilco Ligterink, Henk Hilhorst, Ritsert C. Jansen}\\
@@ -314,9 +382,12 @@ Text Text Text TextTextText Text Text Text Text Text
   \bold{Bioinformatics} (2012)\\\\
   \authors{L. Basten Snoek*, Joeri Van der Velde*, Danny Arends*, Yang Li*, Antje Beyer, Mark Elvin, et al.}\\
   WormQTL: Public archive and analysis web portal for natural variation data in Caenorhabditis spp\\
-  \bold{Nucleic Acids Research} (2012)
+  \bold{Nucleic Acids Research} (2012)\\\\
+  \authors{Ronny V. L. Joosen*, Danny Arends*, Yang Li*, Leo Willems, Joost J.B. Keurentjes, Wilco Ligterink, Ritsert C. Jansen, Henk Hilhorst}\\
+  Identifying genotype-by-environment interactions in the metabolism of germinating Arabidopsis seeds using Generalized Genetical Genomics\\
+  \bold{Plant Physiology} (2013)
 
-\subsection*{Co-Author:}
+\subsection*{Co-Authored:}
   \authors{Morris A Swertz, Martijn Dijkstra, Tomasz Adamusiak, Danny Arends, et al.}\\
   The MOLGENIS toolkit: rapid prototyping of biosoftware at the push of a button\\
   \bold{BMC Bioinformatics} (2010)\\\\
@@ -337,11 +408,11 @@ Text Text Text TextTextText Text Text Text Text Text
   \authors{Danny Arends*, Konrad Zych*, K. Joeri van der Velde, Ronny V. L. Joosen, Wilco Ligterink and Ritsert C Jansen}\\
   \emph{Pheno2Geno - High throughput generation of genetic markers and maps from molecular phenotypes}\\
   \bold{BMC Bioinformatics} (2013)\\\\
-  \authors{Danny Arends, Pjotr Prins, Yang Li, Lue Franke and Ritsert C. Jansen}\\
+  \authors{Danny Arends, Pjotr Prins, Yang Li, Lude Franke and Ritsert C. Jansen}\\
   CTL mapping\\
-  \bold{BMC Bioinformatics} (2013)\\\\
+  \bold{BMC Bioinformatics} (2013)
 
-\subsection*{Acknowledged:}
+\subsection*{Acknowledged in:}
   \authors{Yang Li, Morris A Swertz, Gonzalo Vera, Jingyuan Fu, Rainer Breitling and Ritsert C Jansen}\\
   DesignGG: an R-package and web tool for the optimal design of genetical genomics experiments\\
   \bold{BMC Bioinformatics}, 10:188 (2009)\\\\
