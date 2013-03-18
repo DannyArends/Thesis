@@ -26,7 +26,7 @@
 \newcommand{\hsp}{\hspace{7pt}}
 \newcommand{\hssp}{\hspace{3pt}}
 
-\titleformat{\chapter}[hang]{\vspace{-2 cm}\huge\bfseries}{\thechapter\hsp\textcolor{GREEN}{|}\hsp}{0pt}{\huge\bfseries}
+\titleformat{\chapter}[hang]{\vspace{-2 cm}\huge\bfseries}{{\fontsize{50}{60}\selectfont \thechapter \hsp\textcolor{GREEN}{|}\hsp}}{0pt}{\huge\bfseries}
 \titleformat{\section}[hang]{\large}{\thesection\hssp}{0pt}{\large\bfseries}
 
 \newcommand{\authors}[1]{\small{#1}}
@@ -36,7 +36,7 @@
 \newcommand{\mytitle}[1]{{\LARGE #1}}
 
 \pagestyle{headings}
-\renewcommand{\contentsname}{0\hsp\textcolor{GREEN}{|}\hsp Table of content}
+\renewcommand{\contentsname}{Table of content\vspace{-30pt}}
 
 \begin{document}
 \pagenumbering{arabic}
@@ -90,7 +90,6 @@ Beoordelingcommisie:  & Prof. dr. \\
                       & Prof. dr. \\
                       & Prof. dr. \\
 \end{tabular}
-
 \tableofcontents
 
 \chapter{Introduction}
@@ -241,7 +240,7 @@ selection, model selection, and tweaking of input parameters, such as cofactor s
 (epistasis) are explored through effect plots, and an example is given of parallel computation. The tutorial is part 
 of the software distribution of R/qtl and is available online.
 
-\subsection{Conclusion and Discussion}
+\subsection{Conclusions}
 MQM for R/qtl is a significant addition to the QTL mapper's toolbox. R/qtl provides the user with the most frequently 
 used statistical analysis methods: single-marker analysis, interval mapping, Haley-Knott regression \cite{Haley:1992}, 
 CIM \cite{Zeng:1994} and MQM \cite{Jansen:1994a}.  MQM has improved handling of missing data and allows more powerful 
