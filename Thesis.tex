@@ -5,6 +5,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{tcolorbox}
 \usepackage{lipsum}
+
 \tcbuselibrary{skins,breakable}
 \usetikzlibrary{shadings,shadows}
 \definecolor{GREEN}{rgb}{0, 0.5, 0.1}
@@ -116,33 +117,185 @@ and mixture modeling approach the resolution of the genetic map of A. thaliana w
 \newpage
 
 \section{Pheno2Geno}
-Pheno2geno is a package for the computational generation of markers and construction of genetic maps from 
-molecular phenotypes in segregating inbred line populations, what is possible because phenotypes with a 
-clearly separated bimodal or trimodal expression distribution can be used as genetic markers. Pheno2geno 
-offers: de novo map construction, saturation of existing maps and detection of sample mix-ups. 
+Genetic markers and maps are instrumental for quantitative trait locus (QTL) mapping in segregating populations. The
+resolution of QTL localisation depends on the number of informative recombinations in the population and how well 
+these recombinations are tagged by markers. Thus larger populations and denser marker maps perform better at detecting 
+and locating QTLs. In practice, marker maps are often still too sparse. However, maps can be saturated or even be derived 
+\emph{de-novo} from high-throughput omics data, such as gene expression, protein or metabolite abundance data. This is 
+because molecular phenotypes are influenced by genetic variation and they will show a clear multimodal distribution due 
+to major QTL effects, such information can therefore be converted into useful genetic markers.
 
-Pheno2geno starts by finding the phenotypes that are suitable as markers. These phenotypes should show 
-differential expression between founders and are selected using a Student's t-test or RankProd. In the 
-next step mixture modeling is used to select phenotypes that show bimodal (e.g. for RIL, BC) or trimodal 
-(e.g. for F2) expression patterns with mixing proportions comparable to the expected segregation 
-frequencies (e.g. 1 to 1 in RIL) across all the offspring individuals. Only these phenotypes are 
-transformed from continuous measurements into discrete markers.
+The Pheno2Geno R package is developed for high-throughput generation of genetic markers and maps from molecular 
+phenotypes. Pheno2Geno selects suitable phenotypes that show clear differential expression in the founders. 
+Pheno2Geno uses mixture modelling to select phenotypes showing segregation ratios close to the expected mendelian segregation 
+ratios and transform them into genetic markers suitable for map construction and/or saturation. 
+Pheno2Geno analyses the candidate genetic markers and excludes those showing multiple QTL, epistatically interacting QTL, 
+and QTL by environment interactions to provide a set of robust markers for QTL mapping protecting against genetic markers 
+from a non genetic origin.
 
-After marker detection the markers are used to create de novo map. Additional information, like known physical 
-and/or genetic positions for all/some of the markers could be used and it will improve the quality of the 
-resulting map. When a genetic map is available pheno2geno can be used to saturate it. For each of the markers 
-it is assessed whether it has a single significant QTL. If so, it is being placed on the map in the position 
-of this peak, if not it is dropped from the analysis.
+We demonstrate our tool using gene expression data of 370.000 transcripts in 164 \emph{A. thaliana} Recombinant Inbred Lines (RILs). 
+Pheno2Geno is able to saturate the existing genetic map decreasing the average distance between markers from 7.1 cM to 0.89 cM, 
+close to the theoretical limit of 0.6 cM, pinpointing almost all of the informative recombinations in the population. Pheno2Geno 
+is also able to created a \emph{de-novo} map from the gene expression data that is twice as dense as the original genetic map.
 
-Pheno2geno can additionally be used to point out sample mix-ups and errors. Using QTL information the package 
-compares the observed phenotype value with the expected value. This results in calculating a mismatch score, 
-and obtaining phenotype-based idealized genotypes. 
+The Pheno2Geno package offers high-throughput \emph{de-novo} map construction and saturation of existing genetic maps. 
+Processing of the showcase dataset takes less than 30 minutes on an average desktop PC. 
+Pheno2Geno improves QTL mapping results at no additional laboratory cost and with minimum computational effort. Pheno2Geno 
+results are formatted for direct use in R/qtl, the leading R package for QTL studies. Pheno2Geno is freely available on 
+CRAN under GNU GPL version 3.
 
-\section{Phenotypes}
-\lipsum
+\subsection{Pheno2Geno - Background}
+QTL mapping \cite{Lander:1989} is a powerful approach used in population analysis to link genetic variation to phenotypic 
+variation between individuals. It requires polymorphic genetic markers positioned on a genetic map. Here we present Pheno2Geno, 
+an R package to select and convert high-throughput phenotypes with major QTL into additional genetic markers, even when tens of 
+thousands of molecular phenotypes (e.g. gene expression) are available, and then uses these markers to saturate a known genetic map.
 
-\section{Markers and Maps}
-\lipsum
+Previously, gene expression data was used to derive genetic markers in an \emph{A. thaliana} RIL population 
+\cite{west:2006} and a \emph{L. sativa} RIL population\cite{Truco:2013}. This work was only focussed only on RIL transcriptomics 
+data, while Pheno2Geno is capable of handling any type of omics data and more cross types (backcross (BC), recombinant inbred 
+lines (RIL) by selfing and sibling mating and F2 intercross). In addition, the method used\cite{west:2006, Truco:2013} is a simple method for 
+genotype calling that works only for dichotome data, while Pheno2Geno uses statistical mixture models, posterior probabilities 
+for genotype calling and error control that works for continuous data distributions\cite{jansen:1993, jansen:2001b}. 
+
+In order to facilitate transition into the QTL mapping phase of the analysis, Pheno2Geno has output structures compatible with 
+R/qtl, the leading R package for QTL analysis in segregating populations\cite{broman:2003, arends:2010}. The package also provides an option to output 
+maps as GFF formatted file. The GFF file format is supported by most genome browsers, allowing users to use their favourite genome 
+browser to explore and/or compare resulting maps (Fig. 4).
+
+\subsection{Pheno2Geno - Features}
+Pheno2Geno provides the following functionality for constructing and/or saturating genetic maps:
+
+{\bf 1) Preprocessing of the data}: \emph{(optional)} Pheno2Geno offers a selection of data transformation functions (including: 
+log, sqrt, reciprocal, probit and logit). Depending on the type of input data provided, the user can select a pre-processing step, 
+e.g. gene expression data measured using microarrays are generally log\cite{Quackenbush:2002} or square root\cite{jansen:2001, 
+Gort:2010} transformed before further analysis. R already provides packages for pre-processing and data normalization. However 
+Pheno2Geno provides these methods such that they can be used 'on the fly' and further decrease memory usage of the algorithm.
+
+{\bf 2) Analysis of parental data}: \emph{(optional)} When parental data are available Pheno2Geno can pre-select phenotypes for 
+analysis. Pheno2Geno will use a \emph{t}-test to select molecular phenotypes showing significant phenotypic differences between 
+the inbred parental strains, to reduce the computational load in the follow up analysis. By being more restrictive Pheno2Geno 
+keeps only the phenotypes with the most significant differences between the parents for further analysis. This again reduces 
+the computational burden of the analysis.
+
+{\bf 3) Analysis of segregating populations}:
+Phenotypes with major QTL will show clear multimodal distributions in the segregating population. We fit a mixture model 
+to the phenotype distribution \cite{jansen:1993, jansen:2001, Benaglia:2009}. Phenotypes are selected as candidate markers, 
+only when significant multimodality and mixing proportions close to the expected segregation frequency are observed, e.g. 
+1:1 for a bimodal distribution of two homozygous classes in a RIL; 1:2:1 for a trimodal distribution of two homozygous and 
+one heterozygous class in an F2 cross.
+
+{\bf 4) Assigning genotypes}:
+Posterior probabilities of belonging to an underlying component distributions in the mixture are calculated for each component
+\cite{jansen2:2001, Benaglia:2009}. Using the posterior probabilities the continuous phenotype values are converted into 
+discrete data (e.g. 0 or 1 for RILs; 0, 1 or 2 for F2). If parental data are available, Pheno2Geno uses the direction of 
+the difference in the parental data to convert these discrete data into marker genotype data with a parental origin 
+label (A or B for RILs, A, H or B for F2). If the posterior probability for a specific marker/individual combination is 
+lower than a user-specified threshold, a missing value (*) or partly informative value (e.g. not A, but homozygous B or 
+heterozygous H) is assigned to avoid introducing genotyping errors.
+
+{\bf 5) Environment and epistasis}: 
+West et al. \cite{west:2007} highlighted some central issues when generating genetic markers from gene expression data: 1) 
+The influence of environmental interactions on gene expression and 2) The influence of multiple QTL and epistatic interactions 
+between two genetic loci. When information about the environment is available, Pheno2Geno will either flag or remove markers 
+affected by environment using a user defined significance threshold. Pheno2Geno performs interval mapping (using the R/qtl \emph{scanone} function) 
+on the molecular phenotypes to find the best locations for the candidate markers. Additionally Pheno2Geno tests if candidate markers 
+are affected by multiple QTLs or if they show an epistatic interaction. Depending on the user these are also flagged or removed 
+from further analysis.
+
+{\bf 6) Saturation of a known map}:
+Pheno2Geno saturates a known map by placing all candidate markers at their most likely genetic positions and re-estimating 
+the map distances. Duplicate candidate markers and markers located at the exact position of a known marker are removed before 
+saturating the genetic map.
+
+{\bf 6) \emph{De-novo} construction of genetic maps}: 
+When no initial map is available, Pheno2Geno can be used to create an initial 'skeleton' map. This skeleton map is produced 
+using very strict settings in the mixture model analysis to obtain a limited number of highly thrustworthy markers, which 
+are assigned to linkage groups by using the R/qtl function \emph{formLinkageGroups}. Additional information provided by the user 
+can be used in this step, e.g. known physical and/or genetic positions will be used by Pheno2Geno to assign physical 
+chromosome IDs to linkage groups, and to determine the correct orientation of chromosomes. Then Pheno2Geno orders all the 
+markers inside a linkage group by using the R/qtl \emph{orderMarkers} function. As a final step the skeleton map is saturated to 
+improve resolution following the procedure outline above.
+
+{\bf 7) Detection of errors}: \emph{(optional)}
+After saturation or \emph{de-novo} construction of a genetic map, Pheno2Geno will detect and correct any genotyping errors 
+(double recombinations, missing data, semi informative markers) using the R/qtl function \emph{fill.geno}. Furthermore when 
+saturating a known map with available genotype data, Pheno2Geno is able to detect sample mix-ups in the original data using 
+R/lineup (which is part of the R/qtl toolset). Users can also use external tools like MixupMapper \cite{Westra:2011} 
+beforehand to detect and correct the original genotype data.
+
+\subsection{Pheno2Geno - Results}
+The original AFLP map created using a population of 420 RILs derived from a cross \emph{Arabidopsis thaliana} Bayreuth 
+(Bay-0) x Shahdara (Sha) \cite{loudet:2002} contains 69 AFLP markers at an average map distance of 7.1 cM also derived 
+using mixture models\cite{jansen:2001, loudet:2002}. 
+
+We use Pheno2Geno to saturate this genetic map using newly available gene expression data on 370,000 transcripts measured 
+on 164 individuals from the \emph{A. thaliana} core population. Pheno2Geno detects 10.801 phenotypes differentially 
+expressed between parents ($P < 0.01$), from which mixture modeling identifies 1230 potential markers showing a 1 to 1 
+segregation ratio. We remove 267 markers which appear to be affected by one or more environments ($LOD >= 7.5$), 
+After QTL mapping using the R/qtl \emph{scanone} function 286 candidate markers are removed which show none($LOD < 15$) (279 markers) 
+ or multiple QTL (7 markers). Scanning for epistasis shows 77 candidate markers which appear to show pairwise 
+epistatic interactions ($LOD >= 7.5$). Using the remaining 600 candidate markers we saturate 
+the original map, and remove another 103 duplicate/co-localizing markers. This results in 497 new markers (720\% increase), 
+decreasing the average map distance from 7.1 cM to 0.89 cM. Saturation of the \emph{A. thaliana} Bay-0 x Sha map led to a 
+more than sevenfold improvement in marker density at no additional lab cost. Map distances were re-estimated using Kosambi 
+function. Map expansion is observed on chromosomes 4 and 5 increasing total map length from 480.7 to 501.5 cM (Fig. 1). 
+
+A \emph{de-novo} reconstruction on gene expression data only (ignoring the original markers and map) would have led to 
+a skeleton map containing 227 markers with average distance of 2.2 cM. 
+
+QTL mapping of our previously published classical phenotype dataset\cite{Joosen:2011} onto the new saturated map leads to 
+an improvement in QTL likelihood for 56\% of previously detected QTLs. Additionally, 29 new QTLs are detected 
+as being significant on the saturated map, while showing LOD scores close to the threshold when mapped to the original 
+map (between 3.4 to 5 LOD, an example is found in Fig. 2).
+
+Moreover, all the gene expression probes showing differential expression between parents (10801 probes) were scanned. 5837
+had a significant ($LOD > 5$) QTL on an original map. 3943 (66\%) showed increase in likelihood on a new map(Fig. 3). 
+Additionally, 210 new QTLs are detected as being significant on the saturated map.
+  
+\subsection{Pheno2Geno - Conclusions and Discussion}
+Pheno2Geno is the first generic software package for generating genetic markers and maps from high-throughput molecular 
+phenotypes for any inbred diploid populations (backcross, F2 intercross and recombinant inbred lines). Pheno2Geno selects 
+phenotypes that show multimodal distributions with proportions corresponding to expected segregation ratios. When 
+information about environment is available, it is used to eliminate markers possibly affected by environment or 
+interaction between environment and genotype. Moreover, Pheno2Geno eliminates markers affected by multiple QTL or 
+pairwise epistatic interactions between loci.
+
+Pheno2Geno is able to process large volumes of different kinds of molecular phenotypes\cite{Trelles:2011}. Computational 
+effort may also be decreased by only selecting phenotypes that are different between founders in the first step of the 
+analysis. Memory requirments of the algorithm are decreased by reading in and processing files in chunks rather than at once. 
+Complete analysis of the showcase data (370,000 transcripts) is performed in matter of hours on an average 
+desktop PC (Intel Core i5, 4 GB of RAM). For even larger datasets, the Pheno2Geno package is embedded in xQTL workbench
+\cite{Arends:2012, arends2:2012} allowing for easy parallelization, use of cluster and cloud computing.\newline
+
+Pheno2Geno was developed to improve and facilitate QTL studies. A leading package for QTL mapping is R/qtl. 
+Pheno2Geno results are formatted for direct use in R/qtl, providing a smooth transition into the QTL mapping phase 
+of the analysis. \newline
+
+In gene expression studies, the molecular phenotypes can show significant major eQTL not only in a local eQTL, but also distant eQTLs. 
+In the case of a local eQTL the derived marker will be located at the position of the original gene. Often such eQTL are caused by 
+differential signal due to polymorphisms in the probe region \cite{Alberts:2005,Alberts:2007}. In the case of a distant eQTL the 
+derived marker will not be located by Pheno2Geno at the (possibly known) position of the original probe but correctly at the 
+position/region of the distant QTL. \newline
+
+Currently Pheno2Geno uses parental data to reduce the computational burden and to assign the parental origin to the mixture-model 
+derived genotype categories in the segregating population. When such information is not available, mixture-model based scores 
+cannot be converted into scores showing the parental origin (e.g. scores 0 and 1 in RILs cannot be converted into scores A and B 
+showing parental origin). Pheno2Geno solves this problem by forming twice as much linkage groups as the expected number of 
+chromosomes and then merges anti-correlated pairs of linkage groups into a single chromosome. \newline
+
+\subsubsection{Pheno2Geno - Availability and requirements}
+\begin{itemize}
+\item Project name: Pheno2Geno
+\item Project home page: http://www.pheno2geno.nl
+\item Operating system(s): Any platform for which the R software\cite{rgui} is implemented, including Microsoft Windows, Mac OS and Linux
+\item Programming language: R
+\item Other requirements: Packages installed in R: qtl, mixtools\cite{Benaglia:2009}
+\item License: GNU General Public License version 3
+\item Any restrictions to use by non-academics: None
+\end{itemize}
+
+
+
 
 \chapter{(Multiple) QTL mapping}
 
@@ -261,19 +414,26 @@ network analysis.
 \section{Metabolites in a DesignGG experiment}
 \lipsum
 
-\chapter{High throughput data analysis}
+\chapter{Structured high throughput data analysis}
 
-\emph{Problems in bioinformatics are the huge amount of data gathered and the multitude of technologies used. We 
-developed the xQTL workbench system\cite{Arends:2012} to store large amounts of phenotype and genotype data 
-in the XGAP\cite{Swertz:2010a} dataformat. xQTL workbench can easily be adapted to a multitude of input and 
-storage formats using the MOLGENIS\cite{Swertz:2004} generator. xQTL workbench uses the power of distibuted 
-computing to allow massive parrallel QTL analysis and allows new analysis tools to be quickly added to the 
-system, an application of the xQTL system is found in the WormQTL database\cite{Snoek:2012}.}
+\emph{The major challenge in bioinformatics comes the huge amount of data gathered and the multitude of technologies used. We developed 
+the xQTL workbench system\cite{Arends:2012} to store large amounts of phenotype and genotype data in the XGAP\cite{Swertz:2010a} 
+dataformat. xQTL workbench can easily be adapted to a multitude of input and storage formats using the MOLGENIS\cite{Swertz:2004} 
+generator. xQTL workbench uses the power of distibuted computing to allow massive parrallel QTL analysis and allows new analysis 
+tools to be quickly added to the system, an application of the xQTL system is found in the WormQTL database\cite{Snoek:2012}.}
 
 \null
 \vfill
 
 \begin{myexampleblock}{Originally published as:}
+  \authors{Morris A Swertz, Martijn Dijkstra, ..., Danny Arends, George Byelas, et al}\\
+  \emph{The MOLGENIS toolkit: rapid prototyping of biosoftware at the push of a button}\\
+  \bold{BMC Bioinformatics} (2010)\\\\
+
+  \authors{Morris A Swertz, K Joeri van der Velde, Bruno M Tesson, ..., Danny Arends, et al}\\
+  \emph{XGAP: a uniform and extensible data model and software platform for genotype and phenotype experiments}\\
+  \bold{Genome Biology} (2010)\\\\
+
   \authors{Danny Arends*, K. Joeri van der Velde*, Pjotr Prins, Karl W. Broman, Steffen Moller, et al.}\\
   \emph{xQTL workbench: a scalable web environment for multi-level QTL analysis}\\
   \bold{Bioinformatics} (2012)\\\\
@@ -285,10 +445,277 @@ system, an application of the xQTL system is found in the WormQTL database\cite{
 
 \newpage
 
-\section{Storage (MOLGENIS, XGAP)}
-\lipsum
+\section{Reusable software (MOLGENIS)}
+\subsection{MOLGENIS - Background}
+High throughput technologies have boosted biological and medical research and the need for software infrastructures to 
+manage and process the large datasets produced is widely accepted [1-3]. Bioinformaticians are under continuous pressure 
+to both tackle the complexity and diversity of new biological systems and analytical methods and to translate these 
+quickly into flexible informatics infrastructures, while keeping up with the unpredictable evolution of molecular 
+biotechnologies and the increasing scale of experiments. While standardization of tools and data formats in open source 
+projects like the Generic Model Organism Database, GMOD [4], and the Open Bioinformatics Foundation, OBF [5], have been 
+indispensable in reducing the development efforts needed via reusable and easy to integrate components, new research 
+must also be quickly accommodated, for which efficient software variation mechanisms are needed.
 
-\section{Analysis (xQTL workbench)}
+We present the evolution of MOLGENIS into a generic, model-driven toolkit for the rapid generation of bespoke, 
+data-intensive biosoftware applications [10]. We demonstrate step-by-step how bioinformaticians can use a domain-specific 
+language to efficiently model the biological details of their particular biological system, and use MOLGENIS software 
+generation tools to automatically generate a web application tailored to the experiments of their biologists, building 
+on reusable components. Next, we evaluate the results of these methods in the development of a range of MOLGENIS applications 
+[9,11-15], that is, software applications generated using the MOLGENIS toolkit. We found up to 30 times efficiency improvement 
+compared to hand-writing software, while providing a richness of features practically unfeasible to produce by hand but not 
+yet provided by related projects. We conclude by inviting the bioinformatics community to add more MOLGENIS models, components 
+and generators to quickly generate all the software infrastructures biologists want to have.
+
+\subsection{MOLGENIS - Methods}
+
+The MOLGENIS toolkit is based on the method of model-driven development which emerged in the 1990s from the computer industry. 
+The key to success is the clear scope of the toolbox (i.e., what family of software applications should be produced with it) 
+and separating which features should be fixed (e.g., reusable components common to all MOLGENIS applications) and which 
+features should be variable (i.e. modeled and generated per MOLGENIS application instance), a process known as domain 
+analysis [16]. Below we discuss MOLGENIS' initial domain analysis, its modeling language, generators and reusable components. 
+
+\subsubsection{Domain analysis}
+
+Table 1 summarizes the initial set of features we required from MOLGENIS information systems when we started; it explains 
+why these features are indeed required, and describes what parts of the features are common and variable over experiment 
+databases. To obtain this picture, we analyzed 20 existing microarray databases next to many requirements interviews, see 
+Table 1 in [9].
+
+Table 1. Common and variable features of MOLGENIS information systems.
+
+The second step was to implement the common and variable parts, which we started with a prototype. Here we applied the 
+don't repeat yourself principle (DRY) [17]: every piece of design knowledge must have a single, unambiguous, authoritative 
+representation. We therefore searched through the prototype software code. If we found identical pieces then we put them 
+into the library of reusable components. If we found very similar pieces of software code, we put the common parts into a 
+generator and the variation points into the modeling language. In each subsequent step we evolved the MOLGENIS generator, 
+only incorporating new functionality when we repeatedly needed it.
+
+During the next six years of using the MOLGENIS generator we added numerous functions and optimizations, such as filters for 
+the data, viewing data as a 'matrix', downloading data as CSV files, enabling programming interaction via R and web services, 
+and so on. The generators ensure that 'old' MOLGENIS application variants can benefit from these improvements: when a MOLGENIS 
+instance is re-generated, these improvements are automatically integrated into the new version.
+
+\subsubsection{Modeling language}
+
+Figure 2 shows how a custom MOLGENIS application can be defined in a single file. The file is written in MOLGENIS' modeling 
+language. This enables compact specification of what experiment database is needed, i.e., to declare how an experiment is 
+organized in terms of data types and their relationships and how these data are to be shown on the screen. Figure 2 shows 
+the following features: Three data entities: (1)Experiment, Sample and Hybridization; the Experiment entity has six fields, 
+including ID, Medium and Stress (because it needs to administrate microbe experiments). To minimize the modeling work we 
+choose sensible defaults in the domain-specific language, a principle known as convention over configuration: each field has 
+to be set to a value by the researcher unless specified to be nillable(2); field can be edited (updated) unless specified to be 
+read only(3); each field is default of type 'string' (a variable character string of length 255) unless otherwise specified to 
+e.g., 'decimal'(4); and fields can be defined as having a relation to fields in other entities via a cross-reference (xref)(5). 
+The user interface consists of a plugin(6) that renders the MOLGENIS header and tool menu; one user interface form(7) to control 
+Experiments, with a sub menu(8), consisting of two child forms for Samples and Hybridizations. Child forms are automatically 
+linked to the parent form based on cross references, e.g., the field 'Experiment' of 'Sample' references to the 'ID' of an 
+'Experiment'(9). By default, forms show each entity as one-record-per-screen unless specified as a list(10). The modeling 
+language includes advanced object-orientation features like inheritance, as well as extensive help to document your model 
+(not shown).
+
+One can think of MOLGENIS' modeling language as a 'domain-specific language' (DSL) that is optimized to efficiently express 
+a particular problem, task or area [18,19], in this case to compose biosoftware infrastructures. The level of abstraction is 
+raised, so no lengthy, technical or redundant details on how each feature should be implemented in general programming 
+languages have to be given [20,21]. Examples of other domain-specific languages include R/Splus for statistics, MatLab for 
+mathematics, SQL for databases, HTML for layouting, and now MOLGENIS' modeling language for biological software infrastructures.
+
+In most cases, knowledge of the DSL is all that is needed to produce a custom MOLGENIS application variant. The domain-specific 
+language was implemented using XML so that model files can be edited using off-the-shelf XML editors. However, you may want 
+to include hand-programmed components into a particular MOLGENIS instance. For example, for the eXtensible Genotype And 
+Phenotype (XGAP) database application of MOLGENIS [11], we developed a 'MatrixViewer' that builds on the generated components, 
+which saved us the work of writing the plug-in from scratch. This requires a model sentence that points to the 'plug-in' 
+(allowing it to be seamlessly integrated) as well as hand-programming of the plug-in itself.
+
+\subsubsection{Reusable components}
+
+Each MOLGENIS application follows the widely accepted three-layered architecture design of web applications. Figure 3 summarizes 
+some of MOLGENIS' reusable components and their variation mechanisms. MOLGENIS' reusable components provide building blocks with 
+a modular structure, which allows them to be assembled in diverse combinations, similar to prefabricated houses that are built 
+from modular walls instead of bricks. Some building blocks are semi-finished and need to be 'completed' before use (which is 
+automated in MOLGENIS via the generators and inheritance). We based the design of MOLGENIS on industry-proven design patterns 
+from the 'patterns for enterprise application architecture' (PEAA), a catalog of proven solutions for software design problems 
+that we used as a guideline [22]. The logic of the reusable components is implemented using Java (http://java.sun.com); the 
+HTML layout for the user interface is encoded in Freemarker templates (http://freemarker.sourceforge.net/); and the database 
+back-end using MySQL, PostgreSQL or HSQLDB.
+
+\subsubsection{Generators}
+
+The generators are compact specifications of how each database feature should be implemented. The MOLGENIS toolkit now has 
+over 20 generators, but normal users will never need to take a look inside. However, for readers wanting to create their own 
+generators, Figure 4 provides an example of the simple, text-based, generators we use. Each generator consists of two files: 
+a Freemarker template that describes the code to be generated (similar to that shown in Figure 4a) and a Java 'Generator' 
+class that controls the generating process. A new generator can be developed as follows: first write some examples of the 
+desired programs by hand, where possible using similar patterns (see Figure 4b) and mark which parts are variable between 
+them. Then copy one of these examples into a generator template (text file) and replace all variable parts with 'holes' that 
+are to be filled by the code generator based on parameters from DSL (see Figure 4a). At each generation, the template is then 
+automatically copied and the 'holes' filled, based on parameters described in the domain-specific language, saving much 
+laborious manual work. 
+
+\subsection{MOLGENIS - Results}
+
+To start generating your own MOLGENIS application, you can download a ready-to-use 'workspace' from http://www.molgenis.org, 
+which can be edited using the commonly used Eclipse integrated development environment (IDE) tool (http://www.eclipse.org). 
+Extensive manuals are available to help install the Java, MySQL, Tomcat and Eclipse software needed and to learn how to walk 
+through the Eclipse workspace to edit models and generate and run MOLGENIS instances; most new users can complete this part 
+in about three hours. Below we summarize the output you can expect as well as recent experiences from using this toolbox. 
+Detailed examples on how these features can be used to support actual microarray or genetical genomics experiments can be 
+found in [11,14,15].
+
+\subsubsection{Expected output}
+
+After completing a MOLGENIS model and running the generator as described above, you have a ready-to-use software application. 
+Figure 5 summarizes the features you get when running the generated result as a web application: a fully functional system 
+where researchers can upload, manage, browse and query their biological data that conform to the model, optionally enhanced 
+with analysis tools to explore and annotate (depending on the plug-ins).
+
+An important feature is human readable and printable documentation of your model, including a graphical overview showing 
+relationships in UML(1) which is of great use when still designing and discussing the model in a team. The next step is 
+typically using the web user interface to populate and test your application with real data(2). To enable batch loading 
+from a spreadsheet application such as Excel, the system comes with a tab-delimited import/export tool tailored for your 
+data which you can use from the user interface as well as via a command-line tool; i.e., the headers of your Excel file 
+have to match the fields you have defined in the model, (3). In our experience, most computational biologists greatly 
+appreciate the use of the R interface to load, analyze and re-store data from within the R statistical environment(4) with 
+web services to connect to workflow tools(5). Finally, advanced programmers may want to customize the layout or integrate 
+their own scripts into the user interface, that is, create plug-ins that are seamlessly integrated with the generated 
+software(6). Typical examples here are the integration of R scripts that produce graphical overviews of the data, enabling 
+them to be run by non-technical research colleagues. Alternatively, you can use SOAP, REST and RDF interfaces for 
+integration with workflow tools like Taverna, or for use with commonly used JavaScript frameworks like jQuery to create 
+'Web 2.0' interactive websites. When satisfied with your MOLGENIS system, it can be shared as a simple JAR executable 
+using an embedded web server, or as a WAR file that can be run on public web servers.
+
+\subsubsection{Applications}
+
+Since the earliest MOLGENIS application [9], we have successfully evaluated use of the MOLGENIS toolkit to build a wide 
+range of biomedical applications [11-15], ranging from sequencing to proteomics, including:
+
+\begin{enumerate}\itemsep1pt
+\item \italic{XGAP} - an eXtensible Genotype And Phenotype platform [11] for systems genetics (GWAS, GWL) to store all kinds of *omics 
+data ranging from genotype to transcript and protein data. XGAP comes with plug-ins to view large data matrices and run 
+processing tools on a cluster. See http://www.xgap.org
+\item \italic{Pheno-OM} - to integrate any phenotype data from locus-specific annotations to rich biobank cohort reports with the help 
+of the OntoCAT ontology toolkit to create semantic mappings between related data items [23]. See http://www.ebi.ac.uk/microarray-srv/pheno
+\item \italic{FINDIS} - a mutation database for monogenic diseases belonging to the Finnish disease heritage. See http://www.findis.org/
+\item \italic{HGVBaseG2P} - the data management and curation interface complement for HGVbaseG2P, a central database of genotype 
+to phenotype association studies [12]. See http://www.hgvbaseg2p.org
+\item \italic{MAGETAB-OM} - a microarray experiment data platform based on the MAGE-TAB data format standard to create a local 
+microarray repository that is compatible with the public ArrayExpress and GEO repositories. See http://magetab-om.sourceforge.net/ 
+\item \italic{NordicDB} - the database of high-density genome-wide SNP information from 5,000 controls originating from Finnish, 
+Swedish and Danish studies [13]. See http://www.nordicdb.org
+\item \italic{DesignGG} - a web tool to optimally design such genetical genomics experiments [14]. See http://gbic.biol.rug.nl/designGG/
+\end{enumerate}
+
+More MOLGENIS applications can be found at http://www.molgenis.org. Each of these MOLGENIS projects reported major 
+benefits from the short cycle from model to running system to enable quick evaluation (500 lines of model XML replaces 
+15,000 lines of programming code) and use of the batch loading of data to evaluate how the newly built system works with 
+real data. More often than not, MOLGENIS helped in finding inconsistencies in existing data that would otherwise have gone 
+unnoticed, leading to experimental errors. In our experience, a typical MOLGENIS generator run gives you about 90\% of 
+the application that is desired 'for free', with the remaining 10\% typically filled in using plug-ins that are written 
+by hand. The MOLGENIS toolkit has also been used to extend or replace existing software applications: the ExtractModel 
+tool allows you to generate a MOLGENIS application from an existing database, which can then be run side-by-side with 
+code developed previously, providing the best of both generated and hand-written worlds.
+
+\subsubsection{Richness of features}
+
+MOLGENIS provides a richness of features not yet provided by other projects: BioMart [10,24] and InterMine [25] generate 
+powerful query interfaces for existing data but are not suited for bespoke data management; Omixed [26] generates 
+programmatic interfaces onto databases, including a security layer, but lacks user interfaces; PEDRO/Pierre [27] generates 
+data entry and retrieval user interfaces but lacks programmatic interfaces; and general generators such as AndroMDA [28] and 
+Ruby-on-Rails [29] require much more programming and configuration efforts compared to tools specific to the biological 
+domain. Turnkey [30] seems to come close to MOLGENIS, having GUI and SOAP interfaces but lacks auto-generation of R 
+interfaces and file exchange format. 
+
+\subsection{MOLGENIS - Conclusions}
+
+In a recent perspective paper [1] we evaluated the general benefits and pitfalls of model-driven development, such as 
+the ability to develop infrastructure in short cycles to get the application right, ensuring developers and biologists 
+are thinking along the same lines and increasing quality and functionality for all. We further evaluated applying this 
+method to both microarray and genetical genomics experiments [9], [11].
+
+Here we have presented MOLGENIS in detail and reported the results of using this method against a wider range of 
+applications. We conclude that using model-driven methods enables bioinformaticians to build biological software 
+infrastructures faster than before, with the additional benefit of much easier sharing of models, data and components. 
+Much less time is spent on customizing and gluing together individual components. The result is of higher quality 
+because fewer incidental errors creep into the applications as a consequence of the automated procedures; best practices 
+are applied instead of reinvented. And you do not need heavy-weight technology to implement a model-driven generator: 
+simple text-based templates suffice to create biological software generators.
+
+As a next step we want to expand the MOLGENIS toolkit to also generate data processing tools, including user friendly 
+interaction, building on other 'model-driven bioinformatics' projects in this area, such as Taverna [6] to model/execute 
+analysis workflows and Galaxy [7] to generate user interfaces for processing tools. We hope that many bioinformaticians 
+will enforce our open source efforts and share their best models, plug-ins and generators at http://www.molgenis.org, 
+so that, in time, every biologist may find a MOLGENIS variant that suits his/her needs.
+
+\subsubsection{MOLGENIS - Availability and requirements}
+
+Project name: MOLGENIS
+Project homepage: http://www.molgenis.org
+Operating systems: Windows, Linux, Apple
+Programming language: Java JRE 1.5 or higher
+Other requirements: MySQL or Postgresql, Tomcat or other J2EE container
+License: GNU Lesses General Public License version 3 (GNU LGPLv3)
+Any restrictions to use by non-academics: No
+
+\section{Storing extensible data (XGAP)}
+We present an extensible software model for the genotype and phenotype community, XGAP. Readers can down-
+load a standard XGAP (http://www.xgap.org) or auto-generate a custom version using MOLGENIS with program-
+ming interfaces to R-software and web-services or user interfaces for biologists. XGAP has simple load formats for
+any type of genotype, epigenotype, transcript, protein, metabolite or other phenotype data. Current functionality
+includes tools ranging from eQTL analysis in mouse to genome-wide association studies in humans.
+
+\subsection{XGAP - A minimal and extensible object model}
+
+We developed the XGAP objectmodel to uniformly capture the wide variety of (future) genotype and phenotype data, building 
+on generic standard model FuGE (Functional Genomics Experiment) [38] for describing the experimental 'metadata' on samples, protocols and
+experimental variables of functional genomics experiments, the OBO model (of the Open Biological and Biomedical Ontologies foundry for use of standard and
+controlled vocabularies and ontologies that ease integration [39], and lessons learned from previous, profiling technology-specific modeling efforts [29].
+
+Figure 1b shows the core components of a genotype-to-phenotype investigation: the biological subjects studied (for example, human individuals, mouse strains,
+plant tissue samples), the biomolecular protocols used (for example, Affymetrix, Illumina, Qiagen, liquid chromatography-mass spectrometry (LC/MS), Orbitrap,
+NMR), the trait data generated (usually data matrices with, for example, phenotype or transcript abundance data), the additional information on these traits (for
+example, genome location of a transcript, masses of LC/MS peaks), the wet-lab or computational protocols used (for example, MetaNetwork [22] in the case of QTL and
+network analysis) and the derived data (for example, QTL likelihood curves).
+
+We describe these biological components using FuGE data types and XGAP extensions thereof. Investigation binds all details of an investigation. Each investigation
+may apply a series of biomolecular [40] and computational [20-23] Protocols. The applications of such Protocols are termed ProtocolApplications, which in the case
+of computational Protocols may require input Data and will deliver output Data.These data have the form of matrices, the DataElements of which have a row and a
+column index. Each row and column refers to a DimensionElement, being a particular Subject or a particular Trait, Table 2 illustrates the usage of these core data
+types. Figure 1a, c shows how the XGAP model can be extended to accommodate details on particular types of subjects and traits in a uniform way. A Trait can be a
+classical phenotype (for example, flowering - the flowering time is stored in the DataElement) or a biomolecular phenotype (for example, Gene X it's transcript 
+abundance is stored in the DataElement). A Trait can also be a genotype (for example, Marker Y is a genomic feature observation that is stored in the DataElement).
+Genomic traits such as Gene, Marker and Probe all need additional information about their genome Locus to be provided. Similarly, a Subject can be a single Sample
+(for example, a labeled biomaterial as put on a microarray) and such a sample may originate from one particular Individual. It may also be a PairedSample when 
+biomaterials come from two individuals - for example, if biomaterial has been pooled as in two-color microarrays. An individual belongs to a particular Strain
+.When new experiments are added new variants of Trait and Subject can be added in a similar way. Table 3 illustrates the generic usage of these extended data types.
+Several standard data types were also inherited from FuGE to enable researchers to provide 'Minimum Information' for QTLs and Association Studies such as defined 
+in the MIQAS checklist [41] - a member of the Minimum Information for Biological and Biomedical Investigations (MIBBI) guideline effort [42]
+
+\subsection{XGAP - Conclusions}
+In this paper we report a minimal and extensible data infrastructure for the management and exchange of genotype-to-phenotype experiments, including an object
+model for genotype and phenotype data (XGAP-OM), a simple file format to exchange data using this model (XGAP-TAB) and easy-to-customize database software
+(XGAP-DB) that will help groups to directly use and adapt XGAP as a platform for their particular experimental data and analysis protocols. We successfully 
+evaluated the XGAP model and software in a broad range of experiments: array data (gene expression, including tiling arrays for detection of alternative splicing, 
+ChIP-on-chip for methylation, and genotyping arrays for SNP detection); proteomics and metabolomics data (liquid chromatography time of flight mass spectrometry 
+(LC-QTOF MS), NMR); classical phenotype assays [8,11,13,15,49,50,58,59]; other assays for detection of genetic markers; and annotation information for panel, gene, 
+sample and clone. Non-technical partners successfully evaluated the practical utility by independently formatting and loading parts of their consortium data: 
+EU-CASIMIR (for mouse; Table 7), EU-GEN2PHEN (for human; Table 7), EU-PANACEA (for C. elegans) and IOP-Brassica (for plants). A public subset of these data sets 
+is available for download at [51]. When needed we could quickly add customizations to the model, building on the general schema, and then use MOLGENIS to generate 
+a new version of the software at the push of a button, for example, to support NMR methods as an extended type of Trait[60]. Furthermore we successfully integrated 
+processing tools, such as a two-way communication with R/QTL [24] enabling QTL mapping on XGAP stored genotypes and phenotypes with QTL results stored back into XGAP.
+
+Based on these experiences, we expect use of XGAP to help the community of genome-to-phenome researchers to share data and tools, notwithstanding large variations 
+in their research aims. The XGAP data format can be used to represent and exchange all raw, intermediate and result data associated with an investigation, and an 
+XGAP database, for instance, can be used as a platform to share both data and computational protocols (for example, written in the R statistical language) associated 
+with a research publication in an open format. We envision a directory service to which XGAP users can publish metadata on their investigations either manually or 
+automatically by configuring this option in the XGAP administration user interface. This directory service can then be used as an entry point for federated querying 
+between the community of XGAPs to share data and tools. Groups that already have an infrastructure can assimilate XGAP to ease evolution of their existing software.
+Next to their existing user tools, they can 'rewire' algorithms and visual tools to also use the MOLGENIS APIs as data backend. Thus, researchers still have the
+same features as before, plus the features provided by the generated infrastructure (for example, data management GUIs, R/API) and connected tools (for example, R
+packages developed elsewhere). Moreover, much less software code needs to be maintained by hand when replacing hand-written parts by MOLGENIS-generated parts, 
+allowing software engineers to add new features for researchers much more rapidly. We invite the broader community to join our efforts at the public XGAP.org wiki, 
+mailing list and source code versioning system to evolve and share the best XGAP customizations and GUI/API 'plug-in' enhancements, to support the growing range 
+of profiling technologies, create data pipelines between repositories, and to push developments in the directions that will most benefit research
+
+\section{High throughput data analysis (xQTL workbench)}
 xQTL workbench is a scalable web platform for the mapping of quantitative trait loci (QTLs) at multiple levels: 
 for example gene expression (eQTL), protein abundance (pQTL), metabolite abundance (mQTL) and phenotype (phQTL) data. 
 Popular QTL mapping methods for model organism and human populations are accessible via the web user interface. 
@@ -306,7 +733,7 @@ analysis protocols and history for reproducibility and data provenance. Use of M
 helps to customize the software. All is conveniently accessible via standard Internet browsers on Windows, 
 Linux or Mac (and using Java, R for the server).
 
-\subsection{Features}
+\subsection{xQTL workbench - Features}
 \xqtlwb provides visualization of QTL profiles, single and multiple QTL mapping methods, easy addition of new QTL 
 analyses, scalable data management and analysis tracking.
 
@@ -348,7 +775,7 @@ simple template which is described in the \xqtlwb documentation enabeling seamle
 or intranet site, such as recently for EU-PANACEA model organism project and LifeLines biobank.
 \end{enumerate}
 
-\subsection{Implementation}
+\subsection{xQTL workbench - Implementation}
 
 We built \xqtlwb on top of MOLGENIS\cite{Swertz:2004}, a Java based software to generate tailored research infrastructure 
 on-demand\cite{Swertz:2007}. From a single 'blueprint' describing the whole system, MOLGENIS auto-generates a full 
@@ -363,7 +790,7 @@ and C. The choice of R ties in with the general practise of using R for QTL mapp
 access to the R interpreter.  Both \xqtlwb and MOLGENIS are open source software, and source code is transparently
 stored and tracked in online source control repositories.
 
-\subsection{Conclusion}
+\subsection{xQTL workbench - Discussion}
 
 \xqtlwb provides a total-solution for web-based analysis: Major QTL mapping routines are integrated for use by experienced 
 and inexperienced users. Researchers can upload raw data, run analyses, explore mapped QTL and underlying information, and 
@@ -372,7 +799,7 @@ can be easily executed on a cluster, or in the Cloud. Future work include visual
 results. We also had an EU-SYSGENET workshop that envisioned further integration of xQTL with analysis tools like HAPPY, 
 databases like GeneNetwork, and the workflow manager TIQS\cite{Durrant:2012}.
 
-\section{WormQTL}
+\section{A worm database (WormQTL)}
 WormQTL is one of the application developed using the xQTL workbench system. It is a public web portal for the management 
 of all these new data and integrated development of suitable analysis tools. The web server provides a rich set of analysis 
 tools available to use directly, based on R/qtl \cite{Broman:2003, Arends:2010}. Users can upload and share new R scripts 
@@ -383,7 +810,7 @@ private area that is under embargo for publication. All software is free for dow
 WormQTL is freely accessible without registration and is hosted on a large computational cluster enabling high throughput 
 analyses to all at http://www.wormqtl.org.
 
-\subsection{WormQTL - introduction}
+\subsection{WormQTL - Introduction}
 Over the past 30 years, the metazoan Caenorhabditis elegans has become a premier animal model for determining the genetic 
 basis of quantitative traits\cite{Gaertner:2010, Kammenga:2008}. The extensive knowledge of molecular, cellular and neural 
 bases of complex phenotypes makes \italic{C. elegans} an ideal system for the next endeavour: determining the role of natural genetic 
@@ -405,7 +832,7 @@ tools to search the database and explore genotype–phenotype mapping based on R
 downloaded using the extensible plain text format for genotype and phenotypes, XGAP\cite{Swertz:2010a}. There is no limit to the type of 
 data (from gene expression to protein, metabolite or cellular data) that can be accommodated because of its extensible design. 
 All data and tools can be accessed via a public web user interface and programming interfaces to R and REST web services, 
-which were built using the MOLGENIS biosoftware toolkit\cite{Swertz:2010b}. Moreover, users can upload and share more R scripts as ‘plugin’ 
+which were built using the MOLGENIS biosoftware toolkit\cite{Swertz:2010b}. Moreover, users can upload and share more R scripts as 'plugin' 
 for the colleagues in the community to use directly and run those on a computer cluster using software modules from xQTL 
 workbench\cite{Arends:2012}; this requires login to prevent abuse. All software can be downloaded for free to be used, for example as 
 local mirror of the database, and/or to host new studies.
@@ -462,7 +889,7 @@ At the push of a button, MOLGENIS 'generators' automatically translates these mo
 for data queries and updates, upload/download tools for tab-delimited data and scriptable interfaces for programmers to users 
 from within R and via web services. This greatly speeded up the initial software development and also enables rapid extension 
 when, for example, new data types arrive. On top of this foundation, we build the WormQTL specific user interactions such as 
-the ‘Find QTLs’ and the ‘Genome browser’ using MOLGENIS 'plug-in' mechanism and the visualizations and plots using the R 
+the 'Find QTLs' and the 'Genome browser' using MOLGENIS 'plug-in' mechanism and the visualizations and plots using the R 
 interface. xQTL workbench is a scalable web platform for the mapping of QTLs at multiple levels: for example, gene expression 
 (xQTL), protein abundance (pQTL), metabolite abundance (mQTL) and phenotype (phQTL) data. The xQTL workbench provided a set of 
 previously developed user interfaces to run R/qtl mapping methods directly from within the WormQTL user interface, the ability 
@@ -549,14 +976,46 @@ traits, while the other genotype shows none (or significantly different) correla
 \section*{Abbreviations and acronyms}
 \addcontentsline{toc}{section}{Abbreviations and acronyms}
 \begin{tabular}{ l l }
+API:         & Application Programming Interface\\
 BC:          & Backcross \\
 bp:          & Base pair(s) \\
 cM:          & centi Morgan \\
+CPNN:        & Collaborative computing project for NMR\\
+CSV:         & Comma separated values\\
 CTL:         & Correlated traits locus \\
+DesignGG:    & Experimental design of genetical genomics software\\
+DRY:         & Principle of don’t repeat yourself\\
+DSL:         & Domain Specific Language\\
+EBI:         & European Bioinformatics Institute\\
+FINDIS:      & Finish disease database\\
+GEN2PHEN:    & EU project to unify human and model organism genetic variation databases\\
+GMOD:        & Generic model organism database project\\
+GUI:         & Graphical user interface\\
+GWAS:        & Genome Wide Association Study\\
+GWL:         & Genome Wide Linkage analysis\\
+HGVBaseG2P:  & Human genome variation database of genotype-to-phenotype information\\
+HTML:        & Hypertext markup language\\
+IDE:         & Integrated Development Environment\\
+JAR:         & Java Software Archive\\
+LGPL:        & Lesser general public license\\
+MAGE-TAB:    & Microarray gene expression tab delimited file format\\
 Mbp:         & Mega base pairs = 1.000.000 bp \\
+MOLGENIS:    & Molecular genetics information systems toolkit\\
+NordicDB:    & Nordic Control Cohort Database\\
+OBF:         & Open Bioinformatics Foundation\\
+OntoCAT:     & Ontology common API toolkit\\
+PEAA:        & Patterns for enterprise application architecture\\
+QTL:         & Quantitative trait locus\\
+RDF:         & Resource description format\\
+REST:        & Representative state transfer web services\\
 RIL:         & Recombinant inbred line \\
-QTL:         & Quantitative trait locus \\
-GWA:         & Genome Wide Association \\
+SNP:         & Single Nucleotide Polymorphism\\
+SOAP:        & Simple Object Access Protocol\\
+SQL:         & Structured Query Language\\
+UML:         & Uniform data Modeling Language\\
+WAR:         & Web Application aRchive file\\
+XML:         & Extensible Markup Language\\
+XGAP:        & Extensible genotype and phenotype software platform. 
 \end{tabular}
 
 \newpage
