@@ -151,11 +151,11 @@ an R package to select and convert high-throughput phenotypes with major QTL int
 thousands of molecular phenotypes (e.g. gene expression) are available, and then uses these markers to saturate a known genetic map.
 
 Previously, gene expression data was used to derive genetic markers in an \emph{A. thaliana} RIL population 
-\cite{west:2006} and a \emph{L. sativa} RIL population\cite{Truco:2013}. This work was only focussed only on RIL transcriptomics 
+\cite{West:2006} and a \emph{L. sativa} RIL population\cite{Truco:2013}. This work was only focussed only on RIL transcriptomics 
 data, while Pheno2Geno is capable of handling any type of omics data and more cross types (backcross (BC), recombinant inbred 
-lines (RIL) by selfing and sibling mating and F2 intercross). In addition, the method used\cite{west:2006, Truco:2013} is a simple method for 
+lines (RIL) by selfing and sibling mating and F2 intercross). In addition, the method used\cite{West:2006, Truco:2013} is a simple method for 
 genotype calling that works only for dichotome data, while Pheno2Geno uses statistical mixture models, posterior probabilities 
-for genotype calling and error control that works for continuous data distributions\cite{jansen:1993, jansen:2001b}. 
+for genotype calling and error control that works for continuous data distributions\cite{Jansen:1993, Jansen:2001b}. 
 
 In order to facilitate transition into the QTL mapping phase of the analysis, Pheno2Geno has output structures compatible with 
 R/qtl, the leading R package for QTL analysis in segregating populations\cite{Broman:2003, Arends:2010}. The package also provides an option to output 
@@ -167,7 +167,7 @@ Pheno2Geno provides the following functionality for constructing and/or saturati
 
 {\bf 1) Preprocessing of the data}: \emph{(optional)} Pheno2Geno offers a selection of data transformation functions (including: 
 log, sqrt, reciprocal, probit and logit). Depending on the type of input data provided, the user can select a pre-processing step, 
-e.g. gene expression data measured using microarrays are generally log \cite{Quackenbush:2002} or square root \cite{jansen:2001b, 
+e.g. gene expression data measured using microarrays are generally log \cite{Quackenbush:2002} or square root \cite{Jansen:2001b, 
 Gort:2010} transformed before further analysis. R already provides packages for pre-processing and data normalization. However 
 Pheno2Geno provides these methods such that they can be used 'on the fly' and further decrease memory usage of the algorithm.
 
@@ -179,14 +179,14 @@ the computational burden of the analysis.
 
 {\bf 3) Analysis of segregating populations}:
 Phenotypes with major QTL will show clear multimodal distributions in the segregating population. We fit a mixture model 
-to the phenotype distribution \cite{jansen:1993, jansen:2001b, Benaglia:2009}. Phenotypes are selected as candidate markers, 
+to the phenotype distribution \cite{Jansen:1993, Jansen:2001b, Benaglia:2009}. Phenotypes are selected as candidate markers, 
 only when significant multimodality and mixing proportions close to the expected segregation frequency are observed, e.g. 
 1:1 for a bimodal distribution of two homozygous classes in a RIL; 1:2:1 for a trimodal distribution of two homozygous and 
 one heterozygous class in an F2 cross.
 
 {\bf 4) Assigning genotypes}:
 Posterior probabilities of belonging to an underlying component distributions in the mixture are calculated for each component
-\cite{jansen:2001b, Benaglia:2009}. Using the posterior probabilities the continuous phenotype values are converted into 
+\cite{Jansen:2001b, Benaglia:2009}. Using the posterior probabilities the continuous phenotype values are converted into 
 discrete data (e.g. 0 or 1 for RILs; 0, 1 or 2 for F2). If parental data are available, Pheno2Geno uses the direction of 
 the difference in the parental data to convert these discrete data into marker genotype data with a parental origin 
 label (A or B for RILs, A, H or B for F2). If the posterior probability for a specific marker/individual combination is 
@@ -194,7 +194,7 @@ lower than a user-specified threshold, a missing value (*) or partly informative
 heterozygous H) is assigned to avoid introducing genotyping errors.
 
 {\bf 5) Environment and epistasis}: 
-West et al. \cite{west:2007} highlighted some central issues when generating genetic markers from gene expression data: 1) 
+West et al. \cite{West:2007} highlighted some central issues when generating genetic markers from gene expression data: 1) 
 The influence of environmental interactions on gene expression and 2) The influence of multiple QTL and epistatic interactions 
 between two genetic loci. When information about the environment is available, Pheno2Geno will either flag or remove markers 
 affected by environment using a user defined significance threshold. Pheno2Geno performs interval mapping (using the R/qtl \emph{scanone} function) 
@@ -225,8 +225,8 @@ beforehand to detect and correct the original genotype data.
 
 \subsection{Pheno2Geno - Results}
 The original AFLP map created using a population of 420 RILs derived from a cross \emph{Arabidopsis thaliana} Bayreuth 
-(Bay-0) x Shahdara (Sha) \cite{loudet:2002} contains 69 AFLP markers at an average map distance of 7.1 cM also derived 
-using mixture models\cite{jansen:2001b, loudet:2002}. 
+(Bay-0) x Shahdara (Sha) \cite{Loudet:2002} contains 69 AFLP markers at an average map distance of 7.1 cM also derived 
+using mixture models\cite{Jansen:2001b, Loudet:2002}. 
 
 We use Pheno2Geno to saturate this genetic map using newly available gene expression data on 370,000 transcripts measured 
 on 164 individuals from the \emph{A. thaliana} core population. Pheno2Geno detects 10.801 phenotypes differentially 
@@ -338,7 +338,7 @@ which gives R/qtl software development high visibility and transparency.
 
 The development of R/qtl reflects trends in quantitative genetics, in particular the use of larger datasets, larger 
 calculations and requirements for controlling the false discovery rate. These developments are partly driven by 
-high-throughput genetical genomics---the name coined for the study of gene expression QTL (eQTL)\cite{Jansen:2001}, 
+high-throughput genetical genomics---the name coined for the study of gene expression QTL (eQTL)\cite{Jansen:2001a}, 
 metabolite QTL (mQTL), protein QTL (pQTL).
 
 \section{Multiple QTL mapping}
@@ -445,24 +445,24 @@ companies rely on enhancement methods, such as seed priming and coating and/or p
 limits. Dissecting the molecular mechanisms underlying seed germination and its tolerance to the environment may unlock the full 
 genetic potential and enable targeted breeding for seed performance. In this study we used a recombinant inbred line (RIL) population 
 derived from two Arabidopsis thaliana ecotypes: Bayreuth (Bay-0) which originates from a fallow land habitat in Germany and Shahdara 
-(Sha) which grows at high altitude in the Pamiro-Alay mountains in Tadjikistan (Loudet et al., 2002). The Bay-0 x Sha RIL population 
-has been used in many previous studies to map QTL positions for root morphology (Loudet et al., 2005; Reymond et al., 2006), anion 
-content (Loudet et al., 2003), nitrogen use efficiency (Loudet et al., 2003), cell wall digestibility (Barriere et al., 2005), 
-carbohydrate content (Calenge et al., 2006), sulfate content (Loudet et al., 2007), leaf senescence (Diaz et al., 2006), 
-morning-specific growth (Loudet et al., 2008) and cold-dark germination \cite{Meng:2008}. We have used the natural variation 
+(Sha) which grows at high altitude in the Pamiro-Alay mountains in Tadjikistan \cite{Loudet:2002}. The Bay-0 x Sha RIL population 
+has been used in many previous studies to map QTL positions for root morphology \cite{Loudet:2005, Reymond:2006}, anion 
+content \cite{Loudet:2003a}, nitrogen use efficiency \cite{Loudet:2003b}, cell wall digestibility (Barriere et al., 2005), 
+carbohydrate content \cite{Calenge:2006}, sulfate content \cite{Loudet:2007}, leaf senescence (Diaz et al., 2006), 
+morning-specific growth \cite{Loudet:2008} and cold-dark germination \cite{Meng:2008}. We have used the natural variation 
 present in this RIL population to map the response of germination characteristics to environmental conditions to which a seed is exposed.
 
-Freshly harvested viable Arabidopsis seeds often don’t germinate even when placed under conditions favorable for germination. This event, 
+Freshly harvested viable Arabidopsis seeds often don't germinate even when placed under conditions favorable for germination. This event, 
 called primary dormancy, is shown to be subject to natural variation \cite{Bentsink:2010}. In many Arabidopsis ecotypes, this primary 
 dormancy is released after a period of dry storage at room temperature. Another dormancy breaking treatment is cold stratification were 
 seeds are imbibed in water and stored at 4°C in the dark for four days before putting them into optimal conditions for germination 
-(Finch-Savage and Leubner-Metzger, 2006). Unfavorable conditions during seed germination may result in a changed rate or even failure 
+\cite{Finch-Savage:2006}. Unfavorable conditions during seed germination may result in a changed rate or even failure 
 of germination. In Arabidopsis, it has been shown that the responsiveness to temperature is closely related to the level of after-ripening 
-(Tamura et al., 2006). High salt concentrations induce osmotic stress and ion toxicity resulting in both a delay and reduction of maximum 
+\cite{Tamura:2006}. High salt concentrations induce osmotic stress and ion toxicity resulting in both a delay and reduction of maximum 
 germination \cite{Galpaz:2010}. Often, these different environmental stresses are interconnected and will cause osmotic and 
 associated oxidative stress (Zhu, 2002; Chinnusamy et al., 2004). The plant hormone Abscisic Acid (ABA) plays a predominant role in 
 plant responses to different environmental stresses and can activate various signal transduction pathways leading to a global change in 
-transcription (Finkelstein et al., 2002; Xiong et al., 2002). Exogenous application of ABA during germination results in a distinction 
+transcription \cite{Finkelstein:2002, Xiong:2002}. Exogenous application of ABA during germination results in a distinction 
 between testa and endosperm rupture. At certain concentrations the testa will rupture but germination sensu stricto (radicle protrusion 
 through the endosperm) will be inhibited. This phenomenon, caused by reduced weakening of the endosperm cap, is the consequence of a 
 complex interplay between ABA, GA and ethylene signals (Linkies et al., 2009). In this report, we determined germination sensu stricto 
@@ -523,7 +523,7 @@ analysis will be performed without cofactors resulting in an analysis comparable
 we selected 39 out of 69 markers as possible cofactors. Cofactors were selected based on their quality (least amount of missing data or heterozygous status) and physical cM
 position, attempting to obtain intervals of about 10 cM. Although the procedure allows the selection of all 69 markers as cofactors, this does not improve mapping and only lowers
 statistical power due to the multiple testing correction in the permutation analysis. The provided cofactor file is used to perform automated backward elimination of cofactors.
-Backward elimination is performed to remove cofactors that do not significantly contribute to the fit of the initial model. This is achieved by comparing Akaike’s information criterions
+Backward elimination is performed to remove cofactors that do not significantly contribute to the fit of the initial model. This is achieved by comparing Akaike's information criterions
 (AIC) of the different models (Jansen, 1993). Using the final selected QTL model, the mapping LOD scores are calculated for all genetic markers. Plots showing all significant
 markers are produced automatically (figure 1D). We have used the procedure described to map all 327 individual measurements but to enhance
 readability we only show average values for each trait (94 traits)
@@ -592,7 +592,7 @@ found for imbibed seed size.
 Initiation and rate of germination are highly influenced by the overall water potential of the seed. The mucilage layer surrounding the seed appears to play an
 important role in the process of water uptake \cite{Penfield:2001}. Sha is a natural mucilage mutant due to a mutation in the MUM2 gene, which changes the hydrophilic
 potential of rhamnogalacturonan I \cite{Macquet:2007}. Although mucilage has been reported to be dispensable for germination and development under lab conditions
-(Arsovski et al., 2010), a link with germination under reduced water potential conditions was shown by \cite{Penfield:2001}. They showed reduced maximum germination of a
+\cite{Arsovski:2010}, a link with germination under reduced water potential conditions was shown by \cite{Penfield:2001}. They showed reduced maximum germination of a
 mucilage-impaired mutant only on osmotic PEG solutions. In our study, other traits that co-located on the MUM2 locus were delayed initiation and rate of germination on osmotic
 mannitol solution but also on water, which clearly shows the advantage of determining a detailed germination curve. We also observed a very strong QTL for swelling of the seed
 in the first hours of imbibition (imbibed seed size) at the MUM2 location. Interestingly, exogenous ABA can be used to stimulate mucilage production and ABA-1 mutants are
@@ -672,23 +672,25 @@ tools to be quickly added to the system, an application of the xQTL system is fo
 \section{Reusable software (MOLGENIS)}
 \subsection{MOLGENIS - Background}
 High throughput technologies have boosted biological and medical research and the need for software infrastructures to 
-manage and process the large datasets produced is widely accepted [1-3]. Bioinformaticians are under continuous pressure 
-to both tackle the complexity and diversity of new biological systems and analytical methods and to translate these 
-quickly into flexible informatics infrastructures, while keeping up with the unpredictable evolution of molecular 
-biotechnologies and the increasing scale of experiments. While standardization of tools and data formats in open source 
-projects like the Generic Model Organism Database, GMOD [4], and the Open Bioinformatics Foundation, OBF [5], have been 
+manage and process the large datasets produced is widely accepted \cite{Swertz:2007,Stein:2008,Thorisson:2009}. 
+Bioinformaticians are under continuous pressure to both tackle the complexity and diversity of new biological systems 
+and analytical methods and to translate these quickly into flexible informatics infrastructures, while keeping up 
+with the unpredictable evolution of molecular biotechnologies and the increasing scale of experiments. While 
+standardization of tools and data formats in open source projects like the Generic Model Organism Database, GMOD 
+\cite{OConnor:2008}, and the Open Bioinformatics Foundation, OBF \cite{OBF:2010:Online}, have been 
 indispensable in reducing the development efforts needed via reusable and easy to integrate components, new research 
 must also be quickly accommodated, for which efficient software variation mechanisms are needed.
 
-We present the evolution of MOLGENIS into a generic, model-driven toolkit for the rapid generation of bespoke, 
-data-intensive biosoftware applications [10]. We demonstrate step-by-step how bioinformaticians can use a domain-specific 
+We present the evolution of MOLGENIS into a generic, model-driven toolkit for the rapid generation of bespoke, data-intensive 
+biosoftware applications \cite{MOLGENIS:2010:Online}. We demonstrate step-by-step how bioinformaticians can use a domain-specific 
 language to efficiently model the biological details of their particular biological system, and use MOLGENIS software 
 generation tools to automatically generate a web application tailored to the experiments of their biologists, building 
 on reusable components. Next, we evaluate the results of these methods in the development of a range of MOLGENIS applications 
-[9,11-15], that is, software applications generated using the MOLGENIS toolkit. We found up to 30 times efficiency improvement 
-compared to hand-writing software, while providing a richness of features practically unfeasible to produce by hand but not 
-yet provided by related projects. We conclude by inviting the bioinformatics community to add more MOLGENIS models, components 
-and generators to quickly generate all the software infrastructures biologists want to have.
+\cite{Swertz:2004, Swertz:2010a, Thorisson:2009, Leu:2010, Li:2009, Smedley:2008}, that is, software applications generated 
+using the MOLGENIS toolkit. We found up to 30 times efficiency improvement compared to hand-writing software, while 
+providing a richness of features practically unfeasible to produce by hand but not yet provided by related projects. We 
+conclude by inviting the bioinformatics community to add more MOLGENIS models, components and generators to quickly 
+generate all the software infrastructures biologists want to have.
 
 \subsection{MOLGENIS - Methods}
 
@@ -1208,7 +1210,7 @@ CPNN:        & Collaborative computing project for NMR\\
 CSV:         & Comma separated values\\
 CTL:         & Correlated traits locus \\
 DesignGG:    & Experimental design of genetical genomics software\\
-DRY:         & Principle of don’t repeat yourself\\
+DRY:         & Principle of don't repeat yourself\\
 DSL:         & Domain Specific Language\\
 EBI:         & European Bioinformatics Institute\\
 FINDIS:      & Finish disease database\\
