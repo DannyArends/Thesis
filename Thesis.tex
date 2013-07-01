@@ -283,20 +283,6 @@ cannot be converted into scores showing the parental origin (e.g. scores 0 and 1
 showing parental origin). Pheno2Geno solves this problem by forming twice as much linkage groups as the expected number of 
 chromosomes and then merges anti-correlated pairs of linkage groups into a single chromosome. \newline
 
-\subsubsection{Pheno2Geno - Availability and requirements}
-\begin{itemize}
-\item Project name: Pheno2Geno
-\item Project home page: http://www.pheno2geno.nl
-\item Operating system(s): Any platform for which the R software \cite{rgui} is implemented, including Microsoft Windows, Mac OS and Linux
-\item Programming language: R
-\item Other requirements: Packages installed in R: qtl, mixtools \cite{Benaglia:2009}
-\item License: GNU General Public License version 3
-\item Any restrictions to use by non-academics: None
-\end{itemize}
-
-
-
-
 \chapter{(Multiple) QTL mapping}
 
 \emph{QTL mapping is the main analysis method used in the analysis of quantitative traits. This approach has been 
@@ -565,7 +551,7 @@ be confirmed by the use of HIF103. Upon imbibition seeds swell due to rapid wate
 mucilage layer. In Sha, which is a natural mutant for the MUM2 gene \cite{Macquet:2007}, this swelling did not occur. Also the HIF lines at the
 MUM2 position showed a clear difference in swelling phenotype which was still significant 24 hours after imbibition (Figure 8).
 
-\subsection{Classical phenotypes - Discussion}
+\subsection{Classical phenotypes - Conclusions and Discussion}
 When analyzing large (RIL) populations, it is hardly feasible to manually count all germination experiments several times a day to obtain germination curves. Therefore,
 previous studies mostly restricted to counting end-point germination \cite{Quesada:2002, Alonso-Blanco:2003, Clerkx:2004, Laserna:2008, Meng:2008, Bentsink:2010, Galpaz:2010, Vallejo:2010}. 
 A germination curve allows QTL mapping under conditions where rate and uniformity are
@@ -871,16 +857,6 @@ analysis workflows and Galaxy [7] to generate user interfaces for processing too
 will enforce our open source efforts and share their best models, plug-ins and generators at http://www.molgenis.org, 
 so that, in time, every biologist may find a MOLGENIS variant that suits his/her needs.
 
-\subsubsection{MOLGENIS - Availability and requirements}
-
-Project name: MOLGENIS
-Project homepage: http://www.molgenis.org
-Operating systems: Windows, Linux, Apple
-Programming language: Java JRE 1.5 or higher
-Other requirements: MySQL or Postgresql, Tomcat or other J2EE container
-License: GNU Lesses General Public License version 3 (GNU LGPLv3)
-Any restrictions to use by non-academics: No
-
 \section{Storing extensible data (XGAP)}
 We present an extensible software model for the genotype and phenotype community, XGAP. Readers can down-
 load a standard XGAP (http://www.xgap.org) or auto-generate a custom version using MOLGENIS with program-
@@ -1016,7 +992,7 @@ and C. The choice of R ties in with the general practise of using R for QTL mapp
 access to the R interpreter.  Both \xqtlwb and MOLGENIS are open source software, and source code is transparently
 stored and tracked in online source control repositories.
 
-\subsection{xQTL workbench - Discussion}
+\subsection{xQTL workbench - Conclusions and Discussion}
 
 \xqtlwb provides a total-solution for web-based analysis: Major QTL mapping routines are integrated for use by experienced 
 and inexperienced users. Researchers can upload raw data, run analyses, explore mapped QTL and underlying information, and 
@@ -1102,7 +1078,7 @@ and phenotypes) and services to 'slice' individual lines out of the complete dat
 Alternatively, readers can request a login to upload data and new analysis scripts directly.
 \end{enumerate}
 
-\subsection{WormQTL - Discussion}
+\subsection{WormQTL - Conclusions and Discussion}
 \subsubsection{Implementation}
 All the software was implemented using the open source Molecular Genetics Information Systems MOLGENIS toolkit (26), and in 
 particular one previously existing MOLGENIS application, the extensible xQTL workbench (27) and the R/qtl QTL mapping and 
@@ -1201,6 +1177,7 @@ traits, while the other genotype shows none (or significantly different) correla
 
 \section*{Abbreviations and acronyms}
 \addcontentsline{toc}{section}{Abbreviations and acronyms}
+{\footnotesize
 \begin{tabular}{ l l }
 API:         & Application Programming Interface\\
 BC:          & Backcross \\
@@ -1243,7 +1220,7 @@ WAR:         & Web Application aRchive file\\
 XML:         & Extensible Markup Language\\
 XGAP:        & Extensible genotype and phenotype software platform. 
 \end{tabular}
-
+}
 \newpage
 
 \section*{Acknowledgements}
@@ -1306,7 +1283,8 @@ XGAP:        & Extensible genotype and phenotype software platform.
 
 \bibliographystyle{plain}
 \addcontentsline{toc}{chapter}{Bibliography}
+{\footnotesize
 \bibliography{Thesis}
-
+}
 \end{document}
 
