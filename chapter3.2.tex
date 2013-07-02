@@ -17,7 +17,7 @@ This concept offers unique reduction of experimental load with minimal compromis
 power and is of great potential in the field of systems genetics which requires a broad 
 understanding of both plasticity and dynamic regulation.
 
-\subsection{Introduction}
+\subsection{Background}
 The use of natural variation to disentangle the genetic (G) mechanisms underlying phenotypic differences 
 has been very successful both in crop plants and in the model plant Arabidopsis (Arabidopsis thaliana; 
 \cite{Alonso-Blanco:2009}. Most of the variation within wild or domesticated plant species is of 
@@ -52,24 +52,155 @@ alleles over all available markers (Li et al., 2009). When these subpopulations 
 perturbation, the emerging phenotypes can be explained by several sources of variation: G variation, 
 E variation, and G:E variation. Whenever the resulting phenotype is not or only mildly affected by E 
 interactions (G:E), the analysis of the different subpopulations can be combined, gaining the full power 
-of a complete population. However, when a trait shows strong G:E interaction (e.g. those that only express G variation in specific 
-environments), the power to detect QTL is dependent on those subpopulations expressing the G variation. 
-Although G:E interactions have been detected previously in genetical genomics studies for expression 
-(Li et al., 2006; Smith and Kruglyak, 2008; Gerrits et al., 2009; Yeung et al., 2011) and metabolite 
-content (Zhu et al., 2012) by analyzing all lines in a population under different environments, the 
-GGG concept offers an effective way of studying a combination of G and E perturbations and is of great 
-potential in the field of systems genetics, in which a broad understanding of both plasticity and
-dynamics is required (Li et al., 2008). The fundamental basis of the experimental design and data 
-analysis using a full model ($Y = E + G + G:E + e$), where $Y$ is the observed phenotype and $e$
-is residual error, is generally valid and frequently used (Churchill, 2002; Li et al., 2006; Gerrits
-et al., 2009). As a proof of principle, we present experimental data on the G regulation of primary 
-metabolism in dry and imbibed Arabidopsis seeds using a GGG design and discuss the application and 
-implications of such a strategy.
+of a complete population. However, when a trait shows strong G:E interaction (e.g. those that only express 
+G variation in specific environments), the power to detect QTL is dependent on those subpopulations 
+expressing the G variation. Although G:E interactions have been detected previously in genetical 
+genomics studies for expression (Li et al., 2006; Smith and Kruglyak, 2008; Gerrits et al., 2009; 
+Yeung et al., 2011) and metabolite content (Zhu et al., 2012) by analyzing all lines in a population 
+under different environments, the GGG concept offers an effective way of studying a combination of G 
+and E perturbations and is of great potential in the field of systems genetics, in which a broad 
+understanding of both plasticity and dynamics is required (Li et al., 2008). The fundamental basis 
+of the experimental design and data analysis using a full model ($Y = E + G + G:E + e$), where 
+$Y$ is the observed phenotype and $e$ is residual error, is generally valid and frequently used 
+(Churchill, 2002; Li et al., 2006; Gerrits et al., 2009). As a proof of principle, we present 
+experimental data on the G regulation of primary metabolism in dry and imbibed Arabidopsis seeds 
+using a GGG design and discuss the application and implications of such a strategy.
 
 Plants are extremely rich in biochemical compounds, and major roles in plant development, adaptation, 
 and defense have been identified for biosynthesis pathways and their products (Binder, 2010). The 
 biosynthetic pathways of primary metabolites are well studied and often well conserved between 
 different taxa (Peregrín-Alvarez et al., 2009). Nonetheless, quantitative variation for many of 
 these compounds can be observed between natural variants, which might be reflected in their different 
-growth characteristics. The
+growth characteristics. The analysis of single-gene mutants, for example, has unraveled many key 
+components in biochemical pathways and has demonstrated their role in phenotypic traits 
+(Fiehn et al., 2000). In Arabidopsis, G variation for many of its metabolic compounds has been 
+observed (Kliebenstein et al., 2001a; Keurentjes et al., 2006; Rowe et al., 2008), but G:E interactions 
+were ignored in these studies and only addressed by Chan et al. (2011). Metabolic profiling at different 
+growth stages has further revealed important fluxes that regulate plant development and adaptation 
+(de Oliveira Dal'Molin et al., 2010). Using the accumulated historical mutations that occur in natural 
+variants in combination with metabolic profiling in a generalized design offers the unique possibility 
+of identifying G effects over a series of developmental stages. Here, we report on the interaction of 
+four different physiological environments (i.e. developmental stages) in dry and imbibed seeds with 
+two founder genotypes in a RIL population. To detect the majority of the most prominent primary 
+metabolites, we used gas chromatography-mass spectrometry of polar extracts (Roessner et al., 2000;
+Lisec et al., 2008). These include essential metabolites such as sugars, amino acids, and organic 
+acids, which are key compounds in reserve storage and catabolism, growth, and energy metabolism.
+
+The switch from a dry seed, which is equipped for optimal survival and storage of reserves, toward an
+imbibed seed, in which energy needed for germination is released and which prepares for autotrophic pro-
+duction, is remarkable. Reserves that have been stored during seed maturation are degraded and remobilized
+during germination (Bewley, 1997; Shu et al., 2008), a process that is heavily influenced by the capacity 
+of carbon/nitrogen partitioning of a maturing seed (Dowdle et al., 2007). Arabidopsis mutants affected 
+in their oil reserve content or its mobilization show delayed but not full inhibition of germination 
+(Kinnersley and Turano, 2000; Bouché and Fromm, 2004; Shu et al., 2008; Kelly et al., 2011). This suggests 
+an additional metabolic switch that occurs during seed desiccation after seed maturation involving a change 
+from accumulation of oil and storage proteins to the synthesis of free amino acids, sugars, fatty acids, 
+and their degradation products functioning to prepare for rapid metabolic recovery during imbibition 
+(Fait et al., 2006; Angelovici et al., 2010). Imbibition of mature seeds specifically shows reduction of 
+the metabolites that accumulate during the desiccation period. Upon germination, an increase of many 
+metabolites, including amino acids, sugars, and organic acids, can be observed again, which reflects 
+the increase of autotrophic activity (Fait et al., 2006). Profiling the primary metabolome over different 
+developmental stages in a mapping population is therefore expected to reveal the dynamics of G regulation 
+of many of these important processes. We will demonstrate here that much of the observed variation in 
+biochemical profiles can be attributed to genotype-by-environment interactions, which can be effectively 
+identified in a GGG approach.
+
+\subsection{Results}
+In the experimental setup of this study, the E variation is defined as variation observed between the four
+developmental stages (PD, AR, 6H, and RP). Significance thresholds, determined by permutation analysis
+($n = 1,000, P < 0.01$) for each metabolite, ranged from LOD 3.43 to LOD 3.50 and was stringently set to 
+LOD 4 for all analyses. Mapping resulted in 120 significant QTLs in the G component for 83 metabolites and 
+31 G:E QTLs for 27 metabolites, ranging from one to four QTLs per metabolite. Thirteen of the G:E QTLs are
+significant in the G component as well. For 66 metabolites, no significant QTL was detected. Clustered 
+heat maps for both the G and the G:E QTL profiles were created (Supplemental Figs. S4 and S5).
+
+To test the performance of the generalized mapping procedure, QTLs detected in individual environments
+using the linear model $Y = G + e$ were compared with QTLs detected in the combined mapping 
+approach (using the linear model $Y = E + G + G:E + e$; Fig. 2; Supplemental Table S1).
+QTLs were binned in upper or lower chromosome arms to reduce the effects of small positional shifts.
+Results were plotted in a network, with nodes representing QTLs connected with edges to nodes repre-
+senting the mapping populations in which they were detected (Fig. 2). QTLs are grouped in three sections
+according to their detection in the different mapping procedures. The middle section shows 73 QTLs that
+were detected in both the $Y = E + G + G:E + e$ model and in one or more single-environment mappings 
+using the $Y = G + e$ model. This shows that most of the G variation present in the single environments 
+can effectively be captured by using the generalized model.
+
+The presence of 60 QTLs that were only significantly detected in the $Y =E + G + G:E + e$ model 
+(right section) shows the combined power of the generalized approach and the usage of more genotypes. 
+These QTLs are not detected in the single-environment mapping in which only 41 individuals were used.
+Combining all data across all environments in the linear model increases power to detect QTLs, but it
+should be noted that there are also 20 minor QTLs (leftsection) that are only significant in the single
+environment mapping using the $Y = G + e$ model. These QTLs are not detected in the $ Y = E + G + G:E + e$
+model. This can be explained by two factors: (1) environments in which the G variation is not expressed
+introduce noise in the experimental data and thereby decrease mapping power, and (2) deviations from a
+balanced allele distribution in the different subpopulations can introduce some stochasticity around the
+threshold level, although this is not the case in our data.
+
+Importantly, all major-to-moderate-effect-size QTLs could be detected using the generalized model, even
+when these QTLs were not detected in the separate environment models. Although it is difficult to 
+compare power with the latter models, because population sizes differ, the generalized design 
+efficiently identifies all relevant QTLs, which were detected by the four separate models, and in addition, 
+it detects G:E interactions. In a general exploratory study, the reduction in experimental burden therefore 
+amply outweighs the incidental failure to detect the limited number of small-effect QTLs. The application 
+of a GGG design can thus be an important advancement in evolutionary and ecological studies assessing 
+the contribution of G and E effects to natural variation in life history traits.
+
+For breeding purposes, the allelic effect size is an important measure, and differentiation of the 
+environment in which the allelic effect is expressed can be very useful. In the generalized setup, 
+the allelic effect size of those metabolites with significant QTLs is separated per environment 
+(Supplemental Files S4 and S5). For every QTL that is consistently detected in all four conditions, 
+a LOD score for G effect (Fig. 3,x axis) is obtained from full-model mapping. For these QTLs,
+normalized allelic effect sizes are calculated by Zscore transformations for each environment 
+(Fig. 3, y axis). QTLs detected in the G component of the linear model (Fig. 3A) show an expected 
+linear relationship between LOD score and effect size in all measured environments. This correlation 
+is much weaker for QTLs detected in the G:E component of the linear model (Fig. 3B) because the G 
+variation is not expressed in all environments. QTLs of metabolites with strong G:E interaction, 
+therefore, display larger effect sizes in fewer environments compared with G-component QTLs of 
+similar significancelevels.
+
+Clearly, the choice of environments used in these studies is crucial (Li et al., 2008). Limited power 
+can be expected when environments vary too much and no overlapping G variation is present, and 
+contrarily, there is hardly any additive value of the design when using very similar environments. 
+In this study, we carefully selected four biologically relevant developmental stages of seed germination 
+with expected variation in metabolite levels to different extent and consider them as an E factor in 
+the follow-up statistical analysis. The selected developmental stages start from PD dry seeds to 
+seeds at the point of RP. The first two stages, being freshly harvested PD and AR nondormant dry 
+seeds, respectively, are expected to comprise a very similar metabolome, as most, if not all, metabolic
+fluxes are arrested in the dry seed. The other two stages represent 6H seeds and seeds at RP, respectively.
+Different levels of E variation were obtained and could be mapped by the G and/or G:E component of 
+the linear model.
+
+\subsubsection{Confirmation of Metabolic QTLs}
+To independently confirm the effect of a single locus, it must be isolated and tested in an isogenic 
+background. Several methods can be followed to perform such an independent confirmation of QTLs. A 
+powerful approach is the use of residual heterozygosity in early generations of RILs. The Bay-0XSha 
+RIL population(420 lines in total) was genotyped at F6, in which approximately 97\% homozygosity is 
+reached in each line. This resulted in the presence of residual heterozygosity in at least a single 
+RIL at almost all genome positions. Those heterozygous regions are segregating in a Mendelian fashion 
+in the next generation and can be used to confirm QTL positions, as it provides a possibility to
+study both parental alleles at the locus of interest in an otherwise homozygous background 
+(Tuinstra et al., 1997). In a heterogeneous inbred family (HIF), those heterozygous regions are fixed, 
+and two separate lines containing the alleles of both parents, respectively, are maintained.
+
+HIF312 and HIF214 are segregating for regions at the top of chromosomes 4 and 5 (Fig. 6A), respectively,
+and cover the region in which the two major metabolite hotspots were detected. AR dry seeds were used to
+profile the HIFs for metabolic content because many of the QTLs detected in this region showed a 
+large-effect size at the dry seed stages. Significant differences between parental alleles using four 
+replicates were defined by a two-tailed Student's t test($P < 0.05$). In total, 34 out of 64 QTLs could 
+be confirmed using this approach (Supplemental Fig. S8). For maltose, for instance, two QTLs with 
+opposite direction were found (Fig. 6B), which could both be confirmed using the two distinct HIFs 
+(Fig. 6C). In a number of cases, a HIF effect was observed that was not detected significantly
+in the RIL population (e.g. digalactosylglycerol). This might be the result from the higher power in 
+near isogenic lines due to the absence of epistatic interactions (Keurentjes et al., 2007b). Nonetheless, 
+a substantial number of QTLs could not be confirmed by the HIF lines. The enrichment for small-effect 
+QTLs in the unconfirmed class suggests that four replicates generate insufficient power to identify 
+significant differences for these metabolites in the HIF experiments, although we cannot rule out that 
+they are false positives from the QTL analysis. Furthermore, QTLs depending on epistatic interactions 
+cannot be detected in some near-isogenic lines. In addition, a number of QTL support intervals are 
+broader than the region covered by the HIF, and thus, the causal G polymorphism within the QTL interval, 
+but outside the region covered by the HIF, would have been missed.
+
+The analyses of the HIF lines indicate that most of the large-effect QTLs can be accurately detected 
+using a generalized genomics approach. Although an underestimation of small-effect QTLs can be expected, 
+this is largely compensated by the higher power of detecting G and E interactions
 

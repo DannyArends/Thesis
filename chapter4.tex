@@ -32,7 +32,7 @@ an application of the xQTL system is found in the WormQTL database \cite{Snoek:2
 \newpage
 
 \section{Reusable software (MOLGENIS)}
-\subsection{MOLGENIS - Background}
+\subsection{Background}
 High throughput technologies have boosted biological and medical research and the need for software 
 infrastructures to manage and process the large datasets produced is widely accepted \cite{Swertz:2007,
 Stein:2008, Thorisson:2009}. Bioinformaticians are under continuous pressure to both tackle the complexity 
@@ -57,64 +57,15 @@ of features practically unfeasible to produce by hand but not yet provided by re
 conclude by inviting the bioinformatics community to add more MOLGENIS models, components and 
 generators to quickly generate all the software infrastructures biologists want to have.
 
-\subsection{MOLGENIS - Methods}
-The MOLGENIS toolkit is based on the method of model-driven development which emerged in the 1990s from 
-the computer industry. The key to success is the clear scope of the toolbox (i.e., what family of 
-software applications should be produced with it) and separating which features should be fixed (e.g., 
-reusable components common to all MOLGENIS applications) and which features should be variable (i.e. 
-modeled and generated per MOLGENIS application instance), a process known as domain analysis [16]. 
-Below we discuss MOLGENIS' initial domain analysis, its modeling language, generators and reusable 
-components. 
-
-\subsubsection{Domain analysis}
-Table 1 summarizes the initial set of features we required from MOLGENIS information systems when 
-we started; it explains why these features are indeed required, and describes what parts of the 
-features are common and variable over experiment databases. To obtain this picture, we analyzed 
-20 existing microarray databases next to many requirements interviews, see Table 1 in [9].
-
-The second step was to implement the common and variable parts, which we started with a prototype. 
-Here we applied the don't repeat yourself principle (DRY) [17]: every piece of design knowledge 
-must have a single, unambiguous, authoritative representation. We therefore searched through the 
-prototype software code. If we found identical pieces then we put them into the library of reusable 
-components. If we found very similar pieces of software code, we put the common parts into a 
-generator and the variation points into the modeling language. In each subsequent step we evolved 
-the MOLGENIS generator, only incorporating new functionality when we repeatedly needed it.
-
-During the next six years of using the MOLGENIS generator we added numerous functions and optimizations, 
-such as filters for the data, viewing data as a 'matrix', downloading data as CSV files, enabling 
-programming interaction via R and web services, and so on. The generators ensure that 'old' MOLGENIS 
-application variants can benefit from these improvements: when a MOLGENIS instance is re-generated, 
-these improvements are automatically integrated into the new version.
+The MOLGENIS toolkit is based on the method of model-driven development which emerged in the 1990s 
+from the computer industry. Below we discuss the MOLGENIS' modeling language, the generators and 
+reusable components. 
 
 \subsubsection{Modeling language}
-
-Figure 2 shows how a custom MOLGENIS application can be defined in a single file. The file is 
-written in MOLGENIS' modeling language. This enables compact specification of what experiment 
-database is needed, i.e., to declare how an experiment is organized in terms of data types and 
-their relationships and how these data are to be shown on the screen. Figure 2 shows the following 
-features: Three data entities: (1)Experiment, Sample and Hybridization; the Experiment entity has 
-six fields, including ID, Medium and Stress (because it needs to administrate microbe experiments). 
-To minimize the modeling work we choose sensible defaults in the domain-specific language, a 
-principle known as convention over configuration: each field has to be set to a value by the 
-researcher unless specified to be nillable(2); field can be edited (updated) unless specified to be 
-read only(3); each field is default of type 'string' (a variable character string of length 255) 
-unless otherwise specified to e.g., 'decimal'(4); and fields can be defined as having a relation 
-to fields in other entities via a cross-reference (xref)(5). The user interface consists of a 
-plugin(6) that renders the MOLGENIS header and tool menu; one user interface form(7) to control 
-experiments, with a sub menu(8), consisting of two child forms for Samples and Hybridizations. 
-Child forms are automatically linked to the parent form based on cross references, e.g., the 
-field 'Experiment' of 'Sample' references to the 'ID' of an 'Experiment'(9). By default, forms 
-show each entity as one-record-per-screen unless specified as a list(10). The modeling 
-language includes advanced object-orientation features like inheritance, as well as extensive help 
-to document your model (not shown).
-
-One can think of MOLGENIS' modeling language as a 'domain-specific language' (DSL) that is 
-optimized to efficiently express a particular problem, task or area [18,19], in this case to 
-compose biosoftware infrastructures. The level of abstraction is raised, so no lengthy, technical 
-or redundant details on how each feature should be implemented in general programming languages 
-have to be given [20,21]. Examples of other domain-specific languages include R/Splus for 
-statistics, MatLab for mathematics, SQL for databases, HTML for layouting, and now MOLGENIS' 
-modeling language for biological software infrastructures.
+A custom MOLGENIS application can be defined in a single file. The file is written in MOLGENIS' 
+modeling language. One can think of MOLGENIS' modeling language as a 'domain-specific language' 
+(DSL) that is optimized to efficiently express a particular problem, task or area [18,19], in this case to 
+compose biosoftware infrastructures.
 
 In most cases, knowledge of the DSL is all that is needed to produce a custom MOLGENIS application 
 variant. The domain-specific language was implemented using XML so that model files can be edited 
@@ -127,8 +78,7 @@ hand-programming of the plug-in itself.
 
 \subsubsection{Reusable components}
 Each MOLGENIS application follows the widely accepted three-layered architecture design of web 
-applications. Figure 3 summarizes some of MOLGENIS' reusable components and their variation 
-mechanisms. MOLGENIS' reusable components provide building blocks with a modular structure, which 
+applications. MOLGENIS' reusable components provide building blocks with a modular structure, which 
 allows them to be assembled in diverse combinations, similar to prefabricated houses that are built 
 from modular walls instead of bricks. Some building blocks are semi-finished and need to be 
 'completed' before use (which is automated in MOLGENIS via the generators and inheritance). We based 
@@ -146,14 +96,14 @@ inside. However, for readers wanting to create their own generators, Figure 4 pr
 of the simple, text-based, generators we use. Each generator consists of two files: a Freemarker 
 template that describes the code to be generated (similar to that shown in Figure 4a) and a Java 
 'Generator' class that controls the generating process. A new generator can be developed as 
-follows: first write some examples of the desired programs by hand, where possible using similar 
-patterns (see Figure 4b) and mark which parts are variable between them. Then copy one of these 
-examples into a generator template (text file) and replace all variable parts with 'holes' that 
-are to be filled by the code generator based on parameters from DSL (see Figure 4a). At each 
-generation, the template is then automatically copied and the 'holes' filled, based on parameters 
-described in the domain-specific language, saving much laborious manual work. 
+follows: First write some examples of the desired programs by hand, where possible using similar 
+patterns and mark which parts are variable between them. Then copy one of these examples into 
+a generator template (text file) and replace all variable parts with 'holes' that 
+are to be filled by the code generator based on parameters from DSL. At each generation, the 
+template is then automatically copied and the 'holes' filled, based on parameters described in 
+the domain-specific language, saving much laborious manual work. 
 
-\subsection{MOLGENIS - Results}
+\subsection{Results}
 To start generating your own MOLGENIS application, you can download a ready-to-use 'workspace' 
 from http://www.molgenis.org, which can be edited using the commonly used Eclipse integrated 
 development environment (IDE) tool (http://www.eclipse.org). Extensive manuals are available to 
@@ -163,31 +113,11 @@ complete this part in about three hours. Below we summarize the output you can e
 as recent experiences from using this toolbox. Detailed examples on how these features can be 
 used to support actual microarray or genetical genomics experiments can be found in [11,14,15].
 
-\subsubsection{Expected output}
 After completing a MOLGENIS model and running the generator as described above, you have a 
-ready-to-use software application. Figure 5 summarizes the features you get when running the 
+ready-to-use software application. Figure XXX summarizes the features you get when running the 
 generated result as a web application: a fully functional system where researchers can upload, 
 manage, browse and query their biological data that conform to the model, optionally enhanced 
 with analysis tools to explore and annotate (depending on the plug-ins).
-
-An important feature is human readable and printable documentation of your model, including a 
-graphical overview showing relationships in UML(1) which is of great use when still designing 
-and discussing the model in a team. The next step is typically using the web user interface to 
-populate and test your application with real data(2). To enable batch loading from a spreadsheet 
-application such as Excel, the system comes with a tab-delimited import/export tool tailored 
-for your data which you can use from the user interface as well as via a command-line tool; 
-i.e., the headers of your Excel file have to match the fields you have defined in the model, 
-(3). In our experience, most computational biologists greatly appreciate the use of the R 
-interface to load, analyze and re-store data from within the R statistical environment(4) with 
-web services to connect to workflow tools(5). Finally, advanced programmers may want to 
-customize the layout or integrate their own scripts into the user interface, that is, create 
-plug-ins that are seamlessly integrated with the generated software(6). Typical examples here 
-are the integration of R scripts that produce graphical overviews of the data, enabling 
-them to be run by non-technical research colleagues. Alternatively, you can use SOAP, REST 
-and RDF interfaces for integration with workflow tools like Taverna, or for use with commonly 
-used JavaScript frameworks like jQuery to create 'Web 2.0' interactive websites. When satisfied 
-with your MOLGENIS system, it can be shared as a simple JAR executable using an embedded web 
-server, or as a WAR file that can be run on public web servers.
 
 \subsubsection{Applications}
 Since the earliest MOLGENIS application [9], we have successfully evaluated use of the MOLGENIS 
@@ -227,17 +157,7 @@ software applications: the ExtractModel tool allows you to generate a MOLGENIS a
 existing database, which can then be run side-by-side with code developed previously, providing the 
 best of both generated and hand-written worlds.
 
-\subsubsection{Richness of features}
-MOLGENIS provides a richness of features not yet provided by other projects: BioMart [10,24] and 
-InterMine [25] generate powerful query interfaces for existing data but are not suited for bespoke 
-data management; Omixed [26] generates programmatic interfaces onto databases, including a security 
-layer, but lacks user interfaces; PEDRO/Pierre [27] generates data entry and retrieval user interfaces 
-but lacks programmatic interfaces; and general generators such as AndroMDA [28] and Ruby-on-Rails 
-[29] require much more programming and configuration efforts compared to tools specific to the 
-biological domain. Turnkey [30] seems to come close to MOLGENIS, having GUI and SOAP interfaces but 
-lacks auto-generation of R interfaces and file exchange format. 
-
-\subsection{MOLGENIS - Conclusions}
+\subsection{Conclusions and Discussions}
 In a recent perspective paper [1] we evaluated the general benefits and pitfalls of model-driven 
 development, such as the ability to develop infrastructure in short cycles to get the application 
 right, ensuring developers and biologists are thinking along the same lines and increasing quality 
@@ -311,7 +231,7 @@ Several standard data types were also inherited from FuGE to enable researchers 
 [41] - a member of the Minimum Information for Biological and Biomedical Investigations (MIBBI) 
 guideline effort [42]
 
-\subsection{XGAP - Conclusions}
+\subsection{Conclusions and Discussion}
 In this paper we report a minimal and extensible data infrastructure for the management and 
 exchange of genotype-to-phenotype experiments, including an object model for genotype and 
 phenotype data (XGAP-OM), a simple file format to exchange data using this model (XGAP-TAB) 
@@ -378,7 +298,7 @@ and history for reproducibility and data provenance. Use of MOLGENIS\cite{Swertz
 helps to customize the software. All is conveniently accessible via standard Internet browsers on 
 Windows, Linux or Mac (and using Java, R for the server).
 
-\subsection{xQTL workbench - Features}
+\subsection{Features}
 \xqtlwb provides visualization of QTL profiles, single and multiple QTL mapping methods, easy addition 
 of new QTL analyses, scalable data management and analysis tracking.
 
@@ -420,7 +340,7 @@ documentation enabeling seamless integration into an existing web-site or intran
 recently for EU-PANACEA model organism project and LifeLines biobank.
 \end{enumerate}
 
-\subsection{xQTL workbench - Implementation}
+\subsection{Implementation}
 We built \xqtlwb on top of MOLGENIS \cite{Swertz:2004}, a Java based software to generate tailored 
 research infrastructure on-demand \cite{Swertz:2007}. From a single 'blueprint' describing the whole 
 system, MOLGENIS auto-generates a full application including user interface, database infrastructure, 
@@ -436,8 +356,8 @@ general practise of using R for QTL mapping. The user interface includes direct 
 interpreter. Both \xqtlwb and MOLGENIS are open source software, and source code is transparently
 stored and tracked in online source control repositories.
 
-\subsection{xQTL workbench - Conclusions and Discussion}
-\xqtlwb provides a total-solution for web-based analysis: Major QTL mapping routines are integrated 
+\subsection{Conclusions and Discussion}
+\xqtlwb  provides a total-solution for web-based analysis: Major QTL mapping routines are integrated 
 for use by experienced and inexperienced users. Researchers can upload raw data, run analyses, explore 
 mapped QTL and underlying information, and link-out to important databases. New algorithms can be 
 flexibly added, immediately available to all users. Large analyses can be easily executed on a cluster, 
@@ -458,7 +378,7 @@ publication. All software is free for download as MOLGENIS 'app' \cite{Swertz:20
 freely accessible without registration and is hosted on a large computational cluster enabling 
 high throughput analyses to all at http://www.wormqtl.org.
 
-\subsection{WormQTL - Introduction}
+\subsection{Background}
 Over the past 30 years, the metazoan Caenorhabditis elegans has become a premier animal model for 
 determining the genetic basis of quantitative traits \cite{Gaertner:2010, Kammenga:2008}. The 
 extensive knowledge of molecular, cellular and neural bases of complex phenotypes makes 
@@ -499,7 +419,7 @@ as much as possible. WormQTL is freely accessible without registration and is ho
 computational cluster enabling high-throughput analyses at http://www.wormqtl.org. Below we detail 
 the results, methods used to implement the system and future plans.
 
-\subsection{WormQTL - Results}
+\subsection{Results}
 WormQTL is an online database platform for expression quantitative trait loci (eQTL) exploration 
 to service the worm community and already provides many publicly available data sets (5,9-15,19). 
 New data sets can be uploaded using the XGAP plain file data format. Suitable help pages are provided. 
@@ -542,7 +462,7 @@ speed up download and (parallel) analyses. Alternatively, readers can request a 
 data and new analysis scripts directly.
 \end{enumerate}
 
-\subsection{WormQTL - Conclusions and Discussion}
+\subsection{Conclusions and Discussion}
 \subsubsection{Implementation}
 All the software was implemented using the open source Molecular Genetics Information Systems 
 MOLGENIS toolkit (26), and in particular one previously existing MOLGENIS application, the 
