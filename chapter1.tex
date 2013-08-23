@@ -1,3 +1,47 @@
 \chapter{Introduction}
-\lipsum[1-3]
+Phenotype diversity is created by variation at the DNA level, The most prominent source of variation comes 
+from the mixing of DNA by and from our parents. Understanding how this variation observed at the DNA level 
+is transfered and modified by signals from the enviroment is of critical importance to our understand of 
+biology and the role of genetics. All variation observed at higher levels such as: transcriptome, proteome, 
+metabolome, celltype, organ all the way up to phenotypes exhibited by the whole organism stem from the 
+variation in DNA and Environment. This mixture of variation in environment DNA proves to be challenging 
+because of multiple factors:
 
+1) Many factors are involved when looking at complex phenotypes
+2) Data collection is limited by resources available
+3) The large scale storage and sharing of data
+3) Computational issues when analysis big data
+4) Methodological issues
+
+This thesis will highlight some of the advancements made in these fields, but first we need to set the stage.
+
+Before this thesis
+
+
+This thesis
+
+The first chapter: Pheno2Geno deals with the creation of genetic maps from large scale omics data. The theory 
+of genetic map construction is ~100 years old and was invented in a time where 100 phenotype markers were a 
+dense genetic map. In recent years software has been developed to do these kinds of analysis. However looking 
+at the genetic maps available we still see that many still rely on 80s and 90s technology. Pheno2Geno aims to 
+provide a platform to cope with new kinds of big data available now-a-days such as tilling arrays, RNAseq and 
+next generation sequencing to generate high density genetic maps from expression markers. It is writen in the 
+R language for statistical computing.
+
+The second chapter is the continuation of the Multiple QTL mapping work done by R. Jansen, we incorporated his 
+method in the R/qtl package.Adding a 'new' algorithm to the QTL toolbox of R/qtl which aims to provide a range 
+of QTL mapping tools basid on a single datastructure. This allows researchers to quickly change approaches when 
+data varies in structure from 1 trait to the other.
+
+I the third chapter we showcase our ideas for a generic storage and computation platform. Our demo system xQTL 
+workbench is currently being used to run the WormQTL database. xQTL workbench allows users to store and share 
+their data, but also run analysis across datasets.
+
+In the last chapter we describe our latest work on using differences in correlation to generate interaction 
+networks and mapping these differences back to the genome. This new method has already proven valuable in 
+discovering cell type specific eQTL effects seen in gene expression data from taken from whole blood. A 
+variation on CTL mapping lead to the discovery that differences in eQTL efect size between samples can be 
+attributed to different ratios between the celltypes which make up whole blood.
+
+I hope you'll enjoy reading this thesisas much as I enjoyed working on it for the last couple of years,
+Danny Arends (Aug 2013)
