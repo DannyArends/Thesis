@@ -1,21 +1,33 @@
 \chapter{Introduction}
-Phenotype diversity is created by variation at the DNA level, The most prominent source of variation comes 
-from the mixing of DNA by and from our parents. Understanding how this variation observed at the DNA level 
-is transfered and modified by signals from the enviroment is of critical importance to our understand of 
-biology and the role of genetics. All variation observed at higher levels such as: transcriptome, proteome, 
-metabolome, celltype, organ all the way up to phenotypes exhibited by the whole organism stem from the 
-variation in DNA and Environment. This mixture of variation in environment DNA proves to be challenging 
-because of multiple factors:
+\emph{The introduction of this thesis, background and the outline of the next chapters.}
 
-1) Many factors are involved when looking at complex phenotypes
-2) Data collection is limited by resources available
-3) The large scale storage and sharing of data
-3) Computational issues when analysis big data
-4) Methodological issues
+\null
+\vfill
+\newpage
 
-This thesis will highlight some of the advancements made in these fields, but first we need to set the stage.
+\section{Introduction}
 
-Before Thesis
+Phenotype diversity is driven by variation at the DNA level. This variation comes from the mixing of 
+DNA by and from our parents. Understanding how this variation observed at the DNA level is transfered 
+and modified by signals from the enviroment is of critical importance to our understanding of 
+biology. Variation observed at levels 'further away' from the genome such as: transcriptome, proteome, 
+metabolome, all the way up to classical phenotypes is a complex interplay between DNA and 
+environment. This interplay is challenging to unravel because of multiple factors:\\
+\begin{itemize}
+\item Complex phenotypes arise from several genetic loci and interactions between these and the 
+environment
+\item The more factors involved in a phenotype, the larger the samplesize required to find genetic 
+factors underlying this phenotype
+\item Data collection however is limited by the resources available
+\item Large scale data collection puts more demands on storage and sharing of data
+\item Computational issues arise when analysing such big data sets
+\item Methodological constraints and limitations
+\end{itemize}
+
+This thesis will go into these issues, and highlight the advancements made in these 
+fields, but first we need to set the stage.
+
+\subsection{Background}
 
 The field of genetics starts with the monk Gregor Mendel (1870)
 Genetic maps are from Tomas Morgan hunt (1913)
@@ -28,37 +40,38 @@ non parametric modified Kruskal-Wallace - Kruglyak and Lander (1995)
 'binary' analogous to logistic regression - Xu and Atchley (1996)
 'two-part' analogous to survival - Boyartchuk (2002)
 
+\subsection{Thesis outline}
 
-This thesis
+The first chapter: Pheno2Geno deals with the creation of genetic maps from large scale omics data. 
+The theory of genetic map construction is ~100 years old and was invented in a time where 100 
+phenotype markers were a dense genetic map. In recent years software has been developed to do these 
+kinds of analysis. However looking at the software available for genetic maps construction we 
+observe that many packages come from the 1980s and 1990s and have not been adapted yet to use new 
+technologies such as multi threading or cluster computing. Pheno2Geno aims to provide a platform to 
+cope with this avalance of big data comming in. And aims to provide easy analysis of data from 
+tilling arrays, RNAseq and next generation sequencing to generate expression markers and with these 
+create high density genetic maps. The Pheno2Geno package is writen in the R language for statistical 
+computing, and is part of the R/qtl toolset.
 
-The first chapter: Pheno2Geno deals with the creation of genetic maps from large scale omics data. The theory 
-of genetic map construction is ~100 years old and was invented in a time where 100 phenotype markers were a 
-dense genetic map. In recent years software has been developed to do these kinds of analysis. However looking 
-at the genetic maps available we still see that many still rely on 80s and 90s technology. Pheno2Geno aims to 
-provide a platform to cope with new kinds of big data available now-a-days such as tilling arrays, RNAseq and 
-next generation sequencing to generate high density genetic maps from expression markers. It is writen in the 
-R language for statistical computing.
+The second chapter is the continuation of the Multiple QTL mapping work done by R. C. Jansen, we 
+incorporated his QTL mapping method in the R/qtl package. Adding a 'new' algorithm to the QTL 
+toolbox of R/qtl which aims to provide a range of QTL mapping tools based on a single datastructure. 
+This allows researchers to analyse data comming from different sources or to change approaches when 
+data varies in structure from trait to trait.
 
-The second chapter is the continuation of the Multiple QTL mapping work done by R. Jansen, we incorporated his 
-method in the R/qtl package.Adding a 'new' algorithm to the QTL toolbox of R/qtl which aims to provide a range 
-of QTL mapping tools basid on a single datastructure. This allows researchers to quickly change approaches when 
-data varies in structure from 1 trait to the other.
+In the third chapter we show case our ideas for a generic storage and computation platform. Our demo 
+system xQTL workbench is currently being used to run the WormQTL database. xQTL workbench allows 
+users to store and share their data, but also run analysis across datasets using the power of 
+distibuted computing. It comes standard with  QTL mapping tools such as: R/qtl, PLINK and qtlbim
 
-I the third chapter we showcase our ideas for a generic storage and computation platform. Our demo system xQTL 
-workbench is currently being used to run the WormQTL database. xQTL workbench allows users to store and share 
-their data, but also run analysis across datasets.
+In the last chapter we describe our latest work on using differences in correlation to generate 
+interaction networks using differential correlation analysis (CTL mapping) and try to find genetic 
+loci controlling these observed correlation differences. A variation on method has already proven 
+valuable in discovering cell type specific eQTL effects seen in gene expression data measured in 
+whole blood. Analysing interaction effects between QTL and cell type ratio can be used to assign a 
+cell type to each eQTL in which it is most prominent, using this information we can look for over 
+representation of cell type involved in diseases by just lookig at expression levels in whole blood.\\\\
 
-In the last chapter we describe our latest work on using differences in correlation to generate interaction 
-networks and mapping these differences back to the genome. This new method has already proven valuable in 
-discovering cell type specific eQTL effects seen in gene expression data from taken from whole blood. A 
-variation on CTL mapping lead to the discovery that differences in eQTL efect size between samples can be 
-attributed to different ratios between the celltypes which make up whole blood.
-
-After Thesis
-
-
-
-
-I hope you'll enjoy reading this thesis as much as I enjoyed working on it for the last couple of years...
+I hope you enjoy reading this thesis as much as I enjoyed creating it during the last four years,\\\\
 
 Danny Arends (Aug 2013)
