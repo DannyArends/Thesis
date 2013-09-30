@@ -29,13 +29,15 @@ fields, but first we need to set the stage.
 
 \subsection{Background}
 
-The field of genetics starts with the monk Gregor Mendel (1870)
-Genetic maps are from Tomas Hunt Morgan (1913)
-Discovery of DNA
-Using RLPF markers to build genetic maps - Botstein and Lander (1983)
-normal model mapping analogous to ANOVA - Botstein and Lander (1989)
-Multiple QTL mapping - Jansen et al. (1993)
-Composite interval mapping -  Zeng et al. (1993)
+The field of genetics starts with the monk Gregor Mendel (1870)\\
+Genetic maps are from Tomas Hunt Morgan (1913)\\
+Discovery of DNA\\
+Using RLPF markers to build genetic maps - Botstein and Lander (1983)\\
+normal model mapping analogous to ANOVA - Botstein and Lander (1989)\\
+Multiple QTL mapping - Jansen et al. (1993)\\
+Composite interval mapping -  Zeng et al. (1993)\\
+R/qtl (2003)\\
+
 
 \subsection{Thesis outline}
 
@@ -61,13 +63,16 @@ system xQTL workbench is currently being used to run the WormQTL database. xQTL 
 users to store and share their data, but also run analysis across datasets using the power of 
 distributed computing. It comes standard with  QTL mapping tools such as: R/qtl, PLINK and qtlbim
 
-In the last chapter we describe our latest work on using differences in correlation to generate 
-interaction networks using differential correlation analysis (CTL mapping) and try to find genetic 
-loci controlling these observed correlation differences. A variation on method has already proven 
-valuable in discovering cell type specific eQTL effects seen in gene expression data measured in 
-whole blood. Analysing interaction effects between QTL and cell type ratio can be used to assign a 
-cell type to each eQTL in which it is most prominent, using this information we can look for over 
-representation of cell type involved in diseases by just lookig at expression levels in whole blood.\\\\
+In the last chapter we describe current work on using differences in correlation to generate 
+interaction networks. Correlated Traits Locus analysis (or CTL mapping) tries to find genetic 
+loci controlling observed correlation differences. A variation on this method has already proven 
+valuable in discovering cell type specific eQTL effects. These effects can be used to unmix cell 
+mixtures seen in for example whole blood gene expression data. This is usefull for two reasons, 
+1) No more costly cell sorting of whole blood 2) no more physical changes to cells (e.g. activation, 
+cell death). In short this proposed method creates a proxy for cell counts in an unrelated cohort. 
+this proxy is then used during meta analysis as artifical cell count across many different cohorts.
+The interaction effects between QTL and Proxy are used to assign a cell type to each eQTL. In the final 
+stage diseases in which cell type enrichment is prominent are tested by using publicly available data.\\\\
 
 I hope you enjoy reading this thesis as much as I enjoyed creating it during the last four years,\\\\
 
