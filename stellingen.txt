@@ -4,16 +4,18 @@ improve resolution of a genetic map or even derive this map de-novo. (This Thesi
 2) Pinpointing all informative recombinations improves the resolution of any genetic 
 map (This Thesis)
 
-3) R/qtl MQM provides more power to detect QTLs in inbred crosses (This Thesis)
+3) R/qtl MQM provides more statistical power to detect QTLs in inbred crosses and is 
+the fastest implementation of the MQM algorithm available (This Thesis)
 
 4) Visualizations such as circle plots are a useful tool for a statistician when 
-talking to a biologist (This thesis)
+talking to a biologist (This thesis, Personal Experience)
 
 5) A database with worm data can (surprisingly) be a valuable resource to study 
 human diseases (This Thesis)
 
-6) Understanding how CTLs and cell type specific eQTL work will explain some of the 
-'missing' heritability observed when studying complex phenotypes. (This Thesis)
+6) Understanding how CTLs and environment specific QTL are caused and have their effect 
+will explain some of the 'missing' heritability observed when studying complex 
+phenotypes. (This Thesis)
 
 7) Experimental validation of QTLs through the use of near isogenic lines (NILs) should be 
 performed when possible, and required by journals (This thesis, Personal Opinion)
