@@ -18,7 +18,7 @@ human diseases (This Thesis)
 7) Experimental validation of QTLs through the use of near isogenic lines (NILs) should be 
 performed when possible, and required by journals (This thesis, Personal Opinion)
 
-8) The collaborative cross is the best resource to study male infertility available, and as such 
+8) The collaborative cross is the best resource available to study male infertility, and as such 
 has become a victim of its own success (Danny Arends & Pjotr Prins - CTC 2013 Madison)
 
 9) Programming involves more than putting statements after each other (Personal Experience)
