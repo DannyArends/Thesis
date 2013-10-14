@@ -64,14 +64,13 @@ reusable components.
 \subsubsection{Modeling language}
 A custom MOLGENIS application can be defined in a single file. The file is written in MOLGENIS' 
 modeling language. One can think of MOLGENIS' modeling language as a 'domain-specific language' 
-(DSL) that is optimized to efficiently express a particular problem, task or area [18,19], in this case to 
-compose biosoftware infrastructures.
+\cite{Deursen:2002}, in this case to compose biosoftware infrastructures.
 
 In most cases, knowledge of the DSL is all that is needed to produce a custom MOLGENIS application 
 variant. The domain-specific language was implemented using XML so that model files can be edited 
 using off-the-shelf XML editors. However, you may want to include hand-programmed components into 
 a particular MOLGENIS instance. For example, for the eXtensible Genotype And Phenotype (XGAP) 
-database application of MOLGENIS [11], we developed a 'MatrixViewer' that builds on the generated 
+database application of MOLGENIS \cite{Swertz:2010a}, we developed a 'MatrixViewer' that builds on the generated 
 components, which saved us the work of writing the plug-in from scratch. This requires a model 
 sentence that points to the 'plug-in' (allowing it to be seamlessly integrated) as well as 
 hand-programming of the plug-in itself.
@@ -84,7 +83,7 @@ from modular walls instead of bricks. Some building blocks are semi-finished and
 'completed' before use (which is automated in MOLGENIS via the generators and inheritance). We based 
 the design of MOLGENIS on industry-proven design patterns from the 'patterns for enterprise 
 application architecture' (PEAA), a catalog of proven solutions for software design problems 
-that we used as a guideline [22]. The logic of the reusable components is implemented using 
+that we used as a guideline \cite{Fowler:2002}. The logic of the reusable components is implemented using 
 Java (http://java.sun.com); the HTML layout for the user interface is encoded in Freemarker 
 templates (http://freemarker.sourceforge.net/); and the database back-end using MySQL, PostgreSQL 
 or HSQLDB.
@@ -111,7 +110,7 @@ help install the Java, MySQL, Tomcat and Eclipse software needed and to learn ho
 the Eclipse workspace to edit models and generate and run MOLGENIS instances; most new users can 
 complete this part in about three hours. Below we summarize the output you can expect as well 
 as recent experiences from using this toolbox. Detailed examples on how these features can be 
-used to support actual microarray or genetical genomics experiments can be found in [11,14,15].
+used to support actual microarray or genetical genomics experiments can be found in \cite{Swertz:2010a, Li:2009, Smedley:2008}.
 
 After completing a MOLGENIS model and running the generator as described above, you have a 
 ready-to-use software application. Figure XXX summarizes the features you get when running the 
@@ -120,12 +119,12 @@ manage, browse and query their biological data that conform to the model, option
 with analysis tools to explore and annotate (depending on the plug-ins).
 
 \subsubsection{Applications}
-Since the earliest MOLGENIS application [9], we have successfully evaluated use of the MOLGENIS 
+Since the earliest MOLGENIS application \cite{Swertz:2004}, we have successfully evaluated use of the MOLGENIS 
 toolkit to build a wide range of biomedical applications [11-15], ranging from sequencing to 
 proteomics, including:
 
 \begin{enumerate}\itemsep1pt
-\item \italic{XGAP} - an eXtensible Genotype And Phenotype platform [11] for systems genetics 
+\item \italic{XGAP} - an eXtensible Genotype And Phenotype platform \cite{Swertz:2010a} for systems genetics 
 (GWAS, GWL) to store all kinds of *omics data ranging from genotype to transcript and protein 
 data. XGAP comes with plug-ins to view large data matrices and run processing tools on a cluster. 
 See http://www.xgap.org
@@ -141,7 +140,7 @@ standard to create a local microarray repository that is compatible with the pub
 and GEO repositories. See http://magetab-om.sourceforge.net/ 
 \item \italic{NordicDB} - the database of high-density genome-wide SNP information from 5,000 
 controls originating from Finnish, Swedish and Danish studies [13]. See http://www.nordicdb.org
-\item \italic{DesignGG} - a web tool to optimally design such genetical genomics experiments [14]. 
+\item \italic{DesignGG} - a web tool to optimally design such genetical genomics experiments \cite{Li:2009}. 
 See http://gbic.biol.rug.nl/designGG/
 \end{enumerate}
 
@@ -158,11 +157,11 @@ existing database, which can then be run side-by-side with code developed previo
 best of both generated and hand-written worlds.
 
 \subsection{Conclusions and Discussions}
-In a recent perspective paper [1] we evaluated the general benefits and pitfalls of model-driven 
+In a recent perspective paper \cite{Swertz:2007} we evaluated the general benefits and pitfalls of model-driven 
 development, such as the ability to develop infrastructure in short cycles to get the application 
 right, ensuring developers and biologists are thinking along the same lines and increasing quality 
 and functionality for all. We further evaluated applying this method to both microarray and genetical 
-genomics experiments [9], [11].
+genomics experiments \cite{Swertz:2004}, \cite{Swertz:2010a}	.
 
 Here we have presented MOLGENIS in detail and reported the results of using this method against a 
 wider range of applications. We conclude that using model-driven methods enables bioinformaticians 
