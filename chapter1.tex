@@ -7,25 +7,38 @@
 
 \section{Introduction}
 
-Phenotype diversity is driven by variation at the DNA level. This variation comes from the mixing of 
-DNA by and from our parents. Understanding how this variation observed at the DNA level is transfered 
-and modified by signals from the enviroment is of critical importance to our understanding of 
-biology. Variation observed at levels 'further away' from the genome such as: transcriptome, proteome, 
-metabolome, all the way up to classical phenotypes is a complex interplay between DNA and 
-environment. This interplay is challenging to unravel because of multiple factors:\\
+Phenotype diversity is driven by variation at the DNA level (Nature) and Environment (Nurture). 
+This variation can be partitioned into two major sources. One comes from the mixing of DNA by 
+and from our parents. The second major source is the environment and its effect.
+
+The use of computational tools in understanding how Nature and Nurture intertwine is the 
+focus of this thesis. Variation observed at the DNA level can be measured using genotyping 
+and nextGEN sequencing techniques allowing us to create detailed maps of inheritance. These 
+maps allow us to track the origin of DNA. On the other side at the phenotype end of the spectrum 
+new high throughput technologies have been developed. Allowing us to perform automated 
+phenotyping, metabolomics, proteomics, microarrays and RNAseq to measure all levels from the 
+DNA to the observed phenotype at decreasing costs.
+
+How the activity of DNA is transfered and modified by signals from the enviroment is of 
+critical importance to our understanding of biology. Variation observed at levels 
+'further away' from the genome such as: transcriptome, proteome, metabolome, all the way 
+up to classical phenotypes is a complex interplay between DNA and environment. This 
+interplay is challenging to unravel because of multiple factors:\\
 \begin{itemize}
-\item Complex phenotypes arise from several genetic loci and interactions between these and the 
-environment
-\item The more factors involved in a phenotype, the larger the samplesize required to find genetic 
-factors underlying this phenotype
-\item Data collection however is limited by the resources available
-\item Large scale data collection puts more demands on storage and sharing of data
-\item Computational issues arise when analysing such big data sets
-\item Methodological constraints and limitations
+\item Complex phenotypes are caused by multiple genetic loci, interactions between these, 
+modulated by the environment.
+\item The more factors underlying a complex phenotype, the larger the samplesize required 
+to determine which genetic factors are involved.
+\item Data collection however remains limited by resources available (money, sample size, labour, etc)
+\item Large scale data collection puts more and more demands on our current infrastructure for 
+storage and sharing of this data.
+\item Computational issues arise in the analysis of such big data sets (CPU time, RAM requirements, 
+Power consumption).
+\item Biologie.
 \end{itemize}
 
-This thesis will go into these issues, and highlight the advancements made in these 
-fields, but first we need to set the stage.
+This thesis will go into these issues, the infrastructure created, methodologies developed, and 
+show their application in current research.
 
 \subsection{Background}
 
@@ -42,19 +55,19 @@ Encyclopedia Of DNA Elements (Encode) (2003, 2007-Current)
 \subsection{Thesis outline}
 
 The first chapter: Pheno2Geno deals with the creation of genetic maps from large scale omics data. 
-The theory of genetic map construction is ~100 years old and was invented in a time where 50 
-phenotype markers were considered a dense genetic map. In recent years software has been developed to do these 
-kinds of analysis. However looking at the software available for genetic maps construction we 
-observe that many packages come from the 1980s and 1990s and have not been adapted yet to use new 
+The theory behind genetic map construction is ~100 years old and in a time 50 phenotype markers was 
+considered a dense genetic map. In recent years software has been developed to do genetic map 
+construction. However looking at the software available for genetic maps construction we observe 
+that many packages date from the 1980s and 1990s and have not been adapted yet to use new 
 technologies such as multi threading or cluster computing. Pheno2Geno aims to provide a platform to 
-cope with this avalance of big data comming in. And aims to provide easy analysis of data from 
-tilling arrays, RNAseq and next generation sequencing to generate expression markers and with these 
+deal with this avalance of big data. And aims to provide analysis of data from tilling arrays, 
+RNAseq and next generation sequencing to generate expression markers. These markers are used to 
 create high density genetic maps. The Pheno2Geno package is writen in the R language for statistical 
 computing, and is part of the R/qtl toolset.
 
 The second chapter is the continuation of the Multiple QTL mapping work done by R. C. Jansen, we 
-incorporated his QTL mapping method in the R/qtl package. Adding a 'new' algorithm to the QTL 
-toolbox of R/qtl which aims to provide a range of QTL mapping tools based on a single datastructure. 
+incorporated his QTL mapping method in the R/qtl package. Adding a 'new' algorithm to the R/qtl 
+toolset which aims to provide a range of QTL mapping tools based on a single datastructure. 
 This allows researchers to analyse data comming from different sources or to change approaches when 
 data varies in structure from trait to trait.
 
