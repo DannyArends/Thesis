@@ -120,8 +120,8 @@ with analysis tools to explore and annotate (depending on the plug-ins).
 
 \subsubsection{Applications}
 Since the earliest MOLGENIS application \cite{Swertz:2004}, we have successfully evaluated use of the MOLGENIS 
-toolkit to build a wide range of biomedical applications [11-15], ranging from sequencing to 
-proteomics, including:
+toolkit to build a wide range of biomedical applications \cite{Swertz:2010a, Fredman:2002, Leu:2010, Li:2009, Smedley:2008}, 
+ranging from sequencing to proteomics, including:
 
 \begin{enumerate}\itemsep1pt
 \item \italic{XGAP} - an eXtensible Genotype And Phenotype platform \cite{Swertz:2010a} for systems genetics 
@@ -130,16 +130,16 @@ data. XGAP comes with plug-ins to view large data matrices and run processing to
 See http://www.xgap.org
 \item \italic{Pheno-OM} - to integrate any phenotype data from locus-specific annotations to 
 rich biobank cohort reports with the help of the OntoCAT ontology toolkit to create semantic 
-mappings between related data items [23]. See http://www.ebi.ac.uk/microarray-srv/pheno
+mappings between related data items \cite{Kurbatova:2011}. See http://www.ebi.ac.uk/microarray-srv/pheno
 \item \italic{FINDIS} - a mutation database for monogenic diseases belonging to the Finnish 
 disease heritage. See http://www.findis.org/
 \item \italic{HGVBaseG2P} - the data management and curation interface complement for HGVbaseG2P, 
-a central database of genotype to phenotype association studies [12]. See http://www.hgvbaseg2p.org
+a central database of genotype to phenotype association studies \cite{Fredman:2002}. See http://www.hgvbaseg2p.org
 \item \italic{MAGETAB-OM} - a microarray experiment data platform based on the MAGE-TAB data format 
 standard to create a local microarray repository that is compatible with the public ArrayExpress 
 and GEO repositories. See http://magetab-om.sourceforge.net/ 
 \item \italic{NordicDB} - the database of high-density genome-wide SNP information from 5,000 
-controls originating from Finnish, Swedish and Danish studies [13]. See http://www.nordicdb.org
+controls originating from Finnish, Swedish and Danish studies \cite{Leu:2010}. See http://www.nordicdb.org
 \item \italic{DesignGG} - a web tool to optimally design such genetical genomics experiments \cite{Li:2009}. 
 See http://gbic.biol.rug.nl/designGG/
 \end{enumerate}
@@ -174,10 +174,11 @@ generator: simple text-based templates suffice to create biological software gen
 
 As a next step we want to expand the MOLGENIS toolkit to also generate data processing tools, 
 including user friendly interaction, building on other 'model-driven bioinformatics' projects 
-in this area, such as Taverna [6] to model/execute analysis workflows and Galaxy [7] to generate 
-user interfaces for processing tools. We hope that many bioinformaticians will enforce our open 
-source efforts and share their best models, plug-ins and generators at http://www.molgenis.org, 
-so that, in time, every biologist may find a MOLGENIS variant that suits his/her needs.
+in this area, such as Taverna \cite{Oinn:2004} to model/execute analysis workflows and Galaxy 
+\cite{Goecks:2010} to generate user interfaces for processing tools. We hope that many 
+bioinformaticians will enforce our open source efforts and share their best models, 
+plug-ins and generators at http://www.molgenis.org, so that, in time, every biologist may 
+find a MOLGENIS variant that suits his/her needs.
 
 \section{Storing extensible data (XGAP)}
 We present an extensible software model for the genotype and phenotype community, XGAP. Readers 
@@ -190,10 +191,11 @@ from eQTL analysis in mouse to genome-wide association studies in humans.
 \subsection{XGAP - A minimal and extensible object model}
 We developed the XGAP objectmodel to uniformly capture the wide variety of (future) genotype 
 and phenotype data, building on generic standard model FuGE (Functional Genomics Experiment) 
-[38] for describing the experimental 'metadata' on samples, protocols and experimental variables 
+\cite{Jones:2007} for describing the experimental 'metadata' on samples, protocols and experimental variables 
 of functional genomics experiments, the OBO model (of the Open Biological and Biomedical 
 Ontologies foundry for use of standard and controlled vocabularies and ontologies that ease 
-integration [39], and lessons learned from previous, profiling technology-specific modeling efforts [29].
+integration \cite{Smith:2007}, and lessons learned from previous, profiling 
+technology-specific modeling efforts \cite{Brazma:2006}.
 
 Figure 1b shows the core components of a genotype-to-phenotype investigation: the biological 
 subjects studied (for example, human individuals, mouse strains, plant tissue samples), the 
@@ -201,13 +203,14 @@ biomolecular protocols used (for example, Affymetrix, Illumina, Qiagen, liquid
 chromatography/mass spectrometry (LC/MS), Orbitrap, NMR), the trait data generated (usually 
 data matrices with, for example, phenotype or transcript abundance data), the additional 
 information on these traits (for example, genome location of a transcript, masses of LC/MS peaks), 
-the wet-lab or computational protocols used (for example, MetaNetwork [22] in the case of QTL and
+the wet-lab or computational protocols used (for example, MetaNetwork \cite{Fu:2007} in the case of QTL and
 network analysis) and the derived data (for example, QTL likelihood curves).
 
 We describe these biological components using FuGE data types and XGAP extensions thereof. 
 Investigation binds all details of an investigation. Each investigation may apply a series 
-of biomolecular [40] and computational [20-23] Protocols. The applications of such Protocols 
-are termed ProtocolApplications, which in the case of computational Protocols may require 
+of biomolecular \cite{Brown:2005} and computational \cite{Carey:2007,Alberts:2008,Fu:2007,Bhave:2007} 
+Protocols. The applications of such Protocols are termed ProtocolApplications, which in the case 
+of computational Protocols may require 
 input Data and will deliver output Data.These data have the form of matrices, the DataElements 
 of which have a row and a column index. Each row and column refers to a DimensionElement, 
 being a particular Subject or a particular Trait, Table 2 illustrates the usage of these core 
@@ -227,8 +230,8 @@ these extended data types.
 
 Several standard data types were also inherited from FuGE to enable researchers to provide 
 'Minimum Information' for QTLs and Association Studies such as defined in the MIQAS checklist 
-[41] - a member of the Minimum Information for Biological and Biomedical Investigations (MIBBI) 
-guideline effort [42]
+ - a member of the Minimum Information for Biological and Biomedical Investigations (MIBBI) 
+guideline effort \cite{Taylor:2008}
 
 \subsection{Conclusions and Discussion}
 In this paper we report a minimal and extensible data infrastructure for the management and 
@@ -240,17 +243,17 @@ successfully evaluated the XGAP model and software in a broad range of experimen
 data (gene expression, including tiling arrays for detection of alternative splicing, 
 ChIP-on-chip for methylation, and genotyping arrays for SNP detection); proteomics and 
 metabolomics data (liquid chromatography time of flight mass spectrometry (LC-QTOF MS), NMR); 
-classical phenotype assays [8,11,13,15,49,50,58,59]; other assays for detection of genetic 
-markers; and annotation information for panel, gene, sample and clone. Non-technical partners 
-successfully evaluated the practical utility by independently formatting and loading parts of 
-their consortium data: EU-CASIMIR (for mouse; Table 7), EU-GEN2PHEN (for human; Table 7), 
+classical phenotype assays \cite{Heap:2009, Bystrykh:2005, Li:2006, Keurentjes:2006, Stranger:2007, Bailey:2008, Beamer:1999}; 
+other assays for detection of genetic markers; and annotation information for panel, gene, 
+sample and clone. Non-technical partners successfully evaluated the practical utility by 
+independently formatting and loading parts of their consortium data: EU-CASIMIR (for mouse), EU-GEN2PHEN (for human), 
 EU-PANACEA (for C. elegans) and IOP-Brassica (for plants). A public subset of these data sets 
-is available for download at [51]. When needed we could quickly add customizations to the 
+is available for download at http://www.xgap.org. When needed we could quickly add customizations to the 
 model, building on the general schema, and then use MOLGENIS to generate a new version of the 
 software at the push of a button, for example, to support NMR methods as an extended type of 
-Trait[60]. Furthermore we successfully integrated processing tools, such as a two-way 
-communication with R/QTL [24] enabling QTL mapping on XGAP stored genotypes and phenotypes 
-with QTL results stored back into XGAP.
+Trait \cite{Fu:2009}. Furthermore we successfully integrated processing tools, such as a two-way 
+communication with R/QTL \cite{Broman:2003, Arends:2010} enabling QTL mapping on XGAP 
+stored genotypes and phenotypes with QTL results stored back into XGAP.
 
 Based on these experiences, we expect use of XGAP to help the community of genome-to-phenome 
 researchers to share data and tools, notwithstanding large variations in their research aims. 
