@@ -6,21 +6,29 @@
 \newpage
 
 \section{Introduction}
-
-Phenotype diversity is driven by variation at the DNA level (Nature) and Environment (Nurture). 
-This variation can be partitioned into two major sources. One comes from the mixing of DNA by 
-and from our parents. The second major source is the environment and its effect.
+Systems genetics is the inter disciplinairy field which deals with the consequences of genetic 
+and natural variation on a biological system. Phenotype diversity is created by a mix of variation 
+at the DNA level (Nature), the environment (Nurture), and an error component. Partitioning of this 
+variance into these three sources is of critical importance to understanding the contribution of 
+Nature and Nurture to the biological processes we observe.Understanding how a system works, allows 
+us to change the system to our needs. We can use our knowledge about DNA variation to: optimize 
+breeding of animals/plants, exploring underlying causes for human diseases, improved production 
+of chemicals, and so forth.
 
 The use of computational tools in understanding how Nature and Nurture intertwine is the 
-focus of this thesis. Variation observed at the DNA level can be measured using genotyping 
-and nextGEN sequencing techniques allowing us to create detailed maps of inheritance. These 
-maps allow us to track the origin of DNA. On the other side at the phenotype end of the spectrum 
-new high throughput technologies have been developed. Allowing us to perform automated 
-phenotyping, metabolomics, proteomics, microarrays and RNAseq to measure all levels from the 
-DNA to the observed phenotype at decreasing costs.
+focus of this systems genetics. Variation observed at the DNA level can be measured using 
+genotyping (AFLP, RFLP, SNP chips, nextGEN sequencing) techniques, allowing us to create 
+detailed maps of DNA inheritance within a population and track the origin of DNA. 
+
+On the other side at the phenotype end of the spectrum new high throughput technologies 
+have been developed to mass produce phenotypes measurements using automated phenotyping. 
+Automated phenotyping allow measurements at all the different endophenotype levels such 
+as: metabolome, proteome, transcriptome, proteomics. New technologies such as microarrays 
+and RNAseq now enable us to measure all levels from the DNA to the observed phenotype at 
+a fraction of the costs.
 
 How the activity of DNA is transfered and modified by signals from the enviroment is of 
-critical importance to our understanding of biology. Variation observed at levels 
+critical importance to our understanding of systems genetics. Variation observed at levels 
 'further away' from the genome such as: transcriptome, proteome, metabolome, all the way 
 up to classical phenotypes is a complex interplay between DNA and environment. This 
 interplay is challenging to unravel because of multiple factors:\\
@@ -37,20 +45,41 @@ Power consumption).
 \item Biologie.
 \end{itemize}
 
-This thesis will go into these issues, the infrastructure created, methodologies developed, and 
-show their application in current research.
+The following chapters of this thesis will go into our solutions to these issues, infrastructure 
+created, methodologies developed, and show their application in current research.
 
 \subsection{Background}
 
-When writing a thesis about genetics, its obvious in many cases where to start. With the 
-GodFather of genetics: Gregor Mendel and his work 'Versuche \"uber Pflanzen-Hybriden' 
-from 1865-1866 \cite{Mendel:1866}. His work rediscovered in 1900 by Hugo de Vries, Carl 
-Correns en Erich von Tschermak defined the rules for Mendielian genetics \cite{deVries:1889} 
-which set a mathematical framework for all research into heritability in 20th century.
+Genetics is the science of heritability. The field of genetics is a relatively new field, 
+and starts when Gregor Mendel publishes his work on the inheritance of traits in pea plants. 
+His work described in 'Versuche \"uber Pflanzen-Hybriden' in 1865-1866 \cite{Mendel:1866} 
+gives us Mendels Laws of Inheritance. He observes that crossing two plants with different 
+colors of flowers will lead to an offspring population with predictable flower color 
+ratio's. Additionally he's fortunate enough to have traits which are inherited independently, 
+and thus conclused that a unit of inheritance must exist, and is passed from parent to 
+child in an independant fashion. However Mendels work was not recognized untill 30 years later, 
+when his work is 'rediscovered' by Hugo de Vries, Carl Correns en Erich von Tschermak who 
+define the rules for Mendielian genetics \cite{deVries:1889} providing biologist for the first 
+time with a mathematical framework to study heritability of phenotypes caused by a single gene.
 
-For the sake of brevity 80 years of biology has to be skipped to end up at the foundation 
-for this thesis. In the end of the 1980s everything was set for the next step in genetics, and 
-a series of three papers are published about the use of RFLP linkage maps to map quantitative 
+50 years after the Mendels laws, genetics is to change again by the carefull observations of 
+Thomas Hunt Morgan. He observes that some traits in his Drosophila flies are inherited together, 
+in conflict with Mendels laws. he calls this phenomenon genetic linkage. Sturtevant a student 
+of Morgan uses this observed linkage between phenotypes as a distance measurement between 
+units of inheritance. Leading to the first genetic map of Drosophila.
+
+However at this point in time, the molecular mechanisms were still not known. Genetics was based 
+on observing segregating phenotypes, and then placing these into a known map relative to other 
+phenotypes. 
+
+
+The dscovery of DNA as the carrier of heritability and the discovery of its structure by Watson 
+and Crick.in the mid 1900 was the long sought after molecular basis for genetics. After the 
+discovery of the first restriction enzymes it also became possible to cut DNA and look at the 
+different (lengths of) fragments produced.
+
+In the end of the 1980s everything was set for the next step in genetics, and 
+a series of three papers published about the use of RFLP linkage maps to map quantitative 
 traits by two (now famous) authors: David Botstein and Eric Lander 
 \cite{Lander:1986, Lander:1987, Lander:1989}. For the first time in history heritable traits 
 could be mapped to genome locations using DNA restriction enzymes and PCR. Together whith knowledge 
@@ -65,42 +94,3 @@ Human genome project 2000-2003\\
 First human Genome Wide Association Study (2005)\\
 Encyclopedia Of DNA Elements (Encode) (2003, 2007-Current)
 
-
-\subsection{Thesis outline}
-
-The first chapter: Pheno2Geno deals with the creation of genetic maps from large scale omics data. 
-The theory behind genetic map construction is ~100 years old and in a time 50 phenotype markers was 
-considered a dense genetic map. In recent years software has been developed to do genetic map 
-construction. However looking at the software available for genetic maps construction we observe 
-that many packages date from the 1980s and 1990s and have not been adapted yet to use new 
-technologies such as multi threading or cluster computing. Pheno2Geno aims to provide a platform to 
-deal with this avalance of big data. And aims to provide analysis of data from tilling arrays, 
-RNAseq and next generation sequencing to generate expression markers. These markers are used to 
-create high density genetic maps. The Pheno2Geno package is writen in the R language for statistical 
-computing, and is part of the R/qtl toolset.
-
-The second chapter is the continuation of the Multiple QTL mapping work done by R. C. Jansen, we 
-incorporated his QTL mapping method in the R/qtl package. Adding a 'new' algorithm to the R/qtl 
-toolset which aims to provide a range of QTL mapping tools based on a single datastructure. 
-This allows researchers to analyse data comming from different sources or to change approaches when 
-data varies in structure from trait to trait.
-
-In the third chapter we show case our ideas for a generic storage and computation platform. Our demo 
-system xQTL workbench is currently being used to run the WormQTL database. xQTL workbench allows 
-users to store and share their data, but also run analysis across datasets using the power of 
-distributed computing. It comes standard with  QTL mapping tools such as: R/qtl, PLINK and qtlbim
-
-In the last chapter we describe current work on using differences in correlation to generate 
-interaction networks. Correlated Traits Locus analysis (or CTL mapping) tries to find genetic 
-loci controlling observed correlation differences. A variation on this method has already proven 
-valuable in discovering cell type specific eQTL effects. These effects can be used to unmix cell 
-mixtures seen in for example whole blood gene expression data. This is usefull for two reasons, 
-1) No more costly cell sorting of whole blood 2) no more physical changes to cells (e.g. activation, 
-cell death). In short this proposed method creates a proxy for cell counts in an unrelated cohort. 
-this proxy is then used during meta analysis as artifical cell count across many different cohorts.
-The interaction effects between QTL and Proxy are used to assign a cell type to each eQTL. In the final 
-stage diseases in which cell type enrichment is prominent are tested by using publicly available data.\\\\
-
-I hope you enjoy reading this thesis as much as I enjoyed creating it during the last four years,\\\\
-
-Danny Arends (Aug 2013)
