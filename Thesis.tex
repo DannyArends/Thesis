@@ -99,46 +99,49 @@ Beoordelingcommisie:  & Prof. dr. \\
 
 \chapter*{Summary}
 Systems genetics is the inter disciplinairy field which deals with the consequences of genetic 
-variation on a biological system. The goal of systems genetics to partition this variation 
-into several classes: Genetic, Environmental and Error variation, and explain how the observed 
-traits is the results of these three major factors. To partition variation we need to be able 
-to construct maps of DNA inheritance, deal with data from multiple environments and keep an open 
-mind for any confounding factors (errors) introduced. In this thesis we'll first introduce the 
-concept and mehodologies underlying systems genetics. After which we'll go into the different 
-contributions made to the field of systems genetics which are summarized by chapter in this thesis.
+variation on a biological system. The goal of systems genetics is to partition this variation 
+into three major categories: Genetic, Environment and Error variation, and explain how complex
+phenotypes arise from a combination of these three major factors. 
 
-The first chapter: Pheno2Geno deals with the creation of genetic maps from large scale omics data. 
-The theory behind genetic map construction is ~100 years old and in a time 50 phenotype markers was 
-considered a dense genetic map. In recent years software has been developed to do genetic map 
-construction. However looking at the software available for genetic maps construction we observe 
-that many packages date from the 1980s and 1990s and have not been adapted yet to use new 
-technologies such as multi threading or cluster computing. Pheno2Geno aims to provide a platform to 
-deal with this avalance of big data. And aims to provide analysis of data from tilling arrays, 
-RNAseq and next generation sequencing to generate expression markers. These markers are used to 
-create high density genetic maps. The Pheno2Geno package is writen in the R language for statistical 
-computing, and is part of the R/qtl toolset.
+Natural variation (or genetic pertubation) is used to interogate the genetic component of 
+phenotype variation. Combined with environmental pertubation we can investigate the influence 
+different environments and the interaction between genetics and environment. Randomization 
+combined with statistics is used to estimate the error variance.
+
+The first chapter: Pheno2Geno deals with the creation of genetic maps from large scale 
+omics data. The theory of genetic map construction is ~100 years old. Software available 
+for genetic map construction has not been adapted yet to make use of new technologies such 
+as multi threading or cluster computing. Pheno2Geno aims to provide analysis of data from 
+tilling arrays or RNAseq to generate gene based expression markers. These markers are used 
+to create high density genetic maps.
 
 The second chapter is the continuation of the Multiple QTL mapping work done by R. C. Jansen, we 
-incorporated his QTL mapping method in the R/qtl package. Adding a 'new' algorithm to the R/qtl 
-toolset which aims to provide a range of QTL mapping tools based on a single datastructure. 
-This allows researchers to analyse data comming from different sources or to change approaches when 
-data varies in structure from trait to trait.
+incorporated this QTL mapping method in the R/qtl package. Adding a 'new' algorithm to the R/qtl 
+toolset which aims to provide a range of QTL mapping tools for inbred crosses. R/qtl is the basis 
+of a toolset build around a unified single datastructure allowing easy adaptation and extension 
+of the software. R/qtl allows researchers to analyse data from different sources or to quickly 
+change approaches when data distributions vary in structure from phenotype to phenotyp.
 
-In the third chapter we show case our ideas for a generic storage and computation platform. Our demo 
-system xQTL workbench is currently being used to run the WormQTL database. xQTL workbench allows 
-users to store and share their data, but also run analysis across datasets using the power of 
-distributed computing. It comes standard with  QTL mapping tools such as: R/qtl, PLINK and qtlbim
+In the third chapter we show case our ideas for a generic storage and computation platform for 
+systems genetics. Our demo system xQTL workbench is currently being used as a backend to the 
+WormQTL and WormQTL-HD database. xQTL workbench allows users to store and share their data in 
+a local or web environment, and run analysis across datasets using the power of distributed 
+computing. It comes standard with QTL mapping tools such as: R/qtl, PLINK and qtlbim but also
+provides a web inferfaces, data importers, APIs and visualizations.
 
-In the final chapter we describe current work on using differences in correlation to generate 
-interaction networks. Correlated Traits Locus analysis (or CTL mapping) tries to find genetic 
-loci controlling observed correlation differences. A variation on this method has already proven 
-valuable in discovering cell type specific eQTL effects. These effects can be used to unmix cell 
-mixtures seen in for example whole blood gene expression data. This is usefull for two reasons, 
-1) No more costly cell sorting of whole blood 2) no more physical changes to cells (e.g. activation, 
-cell death). In short this proposed method creates a proxy for cell counts in an unrelated cohort. 
-this proxy is then used during meta analysis as artifical cell count across many different cohorts.
-The interaction effects between QTL and Proxy are used to assign a cell type to each eQTL. In the final 
-stage diseases in which cell type enrichment is prominent are tested by using publicly available data.\\\\
+In chapter four current work on using differences in correlation to generate interaction 
+networks and detect cell type specific QTL effects is described. Correlated Traits Locus 
+analysis (or CTL mapping) enables researchers to find genetic loci controlling correlation 
+differences in segregating phenotypes. A variation on this method has already proven valuable 
+in discovering cell type specific eQTL effects. These effects can be used to untangle cell 
+mixtures seen in whole blood gene expression data.
+
+In short this proposed method creates a proxy for cell counts in an unrelated cohort. this proxy 
+is then used during meta analysis as artifical cell count across many different cohorts. The 
+interaction effects between QTL and Proxy are used to assign a cell type to each eQTL. In the final 
+stage diseases in which cell type enrichment is prominent are tested by using publicly available data.
+
+Last we have some additional required chapters, such as a Dutch summary and a publication list.\\
 
 I hope you enjoy reading this thesis as much as I enjoyed creating it during the last four years,\\\\
 

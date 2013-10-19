@@ -6,90 +6,119 @@
 \newpage
 
 \section{Introduction}
-Systems genetics is the inter disciplinairy field which deals with the consequences of genetic 
-and natural variation on a biological system. Phenotype diversity is created by a mix of variation 
-at the DNA level (Nature), the environment (Nurture), and an error component. Partitioning of this 
-variance into these three sources is of critical importance to understanding the contribution of 
-Nature and Nurture to the biological processes we observe. Understanding how a system works, allows 
-us to change the system to our needs. We can use our knowledge about DNA variation to: optimize 
-breeding of animals/plants, exploring underlying causes for human diseases, improved production 
-of chemicals, and so forth.
+Systems genetics is the inter disciplinairy field which deals with the effects of 
+pertubation and natural variation on a biological system. Phenotype variation / 
+diversity observed is the consequence of a mixture of variation originating at the 
+DNA level (DNA), the environment (Env), and an error component (Err).
 
-The use of computational tools in understanding how Nature and Nurture intertwine is the 
-focus of this systems genetics. Variation observed at the DNA level can be measured using 
-genotyping (AFLP, RFLP, SNP chips, nextGEN sequencing) techniques, allowing us to create 
-detailed maps of DNA inheritance within a population and track the origin of DNA. 
+$$ Phenotype = Env + DNA + DNA * Env + Err $$
 
-On the other side at the phenotype end of the spectrum new high throughput technologies 
-have been developed to mass produce phenotypes measurements using automated phenotyping. 
-Automated phenotyping allow measurements at all the different endophenotype levels such 
-as: metabolome, proteome, transcriptome, proteomics. New technologies such as microarrays 
-and RNAseq now enable us to measure all levels from the DNA to the observed phenotype at 
-a fraction of the costs.
+Partitioning of observed variation into this formula is of critical importance 
+to understanding the contribution of genetics and environment to the biological 
+processes observed. Understanding how a system works and reacts to different 
+environments, allows modification of the system to better suit our needs or 
+environmental requirements. Knowledge about DNA variation allows to optimize 
+breeding of animals and plants, explore the genetic basis of human diseases, 
+improved production of chemicals, and so forth.
 
-How the activity of DNA is transfered and modified by signals from the enviroment is of 
-critical importance to our understanding of systems genetics. Variation observed at levels 
-'further away' from the genome such as: transcriptome, proteome, metabolome, all the way 
-up to classical phenotypes is a complex interplay between DNA and environment. This 
-interplay is challenging to unravel because of multiple factors:\\
-\begin{itemize}
-\item Complex phenotypes are caused by multiple genetic loci, interactions between these, 
-modulated by the environment.
-\item The more factors underlying a complex phenotype, the larger the samplesize required 
-to determine which genetic factors are involved.
-\item Data collection however remains limited by resources available (money, sample size, labour, etc)
-\item Large scale data collection puts more and more demands on our current infrastructure for 
-storage and sharing of this data.
-\item Computational issues arise in the analysis of such big data sets (CPU time, RAM requirements, 
-Power consumption).
-\item Biologie.
-\end{itemize}
+Variation observed at the DNA level can be measured using genotyping (AFLP, RFLP, 
+SNPs, Sequencing) techniques, allowing to create detailed maps of DNA inheritance 
+within a population and track the origin of DNA through many generation.
 
-The following chapters of this thesis will go into our solutions to these issues, infrastructure 
-created, methodologies developed, and show their application in current research.
+At the phenotype end of the spectrum new high throughput technologies have also 
+been developed to mass produce phenotypes measurements using automated phenotyping. 
+Automated phenotyping allow thousands of simultanious measurements at all the 
+different endophenotype levels such as: metabolome, proteome, transcriptome. These 
+new technologies such as tiling arrays, RNAseq, High throughput proteomics and 
+metabolomics now enable us to measure all levels from the DNA to the observed 
+phenotype at minimal costs.
 
-\subsection{Background}
+How the activity of DNA is expressed and modified by signals from the enviroment is the 
+focus of systems genetics. The use of computational tools in understanding how genetics 
+and environment intertwine is the central in the field of systems genetics to deal with the 
+large amounts of phenotype and genotype data.
 
-Genetics is the science of heritability. The field of genetics is a relatively new field, 
-and starts when Gregor Mendel publishes his work on the inheritance of traits in pea plants. 
-His work described in 'Versuche \"uber Pflanzen-Hybriden' in 1865-1866 \cite{Mendel:1866} 
-gives us Mendels Laws of Inheritance. He observes that crossing two plants with different 
-colors of flowers will lead to an offspring population with predictable flower color 
-ratio's. Additionally he's fortunate enough to have traits which are inherited independently, 
-and thus conclused that a unit of inheritance must exist, and is passed from parent to 
-child in an independant fashion. However Mendels work was not recognized untill 30 years later, 
-when his work is 'rediscovered' by Hugo de Vries, Carl Correns en Erich von Tschermak who 
-define the rules for Mendielian genetics \cite{deVries:1889} providing biologist for the first 
-time with a mathematical framework to study heritability of phenotypes caused by a single gene.
+Variation observed at levels 'further away' from the genome such as: transcriptome, 
+proteome, metabolome, all the way up to classical phenotypes form a complex interplay 
+between DNA and environment. This interplay has proven to be challenging to unravel.The 
+following chapters of this thesis will go into our solutions to these issues, 
+infrastructure created, methodologies developed, and their application in current 
+research. First some (historical) background to this thesis is be provided.
 
-50 years after the Mendels laws, genetics is to change again by the carefull observations of 
-Thomas Hunt Morgan. He observes that some traits in his Drosophila flies are inherited together, 
-in conflict with Mendels laws. he calls this phenomenon genetic linkage. Sturtevant a student 
-of Morgan uses this observed linkage between phenotypes as a distance measurement between 
-units of inheritance. Leading to the first genetic map of Drosophila.
+\subsection{Background 1800-1990}
 
-However at this point in time, the molecular mechanisms were still not known. Genetics was based 
-on observing segregating phenotypes, and then placing these into a known map relative to other 
-phenotypes. 
+The field of genetics is a relatively new field, and is founded when Gregor 
+Mendel publishes his work on the inheritance of phenotypes in pea plants. 
+His work described in 'Versuche \"uber Pflanzen-Hybriden' in 1865-1866 
+\cite{Mendel:1866} gives us Mendels Laws of Inheritance. He observes that 
+crossing two plants with different colors of flowers will lead to an offspring 
+population with predictable color ratios. He postulated the idea of heredity 
+units and stated that each individual carries two of these resulting in a 
+single phenotype. Each heritable units is received from one of the parents, 
+but which one of the two units the parents pass to a child is random 
+(Law 1 - Segregation).
 
+These two units are not equal, a dominant unit (color 1) overruled another 
+unit (color 2 - recessive). Mendel studied more phenotypes in his pea plants 
+besides color. Now a days it is known that Mendel was fortunate to select 
+phenotypes which are caused by a single genes and are inherited independently. 
+Mendel also observed this when comparing inheritance of multiple phenotypes. 
+He concluded that a unit of inheritance are passed from parent to child in an 
+independant fashion in regards to other units of inheritance 
+(Law 2 - Independent Assortment).
 
-The dscovery of DNA as the carrier of heritability and the discovery of its structure by Watson 
-and Crick.in the mid 1900 was the long sought after molecular basis for genetics. After the 
-discovery of the first restriction enzymes it also became possible to cut DNA and look at the 
-different (lengths of) fragments produced.
+However Mendels work was not fully recognized until 30 years later, when his work was 
+rediscovered by Hugo de Vries, Carl Correns en Erich von Tschermak who (re) define the 
+rules for Mendelian Genetics \cite{deVries:1889} providing biologist for the first 
+time with a mathematical framework to study heritability of phenotypes caused by a 
+single genetic unit.
 
-In the end of the 1980s everything was set for the next step in genetics, and 
-a series of three papers published about the use of RFLP linkage maps to map quantitative 
-traits by two (now famous) authors: David Botstein and Eric Lander 
-\cite{Lander:1986, Lander:1987, Lander:1989}. For the first time in history heritable traits 
-could be mapped to genome locations using DNA restriction enzymes and PCR. Together whith knowledge 
-of meiotic randomization this provides the experimental background for statistical analysis 
-of inbred populations. Using association mapping is still the foundation of genetics research 
-today, although more sophisticated tools and algorithms are used.
+Twenty years after the rediscovery of Mendels Laws in 1913, carefull observations of 
+Thomas Hunt Morgan introduces an addition to Mendels theoretical work. He observes 
+that some phenotypes in his \emph{Drosophila melanogaster} mutant flies are inherited 
+together, in conflict with Mendels Laws (which state independant inheritance of 
+genetic units). He calls this phenomenon genetic linkage. This concept is also commonly 
+explained as the bead on a string. multiple genetic units linked together. Two beads 
+close together are tightly linked are and almost always inherited together. While 
+two beads far apart are less linked and can be separated by 'evolution'. Different 
+strands are independantly inherited allowing for Mendelian inheritance by two beads 
+on two different strings.
+
+Sturtevant a student of Morgan uses his mentors linkage theory between phenotypes 
+as a distance measurement between units of inheritance. He creates the first genetic 
+map of \emph{Drosophila melanogaster} 40 years before the discovery of the DNA molecule, 
+while molecular mechanisms were still unknown. Sturtevant genetic map based on 
+phenotypes allowed genetics based on careful observation of segregating phenotypes in 
+large populations of flies, and then determining their distance relative to other 
+phenotypes.
+
+The dscovery of DNA as the carrier of heritability in 1944 by Avery, MacLeod and McCarty 
+\cite{Avery:1944} and the discovery of its structure by Watson and Crick.in 1953 
+\cite{Watson:1953} was the long sought after molecular basis for genetics. After the 
+discovery of restriction enzymes by Luria and Human \cite{Luria:1952} it was possible 
+to cut DNA and investigate the different (lengths of) fragments produced.
+
+In the end of the 1980s everything was there for the next step in genetics. A series of 
+three papers is published which detail the use of RFLP linkage maps to localize genes 
+responsible for variation in quantitative phenotypes. These three papers by David Botstein 
+and Eric Lander \cite{Lander:1986, Lander:1987, Lander:1989} form the basis for modern 
+day linkage analysis and genome wide association studies. 
+
+Heritable phenotypes could be mapped to genomic locations using a combination of: DNA 
+restriction enzymes, Mendels inheritance laws and Hunt's linkage theory. Together these 
+methodologies and theories provide the experimental and statistical background to 
+analyse heritability in any population.
+
+Linkage and Association analysis are still the foundation of genetics research today. More 
+sophisticated tools and algorithms have been developed and are used, but the basic theory 
+remains the same. Some of these more advanced methods are discussed in the next section to 
+scetch a background for the work presented in this thesis.
+
+\subsection{Background - Continued}
 
 Multiple QTL mapping - Jansen et al. (1993)\\
-Composite interval mapping -  Zeng et al. (1993)\\
 R/qtl (2003)\\
+Genetical Genomics\\
 Human genome project 2000-2003\\
 First human Genome Wide Association Study (2005)\\
 Encyclopedia Of DNA Elements (Encode) (2003, 2007-Current)
