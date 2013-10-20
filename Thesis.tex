@@ -1,4 +1,7 @@
-\documentclass[8pt, twoside, a5paper]{report}
+%\documentclass[8pt, twoside, a5paper]{report}
+\documentclass[8pt, twoside]{book}
+\usepackage[paperwidth=170mm,paperheight=240mm, top=27mm, bottom=27mm, left=20mm, right=20mm]{geometry}
+\special{papersize=170mm,240mm}
 \usepackage[usenames, dvipsnames, svgnames]{xcolor}
 \usepackage{titlesec, blindtext, color, graphicx}
 \usepackage[light,condensed,math]{kurier}
@@ -10,9 +13,7 @@
 \usetikzlibrary{shadings,shadows}
 \definecolor{GREEN}{rgb}{0, 0.5, 0.1}
 
-%\usepackage{lmodern} % to remove warnings of size substitution
-\usepackage[top=0.6in, bottom=0.6in, left=0.6in, right=0.4in]{geometry}
-
+\usepackage{lmodern} % to remove warnings of size substitution
 \tcbuselibrary{skins,breakable}
 \usetikzlibrary{shadings,shadows}
 
@@ -27,7 +28,7 @@
 \newcommand{\hsp}{\hspace{7pt}}
 \newcommand{\hssp}{\hspace{3pt}}
 
-\titleformat{\chapter}[hang]{\vspace{-2 cm}\huge\bfseries}{{\fontsize{50}{60}\selectfont \thechapter \hsp\textcolor{GREEN}{|}\hsp}}{0pt}{\huge\bfseries}
+\titleformat{\chapter}[hang]{\vspace{-3cm}\huge\bfseries}{{\fontsize{50}{60}\selectfont \thechapter \hsp\textcolor{GREEN}{|}\hsp}}{0pt}{\huge\bfseries}
 \titleformat{\section}[hang]{\large}{\thesection\hssp}{0pt}{\large\bfseries}
 
 \newcommand{\authors}[1]{\small{#1}}
@@ -41,7 +42,7 @@
 \newcommand{\xgap}{XGAP} % don't use all caps, see journal guidelines
 
 \pagestyle{headings}
-\renewcommand{\contentsname}{Table of content\vspace{-30pt}}
+\renewcommand{\contentsname}{Table of Contents\vspace{-30pt}}
 
 \begin{document}
 \pagenumbering{arabic}
@@ -51,13 +52,18 @@
   \end{center}
 \newpage
   \thispagestyle{empty}
-  \noindent The work described in this thesis was carried out at the Groningen Bioinformatics Centre, University of Groningen, The Netherlands.
-  This research was financially supported by the Centre for BioSystems Genomics (CBSG) and the Netherlands Consortium of Systems Biology (NCSB), both of which are part of the Netherlands Genomics Initiative / Netherlands Organisation for Scientific Research\\
+  \noindent The work described in this thesis was carried out at the Groningen 
+  Bioinformatics Centre, University of Groningen, The Netherlands. This research 
+  was financially supported by the Centre for BioSystems Genomics (CBSG) and the 
+  Netherlands Consortium of Systems Biology (NCSB), both of which are part of the 
+  Netherlands Genomics Initiative / Netherlands Organisation for Scientific Research\\
   \vspace{130 mm}
   
   \noindent (c) 2013 by GBIC - Danny Arends\\
+  Artwork by:\\
   Printed by:\\
-  ISBN:\\
+  ISBN (Print):\\
+  ISBN (Digital):\\
 \newpage
 
 \thispagestyle{empty}
@@ -97,56 +103,57 @@ Beoordelingcommisie:  & Prof. dr. \\
 \end{tabular}
 \tableofcontents
 
-\chapter*{Summary}
+\newpage
+\thispagestyle{empty}
+\chapter*{Summary}\vspace{-30pt}
 Systems genetics is the inter disciplinairy field which deals with the consequences of genetic 
 variation on a biological system. The goal of systems genetics is to partition this variation 
 into three major categories: Genetic, Environment and Error variation, and explain how complex
-phenotypes arise from a combination of these three major factors. 
+phenotypes arise from a combination of these three major factors.  Natural variation (or 
+genetic pertubation) is used to interogate the genetic component of phenotype variation. 
+Combined with environmental pertubation we can investigate the influence different 
+environments and the interaction between genetics and environment. Experimental design and 
+statistics are used to minimize and estimate error variance.
 
-Natural variation (or genetic pertubation) is used to interogate the genetic component of 
-phenotype variation. Combined with environmental pertubation we can investigate the influence 
-different environments and the interaction between genetics and environment. Experimental 
-design and statistics are used to minimize and estimate error variance.
+Pheno2Geno (Chapter 2) deals with the creation of genetic maps from large scale omics data. 
+The theory of genetic map construction is ~100 years old. Software available for genetic map 
+construction has not been adapted yet to make use of new technologies such as multi threading 
+or cluster computing. Pheno2Geno aims to provide analysis of data from tilling arrays or RNAseq 
+to generate gene based expression markers and create high density genetic maps.
 
-The first chapter: Pheno2Geno deals with the creation of genetic maps from large scale 
-omics data. The theory of genetic map construction is ~100 years old. Software available 
-for genetic map construction has not been adapted yet to make use of new technologies such 
-as multi threading or cluster computing. Pheno2Geno aims to provide analysis of data from 
-tilling arrays or RNAseq to generate gene based expression markers. These markers are used 
-to create high density genetic maps.
+Chapter 3 describes the implementation of the Multiple QTL mapping routine by R. C. Jansen into 
+R/qtl. Adding a 'new' algorithm to the R/qtl toolset which aims to provide a range of QTL 
+mapping tools for inbred crosses. R/qtl is the basis of a toolset build around a unified 
+data structure allowing easy adaptation and extension of the software. R/qtl allows researchers 
+to analyse data from different sources or to quickly compare different approaches.
 
-The second chapter is the continuation of the Multiple QTL mapping work done by R. C. Jansen, we 
-incorporated this QTL mapping method in the R/qtl package. Adding a 'new' algorithm to the R/qtl 
-toolset which aims to provide a range of QTL mapping tools for inbred crosses. R/qtl is the basis 
-of a toolset build around a unified single datastructure allowing easy adaptation and extension 
-of the software. R/qtl allows researchers to analyse data from different sources or to quickly 
-change approaches when data distributions vary in structure from phenotype to phenotyp.
-
-In the third chapter we show case our ideas for a generic storage and computation platform for 
-systems genetics. Our demo system xQTL workbench is currently being used as a backend to the 
+In chapter 4 we show case our ideas for a generic storage and computation platform for systems 
+genetics. Our demo system xQTL workbench is currently being used as a backend to the 
 WormQTL and WormQTL-HD database. xQTL workbench allows users to store and share their data in 
 a local or web environment, and run analysis across datasets using the power of distributed 
 computing. It comes standard with QTL mapping tools such as: R/qtl, PLINK and qtlbim but also
 provides a web inferfaces, data importers, APIs and visualizations.
 
-In chapter four current work on using differences in correlation to generate interaction 
-networks and detect cell type specific QTL effects is described. Correlated Traits Locus 
-analysis (or CTL mapping) enables researchers to find genetic loci controlling correlation 
-differences in segregating phenotypes. A variation on this method has already proven valuable 
-in discovering cell type specific eQTL effects. These effects can be used to untangle cell 
-mixtures seen in whole blood gene expression data.
+Current work on using differences in correlation to generate interaction networks and detect 
+cell type specific QTL effects is described in chapter 5. Correlated Traits Locus analysis 
+(or CTL mapping) enables researchers to find genetic loci controlling correlation differences 
+in segregating phenotypes. A variation on this method has proven valuable in discovering cell 
+type specific eQTL effects. These effects can be used to untangle cell mixtures seen in whole 
+blood gene expression data.
 
-In short this proposed method creates a proxy for cell counts in an unrelated cohort. this proxy 
-is then used during meta analysis as artifical cell count across many different cohorts. The 
-interaction effects between QTL and Proxy are used to assign a cell type to each eQTL. In the final 
-stage diseases in which cell type enrichment is prominent are tested by using publicly available data.
+%In short this proposed method creates a proxy for cell counts in an unrelated cohort. this proxy 
+%is then used during meta analysis as artifical cell count across many different cohorts. The 
+%interaction effects between QTL and Proxy are used to assign a cell type to each eQTL. In the final 
+%stage diseases in which cell type enrichment is prominent are tested by using publicly available data.
 
-Last we have some additional required chapters, such as a Dutch summary and a publication list.\\
+Last we have some additional required chapters, such as this summary in Dutch, a CV and publication 
+list and bibliography.\\
 
 I hope you enjoy reading this thesis as much as I enjoyed creating it during the last four years,\\\\
 
 Danny Arends (Aug 2013)
-
+\newpage
+\thispagestyle{empty}
 \input{chapter1.tex}
 
 \input{chapter2.tex}
@@ -216,6 +223,10 @@ XGAP:        & Extensible genotype and phenotype software platform.
 \section*{Acknowledgements}
 \addcontentsline{toc}{section}{Acknowledgements}
 \lipsum[1]
+
+\newpage
+
+\section*{Curriculum Vitae}
 
 \newpage
 
