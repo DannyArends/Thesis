@@ -1,5 +1,5 @@
 \chapter{Phenotypes and Genotypes}
-
+\label{chap:pheno2geno}
 \emph{Using prior knowledge about phenotypes and how they arise / mix in sexual 
 reproduction allows us to create expression based markers. We can use these markers
 to saturate existing genetic maps or create them de-novo when enough data is 
@@ -50,7 +50,7 @@ desktop PC. Pheno2Geno improves QTL mapping results at no additional laboratory 
 minimum computational effort. Pheno2Geno results are formatted for direct use in R/qtl, the leading 
 R package for QTL studies. Pheno2Geno is freely available on CRAN under GNU GPL version 3.
 
-\subsection{Background}
+\section{Background}
 QTL mapping \cite{Lander:1989} is a powerful approach used in population analysis to link genetic 
 variation to phenotypic variation between individuals. It requires polymorphic genetic markers 
 positioned on a genetic map. Here we present Pheno2Geno, an R package to select and convert 
@@ -73,7 +73,7 @@ populations \cite{Broman:2003, Arends:2010}. The package also provides an option
 GFF formatted file. The GFF file format is supported by most genome browsers, allowing users to 
 use their favourite genome browser to explore and/or compare resulting maps (Fig. 4).
 
-\subsection{Features}
+\section{Features}
 Pheno2Geno provides the following functionality for constructing and/or saturating genetic maps:
 
 {\bf 1) Preprocessing of the data}: \emph{(optional)} 
@@ -147,7 +147,7 @@ genotype data, Pheno2Geno is able to detect sample mix-ups in the original data 
 (which is part of the R/qtl toolset). Users can also use external tools like MixupMapper \cite{Westra:2011} 
 beforehand to detect and correct the original genotype data.
 
-\subsection{Results}
+\section{Results}
 The original AFLP map created using a population of 420 RILs derived from a cross \emph{Arabidopsis 
 thaliana} Bayreuth (Bay-0) x Shahdara (Sha) \cite{Loudet:2002} contains 69 AFLP markers at an 
 average map distance of 7.1 cM also derived using mixture models \cite{Jansen:2001b, Loudet:2002}.
@@ -182,7 +182,7 @@ probes) were scanned. 5837 had a significant ($LOD > 5$) QTL on an original map.
 showed increase in likelihood on a new map(Fig. 3). Additionally, 210 new QTLs are detected as 
 being significant on the saturated map.
   
-\subsection{Conclusions and Discussion}
+\section{Conclusions and Discussion}
 Pheno2Geno is the first generic software package for generating genetic markers and maps from 
 high-throughput molecular phenotypes for any inbred diploid populations (backcross, F2 intercross 
 and recombinant inbred lines). Pheno2Geno selects phenotypes that show multimodal distributions 

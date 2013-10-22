@@ -118,31 +118,33 @@ Combined with environmental pertubation we can investigate the influence differe
 environments and the interaction between genetics and environment. Experimental design and 
 statistics are used to minimize and estimate error variance.
 
-Pheno2Geno (Chapter 2) deals with the creation of genetic maps from large scale omics data. 
+Pheno2Geno (Chapter \ref{chap:pheno2geno}) deals with the creation of genetic maps from large scale omics data. 
 The theory of genetic map construction is ~100 years old. Software available for genetic map 
 construction has not been adapted yet to make use of new technologies such as multi threading 
 or cluster computing. Pheno2Geno aims to provide analysis of data from tilling arrays or RNAseq 
 to generate gene based expression markers and create high density genetic maps.
 
-Chapter 3 describes the implementation of the Multiple QTL mapping routine by R. C. Jansen into 
-R/qtl. Adding a 'new' algorithm to the R/qtl toolset which aims to provide a range of QTL 
-mapping tools for inbred crosses. R/qtl is the basis of a toolset build around a unified 
-data structure allowing easy adaptation and extension of the software. R/qtl allows researchers 
-to analyse data from different sources or to quickly compare different approaches.
+Chapter \ref{chap:mqm} describes the implementation of the Multiple QTL mapping routine 
+by R. C. Jansen into R/qtl. Adding a 'new' algorithm to the R/qtl toolset which aims to 
+provide a range of QTL mapping tools for inbred crosses. R/qtl is the basis of a toolset 
+build around a unified data structure allowing easy adaptation and extension of the software. 
+R/qtl allows researchers to analyse data from different sources or to quickly compare 
+different approaches.
 
-In chapter 4 we show case our ideas for a generic storage and computation platform for systems 
-genetics. Our demo system xQTL workbench is currently being used as a backend to the 
-WormQTL and WormQTL-HD database. xQTL workbench allows users to store and share their data in 
-a local or web environment, and run analysis across datasets using the power of distributed 
-computing. It comes standard with QTL mapping tools such as: R/qtl, PLINK and qtlbim but also
-provides a web inferfaces, data importers, APIs and visualizations.
+In chapter \ref{chap:xqtlwormbench} we show case our ideas for a generic storage and 
+computation platform for systems genetics. Our demo system xQTL workbench is currently 
+being used as a backend to the WormQTL and WormQTL-HD database. xQTL workbench allows 
+users to store and share their data in a local or web environment, and run analysis across 
+datasets using the power of distributed computing. It comes standard with QTL mapping 
+tools such as: R/qtl, PLINK and qtlbim but also provides a web inferfaces, data importers, 
+APIs and visualizations.
 
 Current work on using differences in correlation to generate interaction networks and detect 
-cell type specific QTL effects is described in chapter 5. Correlated Traits Locus analysis 
-(or CTL mapping) enables researchers to find genetic loci controlling correlation differences 
-in segregating phenotypes. A variation on this method has proven valuable in discovering cell 
-type specific eQTL effects. These effects can be used to untangle cell mixtures seen in whole 
-blood gene expression data.
+cell type specific QTL effects is described in chapter \ref{chap:ctlmapping}. Correlated 
+Traits Locus analysis (or CTL mapping) enables researchers to find genetic loci controlling 
+correlation differences in segregating phenotypes. A variation on this method has proven 
+valuable in discovering cell type specific eQTL effects. These effects can be used to 
+untangle cell mixtures seen in whole blood gene expression data.
 
 %In short this proposed method creates a proxy for cell counts in an unrelated cohort. this proxy 
 %is then used during meta analysis as artifical cell count across many different cohorts. The 
