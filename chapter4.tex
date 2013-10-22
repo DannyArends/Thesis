@@ -1,4 +1,5 @@
 \chapter{High throughput data analysis}
+\label{chap:xqtlwormbench}
 
 \emph{The major challenge in bioinformatics comes from the huge amount of data collected and the 
 multitude of technologies used. We developed the xQTL workbench system\cite{Arends:2012a} to store 
@@ -382,20 +383,21 @@ freely accessible without registration and is hosted on a large computational cl
 high throughput analyses to all at http://www.wormqtl.org.
 
 \subsection{Background}
+
 Over the past 30 years, the metazoan Caenorhabditis elegans has become a premier animal model for 
 determining the genetic basis of quantitative traits \cite{Gaertner:2010, Kammenga:2008}. The 
 extensive knowledge of molecular, cellular and neural bases of complex phenotypes makes 
 \italic{C. elegans} an ideal system for the next endeavour: determining the role of natural genetic 
 variation on system variation. These efforts have resulted in an accumulation of a valuable amount 
 of phenotypic, high-throughput molecular and genotypic data across different developmental worm 
-stages and environments in hundreds of strains (3–19). In addition, a similar wealth has been 
-produced on hundreds of different \italic{C. elegans} wild isolates and other species (20). 
+stages and environments in hundreds of strains \colorbox{yellow}{(3-19)}. In addition, a similar wealth has been 
+produced on hundreds of different \italic{C. elegans} wild isolates and other species \colorbox{yellow}{(20)}. 
 For example, \italic{C. briggsae} is an emerging model organism that allows evolutionary comparisons 
 with \italic{C. elegans} and quantitative genetic exploration of its own unique biological 
-attributes (21).
+attributes \colorbox{yellow}{(21)}.
 
 This rapid increase in valuable data calls for an easily accessible database allowing for 
-comparative analysis and meta-analysis within and across Caenorhabditis species (22). To 
+comparative analysis and meta-analysis within and across Caenorhabditis species \colorbox{yellow}{(22)}. To 
 facilitate this, we designed a public database repository for the worm community, WormQTL 
 (http://www.wormqtl.org). Driven by the PANACEA project of the systems biology program of 
 the EU, its design was tuned to the needs of \italic{C. elegans} researchers via an intensive 
@@ -424,8 +426,9 @@ the results, methods used to implement the system and future plans.
 
 \subsection{Results}
 WormQTL is an online database platform for expression quantitative trait loci (eQTL) exploration 
-to service the worm community and already provides many publicly available data sets (5,9-15,19). 
-New data sets can be uploaded using the XGAP plain file data format. Suitable help pages are provided. 
+to service the worm community and already provides many publicly available data sets 
+\colorbox{yellow}{(5,9-15,19)}. New data sets can be uploaded using the XGAP plain file data 
+format. Suitable help pages are provided. 
 Currently, 38 public data sets have been loaded, of which the bulk is xQTL data on 500 strains 
 (introgression lines, recombinant inbred lines (RILs), recombinant inbred advanced intercross lines 
 and natural isolates), 55,000 transcripts, 1594 samples and 1579 markers (Table 1). With this 
@@ -468,10 +471,10 @@ data and new analysis scripts directly.
 \subsection{Conclusions and Discussion}
 \subsubsection{Implementation}
 All the software was implemented using the open source Molecular Genetics Information Systems 
-MOLGENIS toolkit (26), and in particular one previously existing MOLGENIS application, the 
-extensible xQTL workbench (27) and the R/qtl QTL mapping and visualization package for the R 
-language (23,24). The MOLGENIS toolkit is a Java-based software to generate tailored research 
-infrastructure on demand (22). From a single 'blueprint' describing all biological data 
+MOLGENIS toolkit \colorbox{yellow}{(26)}, and in particular one previously existing MOLGENIS application, the 
+extensible xQTL workbench \colorbox{yellow}{(27)} and the R/qtl QTL mapping and visualization package for the R 
+language \colorbox{yellow}{(23,24)}. The MOLGENIS toolkit is a Java-based software to generate tailored research 
+infrastructure on demand \colorbox{yellow}{(22)}. From a single 'blueprint' describing all biological data 
 structures and user interfaces of the whole system, MOLGENIS autogenerates a full application 
 including user interface, database infrastructure and application programming interfaces 
 (APIs) in R, REST and SOAP.
@@ -500,7 +503,7 @@ expression, genotypes and QTL P-values, with the row names and column names cros
 the annotations. For example, gene expression is a matrix of 'gene' X 'sample'. Subsequently 
 these data sets were loaded using the MOLGENIS/xQTL data import wizards, which check the 
 files for correctness and give informative feedback if the data are not yet in a format that 
-WormQTL can understand (25). All the annotations are stored in tables in the database; the 
+WormQTL can understand \colorbox{yellow}{(25)}. All the annotations are stored in tables in the database; the 
 large data matrices are stored in a optimized binary format to speed up analyses and queries. 
 This format is documented in the WormQTL manual to ease the submission of new data sets from 
 the community. Finally, all the QTL profiles were recalculated according to the specification 
@@ -525,7 +528,8 @@ the parental values if available). Advanced QTL mapping tools might include mult
 /age mapping or genotype-by-environment analyses, developed in collaboration with the R/qtl team 
 to enable automatic links to this software. The candidate gene selection tools would benefit from 
 the most recent stable release of Wormbase (28), the most widely used platform for worm biology. 
-But also other sources of information like MODENCODE (29) or Wormnet (30) are likely to 
+But also other sources of information like MODENCODE \colorbox{yellow}{(29)} or Wormnet 
+\colorbox{yellow}{(30)} are likely to 
 be connected with WormQTL. A candidate gene selection tool might be implemented in a next version 
 of WormQTL as it is less easy to implement and often needs information beyond WormQTL. One can 
 think of (i) which SNPs/genes/polymorphic genes/transcription factor binding sites and so forth 
@@ -533,7 +537,7 @@ are underlying a eQTL; (ii) which gene, underlying my xQTL, is linked to most of
 having an xQTL; (iii) which genes are polymorphic and (iv) which other genotypes show a difference 
 in expression and do they share polymorphisms with the parental strains of the RIL population 
 that the xQTL was mapped in. Moreover, WormQTL can be easily expanded to other Caenorhabditis 
-species (21).
+species \colorbox{yellow}{(21)}.
 
 We believe that WormQTL, which will be continuously curated by the members of this international 
 consortium, is a very attractive database for the growing community of quantitative genetics in 
