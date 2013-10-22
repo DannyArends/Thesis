@@ -1,0 +1,214 @@
+\chapter{Additional for Dissertation}
+\emph{The last chapter containing some additional things needed for a complete 
+dissertation document required for a promotion at the University of Groningen.}
+\null
+\vfill
+
+\newpage
+\section*{Dutch Summary}
+\addcontentsline{toc}{section}{Dutch Summary}
+Systems genetics is the inter disciplinairy field which deals with the consequences of genetic 
+variation on a biological system. The goal of systems genetics is to partition this variation 
+into three major categories: Genetic, Environment and Error variation, and explain how complex
+phenotypes arise from a combination of these three major factors.  Natural variation (or 
+genetic pertubation) is used to interogate the genetic component of phenotype variation. 
+Combined with environmental pertubation we can investigate the influence different 
+environments and the interaction between genetics and environment. Experimental design and 
+statistics are used to minimize and estimate error variance.
+
+Pheno2Geno (Chapter 2) deals with the creation of genetic maps from large scale omics data. 
+The theory of genetic map construction is ~100 years old. Software available for genetic map 
+construction has not been adapted yet to make use of new technologies such as multi threading 
+or cluster computing. Pheno2Geno aims to provide analysis of data from tilling arrays or RNAseq 
+to generate gene based expression markers and create high density genetic maps.
+
+Chapter 3 describes the implementation of the Multiple QTL mapping routine by R. C. Jansen into 
+R/qtl. Adding a 'new' algorithm to the R/qtl toolset which aims to provide a range of QTL 
+mapping tools for inbred crosses. R/qtl is the basis of a toolset build around a unified 
+data structure allowing easy adaptation and extension of the software. R/qtl allows researchers 
+to analyse data from different sources or to quickly compare different approaches.
+
+In chapter 4 we show case our ideas for a generic storage and computation platform for systems 
+genetics. Our demo system xQTL workbench is currently being used as a backend to the 
+WormQTL and WormQTL-HD database. xQTL workbench allows users to store and share their data in 
+a local or web environment, and run analysis across datasets using the power of distributed 
+computing. It comes standard with QTL mapping tools such as: R/qtl, PLINK and qtlbim but also
+provides a web inferfaces, data importers, APIs and visualizations.
+
+Current work on using differences in correlation to generate interaction networks and detect 
+cell type specific QTL effects is described in chapter 5. Correlated Traits Locus analysis 
+(or CTL mapping) enables researchers to find genetic loci controlling correlation differences 
+in segregating phenotypes. A variation on this method has proven valuable in discovering cell 
+type specific eQTL effects. These effects can be used to untangle cell mixtures seen in whole 
+blood gene expression data.
+
+%In short this proposed method creates a proxy for cell counts in an unrelated cohort. this proxy 
+%is then used during meta analysis as artifical cell count across many different cohorts. The 
+%interaction effects between QTL and Proxy are used to assign a cell type to each eQTL. In the final 
+%stage diseases in which cell type enrichment is prominent are tested by using publicly available data.
+
+Last we have some additional required chapters, such as this summary in Dutch, a CV and publication 
+list and bibliography.\\
+
+I hope you enjoy reading this thesis as much as I enjoyed creating it during the last four years,\\\\
+
+Danny Arends (Aug 2013)
+
+\newpage
+\section*{Abbreviations and Acronyms}
+\addcontentsline{toc}{section}{Abbreviations and Acronyms}
+{\footnotesize
+\begin{tabular}{ l l }
+API:         & Application Programming Interface\\
+BC:          & Backcross \\
+bp:          & Base pair(s) \\
+cM:          & centi Morgan \\
+CPNN:        & Collaborative computing project for NMR\\
+CSV:         & Comma separated values\\
+CTL:         & Correlated traits locus \\
+DesignGG:    & Experimental design of genetical genomics software\\
+DRY:         & Principle of don't repeat yourself\\
+DSL:         & Domain Specific Language\\
+EBI:         & European Bioinformatics Institute\\
+FINDIS:      & Finish disease database\\
+GEN2PHEN:    & EU project to unify human and model organism genetic variation databases\\
+GMOD:        & Generic model organism database project\\
+GUI:         & Graphical user interface\\
+GWAS:        & Genome Wide Association Study\\
+GWL:         & Genome Wide Linkage analysis\\
+HGVBaseG2P:  & Human genome variation database of genotype-to-phenotype information\\
+HTML:        & Hypertext markup language\\
+IDE:         & Integrated Development Environment\\
+JAR:         & Java Software Archive\\
+LGPL:        & Lesser general public license\\
+MAGE-TAB:    & Microarray gene expression tab delimited file format\\
+Mbp:         & Mega base pairs = 1.000.000 bp \\
+MOLGENIS:    & Molecular genetics information systems toolkit\\
+NordicDB:    & Nordic Control Cohort Database\\
+OBF:         & Open Bioinformatics Foundation\\
+OntoCAT:     & Ontology common API toolkit\\
+PEAA:        & Patterns for enterprise application architecture\\
+QTL:         & Quantitative trait locus\\
+RDF:         & Resource description format\\
+REST:        & Representative state transfer web services\\
+RIL:         & Recombinant inbred line \\
+SNP:         & Single Nucleotide Polymorphism\\
+SOAP:        & Simple Object Access Protocol\\
+SQL:         & Structured Query Language\\
+UML:         & Uniform data Modeling Language\\
+WAR:         & Web Application aRchive file\\
+XML:         & Extensible Markup Language\\
+XGAP:        & Extensible genotype and phenotype software platform. 
+\end{tabular}
+}
+\newpage
+
+\section*{Acknowledgements}
+\addcontentsline{toc}{section}{Acknowledgements}
+Knowledge is in the end based on acknowledgement\\
+- Ludwig Wittgenstein (1889 - 1951)\\\\
+
+There are many people who need to be thanked and acknowledged, 
+here are the people who made the cut:
+
+Ritsert C. Jansen to whom I owe my life in science, thanks you for giving me this 
+chance to work in your group and develop my skills. Anna Mulder my girlfriend for 
+all the times I left you and Oscar (our cat) for my science endavours. Thank you 
+for your trust in me and giving me a home to come home to. 
+Pjotr Prins ..
+The GBIC group for 
+putting up with me. Yang Li for the vibrant discussions, Joeri v/d Velde and 
+Konrad Zych in particular. The Guys from the GCC department for all the fun times 
+we had.Lude Franke and Harm-Jan Westra for the nice collaborations and help with 
+the last chapter. Wilko ligterink, Henk Hilhort and Ronny Joosen for doing the 
+Arabidopsis experiments and letting me use their data. The University of Groningen 
+for educating me, and last the University Medical Centre Groningen for the pleasant 
+atmosphere and good lunch.
+
+\newpage
+
+\section*{Curriculum Vitae}
+\addcontentsline{toc}{section}{Curriculum Vitae}
+Danny Arends was born at 15th of Juli 1983 in the city of Zwolle located in the heart of the 
+Netherlands.\\
+
+Highschool\\\\
+
+University\\\\
+
+PHD\\\\
+
+\newpage
+
+\section*{List of Publications}
+\addcontentsline{toc}{section}{List of Publications}
+\subsection*{Authored:}
+  \authors{Danny Arends*, Pjotr Prins*, Ritsert C. Jansen and Karl W. Broman}\\
+  R/qtl: high throughput Multiple QTL mapping\\
+  \bold{Bioinformatics} (2010)\\\\
+  \authors{Ronny V. L. Joosen*, Danny Arends*, Leo Willems, Wilco Ligterink, Henk Hilhorst, Ritsert C. Jansen}\\
+  Visualizing the genetic landscape of Arabidopsis seed performance\\
+  \bold{Plant Physiology} (2011)\\\\
+  \authors{Danny Arends*, K. Joeri van der Velde*, Pjotr Prins, Karl W. Broman, Steffen Moller, et al.}\\
+  xQTL workbench: a scalable web environment for multi-level QTL analysis\\
+  \bold{Bioinformatics} (2012)\\\\
+  \authors{L. Basten Snoek*, Joeri Van der Velde*, Danny Arends*, Yang Li*, Antje Beyer, Mark Elvin, 
+           Jasmin Fisher, Alex Hajnal, Michael O Hengartner, et al.}\\
+  WormQTL: Public archive and analysis web portal for natural variation data in Caenorhabditis spp\\
+  \bold{Nucleic Acids Research} (2012)\\\\
+  \authors{Ronny V. L. Joosen*, Danny Arends*, Yang Li*, Leo Willems, Joost J.B. Keurentjes, Wilco Ligterink, 
+           Ritsert C. Jansen, Henk Hilhorst}\\
+  Identifying genotype-by-environment interactions in the metabolism of germinating Arabidopsis seeds 
+  using Generalized Genetical Genomics\\
+  \bold{Plant Physiology} (2013)
+
+\subsection*{Co-Authored:}
+  \authors{Morris A Swertz, Martijn Dijkstra, Tomasz Adamusiak, Danny Arends, et al.}\\
+  The MOLGENIS toolkit: rapid prototyping of biosoftware at the push of a button\\
+  \bold{BMC Bioinformatics} (2010)\\\\
+  \authors{Morris A Swertz, K Joeri van der Velde, Bruno M Tesson, Danny Arends, et al.}\\
+  XGAP: a uniform and extensible data model and software platform for genotype and phenotype experiments\\
+  \bold{Genome Biology} (2010)\\\\
+  \authors{Klaus Schughart, Danny Arends, P. Andreux, R. Balling, Pjotr Prins, et al.}\\
+  SYSGENET: a meeting report from a new European network for systems genetics\\
+  \bold{Mammalian Genome} (2010)\\\\
+  \authors{Rudolf SN Fehrmann, Ritsert C. Jansen, Jan H. Veldink, Harm-Jan Westra, Danny Arends, et al.}\\
+  Trans-eQTLs Reveal that Independent Genetic Variants Associated With a Complex Phenotype Converge on 
+  Intermediate Genes, with a Major Role for the HLA\\
+  \bold{Plos Genetics} (2011)\\\\
+  \authors{Caroline Durrant, Morris A. Swertz, Rudi Alberts, Danny Arends, Klaus Schughart, et al.}\\
+  Bioinformatics tools and database resources for systems genetics analysis in mice - a short review 
+  and an evaluation of future needs\\
+  \bold{Briefings in Bioinformatics} (2011)\\\\
+  \authors{K. Joeri van der Velde*, Mark de Haan, Konrad Zych, Danny Arends, L. Basten Snoek, 
+           Jan E. Kammenga, Ritsert C. Jansen, Morris A. Swertz and Yang Li}\\
+  WormQTLHD - a web database for linking human disease to natural variation data in C. elegans\\
+  \bold{Nucleic Acids Research} (2013)
+
+\subsection*{Under Review / In Press:}
+  \authors{Konrad Zych, K. Joeri van der Velde, Ronny V. L. Joosen, Wilco Ligterink, Ritsert C Jansen 
+           and Danny Arends}\\
+  Pheno2Geno - High throughput generation of genetic markers and maps from molecular phenotypes\\
+  \bold{BMC Bioinformatics} (201X)\\\\
+  \authors{Steffen M\"oller, Ren\'e Sch\"onfelder, Hajo Krabbenh\"oft, Benedikt Bauer, Yask Gupta, 
+           Pjotr Prins, ..., Danny Arends, et al.}\\
+  TiQS: web environment for expression QTL analysis\\
+  \bold{BMC Bioinformatics} (201X)\\\\
+  \authors{Elisabeth M. Lodder, Brendon P. Scicluna, L. Beekman, Danny Arends, et al.}\\
+  Multiple QTL mapping of cardiac collagen deposition in an F2 population of Scn5a mutant mice reveals 
+  interaction between Fgf1 and Pdlim3, Gpr158 \& Itga6\\
+  \bold{Genome Research} (201X)
+
+\subsection*{In Preparation:}
+  \authors{Danny Arends, Pjotr Prins, Harm-Jan Westra, Yang Li, Lude Franke and Ritsert C. Jansen}\\
+  Correlated Traits Locus mapping\\
+  \bold{Unknown} (201X)
+
+\subsection*{Acknowledged in:}
+  \authors{Yang Li, Morris A Swertz, Gonzalo Vera, Jingyuan Fu, Rainer Breitling and Ritsert C Jansen}\\
+  DesignGG: an R-package and web tool for the optimal design of genetical genomics experiments\\
+  \bold{BMC Bioinformatics}, 10:188 (2009)\\\\
+  \authors{Yang Li, Rainer Breitling and Ritsert C. Jansen}\\
+  Generalizing genetical genomics: getting added value from environmental perturbation\\
+  \bold{Trends in Genetics}, 24:518-524 (2008)
+
