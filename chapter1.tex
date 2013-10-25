@@ -191,19 +191,37 @@ location of the trait. Often so called trans-bands are observed, hotspots of man
 eQTL mapping to a common region in the genome \cite{Breitling:2008a}, which are used to infer 
 biological meaning and reconstruction co-expression and/or co-reguatory networks.
 
-The first Human Genome Wide Association Study (2005). In which a large cohort of individuals 
-are genotyped and phenotyped. GWAS like linkage can use many different experimental setups 
-most common in human is the case-control study in which diseased and healthy individuals are 
-participating  However more recently large consortia are working to gather large amounts of 
-human expression data from many different tissues. This data is then used and meta analyzed 
-leading to eQTL GWA studies with huge sample sizes (5000+ individuals). This increase in 
-sample size leads to more reliable results and enables discovery of new modifiers of human 
-gene expression.
+In the last decade Genome Wide Association Study (GWAS) have identified thousands of genetic 
+variants that are associated with human disease\cite{Hindorff:2009}. For reliable results GWAS 
+needs a large cohort of genotyped and phenotyped individuals. Large consortia are working 
+together to gather large amounts of human expression data from many different tissues. This 
+data is then used in meta analysis leading to eQTL GWA studies with even larger sizes 
+(5000+ individuals) \cite{Lude:2011}, leading to more reliable results and enabling discovery 
+of new modifiers of human gene expression.
+
+It is known that many factors, such as effects on intermediate molecular phenotypes, influence 
+the relationship between genotype and the eventual development of disease. It has also been 
+observation that many of the disease-predisposing variant are noncoding, suggests a regulatory 
+function for these variants. And it has been shown that many disease-predisposing variants 
+(e.g. single nucleotide polymorphisms (SNPs)) affect the expression of nearby genes (i.e. 
+\emph{cis}-eQTLs)\cite{Powell:2012, Lude:2011, Zeller:2010}
 
 \section{Thesis contributions (2010-2014)}
-Chapter1
-Chapter2
-Chapter3
-Chapter4
-Chapter5
+Chapter2 - Pheno2Geno describes the our work on implementing an R package to efficiently 
+generate new (or saturate old) genetic maps from omics sized datasources.
+
+Chapter3 - Details our work on integration of the MQM algortihm into R/qtl the leading 
+QTL mapping package in R. Also we show how MQM performs on experimental data from a cross 
+of \emph{A. thaliana} compared so classical single marker regression QTL mapping routines.
+
+Chapter4 - Details our work to provide infrastructure for the Life Sciences. We advocate the 
+use of Generators to create software and propose a datamodel (XGAP) to store phenotype and 
+genotype data. Combining these two leads to xQTL workbench a system for high throughput 
+analysis of Genetical genomics data. We continue by showcasing the WormQTL database the first 
+build using the xQTL workbench system as a backend for computation.
+
+Chapter5 -  Shows our current work on understanding differences in correlation observed when 
+CTL mapping two traits. We show that there is a high overlap between CTL mapping and using an 
+G:E interaction model, and use this interaction model in a human GWAS to detect cell type 
+specific eQTL.
 
