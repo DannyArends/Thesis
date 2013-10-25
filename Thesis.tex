@@ -9,6 +9,7 @@
 \usepackage{tcolorbox}
 \usepackage{lipsum}
 \usepackage{caption}
+\usepackage{cite}
 \captionsetup{singlelinecheck=off,labelfont=bf,labelsep=space}
 
 \tcbuselibrary{skins,breakable}
@@ -19,11 +20,14 @@
 \tcbuselibrary{skins,breakable}
 \usetikzlibrary{shadings,shadows}
 
+\definecolor{LightGray}{gray}{0.95}
+\definecolor{DarkGray}{gray}{0.35}
+
 \newenvironment{myexampleblock}[1]{%
     \tcolorbox[beamer,%
     noparskip,breakable,
-    colback=LightGreen,colframe=DarkGreen,%
-    colbacklower=LimeGreen!75!LightGreen,%
+    colback=LightGray,colframe=DarkGray,%
+    colbacklower=DarkGray!75!LightGray,%
     title=#1]}%
     {\endtcolorbox}
 
