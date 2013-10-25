@@ -101,7 +101,7 @@ phenotypes allowed genetics based on careful observation of segregating phenotyp
 large populations of flies, and then determining their distance relative to other 
 phenotypes.
 
-\section{DNA and QTLs (1930-2000)}
+\section{DNA and QTLs (1930-1990)}
 
 The dscovery of DNA as the carrier of heritability in 1944 by Avery, MacLeod and McCarty 
 \cite{Avery:1944} and the discovery of its structure by Watson and Crick.in 1953 
@@ -116,26 +116,32 @@ and Eric Lander \cite{Lander:1986, Lander:1987, Lander:1989} form the basis for 
 day linkage analysis and genome wide association studies. 
 
 Heritable phenotypes could be mapped to genomic locations using a combination of DNA 
-restrictionenzymes, Mendels inheritance laws and Hunt's linkage theory. Together these 
+restriction enzymes, Mendels inheritance laws and Hunt's linkage theory. Together these 
 methodologies and theories provide the experimental and statistical background to 
-analyse heritability in any population.
+analyse heritability in any population. Linkage and Association analysis are still the 
+foundation of genetics research today. More sophisticated tools and algorithms have been 
+developed and are used, but the basic theory remains the same. Some of these more 
+advanced methods are discussed in the next section to scetch a background for the work 
+presented in this thesis.
 
-Linkage and Association analysis are still the foundation of genetics research today. More 
-sophisticated tools and algorithms have been developed and are used, but the basic theory 
-remains the same. Some of these more advanced methods are discussed in the next section to 
-scetch a background for the work presented in this thesis.
+\section{Genetical Omics and GWAS (1990-2010)}
 
-\section{Genetical Omics and GWAS (2000-2010)}
+Observed phenotype expression is however often more complex then a single causative gene. 
+To model these more complex interactions extension of the basic model for QTL mapping is 
+necessary. Extending the model can be done by incorporting sources of variation. This allows 
+us to associate / partition the observed variance to either environmental factors (E) or a 
+genetic loci (G).
 
-Single association of phenotype and genotype only allows for detection of (near) Mendelian 
-phenotypes. To detect more complex interactions we need to extend the basic model by incorporting 
-sources of variation. This allows us to associate / partition the observed variance to either 
-environmental factors (E) or a genetic loci (G). This strategy called Multiple QTL mapping and 
-first modeling of the phenotype by using a backward selection of genetic cofactors is done. 
-Followed by mapping of QTLs using this more complex model. \cite{Jansen:1993}
+Multiple QTL Mapping (MQM) belongs to a family of QTL mapping methods, that include Haley-Knott 
+regression \cite{Haley:1992} and composite interval mapping CIM \cite{Zeng:1994}. MQM combines 
+the strengths of generalized linear model regression ith those of interval mapping 
+\cite{Jansen:1993, Jansen:1994b}. 
 
-In 2003 R/qtl was created by Prof. Dr. K. Broman it is a software toolset for the free R 
-programming language. Its main focus was to provide the mouse community with different QTL 
+R/qtl is an extensible, interactive environment for the mapping of quantitative trait loci (QTL) 
+in experimental crosses. It is implemented as an add-on package for the freely available and 
+widely used statistical language/software R \cite{R:2009}. Since its introduction, R/qtl 
+\cite{Broman:2003} has become a reference implementation with an extensive guide on QTL mapping 
+\cite{RQTLGuide:2009}. Its main focus was to provide the mouse community with different QTL 
 mapping methodologies, and allow to deal with the the aberrant seggregation X chromosome. 
 Furthermore it provides methods to perform quality control of genetic maps. It currently 
 supports different types of inbred populations such as BackCross, F2, Recombinant inbread 
