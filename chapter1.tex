@@ -213,18 +213,26 @@ function for these variants. And it has been shown that many disease-predisposin
 \emph{cis}-eQTLs)\cite{Powell:2012, Lude:2011, Zeller:2010}
 
 \section{Thesis contributions (2010-2014)}
-Chapter2 - Pheno2Geno describes the our work on implementing an R package to efficiently 
-generate new (or saturate old) genetic maps from omics sized datasources.
+Chapter 2 details how Pheno2Geno is developed for high-throughput generation of genetic markers and maps from 
+molecular phenotypes. Pheno2Geno selects suitable phenotypes that show clear differential expression 
+in the founders. Pheno2Geno uses mixture modelling to select phenotypes showing segregation ratios 
+close to the expected mendelian segregation ratios and transform them into genetic markers suitable 
+for map construction and/or saturation. Pheno2Geno analyses the candidate genetic markers and excludes 
+those showing multiple QTL, epistatically interacting QTL, and QTL by environment interactions to 
+provide a set of robust markers for QTL mapping protecting against genetic markers from a non genetic 
+origin.
 
-Chapter3 - Details our work on integration of the MQM algortihm into R/qtl the leading 
-QTL mapping package in R. Also we show how MQM performs on experimental data from a cross 
-of \emph{A. thaliana} compared so classical single marker regression QTL mapping routines.
+Chapter3 highlights the integration of the Multiple QTL mapping algortihm into R/qtl. In sections 
+(3.1 and 3.2) we show the performance of MQM on experimental data from a cross of \emph{A. thaliana} 
+Bayreuth x Shahdara.
 
 Chapter4 - Details our work to provide infrastructure for the Life Sciences. We advocate the 
 use of Generators to create software and propose a datamodel (XGAP) to store phenotype and 
-genotype data. Combining these two leads to xQTL workbench a system for high throughput 
-analysis of Genetical genomics data. We continue by showcasing the WormQTL database the first 
-build using the xQTL workbench system as a backend for computation.
+genotype data. Combining these two approaches we developed: xQTL workbench a scalable web 
+platform for the mapping of quantitative trait loci (QTLs) at multiple levels such as gene 
+expression (eQTL), protein abundance (pQTL), metabolite abundance (mQTL) and phenotype (phQTL) data. 
+Popular QTL mapping methods for model organism and human populations are accessible via the web 
+user interface. Large calculations scale easily on to multi-core computers, clusters and Cloud
 
 Chapter5 -  Shows our current work on understanding differences in correlation observed when 
 CTL mapping two traits. We show that there is a high overlap between CTL mapping and using an 
