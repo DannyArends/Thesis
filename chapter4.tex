@@ -125,24 +125,24 @@ toolkit to build a wide range of biomedical applications \cite{Swertz:2010a, Fre
 ranging from sequencing to proteomics, including:
 
 \begin{enumerate}\itemsep1pt
-\item \italic{XGAP} - an eXtensible Genotype And Phenotype platform \cite{Swertz:2010a} for systems genetics 
+\item \emph{XGAP} - an eXtensible Genotype And Phenotype platform \cite{Swertz:2010a} for systems genetics 
 (GWAS, GWL) to store all kinds of *omics data ranging from genotype to transcript and protein 
 data. XGAP comes with plug-ins to view large data matrices and run processing tools on a cluster. 
 See http://www.xgap.org
-\item \italic{Pheno-OM} - to integrate any phenotype data from locus-specific annotations to 
+\item \emph{Pheno-OM} - to integrate any phenotype data from locus-specific annotations to 
 rich biobank cohort reports with the help of the OntoCAT ontology toolkit to create semantic 
 mappings between related data items \cite{Kurbatova:2011}.\\
 See: http://www.ebi.ac.uk/microarray-srv/pheno
-\item \italic{FINDIS} - a mutation database for monogenic diseases belonging to the Finnish 
+\item \emph{FINDIS} - a mutation database for monogenic diseases belonging to the Finnish 
 disease heritage. See http://www.findis.org/
-\item \italic{HGVBaseG2P} - the data management and curation interface complement for HGVbaseG2P, 
+\item \emph{HGVBaseG2P} - the data management and curation interface complement for HGVbaseG2P, 
 a central database of genotype to phenotype association studies \cite{Fredman:2002}. See http://www.hgvbaseg2p.org
-\item \italic{MAGETAB-OM} - a microarray experiment data platform based on the MAGE-TAB data format 
+\item \emph{MAGETAB-OM} - a microarray experiment data platform based on the MAGE-TAB data format 
 standard to create a local microarray repository that is compatible with the public ArrayExpress 
 and GEO repositories. See http://magetab-om.sourceforge.net/ 
-\item \italic{NordicDB} - the database of high-density genome-wide SNP information from 5,000 
+\item \emph{NordicDB} - the database of high-density genome-wide SNP information from 5,000 
 controls originating from Finnish, Swedish and Danish studies \cite{Leu:2010}. See http://www.nordicdb.org
-\item \italic{DesignGG} - a web tool to optimally design such genetical genomics experiments \cite{Li:2009}. 
+\item \emph{DesignGG} - a web tool to optimally design such genetical genomics experiments \cite{Li:2009}. 
 See http://gbic.biol.rug.nl/designGG/
 \end{enumerate}
 
@@ -163,7 +163,7 @@ In a recent perspective paper \cite{Swertz:2007} we evaluated the general benefi
 development, such as the ability to develop infrastructure in short cycles to get the application 
 right, ensuring developers and biologists are thinking along the same lines and increasing quality 
 and functionality for all. We further evaluated applying this method to both microarray and genetical 
-genomics experiments \cite{Swertz:2004}, \cite{Swertz:2010a}	.
+genomics experiments \cite{Swertz:2004}, \cite{Swertz:2010a}.
 
 Here we have presented MOLGENIS in detail and reported the results of using this method against a 
 wider range of applications. We conclude that using model-driven methods enables bioinformaticians 
@@ -249,7 +249,7 @@ classical phenotype assays \cite{Heap:2009, Bystrykh:2005, Li:2006, Keurentjes:2
 other assays for detection of genetic markers; and annotation information for panel, gene, 
 sample and clone. Non-technical partners successfully evaluated the practical utility by 
 independently formatting and loading parts of their consortium data: EU-CASIMIR (for mouse), EU-GEN2PHEN (for human), 
-EU-PANACEA (for C. elegans) and IOP-Brassica (for plants). A public subset of these data sets 
+EU-PANACEA (for \emph{C. elegans}) and IOP-Brassica (for plants). A public subset of these data sets 
 is available for download at http://www.xgap.org. When needed we could quickly add customizations to the 
 model, building on the general schema, and then use MOLGENIS to generate a new version of the 
 software at the push of a button, for example, to support NMR methods as an extended type of 
@@ -307,37 +307,37 @@ Windows, Linux or Mac (and using Java, R for the server).
 of new QTL analyses, scalable data management and analysis tracking.
 
 \begin{enumerate}\itemsep1pt
-\item \italic{Explore QTL profiles} - Through the web-interface, users can explore mapped QTLs, and 
+\item \emph{Explore QTL profiles} - Through the web-interface, users can explore mapped QTLs, and 
 underlying information by viewing QTL plots in an interactive scrollable and zoomable window. 
 \xqtlwb has support for other common image formats, such as PNG, JPG, SVG and embedded postscript; 
 useful for publishing scientific results online, and on paper. From the output, main database identifiers, 
 such as gene, protein and/or metabolite identifiers are automatically linked-out to matching external 
 web pages of public database such as NCBI, KEGG, and Wormbase.
-\item \italic{Single and multiple QTL mapping} - \xqtlwb wraps R/qtl \cite{Broman:2003, Arends:2010} in a 
+\item \emph{Single and multiple QTL mapping} - \xqtlwb wraps R/qtl \cite{Broman:2003, Arends:2010} in a 
 web-based analysis framework offering all important QTL mapping routines, such as the EM algorithm, 
 imputation, Haley-Knott regression, the extended Haley-Knott method, marker regression, and Multiple 
 QTL mapping. In addition, \xqtlwb includes R/qtlbim, a library which provides a Bayesian model 
 selection approach for mapping multiple interacting QTL \cite{Yandell:2007} and Plink, a library for 
 association QTL mapping on Single Nucleotide Polymorphisms (SNP) in natural populations \cite{Purcell:2007}.
-\item \italic{Add new analysis tools} - \xqtlwb supports flexible adding of more QTL analysis software: 
+\item \emph{Add new analysis tools} - \xqtlwb supports flexible adding of more QTL analysis software: 
 any R-based, or command-line tool, can be plugged in. All analysis results are uploaded, stored and 
 tracked, in the \xqtlwb database through an R-API. When new tools are added, they can build on the 
 high-level multi-core computer, cluster and Cloud management functions, based on TORQUE/OpenPBS and 
 BioNode \cite{Prins:2012}. \xqtlwb can be made part of a larger analysis pipeline using interfaces to R, 
 Excel, REST and SOAP web services and Galaxy \cite{Goecks:2010}.
-\item \italic{Track and trace} - When a new analysis protocol or R script is defined, this protocol 
+\item \emph{Track and trace} - When a new analysis protocol or R script is defined, this protocol 
 can easily be applied to new data. Also, \xqtlwb keeps track of history. Re-use of analysis protocols 
 can be done in an automated fashion. Previous analyses can be rerun without resetting parameters. 
 \xqtlwb provides an online overview of past analyses e.g. which analyses were performed, by who, when 
 and display settings applied.
-\item \italic{Scalable data management} - \xqtlwb has a consistency checking database based on XGAP 
+\item \emph{Scalable data management} - \xqtlwb has a consistency checking database based on XGAP 
 specification \cite{Swertz:2010a}, user interfaces to manage and query genotype and phenotype data 
 sets, and support for various database back-ends including HSQL (standalone) and MySQL. Phenotype, 
 genotype and genetic map data can be imported as text (TXT), comma separated (CSV), and Excel files. 
 \xqtlwb handles and stores large data in a new and efficient binary edition of the XGAP format, named 
 XGAPbin (extension .xbin), documented online. Such binary formats are essential when handling, storing 
 and transporting multi-Gigabyte datasets.
-\item \italic{Customize to research} - Additional modules for new data modalities can be added using 
+\item \emph{Customize to research} - Additional modules for new data modalities can be added using 
 MOLGENIS software generator \cite{Swertz:2010b}. The 'look and feel' of \xqtlwb is adaptable to 
 institute or consortium style by changing a simple template which is described in the \xqtlwb 
 documentation enabeling seamless integration into an existing web-site or intranet site, such as 
@@ -384,23 +384,24 @@ high throughput analyses to all at http://www.wormqtl.org.
 
 \subsection{Background}
 
-Over the past 30 years, the metazoan Caenorhabditis elegans has become a premier animal model for 
+Over the past 30 years, the metazoan \emph{Caenorhabditis elegans} has become a premier animal model for 
 determining the genetic basis of quantitative traits \cite{Gaertner:2010, Kammenga:2008}. The 
 extensive knowledge of molecular, cellular and neural bases of complex phenotypes makes 
-\italic{C. elegans} an ideal system for the next endeavour: determining the role of natural genetic 
+\emph{C. elegans} an ideal system for the next endeavour: determining the role of natural genetic 
 variation on system variation. These efforts have resulted in an accumulation of a valuable amount 
 of phenotypic, high-throughput molecular and genotypic data across different developmental worm 
-stages and environments in hundreds of strains \colorbox{yellow}{(3-19)}. In addition, a similar wealth has been 
-produced on hundreds of different \italic{C. elegans} wild isolates and other species \colorbox{yellow}{(20)}. 
-For example, \italic{C. briggsae} is an emerging model organism that allows evolutionary comparisons 
-with \italic{C. elegans} and quantitative genetic exploration of its own unique biological 
-attributes \colorbox{yellow}{(21)}.
+stages and environments in hundreds of strains \cite{Palopoli:2008, Kammenga:2007, Rockman:2010, 
+McGrath:2009, Reddy:2009, Doroszuk:2009, Li:2010, Gutteling:2007, Vinuela:2010}. In addition, a similar wealth has been 
+produced on hundreds of different \emph{C. elegans} wild isolates and other species \cite{Andersen:2012}. 
+For example, \emph{C. briggsae} is an emerging model organism that allows evolutionary comparisons 
+with \emph{C. elegans} and quantitative genetic exploration of its own unique biological 
+attributes \cite{Ross:2011}.
 
 This rapid increase in valuable data calls for an easily accessible database allowing for 
-comparative analysis and meta-analysis within and across Caenorhabditis species \colorbox{yellow}{(22)}. To 
+comparative analysis and meta-analysis within and across Caenorhabditis species \cite{Swertz:2007}. To 
 facilitate this, we designed a public database repository for the worm community, WormQTL 
 (http://www.wormqtl.org). Driven by the PANACEA project of the systems biology program of 
-the EU, its design was tuned to the needs of \italic{C. elegans} researchers via an intensive 
+the EU, its design was tuned to the needs of \emph{C. elegans} researchers via an intensive 
 series of interactive design and user evaluation sessions on a mission to integrate all 
 available data within the project.
 
@@ -426,9 +427,9 @@ the results, methods used to implement the system and future plans.
 
 \subsection{Results}
 WormQTL is an online database platform for expression quantitative trait loci (eQTL) exploration 
-to service the worm community and already provides many publicly available data sets 
-\colorbox{yellow}{(5,9-15,19)}. New data sets can be uploaded using the XGAP plain file data 
-format. Suitable help pages are provided. 
+to service the worm community and already provides many publicly available data sets \cite{Rockman:2010, 
+Doroszuk:2009, Li:2006, Li:2010, Gutteling:2007, Vinuela:2010, Elvin:2011, Vinuela:2012}. New data 
+sets can be uploaded using the XGAP plain file data format. Suitable help pages are provided. 
 Currently, 38 public data sets have been loaded, of which the bulk is xQTL data on 500 strains 
 (introgression lines, recombinant inbred lines (RILs), recombinant inbred advanced intercross lines 
 and natural isolates), 55,000 transcripts, 1594 samples and 1579 markers (Table 1). With this 
@@ -439,9 +440,9 @@ conditions and ages and compare classical QTLs with xQTLs. The main interfaces a
 'Genome browser' and 'Browse data'.
 
 \begin{enumerate}\itemsep1pt
-\item \italic{Find QTLs} - QTL is genomic regions associated with phenotypic variation and can be 
+\item \emph{Find QTLs} - QTL is genomic regions associated with phenotypic variation and can be 
 used to study the genetic architecture of traits and to detect potential phenotypic regulators. 
-Recently, the number of QTLs and especially eQTL studies in \italic{C. elegans} has increased greatly. 
+Recently, the number of QTLs and especially eQTL studies in \emph{C. elegans} has increased greatly. 
 These eQTL studies consist of large data sets that, before WormQTL, were very difficult to access 
 and perform a combined meta-analysis. Therefore, we provide easy access to most of the eQTL studies 
 published, by search, browse and plot functions (Figure 1). We support relatively simple questions like 
@@ -450,12 +451,12 @@ All the matching genes, markers and traits found in the data sets are returned i
 WormBase and literature. Furthermore, WormQTL is the first portal for any species that allows comparison 
 of eQTLs over multiple experiments and environments, giving insight in the plastic nature of genetic 
 regulation.
-\item \italic{Genome browser} - To find the genes that have a QTL on your favourite position, click 
+\item \emph{Genome browser} - To find the genes that have a QTL on your favourite position, click 
 'Genome browser'. Here, you can select from all the different releases of the University of California, 
 Santa Cruz genome releases. You can add tracks from the designated experiments of interest. Then 
 navigate to your favourite location (tip: use open in new window) and collect significant probe 
 identifiers from that region.
-\item \italic{Browse data} - Complete data sets and accompanying gene, sample and trait identifier 
+\item \emph{Browse data} - Complete data sets and accompanying gene, sample and trait identifier 
 lists can be browsed via the 'browse data' user interface. External identifiers anywhere in the 
 data are automatically recognized and enhanced as linkouts to background information, such as links 
 to Wormbase, NCBI, KEGG or Ensembl. All the annotation lists and data matrices can be browsed and 
@@ -471,10 +472,10 @@ data and new analysis scripts directly.
 \subsection{Conclusions and Discussion}
 \subsubsection{Implementation}
 All the software was implemented using the open source Molecular Genetics Information Systems 
-MOLGENIS toolkit \colorbox{yellow}{(26)}, and in particular one previously existing MOLGENIS application, the 
-extensible xQTL workbench \colorbox{yellow}{(27)} and the R/qtl QTL mapping and visualization package for the R 
-language \colorbox{yellow}{(23,24)}. The MOLGENIS toolkit is a Java-based software to generate tailored research 
-infrastructure on demand \colorbox{yellow}{(22)}. From a single 'blueprint' describing all biological data 
+MOLGENIS toolkit \cite{Swertz:2010a}, and in particular one previously existing MOLGENIS application, the 
+extensible xQTL workbench \cite{Arends:2012a} and the R/qtl QTL mapping and visualization package for the R 
+language \cite{Broman:2003, Arends:2010}. The MOLGENIS toolkit is a Java-based software to generate tailored research 
+infrastructure on demand \cite{Swertz:2007}. From a single 'blueprint' describing all biological data 
 structures and user interfaces of the whole system, MOLGENIS autogenerates a full application 
 including user interface, database infrastructure and application programming interfaces 
 (APIs) in R, REST and SOAP.
@@ -503,7 +504,7 @@ expression, genotypes and QTL P-values, with the row names and column names cros
 the annotations. For example, gene expression is a matrix of 'gene' X 'sample'. Subsequently 
 these data sets were loaded using the MOLGENIS/xQTL data import wizards, which check the 
 files for correctness and give informative feedback if the data are not yet in a format that 
-WormQTL can understand \colorbox{yellow}{(25)}. All the annotations are stored in tables in the database; the 
+WormQTL can understand \cite{Swertz:2010a}. All the annotations are stored in tables in the database; the 
 large data matrices are stored in a optimized binary format to speed up analyses and queries. 
 This format is documented in the WormQTL manual to ease the submission of new data sets from 
 the community. Finally, all the QTL profiles were recalculated according to the specification 
@@ -527,17 +528,17 @@ and heritability per microarray probe or gene or histograms of the phenotypic va
 the parental values if available). Advanced QTL mapping tools might include multi-environment
 /age mapping or genotype-by-environment analyses, developed in collaboration with the R/qtl team 
 to enable automatic links to this software. The candidate gene selection tools would benefit from 
-the most recent stable release of Wormbase (28), the most widely used platform for worm biology. 
-But also other sources of information like MODENCODE \colorbox{yellow}{(29)} or Wormnet 
-\colorbox{yellow}{(30)} are likely to 
-be connected with WormQTL. A candidate gene selection tool might be implemented in a next version 
+the most recent stable release of Wormbase \cite{Yook:2012}, the most widely used platform for worm biology. 
+But also other sources of information like MODENCODE \cite{Gerstein:2010} or Wormnet 
+\cite{Lee:2008} are likely to be connected with WormQTL. A candidate gene selection tool might be 
+implemented in a next version 
 of WormQTL as it is less easy to implement and often needs information beyond WormQTL. One can 
 think of (i) which SNPs/genes/polymorphic genes/transcription factor binding sites and so forth 
 are underlying a eQTL; (ii) which gene, underlying my xQTL, is linked to most of the genes 
 having an xQTL; (iii) which genes are polymorphic and (iv) which other genotypes show a difference 
 in expression and do they share polymorphisms with the parental strains of the RIL population 
 that the xQTL was mapped in. Moreover, WormQTL can be easily expanded to other Caenorhabditis 
-species \colorbox{yellow}{(21)}.
+species \cite{Ross:2011}.
 
 We believe that WormQTL, which will be continuously curated by the members of this international 
 consortium, is a very attractive database for the growing community of quantitative genetics in 
