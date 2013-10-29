@@ -32,6 +32,13 @@ focused on the effect of the environment that a seed perceives during germinatio
 effect of the environment during maternal plant growth, which has been the subject of other 
 studies \cite{Dechaine:2009, Elwell:2011}. 
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_1.eps}
+  \caption[Germination curve.]
+    {Germination curve.}
+\end{figure}
+
 Seed content (e.g. oil) is often used as commodity and modifications to the content can therefore be 
 regarded as seed quality parameters as well. To prevent confusion we will use the term seed performance 
 to indicate that the focus of our study was restricted to seed germination characteristics.
@@ -52,6 +59,27 @@ Sha RIL population has been used in many previous studies to map QTL positions f
 morning-specific growth \cite{Loudet:2008} and cold-dark germination \cite{Meng:2008}. We have used 
 the natural variation present in this RIL population to map the response of germination characteristics 
 to environmental conditions to which a seed is exposed.
+
+\begin{table}[h]
+  \centering
+  {\footnotesize
+  \begin{tabular}{  l  l  l  l  l  l }
+    \hline
+    {\bf Trait} & {\bf Gmax} & {\bf AUC} & {\bf T50}& {\bf T10}& {\bf A8416}\\
+    \hline
+    AR.NS           & 0.82 & 0.97 & 0.86 & 0.79 & 0.82 \\
+    AR.NS.Cold      & 0.51 & 0.77 & 0.73 & 0.66 & 0.48 \\
+    AR.NS.Mannitol  & 0.61 & 0.79 & 0.70 & 0.55 & 0.62 \\
+    AR.NS.NACL      & 0.90 & 0.94 & 0.80 & 0.76 & 0.43 \\
+    AR.WS           & 0.63 & 0.19 & 0.78 & 0.72 & 0.72 \\
+    AR.WS.NACL      & 0.91 & 0.93 & 0.86 & 0.78 & 0.70 \\
+    Fresh.NS        & 0.92 & 0.94 & 0.81 & 0.70 & 0.76 \\
+    Fresh.WS        & 0.40 & 0.81 & 0.87 & 0.84 & 0.76 \\
+    \hline
+  \end{tabular}
+  }
+  \caption{Overview of current technologies}
+\end{table}
 
 Freshly harvested viable Arabidopsis seeds often don't germinate even when placed under conditions 
 favorable for germination. This event, called primary dormancy, is shown to be subject to natural 
@@ -81,6 +109,13 @@ We correlated these traits to our germination related traits to evaluate
 possible causality. In total this analysis resulted in 327 trait scores over different harvests. 
 Evaluation of these high numbers of phenotypes demanded methods of QTL analysis that extended beyond 
 mapping of individual traits and that allowed comprehensive and comprehensible visualization.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_2.eps}
+  \caption[Generated Output.]
+    {Generated Output.}
+\end{figure}
 
 Analysis of natural variation that is captured in well-defined recombinant inbred populations has 
 shown to be a powerful tool to detect important loci that influence the traits under study 
@@ -129,6 +164,13 @@ NaCl from Gmax on water. This subtraction was reversed for the rate and uniformi
 correct the reversed nature of these parameters (e.g. slower germination results in a larger t10 
 and t50). Table 1 gives an overview of all corrections that have been applied. 
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_3.eps}
+  \caption[Heatmap of correlation.]
+    {Heatmap of correlation.}
+\end{figure}
+
 An analytical protocol was designed, using the popular R/qtl package of R to analyze trait data of 
 recombinant inbred populations with the multiple QTL model approach \cite{Arends:2010}. When 
 performing a detailed QTL analysis it is important that several steps are performed or checked. 
@@ -152,6 +194,13 @@ markers as cofactors, this does not improve mapping and only lowers statistical 
 multiple testing correction in the permutation analysis. The provided cofactor file is used to perform 
 automated backward elimination of cofactors.
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_4.eps}
+  \caption[QTL locations.]
+    {QTL locations.}
+\end{figure}
+
 Backward elimination is performed to remove cofactors that do not significantly contribute to the fit 
 of the initial model. This is achieved by comparing Akaike's information criterions (AIC) of the 
 different models \cite{Jansen:1993}. Using the final selected QTL model, the mapping LOD scores are 
@@ -170,6 +219,13 @@ MSAT520037 + MSAT519) were observed for germination on salt (yellow lines) and d
 Next to the importance of detecting possible interacting loci this QTLxQTL analysis provides additional 
 arguments for co-locating QTL to be of similar genetic origin. Overall, the creation of this type of 
 summarizing figures is greatly facilitating the interpretation of large datasets.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_5.eps}
+  \caption[Cytoscape marker trait network.]
+    {Cytoscape marker trait network.}
+\end{figure}
 
 \subsubsection{QTLxEnvironment interaction}
 To obtain a parameter for the response, we had to correct all values with their proper control condition 
@@ -196,7 +252,14 @@ QTLs, including germination at low temperature (top chromosome I) and germinatio
 exogenous ABA (bottom chromosome V) displayed opposite effects on germination when compared to the 
 other treatments. In Table 3 the environmental specific effect sizes are summarized for the major loci. 
 A complete overview of effect sizes and explained variances for all detected loci can be found in 
-Supplemental table 6. 
+Supplemental table 6.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_6.eps}
+  \caption[Epistatic interaction network.]
+    {Epistatic interaction network.}
+\end{figure}
 
 \subsubsection{QTL confirmation}
 Taking advantage of the residual heterozygosity present in the F6 generation of the Bay-0xSha population, 
@@ -213,6 +276,13 @@ use of HIF103. Upon imbibition seeds swell due to rapid water uptake and possibl
 expansion of the inner mucilage layer. In Sha, which is a natural mutant for the MUM2 gene 
 \cite{Macquet:2007}, this swelling did not occur. Also the HIF lines at the MUM2 position showed a 
 clear difference in swelling phenotype which was still significant 24 hours after imbibition (Figure 8).
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_7.eps}
+  \caption[G:E genome wide QTL scan.]
+    {G:E genome wide QTL scan.}
+\end{figure}
 
 \subsection{Conclusions and Discussion}
 When analyzing large (RIL) populations, it is hardly feasible to manually count all germination 
