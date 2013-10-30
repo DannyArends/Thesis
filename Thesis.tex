@@ -9,7 +9,7 @@
 \usepackage{tcolorbox}
 \usepackage{lipsum}
 \usepackage{caption}
-\usepackage{natbib}
+\usepackage[square,sort,comma,numbers]{natbib}
 \usepackage{subfigure}
 \captionsetup{singlelinecheck=off,labelfont=bf,labelsep=space}
 
@@ -115,20 +115,21 @@ Beoordelingcommisie:  & Prof. dr. \\
 \chapter*{Summary}\vspace{-30pt}
 \addcontentsline{toc}{chapter}{Summary}
 Systems genetics is the inter disciplinairy field which deals with the consequences of genetic 
-variation on a biological system. The goal of systems genetics is to partition this variation 
-into three major categories: Genetic, Environment and Error variation, and explain how complex
-phenotypes arise from a combination of these three major factors.  Natural variation (or 
-genetic pertubation) is used to interogate the genetic component of phenotype variation. 
-Combined with environmental pertubation we can investigate the influence different 
-environments and the interaction between genetics and environment. Experimental design and 
-statistics are used to minimize and estimate error variance.
+variation on all bio molecular levels of a biological system. The aim of systems genetics is to 
+understand systems by partitioning variation into three major categories: Genetic, Environment 
+and Error variation, and explain how complex phenotypes arise from a combination of these three 
+major factors across bio molecular levels.  Natural variation (or genetic pertubation) is used 
+to interogate the genetic component of phenotype variation. Combined with environmental 
+pertubation we can investigate the influence different environments and the interaction between 
+genetics and environment. Experimental design and statistics are used to minimize and estimate 
+error variance. This thesis highlights our contribution to the field of systems genetics.
 
-Pheno2Geno (Chapter \ref{chap:pheno2geno}) deals with the creation of genetic maps from 
-large scale omics data. The theory of genetic map construction is around 100 years old. 
-Software available for genetic map construction has not been adapted yet to make use of 
-new technologies such as multi threading or cluster computing. Pheno2Geno aims to 
-provide analysis of data from tiling arrays or RNAseq to generate gene based expression 
-markers and create high density genetic maps.
+Chapter \ref{chap:pheno2geno} shows Pheno2Geno an R package that deals with the creation of 
+genetic maps from large scale omics data. The theory behind genetic map construction is around 
+100 years old, most software was witen in the 1980s. Software available for genetic map construction 
+has not been adapted yet to make use of new technologies such as multi threading or cluster 
+computing. Pheno2Geno aims to provide analysis of data from tiling arrays or RNAseq to generate 
+gene based expression markers (GEMs) and create high density genetic maps.
 
 Chapter \ref{chap:mqm} describes the implementation of the Multiple QTL mapping routine 
 by R. C. Jansen into R/qtl. Adding a 'new' algorithm to the R/qtl toolset which aims to 
@@ -137,7 +138,7 @@ build around a unified data structure allowing easy adaptation and extension of 
 R/qtl allows researchers to analyse data from different sources or to quickly compare 
 different approaches.
 
-In chapter \ref{chap:xqtlwormbench} we show case our ideas for a generic storage and 
+Chapter \ref{chap:xqtlwormbench} is to show case our ideas for a generic storage and 
 computation platform for systems genetics. Our demo system xQTL workbench is currently 
 being used as a backend to the WormQTL and WormQTL-HD database. xQTL workbench allows 
 users to store and share their data in a local or web environment, and run analysis across 
@@ -145,22 +146,14 @@ datasets using the power of distributed computing. It comes standard with QTL ma
 tools such as: R/qtl, PLINK and qtlbim but also provides a web inferfaces, data importers, 
 APIs and visualizations.
 
-Current work on using differences in correlation to generate interaction networks and detect 
-cell type specific QTL effects is described in chapter \ref{chap:ctlmapping}. Correlated 
-Traits Locus analysis (or CTL mapping) enables researchers to find genetic loci controlling 
-correlation differences in segregating phenotypes. A variation on this method has proven 
-valuable in discovering cell type specific eQTL effects. Using these effects it is possible 
+Chapter \ref{chap:ctlmapping} describes current work on using differences in correlation to 
+generate interaction networks and detect cell type specific QTL effects. Correlated Traits 
+Locus analysis (or CTL mapping) enables researchers to find genetic loci controlling correlation 
+differences in segregating phenotypes. A variation on this method has proven valuable in 
+discovering cell type specific eQTL effects. Using these effects it is possible 
 to untangle cell mixtures seen in whole blood.
 
-%In short this proposed method creates a proxy for cell counts in an unrelated cohort. this proxy 
-%is then used during meta analysis as artifical cell count across many different cohorts. The 
-%interaction effects between QTL and Proxy are used to assign a cell type to each eQTL. In the final 
-%stage diseases in which cell type enrichment is prominent are tested by using publicly available data.
-
-Last we have some additional required chapters, such as this summary in Dutch, a CV and publication 
-list and bibliography.\\
-
-I hope you enjoy reading this thesis as much as I enjoyed creating it during the last four years,\\\\
+I trust you enjoy reading this thesis as much as I enjoyed creating it during the last four years,\\\\
 
 Danny Arends (Aug 2013)
 \newpage
@@ -182,7 +175,7 @@ Danny Arends (Aug 2013)
 
 \input{additional.tex}
 
-\bibliographystyle{plain}
+\bibliographystyle{unsrt85}
 \addcontentsline{toc}{chapter}{Bibliography}
 {\footnotesize
 \bibliography{Thesis}
