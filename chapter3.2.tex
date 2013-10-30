@@ -168,6 +168,43 @@ These results show that the optimal allocation of samples as in the GGG design c
 genetic and interacting effects and that the GGG design results in the maximisation of detected variation in relation to 
 the necessary resources with only a minimal compromise of statistical power as compared to the full block design.
 
+\begin{table}[h!]
+  \begin{center}
+  {\footnotesize
+  \begin{tabular}{ l  c  c }
+    \hline
+    {\bf Design} & {\bf QTL} & {\bf Interacting QTL}\\
+    \hline
+    Full-Block     & 96     & 30\\
+    \ \ \ Best power for G effect & &\\
+    \ \ \ Most expensive & &\\
+    \ \ \ Best power for G:E effect & &\\
+
+    Single-Block   & 93     & 0\\
+    \ \ \ Same power for G in selected condition & &\\
+    \ \ \ Less expensive & &\\
+    \ \ \ Missing G:E effect & &\\
+    Random         & 78(75) & 17(5)\\
+    \ \ \ Limited power G effect & &\\
+    \ \ \ Less expensive & &\\
+    \ \ \ Limited power G:E effect & &\\
+    DesignGG       & 81(67) & 27(12)\\
+    \ \ \ Optimal power for G effect & &\\
+    \ \ \ Less expensive & &\\
+    \ \ \ Optimal power for G:E effect & &\\
+    \hline
+  \end{tabular}
+  }
+  \end{center}
+  \caption[Comparing different experimental designs]{Comparison of different experimental designs to study G and G:E effects on classic phenotypes in four
+different conditions. Each E condition is indicated with different gradient of gray in the blocks. In total
+there are n (164) genetically different RILs, and the data were analyzed in four different ways. The last two
+rows compare the number of QTLs for main G effect and G:E interacting effect detected using different
+design strategies. The numbers in parentheses indicate the QTLs that share confidence intervals (1.5 drop-
+off) with the full-block design.
+}
+\end{table}
+
 \subsubsection{Metabolic Analysis}
 To study the metabolic status of Arabidopsis seeds during germination, four biologically important developmental stages 
 of seed germination with expected variation in metabolite levels to different extent were selected. The first two stages, 
@@ -222,6 +259,15 @@ Some positive and negative transgression is observed for most of the metabolites
 RIL is respectively higher or lower compared to the respectively highest or lowest parent. In addition, 15 metabolites were 
 detected in RILs which were not present in either parent. This suggests that new allele combinations in the RIL population 
 resulted in enhanced accumulation or even novel formation of metabolites.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_2_1.eps}
+  \caption[Self organizing map]{Self organizing map, grouping different metabolites according to their accumulation pattern over different 
+    genotypes and developmental stages of significantly variable metabolites (anova F pr. < 0.05)  measured in the parental lines Bay-0 
+    and Sha in four developmental stages.  PD=Primary dormant, AR=After-ripened, 6H=6 hour imbibed, RP=seeds at radicle protrusion. Two
+    independent biological replicates were measured for each combination of parent and developmental stage.}
+\end{figure}
 
 \subsubsection{G mapping of metabolites in a generalized genetical genomics design}
 In the experimental setup of this study, the E variation is defined as variation observed between the four
@@ -288,6 +334,22 @@ fluxes are arrested in the dry seed. The other two stages represent 6H seeds and
 Different levels of E variation were obtained and could be mapped by the G and/or G:E component of 
 the linear model.
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_2_2.eps}
+  \caption[Comparison of QTLs detected]{Comparison of QTLs detected within single environments (PD, AR, 
+          6H and RP) by using the simple $Y=G+\epsilon$ model with QTLs detected when combining environments via the full 
+          $Y=E+G+G:E+\epsilon$ model. QTLs were binned to two regions per chromosome (i.e. starting and ending regions).  
+          When comparing QTLs of a single trait from two models, they are considered as shared ones  if QTLs fall 
+          in the same region. In total we found 73 QTLs shared between two models, as shown in the middle ellipse. 
+          There are 20 and 60 QTLs that are only detected in simple and full model, respectively. Nodes indicate 
+          metabolite QTLs and node size shows the degree of connectivity. Nodes are connected by edges which show 
+          the link between a QTL and a mapping population (single environments versus multiple environments). 
+          Separate nodes are created for the genetic (G) component and the genetic x environmental (G:E) component. 
+          Edge line color represents direction of the QTLs, green for higher levels in Sha; blue for higher levels 
+          in Bay-0. Edge width indicates increasing LOD scores..}
+\end{figure}
+
 \subsubsection{G regulation of metabolic traits}
 One of the most rewarding benefits of the generalized approach is the possibility to analyze metabolic 
 fluxes over different environments or developmental stages in addition to the effect of genetic variation. 
@@ -310,6 +372,16 @@ at the top of chromosome IV. The Sha allele at this position causes higher level
 seeds, but not in imbibed seeds (Fig 4D). This strong negative environmental effect (LOD = 6.6) is also 
 responsible for the apparent directional shift of the G:E QTL effect.
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_2_3.eps}
+  \caption[Effect sizes]{Effect sizes for each individual developmental stages are plotted against the derived 
+          LOD score. A: normalized allelic effect size per environment against LOD scores from the genetic (G) 
+          component and B: normalized allelic effect size per environment against LOD scores from the genetic 
+          x environmental interaction (G:E) component. Colors indicate the developmental stages (red = primary 
+          dormant (PD); blue = after ripened (AR); green = 6 hours imbibed (6H); orange = seeds at radicle protrusion (RP)..}
+\end{figure}
+
 Similar to the self-organizing maps in figure 1 flashcards can be instrumental in the identification of 
 metabolic relationships with the added value of genetic regulatory information. This is illustrated by 
 integrating flashcards of all metabolites that were identified in this study with a general Arabidopsis 
@@ -327,6 +399,28 @@ G:E QTL at the bottom of chromosome I was detected for eight amino acids explain
 observed genetic variation. The joined analysis of environmentally and genetically induced variation in 
 metabolic profiles can thus identify causal relationships between different modular parts of metabolic 
 networks and associate these connections with relevant biological processes.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.20]{eps/image_3_2_4.eps}
+  \caption[Normalized metabolite changes]{Normalized metabolite changes during 4 developmental stages (PD, 
+          AR, 6H and RP). Each panel represents a single metabolite and contains information about environmental 
+          variation (green line plot, average over all lines within a single developmental stage) and genetic 
+          variation (blue lines represent the metabolite levels for lines carrying the Bay-0 allele for the most 
+          significant QTL and red lines those for the Sha allele carrying lines). QTL profiles for metabolites 
+          with either genetic (G) or genetic x environmental (G:E) variation are indicated at the bottom of each 
+          panel by a heat bar representing the 5 chromosomes and a false-color scale is used to indicate the QTL 
+          significance. For G QTLs, positive values (light and dark blue) represent a larger effect on the metabolite 
+          content for the Bay-0 allele, and negative values (light and dark red) represent a larger effect on the 
+          metabolite content for the Sha allele. Interpretation of the color scale for G:E QTLs is less intuitive 
+          because strong negative environmental effects can result in inversion of the QTL LOD score (e.g. gluconic acid). 
+          The presented effectplot (left line plot) shows the true allele effect. Environmental (E) variation is 
+          expressed as LOD score in the lower left corner. Depending on the most significant variation either, 
+          genetic (G) or interaction (G:E) effects are also indicated with LOD scores in the lower left corner below 
+          or above the heat bar respectively. A: L-Lysine showing only Environmental (E) variation; B: Fumaric acid: 
+          showing Genetic (G) variation; C: Malic acid showing both Environmental and Genetic variation (G+E); D: 
+          Gluconic acid showing interaction between Environment and Genetic variation (G:E)..}
+\end{figure}
 
 \subsubsection{Regulatory hotspots and physiological co-regulation}
 As noted, the accumulation of several metabolites maps to identical positions suggesting that these might 
@@ -348,6 +442,14 @@ or a role in resource competition and allocation in central metabolism. This sug
 by the fact that these loci link to flowering time and the circadian clock regulation in the Bay-0 x Sha 
 population \cite{Chan:2011}. It also cannot be ruled out that other genes overlapping the AOP or MAM 
 regions are causal for the observed variation.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_2_5.eps}
+  \caption[Number of significant QTL]{Number of significant QTLs plotted against the genetic location. Metabolic 
+          QTLs are represented by the solid (genetic component; G) and dashed (genetic x environmental component; 
+          G:E) lines. Germination related QTLs \cite{Joosen:2012} are shown by the dotted line..}
+\end{figure}
 
 Since many metabolites appear to be co-regulated, the strong impact of some loci on central metabolism might 
 also exert its effect on physiological traits. Recently, the genetic landscape of seed germination in the 
@@ -394,6 +496,17 @@ in the next generation and can be used to confirm QTL positions, as it provides 
 study both parental alleles at the locus of interest in an otherwise homozygous background 
 \cite{Tuinstra:1997}. In a heterogeneous inbred family (HIF), those heterozygous regions are fixed, 
 and two separate lines containing the alleles of both parents, respectively, are maintained.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_2_6.eps}
+  \caption[QTL Confirmation]{QTL confirmation for maltose using the heterogeneous inbred family (HIF) approach. Two 
+          QTL regions (top chromosome IV and top chromosome V) were analyzed using after ripened (AR) seeds of lines 
+          HIF312 and HIF214 (A). The QTL profile for maltose (B) shows two significant QTLs (dashed line indicates the 
+          LOD 4 significance threshold). The lower panel (C) shows the parental levels for maltose and the confirmation 
+          for both QTLs by the segregating HIF lines (either fixed for Bay-0 or Sha alleles at the heterozygous interval). 
+          Significant differences (t test $P < 0.05$) are indicated with * in-between the two contrasting samples..}
+\end{figure}
 
 HIF312 and HIF214 are segregating for regions at the top of chromosomes 4 and 5 (Fig. 6A), respectively,
 and cover the region in which the two major metabolite hotspots were detected. AR dry seeds were used to
