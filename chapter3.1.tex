@@ -86,7 +86,7 @@ Freshly harvested viable Arabidopsis seeds often don't germinate even when place
 favorable for germination. This event, called primary dormancy, is shown to be subject to natural 
 variation \cite{Bentsink:2010}. In many Arabidopsis ecotypes, this primary dormancy is released after 
 a period of dry storage at room temperature. Another dormancy breaking treatment is cold stratification 
-were seeds are imbibed in water and stored at 4°C in the dark for four days before putting them into 
+were seeds are imbibed in water and stored at 4\degree C in the dark for four days before putting them into 
 optimal conditions for germination \cite{Finch-Savage:2006}. Unfavorable conditions during seed 
 germination may result in a changed rate or even failure of germination. In Arabidopsis, it has been 
 shown that the responsiveness to temperature is closely related to the level of after-ripening 
@@ -110,6 +110,50 @@ We correlated these traits to our germination related traits to evaluate
 possible causality. In total this analysis resulted in 327 trait scores over different harvests. 
 Evaluation of these high numbers of phenotypes demanded methods of QTL analysis that extended beyond 
 mapping of individual traits and that allowed comprehensive and comprehensible visualization.
+
+\begin{table}[h]
+  \tiny
+  \centering
+  \begin{tabular}{ | l | c | l | l | p{4cm} | l | }
+    \hline
+    {\bf Trait Group}    & {\bf Stratification} & & {\bf Harvest} & {\bf Description}                                                                                          & {\bf Codes}               \\
+    \hline
+    Germination               & N & & ABCD          & After ripened seed germination                                                                                           & AR.NS                     \\
+    \hline
+    After ripening            & N & & ABCD          & Delta between freshly harvested seed germination and after-ripened seed germination                                      & AR.NS - Fresh.NS          \\
+    \hline
+    Fresh                     & Y & & ABCD          & Delta between freshly harvested seed germination and freshly harvested seed germination                                  & Fresh.WS -Fresh.NS        \\
+    \hline
+    AR                        & Y & & ABCD          & Delta between after-ripened seed germination and after-ripened  seed germination                                         & AR.WS - AR.NS             \\
+    \hline
+    NaCl                      & N & & ABCD          & Delta between after-ripened seed germination on 100 mM NaCl and after-ripened  seed germination on water                 & AR.NS - NaCl.             \\
+    NaCl                      & Y & & ABCD          &                                                                                                                          & AR.WS - NaCl.WS.          \\
+    \hline
+    Mannitol                  & N & & AD            & Delta between after-ripened seed germination on -0.5 mP Mannitol and after-ripened seed germination on water             & AR.NS - AR.Mann.NS.       \\
+    Mannitol                  & Y & & AD            &                                                                                                                          & AR.WS - AR.Mann.WS.       \\
+    \hline
+    Cold Fresh                & N & & D             & Delta between freshly harvested seed germination at 10\degree C and freshly harvested seed germination at 20\degree C    & Fresh.NS - Fresh.Cold.NS  \\
+    Cold                      & N & & AD            & Delta between after-ripened seed germination at 10\degree C and after-ripened seed germination at 20\degree C            & AR.NS - AR.Cold.NS        \\
+    Cold                      & Y & & D             &                                                                                                                          & AR.WS - AR.Cold.WS        \\
+    \hline
+    Heat Fresh                & N & & D             & Delta between freshly harvested seed germination at 30\degree C and after-ripened seed germination at 20\degree C        & Fresh.NS - Fresh.Heat.NS  \\
+    Heat                      & N & & D             & Delta between after-ripened seed germination at 30\degree C and after ripened seed germination at 20\degree C            & AR.NS - AR.Heat.NS        \\
+    Heat                      & Y & & D             &                                                                                                                          & AR.WS - AR.Heat.WS        \\
+    \hline
+    CD*                       & N & & D             & Delta between after-ripened seed germination after controlled detoriation and after-ripened seed germination on water    & AR.NS - AR.CD.NS          \\
+    CD*                       & Y & & D             &                                                                                                                          & AR.WS - AR.CD.WS          \\
+    \hline
+    ABA                       & N & & D             & Delta between after-ripened seed germination with  0.5 $\mu$M ABA and after-ripened seed germination on water            & AR.NS - AR.ABA.NS         \\
+    ABA                       & Y & & D             &                                                                                                                          & AR.WS - AR.ABA.WS         \\
+    \hline
+    Seed size                 & N & & ABD           & Seed size and length of dry seeds                                                                                        & Size.Area                 \\
+    Seed size, imbibed        & N & & ABD           & Seed size of imbibed seeds                                                                                               & Size.imbibed              \\
+    Flowering time            & N & & ABD           & First open flower in long day (16D/8N) conditions                                                                        & FTLD                      \\
+    \hline
+  \end{tabular}
+  \caption[Trait codes]{Overview of traits in this study and the harvest(s) used for the measurement. The indicated color-code 
+          is used in all figures throughout this paper. For each mentioned experiment $G_{max}$, AUC, $t_{50}$, $t_{10}$ and $U_{8416}$ were determined.}
+\end{table}
 
 \begin{figure}[h!]
   \centering
@@ -376,7 +420,7 @@ the presence of 100 mM NaCl or 0.5μm ABA. A similar locus has been identified a
 LerxSha population \cite{Ren:2010}. They identified a premature stop codon in the Response to ABA and 
 Salt 1 gene (RAS1; At1g09950) in Sha that led to a truncated protein and showed its role as a negative 
 regulator of salt tolerance during seed germination and early seedling growth by enhancing ABA 
-sensitivity. Here we show that a similar locus is also inferring tolerance to germination at 30°C. 
+sensitivity. Here we show that a similar locus is also inferring tolerance to germination at 30\degree C. 
 This suggests an additional role for the RAS1 gene. Increased heat tolerance due to modulation of 
 ABA sensitivity has been shown before for other loci, \cite{Argyris:2008,Lee:2010}. 
 Interestingly, our present study showed a strong effect of stratification which resulted in a strong 
