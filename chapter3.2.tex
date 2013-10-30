@@ -104,6 +104,126 @@ biochemical profiles can be attributed to genotype-by-environment interactions, 
 identified in a GGG approach.
 
 \subsection{Results}
+
+\subsubsection{Experimental Design}
+Previous studies which focused on the comparative analysis of developmental and metabolic variation suggest 
+a link between central metabolism and plant physiology, but genetic co-regulation is not frequently observed 
+\cite{Keurentjes:2006, Meyer:2007}.  That said, in several studies in Arabidopsis a major 
+metabolite QTL cluster is associated with the ERECTA locus, representing a strong regulator of development 
+which is known for its pleiotropic effects (Fu:2009). To circumvent this strong bias we used two 
+natural variants, Bayreuth-0 (Bay-0) and Shahdara (Sha), which are not polymorphic for the ERECTA locus. 
+The Bay-0 x Sha RIL population \cite{Loudet:2002} has previously been shown to contain genetic variation 
+for seed germination \cite{Joosen:2011} and other physiological traits \cite{Loudet:2003a, Barriere:2005, 
+Loudet:2005, Diaz:2006, Reymond:2006, Loudet:2008, Meng:2008}, anion strength 
+\cite{Loudet:2003a}, carbohydrate content \cite{Calenge:2006}, gene expression \cite{West:2007} and primary 
+\cite{Rowe:2008} and secondary metabolite levels \cite{Wentzell:2007}. 
+
+
+Powerful mapping of genetic variation in a RIL population is dependent on the size of the population, the level 
+of recombination and on an evenly genome-wide distribution of the parental alleles. In the present study, a core 
+set of the Bay-0 x Sha RIL population \cite{Loudet:2002} consisting of 165 lines and optimized for the 
+aforementioned factors used. This core population was carefully divided in four sub-populations optimized for 
+the distribution of parental alleles using the R-package DesignGG, aiming at the most accurate estimate of genetic 
+effect and G:E effect \cite{Li:2009} Supplemental Fig. 1).
+
+\subsubsection{Comparison of Different Designs Using Classic Phenotypes}
+Standard QTL mapping procedures can efficiently capture genetic variation and epistasis, but do not take 
+environmental perturbation into consideration. Appropriate modeling of the genetic variance-covariance (VCOV) 
+in the data is of great importance when combining information from different environments in QTL analysis 
+\cite{Churchill:2002}. Linear models are particularly well suited for this. Here environmental differences are 
+incorporated as an additional variable in a generalized design (GGG design). To enable mapping of the observed 
+trait variation and taking the four developmental stages into consideration an R-script was developed which use 
+functions and data structures from the R/qtl package \cite{Broman:2003, Arends:2010}.
+The R-script uses a linear model to calculate the likelihood of genotype to phenotype linkage for each marker 
+with the following formula:
+
+$$ y_{i}   =   \beta_{0} + \beta_{1}e_{i} + \beta_{2}g_{i} + \beta_{3}g_{i}:e_{i} + \epsilon_{i} $$
+
+Where $y_{i}$ is the ith observation of the studied phenotype, variable $g_{i}$ is the genotype, $e_{i}$ is a vector with seed 
+conditions, and $e_{i}:g_{i}$ the interaction term. The values βj represent parameters to be estimated, and $\epsilon_{i}$ is the 
+error term. The simplified description $Y = E + G + G:E + \epsilon$ of this linear model will be used henceforward. Separate 
+likelihood estimates (-log10 Probability, henceforth LOD scores) are generated for the environmental (E), genetic 
+(G) and genetic x environmental (G:E) effects. 
+
+To validate the use of a GGG design, we studied the genetic (G) and the interacting effects between G and E (GxE) 
+on phenotypes in four different environmental conditions (E). These phenotypes were obtained by studying different 
+germination parameters under different environmental conditions \cite{Joosen:2011}. In total we compared the 
+power of different designs by performing QTL analysis for 96 classic phenotypes under 4 different environments 
+\cite{Joosen:2011} (table 1).  Furthermore, we also investigate the interacting effect between genotype and 
+environmental. The full model mapping ($Y = E + G + G:E + \epsilon$) was applied to full block design, random design and GGG 
+design. Single maker mapping ($Y = G + \epsilon$) was applied to single block design. The number of detected QTL and interacting 
+QTL (FDR = 0.05, based on >10000 runs permutation) with the different designs are shown in the Table 1.  In the Full 
+block design  all samples were allocated to the four conditions.  Obviously, this is the most expensive way of performing 
+the experiment as the required resources and effort is quadrupled (4 x N).  As a result of the size of the experiment, 
+the power of detecting genetic effects is the best for this design. Unfortunately, we cannot afford such expensive 
+experiments in many situations due to limited resource and time. The single block design only focuses on one of the four 
+conditions, as in most published genetical genomics studies to date. In this way the effect samples size for the selected 
+condition is N and we will have equal power as full block design for detecting the genetic effects for this particular 
+condition. Clearly, this design will miss the information from the other three conditions and interacting effects 
+between genetic and environmental factors cannot be investigated. In order to study both genetic and interacting 
+effects with a limited budget,  the random and the GGG design allocate the N different samples to the four environments 
+evenly, measuring N/4 samples in each condition. Although the possibility to detect genetic effects is only slightly better 
+for the GGG design, the detection of interacting QTL is clearly improved in the GGG design as compared to the random design. 
+These results show that the optimal allocation of samples as in the GGG design clearly improves the ability to detect both 
+genetic and interacting effects and that the GGG design results in the maximisation of detected variation in relation to 
+the necessary resources with only a minimal compromise of statistical power as compared to the full block design.
+
+\subsubsection{Metabolic Analysis}
+To study the metabolic status of Arabidopsis seeds during germination, four biologically important developmental stages 
+of seed germination with expected variation in metabolite levels to different extent were selected. The first two stages, 
+being freshly harvested primary dormant (PD) and after ripened (AR) non-dormant dry seeds, respectively, are expected to 
+comprise a very similar metabolome as most, if not all, metabolic fluxes are arrested in the dry seed. The oil rich 
+(~40\%) Arabidopsis seeds \cite{Hobbs:2004} typically desiccate to moisture contents below 5\% which results in an 
+arrest of all enzymatic reactions due to the lack of free water. The other two stages represented early imbibition of 
+seeds, imbibed for 6 hours (6H), and seeds at radical protrusion (RP), respectively. Full rehydration of dry seeds typically 
+completes in less than 2 hours and although developmental differences are not yet expected, many metabolic processes will 
+have started after 6 hours of imbibition \cite{Nakabayashi:2005, Howell:2009}. Radicle protrusion marks the end-
+point of germination sensu stricto and is known to be accompanied by a major switch of both the transcriptome and metabolome 
+\cite{Nakabayashi:2005, Fait:2006}. These four developmental stages are anticipated to vary to different degrees 
+in their metabolic profiles, hardly any difference between dry seed samples, some differences between dry and imbibed seeds 
+and very pronounced differences between dry seeds and seeds at radicle protrusion.
+
+To determine the metabolic status of genetic variants in these different developmental stages, all individuals in the 
+four sub-populations and their parental accessions were subjected to GC-TOF-MS. Each sample consists of the polar fraction 
+of a methanol extract of a bulk of approximately 700-1000 seeds (20 mg). Samples were analyzed in random order and 
+interspersed with pooled sample controls to control for experimental errors. The metabolic profiling of the segregating RILs 
+was performed and the use of segregation population provides an intrinsic replication for each genotypic marker \cite{Jansen:2001a}.
+In total 7537 mass peaks were detected, representing 161 metabolites according to centrotyping based on retention time and 
+correlation structure \cite{Tikunov:2012}. In total 63 metabolites could be annotated using an in-house constructed library 
+and a publicly available mass spectra library \cite{Schauer:2005}. Parental accessions were measured in duplicate for all 
+four developmental stages allowing us to model the influence of condition and accession using a multi-factor univariate 
+analysis of variance (ANOVA). 
+
+$$ y_{i}   =   \beta_{0} + \beta_{1}condition_{i} + \beta_{2}accession_{i} + \epsilon_{i} $$
+
+Analysis of variance for the parental samples identified 108 metabolites showing significant variation (FDR < 0.05) between 
+developmental stages (E) and 85 showing variation between the parents (G) with an overlap of 54 metabolites showing variation 
+between both variables in an interactive way (G:E) (Supplemental file 2). For 37 metabolites no significant variation was 
+detected between the parental accessions or in any of the developmental stages. A self-organizing map (SOM), created from the 
+metabolites showing significant variation between the parents, groups different metabolites according to their accumulation 
+pattern over different genotypes and developmental stages (Fig. 1). Clearly different patterns of variation can be observed, 
+namely genetic in panel A and H; environmental in panel C and D; genetic + environmental in panel B and G and genetic x 
+environmental in panel E and F, illustrating the complex regulation of metabolic processes and the need for sophisticated 
+analysis methods, like PCA or Multiple QTL mapping\cite{Arends:2010}. 
+
+Because metabolite levels are varying between both parents and between the chosen seed germination stages, a segregation of 
+metabolic accumulation can be expected in the RIL population of 164 lines. A principle component analysis of the metabolic 
+profiles, revealing the internal structure in the data, shows that the first component clearly separates 6-hour imbibed seeds 
+and seeds at radicle protrusion from both primary dormant and after ripened seeds, explaining 37\% of the total variation 
+(Supplemental Fig. 2). This confirms the large metabolic changes accompanying the transition from dry arrested seeds to the 
+imbibed and germinating developmental stages. As expected, no obvious differences could be detected between the metabolomes 
+of primary dormant and after ripened dry seeds. The second component, explaining 11\% of the total variation, sharply separates 
+the parental accessions, indicating that this component explains most of the genetic variation in metabolic profiles. These 
+results demonstrate that Bay-0 and Sha possess substantial genetic variation for the accumulation of primary metabolites which 
+segregates in their recombinant offspring and which is strongly influenced by the developmental stage used for profiling.
+
+Transgressive segregation was visualized by comparing parental and RIL metabolite level distributions (Supplemental Fig. 3). 
+Some positive and negative transgression is observed for most of the metabolites in which the metabolite accumulation in a 
+RIL is respectively higher or lower compared to the respectively highest or lowest parent. In addition, 15 metabolites were 
+detected in RILs which were not present in either parent. This suggests that new allele combinations in the RIL population 
+resulted in enhanced accumulation or even novel formation of metabolites.
+
+\subsubsection{G mapping of metabolites in a generalized genetical genomics design}
 In the experimental setup of this study, the E variation is defined as variation observed between the four
 developmental stages (PD, AR, 6H, and RP). Significance thresholds, determined by permutation analysis
 ($n = 1,000, P < 0.01$) for each metabolite, ranged from LOD 3.43 to LOD 3.50 and was stringently set to 
@@ -113,22 +233,22 @@ significant in the G component as well. For 66 metabolites, no significant QTL w
 heat maps for both the G and the G:E QTL profiles were created (Supplemental Figs. S4 and S5).
 
 To test the performance of the generalized mapping procedure, QTLs detected in individual environments
-using the linear model $Y = G + e$ were compared with QTLs detected in the combined mapping 
-approach (using the linear model $Y = E + G + G:E + e$; Fig. 2; Supplemental Table S1).
+using the linear model $Y = G + \epsilon$ were compared with QTLs detected in the combined mapping 
+approach (using the linear model $Y = E + G + G:E + \epsilon$; Fig. 2; Supplemental Table S1).
 QTLs were binned in upper or lower chromosome arms to reduce the effects of small positional shifts.
 Results were plotted in a network, with nodes representing QTLs connected with edges to nodes repre-
 senting the mapping populations in which they were detected (Fig. 2). QTLs are grouped in three sections
 according to their detection in the different mapping procedures. The middle section shows 73 QTLs that
-were detected in both the $Y = E + G + G:E + e$ model and in one or more single-environment mappings 
-using the $Y = G + e$ model. This shows that most of the G variation present in the single environments 
+were detected in both the $Y = E + G + G:E + \epsilon$ model and in one or more single-environment mappings 
+using the $Y = G + \epsilon$ model. This shows that most of the G variation present in the single environments 
 can effectively be captured by using the generalized model.
 
-The presence of 60 QTLs that were only significantly detected in the $Y = E + G + G:E + e$ model 
+The presence of 60 QTLs that were only significantly detected in the $Y = E + G + G:E + \epsilon$ model 
 (right section) shows the combined power of the generalized approach and the usage of more genotypes. 
 These QTLs are not detected in the single-environment mapping in which only 41 individuals were used.
 Combining all data across all environments in the linear model increases power to detect QTLs, but it
 should be noted that there are also 20 minor QTLs (leftsection) that are only significant in the single
-environment mapping using the $Y = G + e$ model. These QTLs are not detected in the $ Y = E + G + G:E + e$
+environment mapping using the $Y = G + \epsilon$ model. These QTLs are not detected in the $ Y = E + G + G:E + \epsilon$
 model. This can be explained by two factors: (1) environments in which the G variation is not expressed
 introduce noise in the experimental data and thereby decrease mapping power, and (2) deviations from a
 balanced allele distribution in the different subpopulations can introduce some stochasticity around the
@@ -167,6 +287,101 @@ seeds, respectively, are expected to comprise a very similar metabolome, as most
 fluxes are arrested in the dry seed. The other two stages represent 6H seeds and seeds at RP, respectively.
 Different levels of E variation were obtained and could be mapped by the G and/or G:E component of 
 the linear model.
+
+\subsubsection{G regulation of metabolic traits}
+One of the most rewarding benefits of the generalized approach is the possibility to analyze metabolic 
+fluxes over different environments or developmental stages in addition to the effect of genetic variation. 
+The acquired information of both sources of variation can be effectively displayed in so-called flash cards 
+in which line graphs illustrate the genetic and environmental effect and detected QTLs are plotted in heat 
+bars (Fig 4; Supplemental Fig. 6). The individual components of the linear model $Y = E + G + G:E + \epsilon$ 
+provide the valuable measures for the various sources of variation. For example lysine content strongly 
+increases in germinating seeds, indicated by a significant LOD score of 16.1 for the environmental effect, 
+but no genetic variation for lysine could be detected (Fig 4A). For this metabolite genetic variants vary 
+indistinguishable from each other over different environments. In contrast, fumaric acid shows little variation 
+between the developmental stages (LOD = 0.6), but displays strong genetic variation explained by a highly 
+significant QTL (LOD 6.5) for the genetic effect at the center of chromosome II. Higher levels for fumaric
+ acid are detected in all developmental stages for those lines harbouring the Bay-0 allele (Fig 4B). An 
+example of the additive effect of environmental and genetic factors is the decrease in levels of malic acid 
+in imbibed seeds. Here a strong environmental effect (LOD = 13.2) is accompanied with an additional genetic 
+effect explained by a G QTL (LOD = 6.9) at the bottom of chromosome I. Note that the genetic effect here is 
+similar in all environments (Fig 4C). This is not the case for gluconic acid which levels are strongly 
+affected by the interaction between the genotype and the environment. A strong G:E QTL (LOD = 10) is detected 
+at the top of chromosome IV. The Sha allele at this position causes higher levels of gluconic acid in dry 
+seeds, but not in imbibed seeds (Fig 4D). This strong negative environmental effect (LOD = 6.6) is also 
+responsible for the apparent directional shift of the G:E QTL effect.
+
+Similar to the self-organizing maps in figure 1 flashcards can be instrumental in the identification of 
+metabolic relationships with the added value of genetic regulatory information. This is illustrated by 
+integrating flashcards of all metabolites that were identified in this study with a general Arabidopsis 
+metabolic pathway diagram (http://www.KEGG.jp) (Supplemental Fig. 7). For instance, several pathways in 
+carbohydrate metabolism, such as the biosynthesis routes for galactose, pentose phosphate, starch/sucrose 
+and amino and nucleotide sugars, are highly interconnected and are therefore subject to co- regulation 
+mechanisms. A number of compounds involved in different subparts of the carbohydrate network module (e.g. 
+glucose-6-phoshate, maltose, mannose, glucuronic and gluconic acid) indeed share a strong QTL at the top 
+of chromosome IV. This suggests that the observed variation for these compounds has a single genetic basis, 
+possibly affecting competition for a general precursor or directing feedback loops. In addition many of 
+these compounds show strong positive or negative correlation due to environmental control. Genetic 
+co-regulation was also observed for amino acid metabolism. Amino acids are substrate for the synthesis of 
+aminoacyl-tRNAs which in turn are essential substrates for translation \cite{Sheppard:2008}. A single 
+G:E QTL at the bottom of chromosome I was detected for eight amino acids explaining a large part of the 
+observed genetic variation. The joined analysis of environmentally and genetically induced variation in 
+metabolic profiles can thus identify causal relationships between different modular parts of metabolic 
+networks and associate these connections with relevant biological processes.
+
+\subsubsection{Regulatory hotspots and physiological co-regulation}
+As noted, the accumulation of several metabolites maps to identical positions suggesting that these might 
+be regulated by a common genetic factor. Although co-locating QTLs can be the result of independent closely 
+linked genetic factors, such coinciding QTLs are expected to occur more or less randomly by chance. Any 
+deviation from expected frequency distributions along the genome thus hints at genetic co-regulation 
+\cite{Breitling:2008a}. When plotted against their genomic position eight of such suggestive QTL hotspots 
+can be seen (Fig. 5) of which the two major ones (Chromosome IV-MSAT4.8 and Chromosome V-NGA139) co-locate 
+with previously identified hotspots for metabolic regulation \cite{Kliebenstein:2001, Keurentjes:2006, 
+Wentzell:2007, Rowe:2008}.  Interestingly, both loci have been shown to play a role in glucosinolate 
+biosynthesis. The AOP locus at chromosome IV regulates side chain modification while the 
+MAM locus at chromosome V determines chain elongation, but these compounds are not targeted for in GC-MS 
+analysis which predominantly detects primary metabolites. As for many glucosinolates, for some metabolites, 
+including GABA and maltose, QTLs were detected at both positions. In other cases a single QTL was detected 
+at chromosome IV or V, e.g. glucose-6-phosphate and tyrosine, respectively. Although the identified  primary 
+metabolites are not directly connected with the glucosinolate biosynthesis pathway such associations have 
+been reported before \cite{Rowe:2008}. These results might suggest alternative functions for AOP and MAM 
+or a role in resource competition and allocation in central metabolism. This suggestion is further supported 
+by the fact that these loci link to flowering time and the circadian clock regulation in the Bay-0 x Sha 
+population \cite{Chan:2011}. It also cannot be ruled out that other genes overlapping the AOP or MAM 
+regions are causal for the observed variation.
+
+Since many metabolites appear to be co-regulated, the strong impact of some loci on central metabolism might 
+also exert its effect on physiological traits. Recently, the genetic landscape of seed germination in the 
+same population has been described for which seed germination parameters were acquired under a wide range 
+of environmental conditions \cite{Joosen:2011}. A comparison between variation in germination characteristics 
+and metabolite levels might reveal compounds involved in the process of germination. Although no clear 
+collocation of hotspots for germination and metabolite QTLs could be observed, incidental coincidence between 
+isolated QTLs of both types of traits did occur. For instance, genetic variation for seed size co-locates 
+with a large metabolic QTL cluster on the lower arm of chromosome I (~75 cM). This cluster contains many QTLs 
+for amino acids, but also for components of the TCA cycle (e.g. fumarate and malate). In plants, leucine, 
+isoleucine and valine, can be broken down and the end products of their catabolic pathways enter the TCA cycle 
+to generate energy. It has been shown that these amino acids promote their own degradation, but only during 
+seed germination, senescence, or under sugar starvation \cite{Binder:2010}. This suggests that the degradation 
+pathways provide alternative carbon sources for the plant in extreme conditions. In addition, branched-chain 
+amino acids and their derived alpha-keto acids are cytotoxic and preventing accumulation through degradation 
+
+may be an important detoxification mechanism \cite{Fujiki:2000}. Higher levels of both fumarate and malate, 
+as a result of the degradation of a surplus of amino acids, might thus be indicative for larger seed sizes. A 
+second QTL for seed size on chromosome V co-locates with a QTL of opposite effect for GABA accumulation. 
+Interestingly, Bay-0 alleles at both QTLs confer larger seed size, suggesting directed evolution (Directed 
+evolution is a non-natural selection inadvertently introduced by the researchers.), as was also observed in 
+a different population \cite{Alonso-Blanco:1999}. However, where levels of fumarate and malate are increased 
+in larger seeds, the accumulation of GABA is decreased. GABA is known to be involved in a range of cellular 
+processes \cite{Palanivelu:2003} and is rapidly accumulated in response to biotic and abiotic stresses 
+\cite{Kinnersley:2000}. It has been postulated that it has roles in herbivore deterrence, pH and redox 
+regulation, energy production and maintenance of carbon/nitrogen (C/N) balance \cite{Bouche:2004}. In a 
+recent study, GABA levels in seeds were shown to increase by expressing glutamate decarboxylase (GAD) under a 
+seed maturation-specific phaseolin promoter \cite{Fait:2011}. In accordance with our findings this resulted 
+in smaller seed size and reduced seed vigor in T3 plants. No opposite seed size effect could be detected at a 
+GABA QTL with increased levels due to the Bay-0 allele at the top of chromosome four, but co-locating genetic 
+variation for germination on ABA, heat sensitivity and dormancy was observed at this position. These cases 
+illustrate the power of joined genetic analyses of metabolic and physiological traits for the generation of 
+hypotheses that can help in the functional annotation of plant metabolites and their possible role in the 
+regulation of important physiological processes.
 
 \subsubsection{Confirmation of Metabolic QTLs}
 To independently confirm the effect of a single locus, it must be isolated and tested in an isogenic 
