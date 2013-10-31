@@ -78,9 +78,19 @@ genotype data is 'augmented'.  In other words, rather than guessing one likely g
 multiple genotypes are modelled with their estimated probabilities. In the second stage, 
 important marker cofactors are selected by multiple regression and backward elimination. 
 The third stage, a QTL is moved along the chromosomes using these pre-selected markers as 
-cofactors. QTL are interval-mapped using the most informative model selected by either 
-maximum likelihood or restricted maximum likelihood. A refined and automated procedure for 
-cases with large numbers of marker cofactors is included. 
+cofactors (Fig. \ref{fig:comparison}). QTL are interval-mapped using the most informative 
+model selected by either maximum likelihood or restricted maximum likelihood. A refined 
+and automated procedure for cases with large numbers of marker cofactors is included. 
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_3.eps}
+  \caption[Comparison of QTL mapping methodologies.]{ Three way comparison of MQM performance in {\it Arabidopsis 
+          thaliana} \citep{Fu:2007}. LOD score increases when cofactors are added manually to the model. Here, 
+          adding more than two cofactors does not improve the model any further (as discussed in the online 
+          MQM tutorial).}
+  \label{fig:comparison}
+\end{figure}
 
 The method lets users test different QTL models by elimination of non-significant cofactors. 
 MQM for R/qtl brings the following advantages to QTL mapping:
@@ -93,36 +103,32 @@ interval mapping \cite{Zeng:1994}.
 \item Detection of negating QTL (QTL in repulsion phase). 
 \item MQM gives (compared to CIM) a reduction in type I and type II error \cite{Handbook:Jansen:2007}.
 \item A pragmatic permutation strategy for controlling the false discovery rate (FDR) and 
-prevention of locating false QTL hot spots, as discussed in Breitling et al.\cite{Breitling:2008a}. 
+prevention of locating false QTL hot spots, as discussed in Breitling et al \cite{Breitling:2008a}. 
 Marker data is permuted, while keeping the correlation structure in the trait data.
 \item High-performance computing by scaling on multi-CPU computers, as well as clustered 
 computers, by calculating phenotypes in parallel, through the Message Passing Interface (MPI) of 
 the SNOW package for R\cite{Tierney:2009}.
-\item Visualizations for exploring interactions in a genomic circle plot (Fig. XXX) and cis- 
-and trans-regulation (Fig. XXX).
+\item Visualizations for exploring interactions in a genomic circle plot (Fig. \ref{fig:circleplot}) and cis- 
+and trans-regulation (Fig. \ref{fig:cistrans}).
 \end{enumerate}
 
 \begin{figure}[h!]
   \centering
   \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1.eps}
-  \caption[Circle plot.]
-    {Circle plot.}
+  \caption[Circle plot.]{Circular genome interaction plot \textcolor{black}{of the {\it Arabidopsis 
+  		  thaliana} glucosinolate pathway} \citep{Fu:2007}.  LOD scores shown at marker positions 
+  		  are scaled (grey circles), with selected cofactors (red circles) and epistasis between 
+  		  multiple cofactors (green and blue splines)..}
+  \label{fig:circleplot}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
   \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_2.eps}
-  \caption[CisTrans plot.]
-    {...}
+  \caption[CisTrans plot.]{Cis-trans plot of significant QTL (squares) showing cis acting QTL (diagonal) 
+          and a trans-band (vertical, chromosome 5) in {\it Caenorhabditis elegans} \citep{Li:2006}.}
+  \label{fig:cistrans}
 \end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_3.eps}
-  \caption[Comparison of QTL mapping methodologies.]
-    {...}
-\end{figure}
-
 
 A 40-page tutorial for MQM explores, both the automated procedure, and the manual procedure 
 of adding and removing cofactors, in an \emph{Arabidopsis thaliana} recombinant inbred line 

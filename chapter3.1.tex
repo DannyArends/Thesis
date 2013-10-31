@@ -103,7 +103,7 @@ the consequence of a complex interplay between ABA, GA and ethylene signals \cit
 In this report, we determined germination sensu stricto for primary dormancy in freshly harvested seeds, 
 germination of fully after- ripened seeds with and without a preceding cold stratification period 
 (see material and methods for conditions), and germination under various stress conditions (low/high 
-temperature, salt/osmotic stress and ABA) to assess natural  variation in the Bay-0xSha RIL population. 
+temperature, salt/osmotic stress and ABA) to assess natural  variation in the Bay-0 x Sha RIL population. 
 Additionally, seed morphology (size and length) and flowering time were phenotyped as they have been 
 shown to be strong determinants of plant trait variation \cite{Elwell:2011, Chiang:2009, Orsi:2009}. 
 We correlated these traits to our germination related traits to evaluate 
@@ -165,6 +165,7 @@ mapping of individual traits and that allowed comprehensive and comprehensible v
           QTL markers; E) Interaction plot showing the effect size comparison between marker MSAT305754 and 
           MSAT518662 at the Sha (AA) and Bay-0 (BB) alleles; F) Circle plot showing interactions between 
           all significant markers.}
+          \label{fig:generatedoutput}
 \end{figure}
 
 Analysis of natural variation that is captured in well-defined recombinant inbred populations has 
@@ -201,7 +202,7 @@ This residual heterozygosity can be used to confirm QTL positions, as it provide
 study both parental alleles at the locus of interest in an elsewhere homozygous background. 
 In contrast to conventional near isogenic lines (NILs) the genetic background of heterogeneous 
 inbred lines (HIFs) consist of a mix of the two parental genomes. The availability of a genome wide 
-set of HIF lines for the Bay-0xSha RIL population provides a fast and accurate means to confirm 
+set of HIF lines for the Bay-0 x Sha RIL population provides a fast and accurate means to confirm 
 detected QTL loci.
 
 \subsection{Results}
@@ -226,20 +227,20 @@ and t50). Table 1 gives an overview of all corrections that have been applied.
 An analytical protocol was designed, using the popular R/qtl package of R to analyze trait data of 
 recombinant inbred populations with the multiple QTL model approach \cite{Arends:2010}. When 
 performing a detailed QTL analysis it is important that several steps are performed or checked. 
-Missing genotypic data is imputed and a recombination frequency plot is generated (Figure 1A). In 
+Missing genotypic data is imputed and a recombination frequency plot is generated (Fig. \ref{fig:generatedoutput}A). In 
 the next step, quality of the trait data is investigated. Outliers are detected and removed using 
 a Zscore transformation with a user defined threshold. As an extra control the results of MQM mapping 
 were always compared to standard interval mapping, using the parametric model with Haley Knott 
-regression \cite{Haley:1992} (Figure 1B). The whole genome additive effect was estimated based 
+regression \cite{Haley:1992} (Fig. \ref{fig:generatedoutput}B). The whole genome additive effect was estimated based 
 on the non-transformed data as half the difference between the phenotypic averages for the two 
-homozygotes (Figure 1C).
+homozygotes (Fig. \ref{fig:generatedoutput}C).
 
 R/qtl MQM uses a backward elimination of cofactors. As a rule of thumb one can select a maximum of 
 $N-20$ initial cofactors with this procedure \cite{Handbook:Jansen:2007}, with $N$ being the number of lines in 
 the RIL population. In our script, a cofactor file can be provided with the selection of the initial 
 cofactors. When no cofactors are provided, the analysis will be performed without cofactors resulting 
 in an analysis comparable with the composite interval mapping (CIM) method. For the analysis of the 
-Bay-0xSha population we pre-selected 39 out of 69 markers as possible cofactors. Cofactors were selected 
+Bay-0 x Sha population we pre-selected 39 out of 69 markers as possible cofactors. Cofactors were selected 
 based on their quality (least amount of missing data or heterozygous status) and physical cM position, 
 attempting to obtain intervals of about 10 cM. Although the procedure allows the selection of all 69 
 markers as cofactors, this does not improve mapping and only lowers statistical power due to the 
@@ -259,15 +260,15 @@ Backward elimination is performed to remove cofactors that do not significantly 
 of the initial model. This is achieved by comparing Akaike's information criterions (AIC) of the 
 different models \cite{Jansen:1993}. Using the final selected QTL model, the mapping LOD scores are 
 calculated for all genetic markers. Plots showing all significant markers are produced automatically 
-(figure 1D). We have used the procedure described to map all 327 individual measurements but to enhance
+(figure \ref{fig:generatedoutput}D). We have used the procedure described to map all 327 individual measurements but to enhance
 readability we only show average values for each trait (94 traits)
 
 \subsubsection{QTLxQTL Interactions}
 Epistatic interactions between QTL can help to elucidate meaningful co-localizations and will enable an 
 efficient design of follow up experiments. Besides the visualization of the epistatic interactions per 
-trait (Figure 1F) our script creates an output that can help to visualize all detected epistatic 
+trait (Fig. \ref{fig:generatedoutput}F) our script creates an output that can help to visualize all detected epistatic 
 interactions in a single plot. This output file in sif format summarizes all detected epistatic 
-interactions (Figure 5, Supplemental file "Interactionnetwork.cys"). Among others, clear hotspots of 
+interactions (Fig. \ref{fig:epistaticinteractions}). Among others, clear hotspots of 
 epistatic interactions between QTL loci on chromosome 3, 4 and 5 (resp. ATHCHIB2 + MSAT332, MSAT435 and 
 MSAT520037 + MSAT519) were observed for germination on salt (yellow lines) and dormancy (blue lines). 
 Next to the importance of detecting possible interacting loci this QTLxQTL analysis provides additional 
@@ -291,6 +292,7 @@ summarizing figures is greatly facilitating the interpretation of large datasets
           interaction.sif output file. Nodes indicate markers (small circles) and selected cofactors (large 
           circles). Edges represent the detected significant epistatic interactions (edge colors represent 
           traits, see table 1 for colors).}
+          \label{fig:epistaticinteractions}
 \end{figure}
 
 \subsubsection{QTLxEnvironment interaction}
@@ -302,13 +304,13 @@ affected by several environments increases and interpretation becomes more intui
 correcting the stress response by the control response is eliminated. By using this approach the 
 sensitivity of a specific QTL for environmental conditions can be determined for each separate germination 
 parameter. Details about the procedure are described in Material and Methods. Results are summarized in 
-Figure 6. The final model P-value profiles (top panel, Figure 6) clearly show the great consistency 
+Figure \ref{fig:gegenomewide}. The final model P-value profiles (top panel, Fig. \ref{fig:gegenomewide}) clearly show the great consistency 
 between the 5 germination parameters that we measured. However, a closer look also reveals loci that 
 are affecting different germination curve parameters. For example, the QTL on top chromosome 5 is not 
-detected by measuring maximum germination but iswell defined when using t50 or t10 as parameter. As 
+detected by measuring maximum germination but iswell defined when using $t_{50}$ or $t_{10}$ as parameter. As 
 expected, the parameter AUC (Area Under the Curve) is outperforming the others as it represents a 
 combined value for maximum germination percentage, rate and uniformity. For comparison of the 
-environment-specific QTL effects for the 5 different germination parameters (5 lower panels, Figure 6) 
+environment-specific QTL effects for the 5 different germination parameters (5 lower panels, Fig. \ref{fig:gegenomewide}) 
 the effects could be compared with germination under control conditions. For example, after ripened 
 seeds without stratification (AR.NS) can guide as reference for the stress treatments (AR.NS.ABA, AR.NS.CD, 
 AR.NS.Cold, AR.NS.Heat, AR.NS.Mannitol, AR.NS.NaCl). The same analogy holds true for after ripened seeds
@@ -329,10 +331,11 @@ Supplemental table 6.
           The green line indicates significant environment specific effects. For both Gmax and AUC a bigger effect of 
           the Sha allele is indicated in yellow-red (Bay-0 in cyan-blue). The color scale is opposite for the t50, 
           t10 and U8416 parameters due to the inversed nature of these parameters.}
+          \label{fig:gegenomewide}
 \end{figure}
 
 \subsubsection{QTL confirmation}
-Taking advantage of the residual heterozygosity present in the F6 generation of the Bay-0xSha population, 
+Taking advantage of the residual heterozygosity present in the F6 generation of the Bay-0 x Sha population, 
 combined with the large population size, we were able to confirm several QTL following the heterogeneous 
 inbred family (HIF) approach. In short, RIL lines which are heterozygous at the locus of interest were 
 selected in the next generation for lines homozygous for both parental alleles. These 'families' are 
@@ -368,7 +371,7 @@ mapping under conditions where rate and uniformity are delayed, but maximum germ
 affected. Therefore, we used the Germinator package \cite{Joosen:2010} that enabled measurement 
 of cumulative germination data and extracting 5 germination parameters that describe the resulting 
 germination curve. In the present study we describe several germination QTLs that were not detected 
-before in the Bay-0xSha population. We observed interesting co-localizations for several germination 
+before in the Bay-0 x Sha population. We observed interesting co-localizations for several germination 
 traits and identified the loci that show large effect epistatic interactions. Among these were new 
 loci and loci similar to the ones already found in other RIL populations as summarized in Table 4 for 
 the major identified QTL loci.
