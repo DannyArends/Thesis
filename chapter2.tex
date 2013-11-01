@@ -54,171 +54,232 @@ minimum computational effort. Pheno2Geno results are formatted for direct use in
 R package for QTL studies. Pheno2Geno is freely available on CRAN under GNU GPL version 3.
 
 \section{Background}
-QTL mapping \cite{Lander:1989} is a powerful approach used in population analysis to link genetic 
-variation to phenotypic variation between individuals. It requires polymorphic genetic markers 
-positioned on a genetic map. Here we present Pheno2Geno, an R package to select and convert 
-high-throughput phenotypes with major QTL into additional genetic markers, even when tens of 
-thousands of molecular phenotypes (e.g. gene expression) are available, and then uses these markers 
-to saturate a known genetic map.
+QTL mapping \cite{Lander:1989} is a powerful approach used in population analysis to link 
+genetic variation to phenotypic variation. It requires polymorphic genetic markers positioned 
+on a genetic map. Phenotypes showing a dichotome 0/1 distribution with approximate equal 
+proportions in, say, a RIL population can be used as genetic markers: genotypes can be 
+called by connecting the 0/1 to the parental strains A/B. Such markers can then be used 
+for de-novo construction of the genetic map or for saturation of a known genetic map 
+\cite{West:2006, Truco:2013}.
 
-Previously, gene expression data was used to derive genetic markers in an \emph{A. thaliana} RIL 
-population \cite{West:2006} and a \emph{L. sativa} RIL population \cite{Truco:2013}. This work was 
-only focussed only on RIL transcriptomics data, while Pheno2Geno is capable of handling any type 
-of omics data and more cross types (backcross (BC), recombinant inbred lines (RIL) by selfing and 
-sibling mating and F2 intercross). In addition, the method used \cite{West:2006, Truco:2013} is a 
-simple method for genotype calling that works only for dichotome data, while Pheno2Geno uses 
-statistical mixture models, posterior probabilities for genotype calling and error control that 
-works for continuous data distributions\cite{Jansen:1993, Jansen:2001b}. 
+Continuous (non-dichotome) phenotypes can also be used as markers if they show a major QTL: a 
+major QTL will cause the phenotype to show a clear multimodal distribution to which a mixture 
+models can be fitted \cite{Jansen:1993, Jansen:2001a}. Posterior probabilities derived from 
+mixture modelling are used for genotype calling. Such approaches have been used for up to 
+1,200 molecular phenotypes \cite{Gort:2010}.
 
-In order to facilitate transition into the QTL mapping phase of the analysis, Pheno2Geno has 
-output structures compatible with R/qtl, the leading R package for QTL analysis in segregating 
-populations \cite{Broman:2003, Arends:2010}. The package also provides an option to output maps as 
-GFF formatted file. The GFF file format is supported by most genome browsers, allowing users to 
-use their favourite genome browser to explore and/or compare resulting maps (Fig. 4).
+Here, we scale up the mixture model approach for non dichotome phenotypes in order to make 
+analysis of hundreds of thousands of molecular phenotypes feasible e.g. gene expression data.
+
+Genetic maps created by Pheno2Geno can be easily used for QTL mapping: the package provides 
+output structures compatible with R/qtl, the leading R package for QTL analysis in 
+experimental crosses\cite{Broman:2003, Arends:2010}. Pheno2Geno allows users to 
+explore and compare resulting maps with their favourite genome browser. Maps can be saved
+as a GFF (General Feature Format) file that is supported by most genome browsers.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_2_1.eps}
+  \caption[Map comparison plot]{ Created with the R/qtl function \emph{plot.map} \cite{Broman:2003, 
+  		  Arends:2010}. For each of the chromosomes the original map (left) and the saturated map (right) 
+  		  are plotted. Lines are drawn to connect markers. Markers that exist in just one map and not the 
+  		  other are indicated by short line segments on the right side. Before plotting, both maps were 
+  		  re-estimated using the R/qtl function \emph{est.map}. The original map consists of 5 chromosomes 
+  		  and 69 markers at an average distance of 7.1 cM. The saturated map consists of the original 69 
+  		  markers plus 497 expression-based markers at an average marker distance of 0.89 cM.}
+  		  \label{fig:mapcomparison}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_2_1.eps}
+  \caption[Classical phenotype example.]{Results of single-marker QTL mapping of a classical phenotype on original (red 
+          line) and saturated map (grey line)(left axis). Only chromosome 1 is shown. 
+          {\bf Ticks on an X-axis} - positions of the original markers on the genetic map. 
+          {\bf Black dots} - positions of the original markers on the physical map. 
+          {\bf Colored dots and circles} - candidate markers detected by Pheno2Geno.
+  		  {\bf Orange circles} - candidate markers removed because they showed significant environmental influence. 
+  		  {\bf Blue circles} - candidate markers removed because they showed an epistatic interaction with other genetic markers. 
+  		  {\bf Red dots} - markers used for saturation of the original map. The final saturated map consists of all the 
+  		                   orange and black dots.
+  		  Shown here are locations of the new markers on the old map, in this way maps align for better clarity.}
+  		  \label{fig:qtlcomparison}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_2_3.eps}
+  \caption[LOD comparison.]{LOD scores on original and saturated map. QTL mapping was performed on all 10,801 SNP probes 
+          showing differential expression between parents ($p < 0.01$ Student t-test) using original and saturated map. 
+          5837 probes show a QTL with a $LOD > 5$ on  the original map. {\bf Orange dots} - 3943 probes (66\%) that show 
+          an increased LOD score on the new saturated map. Moreover, 210 new QTLs were detected on the saturated map. 
+          {\bf Black dots} -  probes showing a decrease in LOD score on the saturated map. {\bf Blue circles} - probes 
+          used to saturate the map.}
+          \label{fig:lodcomparison}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.50]{eps/image_2_4.eps}
+  \caption[LOD changes.]{Changing LOD scores. For each of the phenotypes the top QTL peak was selected. If the peaks 
+  		  measured on original and saturated map shared location, the differences between LOD scores was calculated. 
+  		  {\bf Solid red line} - median of differences between peaks from chromosome 4, calculated inside a sliding 
+  		  window of 10 cM, moved across chromosome with a step of 1 cM. For each of the windows the value was plotted 
+  		  in the middle of the compartment (hence no value for the first and the last 5 cM). Ticks on the x axis show 
+  		  the position of the markers: {\bf black tall ticks} - original markers; {\bf orange short ticks} - markers 
+  		  selected by Pheno2Geno. Only one region, when no new markers were added (75-80 cM) does not show increase in 
+  		  power. }
+  		  \label{fig:qtldetection}
+\end{figure}
 
 \section{Features}
-Pheno2Geno provides the following functionality for constructing and/or saturating genetic maps:
+Pheno2Geno provides the following functionality to saturate and create genetic maps:
 
-{\bf 1) Preprocessing of the data}: \emph{(optional)} 
-Pheno2Geno offers a selection of data transformation functions (including: log, sqrt, reciprocal, 
-probit and logit). Depending on the type of input data provided, the user can select a 
-pre-processing step, e.g. gene expression data measured using microarrays are generally log 
-\cite{Quackenbush:2002} or square root \cite{Jansen:2001b, Gort:2010} transformed before further 
-analysis. R already provides packages for pre-processing and data normalization. However 
-Pheno2Geno provides these methods such that they can be used 'on the fly' and further decrease 
-memory usage of the algorithm.
+{\bf 1) Preprocessing of the data}: Pheno2Geno offers a selection of 
+data transformation functions (including: log, sqrt, reciprocal, probit and logit). 
+Gene expression data measured using microarrays are for example generally log 
+\cite{Quackenbush:2002} or square root\cite{Jansen:2001a, Gort:2010} transformed before 
+further analysis.
 
-{\bf 2) Analysis of parental data}: \emph{(optional)} 
-When parental data are available Pheno2Geno can pre-select phenotypes for analysis. Pheno2Geno 
-will use a \emph{t}-test to select molecular phenotypes showing significant phenotypic differences 
-between the inbred parental strains, to reduce the computational load in the follow up analysis. 
-By being more restrictive Pheno2Geno keeps only the phenotypes with the most significant differences 
-between the parents for further analysis. This again reduces the computational burden of the 
-analysis.
+{\bf 2) Analysis of parents of segregating population}: When parental data are available 
+Pheno2Geno uses a \emph{t}-test to select molecular phenotypes showing significant 
+differences between parental strains of segregating population. This reduces the computational load 
+of the analysis.
 
-{\bf 3) Analysis of segregating populations}:
-Phenotypes with major QTL will show clear multimodal distributions in the segregating population. 
-We fit a mixture model to the phenotype distribution \cite{Jansen:1993, Jansen:2001b, Benaglia:2009}. 
-Phenotypes are selected as candidate markers, only when significant multimodality and mixing 
-proportions close to the expected segregation frequency are observed, e.g. 1:1 for a bimodal 
-distribution of two homozygous classes in a RIL; 1:2:1 for a trimodal distribution of two homozygous 
-and one heterozygous class in an F2 cross.
+{\bf 3) Analysis of segregating population}:
+Phenotypes with a major QTL will show clear multimodal distributions in a segregating 
+population. Pheno2Geno fits a mixture model to the phenotype distribution \cite{Jansen:1993, 
+Jansen:2001a, Benaglia:2009}. Phenotypes are selected as candidate markers when 
+significant multimodality is observed together with mixing proportions close to the expected segregation 
+frequency, e.g. 1:1 for a bimodal distribution of two homozygous classes in 
+a RIL; 1:2:1 for a trimodal distribution of two homozygous and one heterozygous class in 
+an F2 cross.
 
 {\bf 4) Assigning genotypes}:
-Posterior probabilities of belonging to an underlying component distributions in the mixture are 
-calculated for each component \cite{Jansen:2001b, Benaglia:2009}. Using the posterior probabilities 
-the continuous phenotype values are converted into discrete data (e.g. 0 or 1 for RILs; 0, 1 or 2 
-for F2). If parental data are available, Pheno2Geno uses the direction of the difference in the 
-parental data to convert these discrete data into marker genotype data with a parental origin 
-label (A or B for RILs, A, H or B for F2). If the posterior probability for a specific marker / 
-individual combination is lower than a user-specified threshold, a missing value (*) or partly 
-informative value (e.g. not A, but homozygous B or heterozygous H) is assigned to avoid introducing 
-genotyping errors.
+The posterior probabilities of belonging to an underlying component distribution in the 
+mixture is calculated for each component \cite{Jansen:2001b, Benaglia:2009}. Using these 
+posterior probabilities, the continuous phenotype values are converted into discrete data 
+(e.g. 0 or 1 for RILs; 0, 1 or 2 for F2).  If the posterior probability for a specific 
+marker-individual combination is lower than a user-specified threshold, a missing value 
+(*) or partly informative value (e.g. not 0, but homozygous 2 or heterozygous 1) is 
+assigned to avoid introducing genotyping errors. If parental data is available these can 
+be given a parental origin label (A or B for RILs, A, H or B for F2). 
+When parental data are not available, mixture-model based scores cannot be converted into 
+parental origin labels. Pheno2Geno is able to solve that in case of RILs by forming twice 
+as many linkage groups compared to the expected number of chromosomes and then merges 
+anti-correlated pairs of linkage groups into a single chromosome.
 
-{\bf 5) Environment and epistasis}: 
-West et al. \cite{West:2007} highlighted some central issues when generating genetic markers from 
-gene expression data: 1) The influence of environmental interactions on gene expression and 2) The 
-influence of multiple QTL and epistatic interactions between two genetic loci. When information 
-about the environment is available, Pheno2Geno will either flag or remove markers affected by 
-environment using a user defined significance threshold. Pheno2Geno performs interval mapping (using 
-the R/qtl \emph{scanone} function) on the molecular phenotypes to find the best locations for the 
-candidate markers. Additionally Pheno2Geno tests if candidate markers are affected by multiple QTLs 
-or if they show an epistatic interaction. Depending on the user these are also flagged or removed 
-from further analysis.
+{\bf 5) \emph{De-novo} construction of genetic maps}: 
+When no initial map is available, Pheno2Geno can be used to create an initial 'skeleton' 
+map. This skeleton map is produced using very strict settings in the mixture model 
+analysis to obtain a limited number of highly trustworthy markers. These candidate markers 
+are assigned to linkage groups using the R/qtl function \emph{formLinkageGroups}. 
+Additional information provided by the user is used in this step, e.g. known physical 
+and genetic positions will be used by Pheno2Geno to assign physical chromosome IDs to 
+linkage groups and to determine the correct orientation of chromosomes. The package then 
+orders all the markers inside a linkage group by using the R/qtl \emph{orderMarkers} 
+function. Finally the skeleton map is saturated to improve resolution as described in 
+the next section.
 
-{\bf 6) Saturation of a known map}:
-Pheno2Geno saturates a known map by placing all candidate markers at their most likely genetic 
-positions and re-estimating the map distances. Duplicate candidate markers and markers located 
-at the exact position of a known marker are removed before saturating the genetic map.
+{\bf 6) Environment and epistasis}: 
+West et al. \cite{West:2007} emphasized that creation of genetic markers from gene expression data 
+is seriously hampered by the presence of environmental variation and multiple possibly interacting 
+QTLs (epistasis) suing R/qtl. Pheno2Geno tests if candidate markers are affected by multiple QTLs or pairwise 
+interactions. When data were collected in multiple environments potential environmental interactions 
+are tested. The user decides whether affected candidate markers are flagged or removed from further analysis.
 
-{\bf 6) \emph{De-novo} construction of genetic maps}: 
-When no initial map is available, Pheno2Geno can be used to create an initial 'skeleton' map. 
-This skeleton map is produced using very strict settings in the mixture model analysis to obtain 
-a limited number of highly thrustworthy markers, which are assigned to linkage groups by using 
-the R/qtl function \emph{formLinkageGroups}. Additional information provided by the user can be 
-used in this step, e.g. known physical and/or genetic positions will be used by Pheno2Geno to 
-assign physical chromosome IDs to linkage groups, and to determine the correct orientation of 
-chromosomes. Then Pheno2Geno orders all the markers inside a linkage group by using the R/qtl 
-\emph{orderMarkers} function. As a final step the skeleton map is saturated to improve resolution 
-following the procedure outline above.
+{\bf 7) Saturation of a known map}:
+Pheno2Geno performs interval mapping (using the R/qtl \emph{scanone} function) of 
+candidate markers on the original map. The candidate markers are placed on the position 
+of the QTL peak. The map is re-estimated (using the R/qtl \emph{est.map} function). 
+Followed by  removal of duplicate candidate markers and markers located at the position 
+of a known marker.
 
-{\bf 7) Detection of errors}: \emph{(optional)}
-After saturation or \emph{de-novo} construction of a genetic map, Pheno2Geno will detect and 
-correct any genotyping errors (double recombinations, missing data, semi informative markers) 
-using the R/qtl function \emph{fill.geno}. Furthermore when saturating a known map with available 
-genotype data, Pheno2Geno is able to detect sample mix-ups in the original data using R/lineup 
-(which is part of the R/qtl toolset). Users can also use external tools like MixupMapper \cite{Westra:2011} 
-beforehand to detect and correct the original genotype data.
+{\bf 8) Detection of errors}:
+After saturation or \emph{de-novo} construction of a genetic map, Pheno2Geno can detect 
+and correct genotyping errors (e.g. double recombinations, missing data, semi informative 
+markers) using the R/qtl function \emph{fill.geno}. Furthermore, when saturating a known 
+map with available genotype data, Pheno2Geno can detect sample mix-ups in the 
+original data using R/lineup (which is part of the R/qtl toolset). Users can also use 
+external tools such as MixupMapper \cite{Westra:2011} beforehand to detect and correct the 
+original genotype data.
 
 \section{Results}
-The original AFLP map created using a population of 420 RILs derived from a cross \emph{Arabidopsis 
-thaliana} Bayreuth (Bay-0) x Shahdara (Sha) \cite{Loudet:2002} contains 69 AFLP markers at an 
-average map distance of 7.1 cM also derived using mixture models \cite{Jansen:2001b, Loudet:2002}.
+In order to test our package, we performed an analysis of a population with a sparse map.
+The original AFLP map was created using a population of 420 RILs derived from a cross between 
+\emph{Arabidopsis thaliana} Bayreuth (Bay-0) x Shahdara (Sha) \cite{Loudet:2002}. 
+Our dataset consists of 164 RILs from the core population, which were assigned to 4 conditions 
+using the designGG package\cite{Li:2009}. Parents were measured in duplicate per condition. 
+Gene expression was measured on 370,000 transcripts. During Quality Control 16 arrays 
+(all RILs) were discarded, leaving 148 RILs and 16 parental arrays for further analysis.
 
-We use Pheno2Geno to saturate this genetic map using newly available gene expression data on 
-370,000 transcripts measured on 164 individuals from the \emph{A. thaliana} core population. 
-Pheno2Geno detects 10.801 phenotypes differentially expressed between parents ($P < 0.01$), from 
-which mixture modeling identifies 1230 potential markers showing a 1 to 1 segregation ratio. We 
-remove 267 markers which appear to be affected by one or more environments ($LOD >= 7.5$), 
-After QTL mapping using the R/qtl \emph{scanone} function 286 candidate markers are removed 
-which show none($LOD < 15$) (279 markers) or multiple QTL (7 markers). Scanning for epistasis 
-shows 77 candidate markers which appear to show pairwise epistatic interactions ($LOD >= 7.5$). 
+The original map contained 69 AFLP markers at an average map distance of 7.1 cM\cite{Loudet:2002}. 
+Resolution of a genetic map is limited by the size of the population from which the map is derived. 
+A distance of 1 cM is equal to 1 recombination in a 100 individuals. Our sample size of 148 
+individuals implies that we can obtain at best a resolution of 0.68 cM between markers.
 
-Using the remaining 600 candidate markers we saturate the original map, and remove another 103 
-duplicate/co-localizing markers. This results in 497 new markers (720\% increase), decreasing 
-the average map distance from 7.1 cM to 0.89 cM. Saturation of the \emph{A. thaliana} Bay-0 x 
-Sha map led to a more than sevenfold improvement in marker density at no additional lab cost. Map 
-distances were re-estimated using Kosambi function. Map expansion is observed on chromosomes 4 
-and 5 increasing total map length from 480.7 to 501.5 cM (Fig. 1). 
+10,801 phenotypes are detected as being differentially expressed between parents 
+($P < 0.01$). Mixture modeling identified 1,230 potential markers showing approximately 1:1 
+segregation ratio. Pheno2Geno removed 267 markers which show QTL by environment interaction
+($LOD >= 7.5$), and 286 candidate markers which show none ($LOD < 15$) (279 markers) or 
+multiple QTL (7 markers). Scanning for epistasis showed 77 candidate markers which appear to 
+show pairwise epistatic interactions ($LOD >= 7.5$). 
 
-A \emph{de-novo} reconstruction on gene expression data only (ignoring the original markers and map) 
-would have led to a skeleton map containing 227 markers with average distance of 2.2 cM.
+Using the remaining 600 candidate markers the original map was saturated, and 103 co-localizing 
+markers were removed. This resulted in 497 new gene expression based markers (720\% increase). 
+ap distances were re-estimated (est.map) using the Kosambi's map function. Map expansion was 
+observed on chromosomes 4 and 5 increasing total map length from 480.7 to 501.5 
+cM (Fig. \ref{fig:mapcomparison}). Nonetheless, the saturation resulted in decreasing the average map distance 
+from 7.1 cM to 0.89 cM. This is close to the theoretical resolution limit (0.68 cM) given 
+the size of population. Saturation of the \emph{A. thaliana} Bay-0 x Sha map led to a more 
+than sevenfold improvement in marker density at no additional lab cost. 
 
-QTL mapping of our previously published classical phenotype dataset \cite{Joosen:2011} onto the 
-new saturated map leads to an improvement in QTL likelihood for 56\% of previously detected QTLs. 
-Additionally, 29 new QTLs are detected as being significant on the saturated map, while showing 
-LOD scores close to the threshold when mapped to the original map (between 3.4 to 5 LOD, an 
-example is found in Fig. 2).
+A \emph{de-novo} reconstruction using gene expression data only (ignoring the original 
+markers and map) would have led to a skeleton map containing 227 markers with average 
+distance of 2.2 cM. 
 
-Moreover, all the gene expression probes showing differential expression between parents (10801 
-probes) were scanned. 5837 had a significant ($LOD > 5$) QTL on an original map. 3943 (66\%) 
-showed increase in likelihood on a new map(Fig. 3). Additionally, 210 new QTLs are detected as 
-being significant on the saturated map.
+Additionally, we performed a QTL mapping of our previously published classical 
+phenotype dataset\cite{Joosen:2011} onto the saturated map. This showed an increase in QTL 
+likelihood for 56\% of previously detected QTLs. Additionally, 29 new QTLs were detected 
+on the saturated map. These QTLs showed LOD scores close to the threshold when mapped 
+onto the original map ($ 3.4 <= LOD <= 5$, Fig. \ref{fig:qtlcomparison}).
+
+Finally,  a QTL mapping of all the gene expression probes showing differential expression 
+between parents (10,801 probes) was performed. 5,837 probes had a significant ($LOD > 5$) 
+QTL on the original map. Out of these, 3,943 probes (66\%) showed an increase in QTL 
+likelihood on the saturated map (Fig. \ref{fig:qtldetection}) and additional 210 new significant QTLs are 
+detected on the saturated map.
   
 \section{Conclusions and Discussion}
-Pheno2Geno is the first generic software package for generating genetic markers and maps from 
-high-throughput molecular phenotypes for any inbred diploid populations (backcross, F2 intercross 
-and recombinant inbred lines). Pheno2Geno selects phenotypes that show multimodal distributions 
-with proportions corresponding to expected segregation ratios. When information about environment 
-is available, it is used to eliminate markers possibly affected by environment or interaction 
-between environment and genotype. Moreover, Pheno2Geno eliminates markers affected by multiple 
-QTL or pairwise epistatic interactions between loci.
+Pheno2Geno is a generic software package for generating genetic markers and maps from 
+high-throughput molecular phenotypes for any inbred diploid population (e.g: backcross, 
+F2 intercross and recombinant inbred lines). Pheno2Geno has four important features which 
+we will discuss one by one:
 
-Pheno2Geno is able to process large volumes of different kinds of molecular phenotypes 
-\cite{Trelles:2011}. Computational effort may also be decreased by only selecting phenotypes 
-that are different between founders in the first step of the analysis. Memory requirments of the 
-algorithm are decreased by reading in and processing files in chunks rather than at once. 
-Complete analysis of the showcase data (370,000 transcripts) is performed in matter of hours 
-on an average desktop PC (Intel Core i5, 4 GB of RAM). For even larger datasets, the Pheno2Geno 
-package is embedded in xQTL workbench \cite{Arends:2012, Snoek:2012} allowing for easy 
-parallelization, use of cluster and cloud computing.\newline
+{\bf 1) Big data computation.}
+Pheno2geno can process large volumes of different kinds of molecular phenotypes \cite{Trelles:2011}. 
+Memory requirements of the algorithm are decreased by reading in and processing 
+files in chunks rather than at once. Complete analysis of the showcase data (370,000 transcripts) 
+is performed under an hour on an average desktop PC (Intel Core i5, 4 GB of RAM). For even larger 
+datasets, the Pheno2Geno package is embedded in xQTL workbench \cite{Arends:2012, Snoek:2012} 
+allowing for easy parallelization, use of cluster and cloud computing.
 
-Pheno2Geno was developed to improve and facilitate QTL studies. A leading package for QTL mapping 
-is R/qtl. Pheno2Geno results are formatted for direct use in R/qtl, providing a smooth transition 
-into the QTL mapping phase of the analysis. \newline
+{\bf 2) Integration with R/qtl.}
+The package is employing well optimized methods and functions of R/qtl for all the mapping steps,
+filling and (re)estimation of maps. Moreover, genetic maps created by Pheno2Geno can be directly 
+used in R/qtl, providing a smooth transition from genetic map creation to QTL mapping.
 
-In gene expression studies, the molecular phenotypes can show significant major eQTL not only in 
-a local eQTL, but also distant eQTLs. In the case of a local eQTL the derived marker will be 
-located at the position of the original gene. Often such eQTL are caused by differential signal 
-due to polymorphisms in the probe region \cite{Alberts:2005, Alberts:2007}. In the case of a 
-distant eQTL the derived marker will not be located by Pheno2Geno at the (possibly known) 
-position of the original probe but correctly at the position/region of the distant QTL. \newline
+{\bf 3) Strict selection of candidate markers.}
+The analysis of Pheno2Geno contains multiple selection steps filtering out candidate markers of 
+low quality. E.g. candidate markers affected by multiple QTLs and/or environment are flagged and 
+can easily be excluded from the analysis.
 
-Currently Pheno2Geno uses parental data to reduce the computational burden and to assign the 
-parental origin to the mixture-model derived genotype categories in the segregating population. 
-When such information is not available, mixture-model based scores cannot be converted into 
-scores showing the parental origin (e.g. scores 0 and 1 in RILs cannot be converted into scores 
-A and B showing parental origin). Pheno2Geno solves this problem by forming twice as much 
-linkage groups as the expected number of chromosomes and then merges anti-correlated pairs 
-of linkage groups into a single chromosome. \newline
+{\bf 4) Gene expression phenotypes.}
+We have illustrated Pheno2Geno on array-based gene expression data. If a gene expression 
+phenotype shows a significant QTL (eQTL) and if this eQTL co-localizes with the probe (a 
+local eQTL), then the derived marker will be mapped at the location of the probe. The eQTL 
+may actually be caused by polymorphisms in the region targeted by the probe \cite{Alberts:2005, 
+Alberts:2007}. If the QTL does not lo-localize with the probe (a distant eQTL), the derived 
+marker will not be located at the region targeted by the original probe but correctly at the 
+position of the distant eQTL.
 
