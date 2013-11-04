@@ -149,15 +149,28 @@ See http://gbic.biol.rug.nl/designGG/
 \begin{figure}[h!]
   \centering
   \includegraphics[width=1.0\textwidth]{eps/image_4_1.eps}
-  \caption[Circle plot.]
-    {Circle plot.}
+  \caption[MOLGENIS]
+    {Many minor and major changes have to be written in software code before a 'standard' software infrastructure 
+    accommodates a particular research. Using 'model-driven' development methods a bioinformatician only need to 
+    model what is needed for his experiment using a therefore optimized domain specific language (DSL). Generators 
+    quickly produce all the software logic to compose a full software infrastructure that accommodates these needs. 
+    When experimental needs change, a bioinformatician can (re)run the same generator with an adapted model file 
+    to quickly produce another variant of software infrastructure. This vastly reduces 'time-to-research' and 
+    enables bioinformaticians to quickly develop a suite of software infrastructures, with each variant accommodating 
+    a specific research task, while still on track to reuse, integrate and share the best standard features with 
+    other labs and bioinformaticians.}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=1.0\textwidth]{eps/image_4_2.eps}
-  \caption[Circle plot.]
-    {Circle plot.}
+  \caption[Templates]
+    {MOLGENIS generators are implemented as templates. This example shows the generator for a database component 
+    (A). This template is applied to each <entity> in the model to generate many complete DataMappers that would 
+    otherwise need to be written by hand. (B) shows an example of the generated source files, in this case for 
+    <entity name="Experiment"> as described in Figure 1. The command \$Name(entity) translates to the name of the 
+    entity ("Experiment") and command \${csv(\$entity.Fields, x)} means that command 'x' is applied to each field 
+    of the entity and returned as a comma separated string (csv).}
 \end{figure}
 
 A full list MOLGENIS applications can be found at http://www.molgenis.org. Each of these MOLGENIS projects 
@@ -224,9 +237,16 @@ network analysis) and the derived data (for example, QTL likelihood curves).
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=1.0\textwidth]{eps/image_4_3.eps}
-  \caption[Circle plot.]
-    {Circle plot.}
+  \includegraphics[width=0.81\textwidth]{eps/image_4_3.eps}
+  \caption[XGAP.]
+    {Experimental genotype and (molecular) phenotype data can be described using Subject, Trait, Data and DataElement; 
+    the experimental procedures used can be described using Investigation, Protocol and ProtocolApplication (B). Specific 
+    attributes and relationships can be added by extending core data types, e.g. Sample and Gene (A,C). The model is 
+    described in UML: Arrows denote relationships (Data has a field Investigation that refers to Investigation ID); 
+    Triangled lines denote inheritance (Metabolite inherits all properties ID, Name, Type from Trait, next to mass, 
+    formula and structure); Triangled dotted lines denote use of interface (Spot 'implements' properties of Locus); 
+    relationships are shown both as arrows and as properties ('xref' for one-to-many , 'mref' for many-to-many 
+    relationships). Asterisk* marks FuGE derived types.}
 \end{figure}
 
 We describe these biological components using FuGE data types and XGAP extensions thereof. 
@@ -443,7 +463,7 @@ available data within the project.
 As a result, data that were scattered across different platforms and databases can now be 
 stored, downloaded, analysed and visualized in an easily and comprehensive way in WormQTL. 
 On top, the database provides a set of user interfaced analysis tools to search the database 
-and explore genotype–phenotype mapping based on R/qtl \cite{Broman:2003, Arends:2010}. New 
+and explore genotype-phenotype mapping based on R/qtl \cite{Broman:2003, Arends:2010}. New 
 data can be uploaded and downloaded using the extensible plain text format for genotype and 
 phenotypes, XGAP \cite{Swertz:2010a}. There is no limit to the type of data (from gene 
 expression to protein, metabolite or cellular data) that can be accommodated because of its 
