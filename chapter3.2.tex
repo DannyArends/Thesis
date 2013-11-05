@@ -145,16 +145,17 @@ error term. The simplified description $Y = E + G + G:E + \epsilon$ of this line
 likelihood estimates (-log10 Probability, henceforth LOD scores) are generated for the environmental (E), genetic 
 (G) and genetic x environmental (G:E) effects. 
 
-To validate the use of a GGG design, we studied the genetic (G) and the interacting effects between G and E (GxE) 
-on phenotypes in four different environmental conditions (E). These phenotypes were obtained by studying different 
-germination parameters under different environmental conditions \cite{Joosen:2011}. In total we compared the 
-power of different designs by performing QTL analysis for 96 classic phenotypes under 4 different environments 
-\cite{Joosen:2011} (table 1).  Furthermore, we also investigate the interacting effect between genotype and 
-environmental. The full model mapping ($Y = E + G + G:E + \epsilon$) was applied to full block design, random design and GGG 
-design. Single maker mapping ($Y = G + \epsilon$) was applied to single block design. The number of detected QTL and interacting 
-QTL (FDR = 0.05, based on >10000 runs permutation) with the different designs are shown in the Table 1.  In the Full 
-block design  all samples were allocated to the four conditions.  Obviously, this is the most expensive way of performing 
-the experiment as the required resources and effort is quadrupled (4 x N).  As a result of the size of the experiment, 
+To validate the use of a GGG design, we studied the genetic (G) and the interacting effects 
+between G and E (GxE) on phenotypes in four different environmental conditions (E). These 
+phenotypes were obtained by studying different germination parameters under different environmental 
+conditions \cite{Joosen:2011}. In total we compared the power of different designs by performing 
+QTL analysis for 96 classic phenotypes under 4 different environments \cite{Joosen:2011} (table \ref{table:designs}).  
+Furthermore, we also investigate the interacting effect between genotype and environmental. The full model 
+mapping ($Y = E + G + G:E + \epsilon$) was applied to full block design, random design and GGG design. 
+Single maker mapping ($Y = G + \epsilon$) was applied to single block design. The number of detected QTL and interacting 
+QTL (FDR = 0.05, based on >10000 runs permutation) with the different designs are shown in the Table \ref{table:designs}.  
+In the Full block design all samples were allocated to the four conditions. Obviously, this is the most expensive way of performing 
+the experiment as the required resources and effort is quadrupled (4 x N). As a result of the size of the experiment, 
 the power of detecting genetic effects is the best for this design. Unfortunately, we cannot afford such expensive 
 experiments in many situations due to limited resource and time. The single block design only focuses on one of the four 
 conditions, as in most published genetical genomics studies to date. In this way the effect samples size for the selected 
@@ -196,13 +197,13 @@ the necessary resources with only a minimal compromise of statistical power as c
   \end{tabular}
   }
   \end{center}
-  \caption[Comparing different experimental designs]{Comparison of different experimental designs to study G and G:E effects on classic phenotypes in four
-different conditions. Each E condition is indicated with different gradient of gray in the blocks. In total
-there are n (164) genetically different RILs, and the data were analyzed in four different ways. The last two
-rows compare the number of QTLs for main G effect and G:E interacting effect detected using different
-design strategies. The numbers in parentheses indicate the QTLs that share confidence intervals (1.5 drop-
-off) with the full-block design.
-}
+  \caption[Comparing different experimental designs]{Comparison of different experimental designs to study G and G:E effects 
+  		  on classic phenotypes in four different conditions. Each E condition is indicated with different gradient of gray 
+  		  in the blocks. In total there are n (164) genetically different RILs, and the data were analyzed in four different 
+  		  ways. The last two rows compare the number of QTLs for main G effect and G:E interacting effect detected using 
+  		  different design strategies. The numbers in parentheses indicate the QTLs that share confidence intervals (1.5 
+  		  drop-off) with the full-block design.}
+    \label{table:designs}
 \end{table}
 
 \subsubsection{Metabolic Analysis}
@@ -243,6 +244,16 @@ namely genetic in panel A and H; environmental in panel C and D; genetic + envir
 environmental in panel E and F, illustrating the complex regulation of metabolic processes and the need for sophisticated 
 analysis methods, like PCA or Multiple QTL mapping\cite{Arends:2010}. 
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_2_1.eps}
+  \caption[Self organizing map]{Self organizing map, grouping different metabolites according to their accumulation pattern over different 
+    genotypes and developmental stages of significantly variable metabolites (anova F pr. < 0.05)  measured in the parental lines Bay-0 
+    and Sha in four developmental stages.  PD=Primary dormant, AR=After-ripened, 6H=6 hour imbibed, RP=seeds at radicle protrusion. Two
+    independent biological replicates were measured for each combination of parent and developmental stage.}
+    \label{fig:SOM}
+\end{figure}
+
 Because metabolite levels are varying between both parents and between the chosen seed germination stages, a segregation of 
 metabolic accumulation can be expected in the RIL population of 164 lines. A principle component analysis of the metabolic 
 profiles, revealing the internal structure in the data, shows that the first component clearly separates 6-hour imbibed seeds 
@@ -254,21 +265,21 @@ the parental accessions, indicating that this component explains most of the gen
 results demonstrate that Bay-0 and Sha possess substantial genetic variation for the accumulation of primary metabolites which 
 segregates in their recombinant offspring and which is strongly influenced by the developmental stage used for profiling.
 
-Transgressive segregation was visualized by comparing parental and RIL metabolite level distributions (Supplemental Fig. 3). 
+Transgressive segregation was visualized by comparing parental and RIL metabolite level distributions (Fig. \ref{fig:transgression}). 
 Some positive and negative transgression is observed for most of the metabolites in which the metabolite accumulation in a 
 RIL is respectively higher or lower compared to the respectively highest or lowest parent. In addition, 15 metabolites were 
 detected in RILs which were not present in either parent. This suggests that new allele combinations in the RIL population 
 resulted in enhanced accumulation or even novel formation of metabolites.
 
+
 \begin{figure}[h!]
   \centering
-  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_2_1.eps}
-  \caption[Self organizing map]{Self organizing map, grouping different metabolites according to their accumulation pattern over different 
-    genotypes and developmental stages of significantly variable metabolites (anova F pr. < 0.05)  measured in the parental lines Bay-0 
-    and Sha in four developmental stages.  PD=Primary dormant, AR=After-ripened, 6H=6 hour imbibed, RP=seeds at radicle protrusion. Two
-    independent biological replicates were measured for each combination of parent and developmental stage.}
-    \label{fig:SOM}
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_2_0.eps}
+  \caption[Transgression]{positive and negative transgression is observed for most of the metabolites in which the metabolite 
+  		  accumulation in a RIL is respectively higher or lower compared to the respectively highest or lowest parent.}
+    \label{fig:transgression}
 \end{figure}
+
 
 \subsubsection{G mapping of metabolites in a generalized genetical genomics design}
 In the experimental setup of this study, the E variation is defined as variation observed between the four

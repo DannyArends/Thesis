@@ -153,6 +153,7 @@ mapping of individual traits and that allowed comprehensive and comprehensible v
   \end{tabular}
   \caption[Trait codes]{Overview of traits in this study and the harvest(s) used for the measurement. The indicated color-code 
           is used in all figures throughout this paper. For each mentioned experiment $G_{max}$, AUC, $t_{50}$, $t_{10}$ and $U_{8416}$ were determined.}
+  \label{table:codes}
 \end{table}
 
 \begin{figure}[h!]
@@ -213,13 +214,13 @@ germination at test conditions from germination at the proper control conditions
 effect of NaCl on germination after cold stratification is determined by subtracting Gmax on 
 NaCl from Gmax on water. This subtraction was reversed for the rate and uniformity parameters to 
 correct the reversed nature of these parameters (e.g. slower germination results in a larger t10 
-and t50). Table 1 gives an overview of all corrections that have been applied. 
+and t50). Table \ref{table:codes} gives an overview of all corrections that have been applied. 
 
 \begin{figure}[h!]
   \centering
   \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_3.eps}
   \caption[Heatmap of correlation.]{Correlation between all trait values (bottom left panel) and between 
-          all LOD profiles (top right panel). Traits are indicated by the color code depicted in Table 1. 
+          all LOD profiles (top right panel). Traits are indicated by the color code depicted in Table \ref{table:codes}. 
           Green circles indicate an example of the close correlation between "after-ripened" and "fresh 
           with stratification" trait values.}
 \end{figure}
@@ -291,7 +292,7 @@ summarizing figures is greatly facilitating the interpretation of large datasets
   \caption[Epistatic interaction network.]{Epistatic interaction network created with Cytoscape from the 
           interaction.sif output file. Nodes indicate markers (small circles) and selected cofactors (large 
           circles). Edges represent the detected significant epistatic interactions (edge colors represent 
-          traits, see table 1 for colors).}
+          traits, see table \ref{table:codes} for colors).}
           \label{fig:epistaticinteractions}
 \end{figure}
 
@@ -318,9 +319,7 @@ without stratification (AR.NS) and freshly harvested seeds without stratificatio
 stress specific QTLs on chromosome II and top chromosome III can easily be identified. Interestingly, some 
 QTLs, including germination at low temperature (top chromosome I) and germination in the presence of 
 exogenous ABA (bottom chromosome V) displayed opposite effects on germination when compared to the 
-other treatments. In Table 3 the environmental specific effect sizes are summarized for the major loci. 
-A complete overview of effect sizes and explained variances for all detected loci can be found in 
-Supplemental table 6.
+other treatments.
 
 \begin{figure}[h!]
   \centering
@@ -339,16 +338,15 @@ Taking advantage of the residual heterozygosity present in the F6 generation of 
 combined with the large population size, we were able to confirm several QTL following the heterogeneous 
 inbred family (HIF) approach. In short, RIL lines which are heterozygous at the locus of interest were 
 selected in the next generation for lines homozygous for both parental alleles. These 'families' are 
-near isogenic lines (NIL) which can be used to confirm the observed allelic effects (Figure 7A). We 
+near isogenic lines (NIL) which can be used to confirm the observed allelic effects (Fig. \ref{fig:confirmation}A). We 
 applied this strategy for 7 of the major QTL that we detected in  this study and tested the 5 germination 
 parameters for 11 different conditions. For a single parameter (Gmax) and a single HIF (line HIF103) the 
-analytical procedure is summarized in figure 7B. Traits that could be confirmed by one or several HIF 
-lines are indicated in Table 4. An overview of all HIF results can be found in Supplemental table 7. We 
+analytical procedure is summarized in figure \ref{fig:confirmation}B. We 
 detected a vast QTL for imbibed seed size at the bottom of chromosome 5, which could be confirmed by the 
 use of HIF103. Upon imbibition seeds swell due to rapid water uptake and possibly because of the 
 expansion of the inner mucilage layer. In Sha, which is a natural mutant for the MUM2 gene 
 \cite{Macquet:2007}, this swelling did not occur. Also the HIF lines at the MUM2 position showed a 
-clear difference in swelling phenotype which was still significant 24 hours after imbibition (Figure 8).
+clear difference in swelling phenotype which was still significant 24 hours after imbibition (Fig. \ref{fig:swelling}).
 
 \begin{figure}[h!]
   \centering
@@ -360,6 +358,16 @@ clear difference in swelling phenotype which was still significant 24 hours afte
           (Gmax) for 11 conditions. Error bars represent standard error of at least 6 replicates. Responses are 
           calculated by subtracting the test sample from the control sample as indicated in table 2. C) T-test 
           significance values for the response values (significant (P<0.05) values are bold).}
+          \label{fig:confirmation}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_9.eps}
+  \caption[Seed Swelling.]{Different increases in seed size during the start of imbibition for Bay-0 (green), Sha (blue), 
+          HIF103/Bay-0 (red), and HIF103/Sha (purple) seeds. Shown is the average projected seed size area of 10 seeds. 
+          Error bars represent SE values. Photographs show 24-h imbibed seeds.}
+          \label{fig:swelling}
 \end{figure}
 
 \subsection{Conclusions and Discussion}
