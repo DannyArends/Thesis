@@ -124,7 +124,7 @@ of recombination and on an evenly genome-wide distribution of the parental allel
 set of the Bay-0 x Sha RIL population \cite{Loudet:2002} consisting of 165 lines and optimized for the 
 aforementioned factors used. This core population was carefully divided in four sub-populations optimized for 
 the distribution of parental alleles using the R-package DesignGG, aiming at the most accurate estimate of genetic 
-effect and G:E effect \cite{Li:2009} Supplemental Fig. 1).
+effect and G:E effect \cite{Li:2009}.
 
 \subsubsection{Comparison of Different Designs Using Classic Phenotypes}
 Standard QTL mapping procedures can efficiently capture genetic variation and epistasis, but do not take 
@@ -211,7 +211,7 @@ To study the metabolic status of Arabidopsis seeds during germination, four biol
 of seed germination with expected variation in metabolite levels to different extent were selected. The first two stages, 
 being freshly harvested primary dormant (PD) and after ripened (AR) non-dormant dry seeds, respectively, are expected to 
 comprise a very similar metabolome as most, if not all, metabolic fluxes are arrested in the dry seed. The oil rich 
-(~40\%) Arabidopsis seeds \cite{Hobbs:2004} typically desiccate to moisture contents below 5\% which results in an 
+(\textasciitilde40\%) Arabidopsis seeds \cite{Hobbs:2004} typically desiccate to moisture contents below 5\% which results in an 
 arrest of all enzymatic reactions due to the lack of free water. The other two stages represented early imbibition of 
 seeds, imbibed for 6 hours (6H), and seeds at radical protrusion (RP), respectively. Full rehydration of dry seeds typically 
 completes in less than 2 hours and although developmental differences are not yet expected, many metabolic processes will 
@@ -275,7 +275,7 @@ resulted in enhanced accumulation or even novel formation of metabolites.
 \begin{figure}[h!]
   \centering
   \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_2_0.eps}
-  \caption[Transgression]{positive and negative transgression is observed for most of the metabolites in which the metabolite 
+  \caption[Transgression]{Positive and negative transgression is observed for most of the metabolites in which the metabolite 
   		  accumulation in a RIL is respectively higher or lower compared to the respectively highest or lowest parent.}
     \label{fig:transgression}
 \end{figure}
@@ -367,21 +367,21 @@ One of the most rewarding benefits of the generalized approach is the possibilit
 fluxes over different environments or developmental stages in addition to the effect of genetic variation. 
 The acquired information of both sources of variation can be effectively displayed in so-called flash cards 
 in which line graphs illustrate the genetic and environmental effect and detected QTLs are plotted in heat 
-bars (Fig \ref{fig:normMetabolites}). The individual components of the linear model $Y = E + G + G:E + \epsilon$ 
+bars (Fig. \ref{fig:normMetabolites}). The individual components of the linear model $Y = E + G + G:E + \epsilon$ 
 provide the valuable measures for the various sources of variation. For example lysine content strongly 
 increases in germinating seeds, indicated by a significant LOD score of 16.1 for the environmental effect, 
-but no genetic variation for lysine could be detected (Fig \ref{fig:normMetabolites}A). For this metabolite genetic variants vary 
+but no genetic variation for lysine could be detected (Fig. \ref{fig:normMetabolites}A). For this metabolite genetic variants vary 
 indistinguishable from each other over different environments. In contrast, fumaric acid shows little variation 
 between the developmental stages (LOD = 0.6), but displays strong genetic variation explained by a highly 
 significant QTL (LOD 6.5) for the genetic effect at the center of chromosome II. Higher levels for fumaric
- acid are detected in all developmental stages for those lines harbouring the Bay-0 allele (Fig \ref{fig:normMetabolites}B). An 
+ acid are detected in all developmental stages for those lines harbouring the Bay-0 allele (Fig. \ref{fig:normMetabolites}B). An 
 example of the additive effect of environmental and genetic factors is the decrease in levels of malic acid 
 in imbibed seeds. Here a strong environmental effect (LOD = 13.2) is accompanied with an additional genetic 
 effect explained by a G QTL (LOD = 6.9) at the bottom of chromosome I. Note that the genetic effect here is 
-similar in all environments (Fig \ref{fig:normMetabolites}C). This is not the case for gluconic acid which levels are strongly 
+similar in all environments (Fig. \ref{fig:normMetabolites}C). This is not the case for gluconic acid which levels are strongly 
 affected by the interaction between the genotype and the environment. A strong G:E QTL (LOD = 10) is detected 
 at the top of chromosome IV. The Sha allele at this position causes higher levels of gluconic acid in dry 
-seeds, but not in imbibed seeds (Fig \ref{fig:normMetabolites}D). This strong negative environmental effect (LOD = 6.6) is also 
+seeds, but not in imbibed seeds (Fig. \ref{fig:normMetabolites}D). This strong negative environmental effect (LOD = 6.6) is also 
 responsible for the apparent directional shift of the G:E QTL effect.
 
 \begin{figure}[h!]
@@ -395,7 +395,7 @@ responsible for the apparent directional shift of the G:E QTL effect.
           \label{fig:effectSizes}
 \end{figure}
 
-Similar to the self-organizing maps in figure 1 flashcards can be instrumental in the identification of 
+Similar to the self-organizing maps in figure \ref{fig:SOM} flashcards can be instrumental in the identification of 
 metabolic relationships with the added value of genetic regulatory information. This is illustrated by 
 integrating flashcards of all metabolites that were identified in this study with a general Arabidopsis 
 metabolic pathway diagram (http://www.KEGG.jp). For instance, several pathways in 
@@ -521,16 +521,17 @@ and two separate lines containing the alleles of both parents, respectively, are
           LOD 4 significance threshold). The lower panel (C) shows the parental levels for maltose and the confirmation 
           for both QTLs by the segregating HIF lines (either fixed for Bay-0 or Sha alleles at the heterozygous interval). 
           Significant differences (t test $P < 0.05$) are indicated with * in-between the two contrasting samples..}
+          \label{fig:qtlconfirmation}
 \end{figure}
 
-HIF312 and HIF214 are segregating for regions at the top of chromosomes 4 and 5 (Fig. 6A), respectively,
+HIF312 and HIF214 are segregating for regions at the top of chromosomes 4 and 5 (Fig. \ref{fig:qtlconfirmation}A), respectively,
 and cover the region in which the two major metabolite hotspots were detected. AR dry seeds were used to
 profile the HIFs for metabolic content because many of the QTLs detected in this region showed a 
 large-effect size at the dry seed stages. Significant differences between parental alleles using four 
 replicates were defined by a two-tailed Student's t test($P < 0.05$). In total, 34 out of 64 QTLs could 
-be confirmed using this approach (Supplemental Fig. S8). For maltose, for instance, two QTLs with 
-opposite direction were found (Fig. 6B), which could both be confirmed using the two distinct HIFs 
-(Fig. 6C). In a number of cases, a HIF effect was observed that was not detected significantly
+be confirmed using this approach. For maltose, for instance, two QTLs with 
+opposite direction were found (Fig. \ref{fig:qtlconfirmation}B), which could both be confirmed using the two distinct HIFs 
+(Fig. \ref{fig:qtlconfirmation}C). In a number of cases, a HIF effect was observed that was not detected significantly
 in the RIL population (e.g. digalactosylglycerol). This might be the result from the higher power in 
 near isogenic lines due to the absence of epistatic interactions \cite{Keurentjes:2007a}. Nonetheless, 
 a substantial number of QTLs could not be confirmed by the HIF lines. The enrichment for small-effect 

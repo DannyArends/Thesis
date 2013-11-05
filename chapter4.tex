@@ -46,7 +46,9 @@ development efforts needed via reusable and easy to integrate components, new re
 quickly accommodated, for which efficient software variation mechanisms are needed.
 
 We present the evolution of MOLGENIS into a generic, model-driven toolkit for the rapid generation of 
-bespoke, data-intensive biosoftware applications \cite{Swertz:2010a}. We demonstrate step-by-
+data-intensive biosoftware applications \cite{Swertz:2010a}. Figure \ref{fig:modelDrivenDevelopment} 
+outlines the 'model-driven' development method that several bioinformatics projects adopted in recent 
+years to enable fast and flexible infrastructure development. We demonstrate step-by-
 step how bioinformaticians can use a domain-specific language to efficiently model the biological 
 details of their particular biological system, and use MOLGENIS software generation tools to 
 automatically generate a web application tailored to the experiments of their biologists, 
@@ -57,6 +59,22 @@ up to 30 times efficiency improvement compared to hand-writing software, while p
 of features practically unfeasible to produce by hand but not yet provided by related projects. We 
 conclude by inviting the bioinformatics community to add more MOLGENIS models, components and 
 generators to quickly generate all the software infrastructures biologists want to have.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=1.0\textwidth]{eps/image_4_1.eps}
+  \caption[MOLGENIS]
+    {Many minor and major changes have to be written in software code before a 'standard' software infrastructure 
+    accommodates a particular research. Using 'model-driven' development methods a bioinformatician only need to 
+    model what is needed for his experiment using a therefore optimized domain specific language (DSL). Generators 
+    quickly produce all the software logic to compose a full software infrastructure that accommodates these needs. 
+    When experimental needs change, a bioinformatician can (re)run the same generator with an adapted model file 
+    to quickly produce another variant of software infrastructure. This vastly reduces 'time-to-research' and 
+    enables bioinformaticians to quickly develop a suite of software infrastructures, with each variant accommodating 
+    a specific research task, while still on track to reuse, integrate and share the best standard features with 
+    other labs and bioinformaticians.}
+    \label{fig:modelDrivenDevelopment}
+\end{figure}
 
 The MOLGENIS toolkit is based on the method of model-driven development which emerged in the 1990s 
 from the computer industry. Below we discuss the MOLGENIS' modeling language, the generators and 
@@ -89,12 +107,25 @@ Java (http://java.sun.com); the HTML layout for the user interface is encoded in
 templates (http://freemarker.sourceforge.net/); and the database back-end using MySQL, PostgreSQL 
 or HSQLDB.
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=1.0\textwidth]{eps/image_4_2.eps}
+  \caption[Templates]
+    {MOLGENIS generators are implemented as templates. This example shows the generator for a database component 
+    (A). This template is applied to each <entity> in the model to generate many complete DataMappers that would 
+    otherwise need to be written by hand. (B) shows an example of the generated source files, in this case for 
+    <entity name="Experiment"> as described in Figure 1. The command \$Name(entity) translates to the name of the 
+    entity ("Experiment") and command \${csv(\$entity.Fields, x)} means that command 'x' is applied to each field 
+    of the entity and returned as a comma separated string (csv).}
+	\label{fig:Generators}
+\end{figure}
+
 \subsubsection{Generators}
 The generators are compact specifications of how each database feature should be implemented. 
 The MOLGENIS toolkit now has over 20 generators, but normal users will never need to take a look 
-inside. However, for readers wanting to create their own generators, Figure 4 provides an example 
+inside. However, for readers wanting to create their own generators, figure \ref{fig:Generators} provides an example 
 of the simple, text-based, generators we use. Each generator consists of two files: a Freemarker 
-template that describes the code to be generated (similar to that shown in Figure 4a) and a Java 
+template that describes the code to be generated (similar to that shown in figure \ref{fig:Generators}a) and a Java 
 'Generator' class that controls the generating process. A new generator can be developed as 
 follows: First write some examples of the desired programs by hand, where possible using similar 
 patterns and mark which parts are variable between them. Then copy one of these examples into 
@@ -114,10 +145,10 @@ as recent experiences from using this toolbox. Detailed examples on how these fe
 used to support actual microarray or genetical genomics experiments can be found in \cite{Swertz:2010a, Li:2009, Smedley:2008}.
 
 After completing a MOLGENIS model and running the generator as described above, you have a 
-ready-to-use software application. Figure XXX summarizes the features you get when running the 
-generated result as a web application: a fully functional system where researchers can upload, 
-manage, browse and query their biological data that conform to the model, optionally enhanced 
-with analysis tools to explore and annotate (depending on the plug-ins).
+ready-to-use software application. The features you get when running the generated result as 
+a web application: a fully functional system where researchers can upload, manage, browse 
+and query their biological data that conform to the model, optionally enhanced with analysis 
+tools to explore and annotate (depending on the plug-ins).
 
 \subsubsection{Applications}
 Since the earliest MOLGENIS application \cite{Swertz:2004}, we have successfully evaluated use of the MOLGENIS 
@@ -145,33 +176,6 @@ controls originating from Finnish, Swedish and Danish studies \cite{Leu:2010}. S
 \item \emph{DesignGG} - a web tool to optimally design such genetical genomics experiments \cite{Li:2009}. 
 See http://gbic.biol.rug.nl/designGG/
 \end{enumerate}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=1.0\textwidth]{eps/image_4_1.eps}
-  \caption[MOLGENIS]
-    {Many minor and major changes have to be written in software code before a 'standard' software infrastructure 
-    accommodates a particular research. Using 'model-driven' development methods a bioinformatician only need to 
-    model what is needed for his experiment using a therefore optimized domain specific language (DSL). Generators 
-    quickly produce all the software logic to compose a full software infrastructure that accommodates these needs. 
-    When experimental needs change, a bioinformatician can (re)run the same generator with an adapted model file 
-    to quickly produce another variant of software infrastructure. This vastly reduces 'time-to-research' and 
-    enables bioinformaticians to quickly develop a suite of software infrastructures, with each variant accommodating 
-    a specific research task, while still on track to reuse, integrate and share the best standard features with 
-    other labs and bioinformaticians.}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=1.0\textwidth]{eps/image_4_2.eps}
-  \caption[Templates]
-    {MOLGENIS generators are implemented as templates. This example shows the generator for a database component 
-    (A). This template is applied to each <entity> in the model to generate many complete DataMappers that would 
-    otherwise need to be written by hand. (B) shows an example of the generated source files, in this case for 
-    <entity name="Experiment"> as described in Figure 1. The command \$Name(entity) translates to the name of the 
-    entity ("Experiment") and command \${csv(\$entity.Fields, x)} means that command 'x' is applied to each field 
-    of the entity and returned as a comma separated string (csv).}
-\end{figure}
 
 A full list MOLGENIS applications can be found at http://www.molgenis.org. Each of these MOLGENIS projects 
 reported major benefits from the short cycle from model to running system to enable quick evaluation 
@@ -226,7 +230,7 @@ Ontologies foundry for use of standard and controlled vocabularies and ontologie
 integration \cite{Smith:2007}, and lessons learned from previous, profiling 
 technology-specific modeling efforts \cite{Brazma:2006}.
 
-Figure 1b shows the core components of a genotype-to-phenotype investigation: the biological 
+Figure \ref{fig:XGAP}b shows the core components of a genotype-to-phenotype investigation: the biological 
 subjects studied (for example, human individuals, mouse strains, plant tissue samples), the 
 biomolecular protocols used (for example, Affymetrix, Illumina, Qiagen, liquid 
 chromatography/mass spectrometry (LC/MS), Orbitrap, NMR), the trait data generated (usually 
@@ -247,6 +251,7 @@ network analysis) and the derived data (for example, QTL likelihood curves).
     formula and structure); Triangled dotted lines denote use of interface (Spot 'implements' properties of Locus); 
     relationships are shown both as arrows and as properties ('xref' for one-to-many , 'mref' for many-to-many 
     relationships). Asterisk* marks FuGE derived types.}
+    \label{fig:XGAP}
 \end{figure}
 
 We describe these biological components using FuGE data types and XGAP extensions thereof. 
@@ -257,7 +262,7 @@ of computational Protocols may require
 input Data and will deliver output Data.These data have the form of matrices, the DataElements 
 of which have a row and a column index. Each row and column refers to a DimensionElement, 
 being a particular Subject or a particular Trait, Table 2 illustrates the usage of these core 
-data types. Figure 1a, c shows how the XGAP model can be extended to accommodate details on 
+data types. Figure \ref{fig:XGAP}a and \ref{fig:XGAP}c shows how the XGAP model can be extended to accommodate details on 
 particular types of subjects and traits in a uniform way. A Trait can be a classical phenotype 
 (for example, flowering - the flowering time is stored in the DataElement) or a biomolecular 
 phenotype (for example, Gene X it's transcript abundance is stored in the DataElement). A 
@@ -349,15 +354,16 @@ of new QTL analyses, scalable data management and analysis tracking.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.81\textwidth]{eps/image_4_4.eps}
-  \caption[xQTL workbench.]
-    {Screenshot of xQTL workbench with all features enabled, (1) Import phenotype, genotype and genetic map data,
-    examples are given per import type; (2) Search through the whole database, explore and browse your data using
-    MOLGENIS generated web-interfaces; (3) Run R/qtl QTL mapping, the general plugin allows users to perform not
-    only QTL mapping but also other analyses; (4) Use default (or custom) plugins to explore results (e.g. Heatmaps,
-    QTL profiles); (5) Add new tools to the workbench (for Bioinformaticians); (6) User management and access control
-    of the system (Only for admins); (7) Expert settings can be altered in the admin tab (Only for admins); (8)
-    Connect/share data using generated API's to R statistics, REST/JSON, SOAP.}
+  \includegraphics[width=0.75\textwidth]{eps/image_4_4.eps}
+  \caption[xQTL workbench.]{Screenshot of xQTL workbench with all features enabled, (1) Import phenotype, genotype 
+          and genetic map data, examples are given per import type; (2) Search through the whole database, explore 
+          and browse your data using MOLGENIS generated web-interfaces; (3) Run R/qtl QTL mapping, the general 
+          plugin allows users to perform not only QTL mapping but also other analyses; (4) Use default (or custom) 
+          plugins to explore results (e.g. Heatmaps, QTL profiles); (5) Add new tools to the workbench (for 
+          Bioinformaticians); (6) User management and access control of the system (Only for admins); (7) Expert 
+          settings can be altered in the admin tab (Only for admins); (8) Connect/share data using generated API's 
+          to R statistics, REST/JSON, SOAP.}
+          \label{fig:xQTLworkbench}
 \end{figure}
 
 \begin{enumerate}\itemsep1pt
@@ -499,7 +505,7 @@ used to study the genetic architecture of traits and to detect potential phenoty
 Recently, the number of QTLs and especially eQTL studies in \emph{C. elegans} has increased greatly. 
 These eQTL studies consist of large data sets that, before WormQTL, were very difficult to access 
 and perform a combined meta-analysis. Therefore, we provide easy access to most of the eQTL studies 
-published, by search, browse and plot functions (Figure 1). We support relatively simple questions like 
+published, by search, browse and plot functions (Figure \ref{fig:xQTLworkbench}). We support relatively simple questions like 
 'does my gene have an xQTL?' to more advanced ones like 'how do these genes fit into an xQTL network?'. 
 All the matching genes, markers and traits found in the data sets are returned including links to 
 WormBase and literature. Furthermore, WormQTL is the first portal for any species that allows comparison 
