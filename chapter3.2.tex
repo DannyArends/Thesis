@@ -238,7 +238,7 @@ developmental stages (E) and 85 showing variation between the parents (G) with a
 between both variables in an interactive way (G:E) (Supplemental file 2). For 37 metabolites no significant variation was 
 detected between the parental accessions or in any of the developmental stages. A self-organizing map (SOM), created from the 
 metabolites showing significant variation between the parents, groups different metabolites according to their accumulation 
-pattern over different genotypes and developmental stages (Fig. 1). Clearly different patterns of variation can be observed, 
+pattern over different genotypes and developmental stages (Fig. \ref{fig:SOM}). Clearly different patterns of variation can be observed, 
 namely genetic in panel A and H; environmental in panel C and D; genetic + environmental in panel B and G and genetic x 
 environmental in panel E and F, illustrating the complex regulation of metabolic processes and the need for sophisticated 
 analysis methods, like PCA or Multiple QTL mapping\cite{Arends:2010}. 
@@ -246,8 +246,8 @@ analysis methods, like PCA or Multiple QTL mapping\cite{Arends:2010}.
 Because metabolite levels are varying between both parents and between the chosen seed germination stages, a segregation of 
 metabolic accumulation can be expected in the RIL population of 164 lines. A principle component analysis of the metabolic 
 profiles, revealing the internal structure in the data, shows that the first component clearly separates 6-hour imbibed seeds 
-and seeds at radicle protrusion from both primary dormant and after ripened seeds, explaining 37\% of the total variation 
-(Supplemental Fig. 2). This confirms the large metabolic changes accompanying the transition from dry arrested seeds to the 
+and seeds at radicle protrusion from both primary dormant and after ripened seeds, explaining 37\% of the total variation. 
+This confirms the large metabolic changes accompanying the transition from dry arrested seeds to the 
 imbibed and germinating developmental stages. As expected, no obvious differences could be detected between the metabolomes 
 of primary dormant and after ripened dry seeds. The second component, explaining 11\% of the total variation, sharply separates 
 the parental accessions, indicating that this component explains most of the genetic variation in metabolic profiles. These 
@@ -267,6 +267,7 @@ resulted in enhanced accumulation or even novel formation of metabolites.
     genotypes and developmental stages of significantly variable metabolites (anova F pr. < 0.05)  measured in the parental lines Bay-0 
     and Sha in four developmental stages.  PD=Primary dormant, AR=After-ripened, 6H=6 hour imbibed, RP=seeds at radicle protrusion. Two
     independent biological replicates were measured for each combination of parent and developmental stage.}
+    \label{fig:SOM}
 \end{figure}
 
 \subsubsection{G mapping of metabolites in a generalized genetical genomics design}
@@ -275,15 +276,14 @@ developmental stages (PD, AR, 6H, and RP). Significance thresholds, determined b
 ($n = 1,000, P < 0.01$) for each metabolite, ranged from LOD 3.43 to LOD 3.50 and was stringently set to 
 LOD 4 for all analyses. Mapping resulted in 120 significant QTLs in the G component for 83 metabolites and 
 31 G:E QTLs for 27 metabolites, ranging from one to four QTLs per metabolite. Thirteen of the G:E QTLs are
-significant in the G component as well. For 66 metabolites, no significant QTL was detected. Clustered 
-heat maps for both the G and the G:E QTL profiles were created (Supplemental Figs. S4 and S5).
+significant in the G component as well. For 66 metabolites, no significant QTL was detected.
 
 To test the performance of the generalized mapping procedure, QTLs detected in individual environments
 using the linear model $Y = G + \epsilon$ were compared with QTLs detected in the combined mapping 
-approach (using the linear model $Y = E + G + G:E + \epsilon$; Fig. 2; Supplemental Table S1).
+approach (using the linear model $Y = E + G + G:E + \epsilon$; Fig. \ref{fig:qtlComparison}).
 QTLs were binned in upper or lower chromosome arms to reduce the effects of small positional shifts.
 Results were plotted in a network, with nodes representing QTLs connected with edges to nodes repre-
-senting the mapping populations in which they were detected (Fig. 2). QTLs are grouped in three sections
+senting the mapping populations in which they were detected (Fig. \ref{fig:qtlComparison}). QTLs are grouped in three sections
 according to their detection in the different mapping procedures. The middle section shows 73 QTLs that
 were detected in both the $Y = E + G + G:E + \epsilon$ model and in one or more single-environment mappings 
 using the $Y = G + \epsilon$ model. This shows that most of the G variation present in the single environments 
@@ -313,11 +313,11 @@ For breeding purposes, the allelic effect size is an important measure, and diff
 environment in which the allelic effect is expressed can be very useful. In the generalized setup, 
 the allelic effect size of those metabolites with significant QTLs is separated per environment 
 (Supplemental Files S4 and S5). For every QTL that is consistently detected in all four conditions, 
-a LOD score for G effect (Fig. 3,x axis) is obtained from full-model mapping. For these QTLs,
+a LOD score for G effect (Fig. \ref{fig:effectSizes},x axis) is obtained from full-model mapping. For these QTLs,
 normalized allelic effect sizes are calculated by Zscore transformations for each environment 
-(Fig. 3, y axis). QTLs detected in the G component of the linear model (Fig. 3A) show an expected 
+(Fig. \ref{fig:effectSizes}, y axis). QTLs detected in the G component of the linear model (Fig. \ref{fig:effectSizes}A) show an expected 
 linear relationship between LOD score and effect size in all measured environments. This correlation 
-is much weaker for QTLs detected in the G:E component of the linear model (Fig. 3B) because the G 
+is much weaker for QTLs detected in the G:E component of the linear model (Fig. \ref{fig:effectSizes}B) because the G 
 variation is not expressed in all environments. QTLs of metabolites with strong G:E interaction, 
 therefore, display larger effect sizes in fewer environments compared with G-component QTLs of 
 similar significancelevels.
@@ -347,7 +347,8 @@ the linear model.
           the link between a QTL and a mapping population (single environments versus multiple environments). 
           Separate nodes are created for the genetic (G) component and the genetic x environmental (G:E) component. 
           Edge line color represents direction of the QTLs, green for higher levels in Sha; blue for higher levels 
-          in Bay-0. Edge width indicates increasing LOD scores..}
+          in Bay-0. Edge width indicates increasing LOD scores.}
+          \label{fig:qtlComparison}
 \end{figure}
 
 \subsubsection{G regulation of metabolic traits}
@@ -355,21 +356,21 @@ One of the most rewarding benefits of the generalized approach is the possibilit
 fluxes over different environments or developmental stages in addition to the effect of genetic variation. 
 The acquired information of both sources of variation can be effectively displayed in so-called flash cards 
 in which line graphs illustrate the genetic and environmental effect and detected QTLs are plotted in heat 
-bars (Fig 4; Supplemental Fig. 6). The individual components of the linear model $Y = E + G + G:E + \epsilon$ 
+bars (Fig \ref{fig:normMetabolites}). The individual components of the linear model $Y = E + G + G:E + \epsilon$ 
 provide the valuable measures for the various sources of variation. For example lysine content strongly 
 increases in germinating seeds, indicated by a significant LOD score of 16.1 for the environmental effect, 
-but no genetic variation for lysine could be detected (Fig 4A). For this metabolite genetic variants vary 
+but no genetic variation for lysine could be detected (Fig \ref{fig:normMetabolites}A). For this metabolite genetic variants vary 
 indistinguishable from each other over different environments. In contrast, fumaric acid shows little variation 
 between the developmental stages (LOD = 0.6), but displays strong genetic variation explained by a highly 
 significant QTL (LOD 6.5) for the genetic effect at the center of chromosome II. Higher levels for fumaric
- acid are detected in all developmental stages for those lines harbouring the Bay-0 allele (Fig 4B). An 
+ acid are detected in all developmental stages for those lines harbouring the Bay-0 allele (Fig \ref{fig:normMetabolites}B). An 
 example of the additive effect of environmental and genetic factors is the decrease in levels of malic acid 
 in imbibed seeds. Here a strong environmental effect (LOD = 13.2) is accompanied with an additional genetic 
 effect explained by a G QTL (LOD = 6.9) at the bottom of chromosome I. Note that the genetic effect here is 
-similar in all environments (Fig 4C). This is not the case for gluconic acid which levels are strongly 
+similar in all environments (Fig \ref{fig:normMetabolites}C). This is not the case for gluconic acid which levels are strongly 
 affected by the interaction between the genotype and the environment. A strong G:E QTL (LOD = 10) is detected 
 at the top of chromosome IV. The Sha allele at this position causes higher levels of gluconic acid in dry 
-seeds, but not in imbibed seeds (Fig 4D). This strong negative environmental effect (LOD = 6.6) is also 
+seeds, but not in imbibed seeds (Fig \ref{fig:normMetabolites}D). This strong negative environmental effect (LOD = 6.6) is also 
 responsible for the apparent directional shift of the G:E QTL effect.
 
 \begin{figure}[h!]
@@ -379,13 +380,14 @@ responsible for the apparent directional shift of the G:E QTL effect.
           LOD score. A: normalized allelic effect size per environment against LOD scores from the genetic (G) 
           component and B: normalized allelic effect size per environment against LOD scores from the genetic 
           x environmental interaction (G:E) component. Colors indicate the developmental stages (red = primary 
-          dormant (PD); blue = after ripened (AR); green = 6 hours imbibed (6H); orange = seeds at radicle protrusion (RP)..}
+          dormant (PD); blue = after ripened (AR); green = 6 hours imbibed (6H); orange = seeds at radicle protrusion (RP).}
+          \label{fig:effectSizes}
 \end{figure}
 
 Similar to the self-organizing maps in figure 1 flashcards can be instrumental in the identification of 
 metabolic relationships with the added value of genetic regulatory information. This is illustrated by 
 integrating flashcards of all metabolites that were identified in this study with a general Arabidopsis 
-metabolic pathway diagram (http://www.KEGG.jp) (Supplemental Fig. 7). For instance, several pathways in 
+metabolic pathway diagram (http://www.KEGG.jp). For instance, several pathways in 
 carbohydrate metabolism, such as the biosynthesis routes for galactose, pentose phosphate, starch/sucrose 
 and amino and nucleotide sugars, are highly interconnected and are therefore subject to co- regulation 
 mechanisms. A number of compounds involved in different subparts of the carbohydrate network module (e.g. 
@@ -419,7 +421,8 @@ networks and associate these connections with relevant biological processes.
           genetic (G) or interaction (G:E) effects are also indicated with LOD scores in the lower left corner below 
           or above the heat bar respectively. A: L-Lysine showing only Environmental (E) variation; B: Fumaric acid: 
           showing Genetic (G) variation; C: Malic acid showing both Environmental and Genetic variation (G+E); D: 
-          Gluconic acid showing interaction between Environment and Genetic variation (G:E)..}
+          Gluconic acid showing interaction between Environment and Genetic variation (G:E).}
+          \label{fig:normMetabolites}
 \end{figure}
 
 \subsubsection{Regulatory hotspots and physiological co-regulation}
@@ -428,7 +431,7 @@ be regulated by a common genetic factor. Although co-locating QTLs can be the re
 linked genetic factors, such coinciding QTLs are expected to occur more or less randomly by chance. Any 
 deviation from expected frequency distributions along the genome thus hints at genetic co-regulation 
 \cite{Breitling:2008a}. When plotted against their genomic position eight of such suggestive QTL hotspots 
-can be seen (Fig. 5) of which the two major ones (Chromosome IV-MSAT4.8 and Chromosome V-NGA139) co-locate 
+can be seen (Fig. \ref{fig:nQTL}) of which the two major ones (Chromosome IV-MSAT4.8 and Chromosome V-NGA139) co-locate 
 with previously identified hotspots for metabolic regulation \cite{Kliebenstein:2001, Keurentjes:2006, 
 Wentzell:2007, Rowe:2008}.  Interestingly, both loci have been shown to play a role in glucosinolate 
 biosynthesis. The AOP locus at chromosome IV regulates side chain modification while the 
@@ -448,7 +451,8 @@ regions are causal for the observed variation.
   \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_2_5.eps}
   \caption[Number of significant QTL]{Number of significant QTLs plotted against the genetic location. Metabolic 
           QTLs are represented by the solid (genetic component; G) and dashed (genetic x environmental component; 
-          G:E) lines. Germination related QTLs \cite{Joosen:2011} are shown by the dotted line..}
+          G:E) lines. Germination related QTLs \cite{Joosen:2011} are shown by the dotted line.}
+          \label{fig:nQTL}
 \end{figure}
 
 Since many metabolites appear to be co-regulated, the strong impact of some loci on central metabolism might 
