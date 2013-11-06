@@ -120,21 +120,35 @@ responsible for variation in quantitative phenotypes. These three papers by Davi
 and Eric Lander \cite{Lander:1986, Lander:1987, Lander:1989} form the basis for modern 
 day linkage analysis and genome wide association studies. 
 
+\begin{figure}[h!]
+ \centering
+    \includegraphics[width=0.8\textwidth]{eps/image_1_2}
+  \caption[Example of pedigree based linkage analysis.]
+    {Example of a hypothetical pedigree on which linkage analysis can be performed. Here we show a 
+    hypothetical pedigree of individuals within a family (2 generations), squares represent 
+    male individuals while circle are females. The phenotype is shown encoded by the fill 
+    color of the shape (Black = affected, White = not affected).  In this example pedigree, 
+    the "A" allele segregates with the disease. It is shared identical-by-descent in all 
+    affected individuals. }
+    \label{fig:pedigree}
+\end{figure}
+
 In linkage analysis, DNA is tracked from parents to children. This allows to build so called 
-genetic familie trees in which segregation of a phenotype such as disease is displayed. If 
-we find a genetic region which co-segregates with the disease we can assume this DNA and 
-disease are linked, and asses the strength of the linkage observed. Using experimental 
-crosses derived from inbred parents high statistical power is obtained at the cost of 
-reduced resolution. This reduction in resolution is caused by the lack of recombinations in 
-populations which are generally small (20 to 1000 individuals).
+genetic familie trees or pedigrees (See fig. \ref{fig:pedigree}) in which segregation of a phenotype (or 
+disease) is displayed. If we find a genetic region which co-segregates with the disease we can assume this DNA and 
+disease are linked, and asses the strength of the linkage observed. By using experimental 
+crosses derived from inbred parents the need to build up complex pedigrees is avoided, while 
+retaining the advantage of being able to trace back the DNA to the founder strains. Also inbred 
+populations provide high statistical power at the cost of reduced resolution for QTL mapping. 
+This reduction in resolution is caused by the lack of recombinations in populations which are 
+generally small (20 to 1000 individuals).
 
 Association analysis is done in outbred populations, where tracking of the origin of the 
-DNA is hard or impossible. However using molecular markers still allows us to get information 
+DNA is hard or impossible. However molecular markers still allows to get information 
 about the underlying DNA. We can use e.g. Single Nucleotide Polymorphisms (SNPs) and associate 
 a phenotype with this genetic marker. The advantage of this approach is that resolution is 
-very good, because we have plenty of recombinations in an outbred population. However 
-because of this high number of markers which we have to deal with statistical power to 
-detect effects are limited.
+very good, because we have a high number of recombinations in outbred populations. However 
+because of this large quantity of markers statistical power to detect effects are limited.
 
 Heritable phenotypes could be mapped to genomic locations using a combination of DNA 
 restriction enzymes, Mendel's inheritance laws and Hunt's linkage theory. Together these 
@@ -147,9 +161,10 @@ presented in this thesis.
 
 \begin{figure}[h!]
  \centering
-    \includegraphics[width=1.0\textwidth]{eps/image_1_1}
+    \includegraphics[width=0.8\textwidth]{eps/image_1_1}
   \caption[Effect scan across the genome.]
     {Example of how an effect scan is done using a single phenotype and a matrix of genotypes (A or B).}
+    \label{fig:effectscan}
 \end{figure}
 
 \section{From Phenotypes to Genetical Omics and GWAS (1990-2010)}
@@ -160,20 +175,10 @@ necessary. Extending the model can be done by incorporting sources of variation.
 us to associate / partition the observed variance to either environmental factors (E) or a 
 genetic loci (G).
 
-Multiple QTL Mapping (MQM) belongs to a family of QTL mapping methods, that include Haley-Knott 
-regression \cite{Haley:1992} and composite interval mapping CIM \cite{Zeng:1994}. MQM combines 
-the strengths of generalized linear model regression with those of interval mapping 
-\cite{Jansen:1993, Jansen:1994b}. 
-
-R/qtl is an extensible, interactive environment for the mapping of quantitative trait loci (QTL) 
-in experimental crosses. It is implemented as an add-on package for the freely available and 
-widely used statistical language/software R \cite{R:2009}. Since its introduction, R/qtl 
-\cite{Broman:2003} has become a reference implementation with an extensive guide on QTL mapping 
-\cite{RQTLGuide:2009}. Its main focus was to provide the mouse community with different QTL 
-mapping methodologies, and allow to deal with the the aberrant seggregation X chromosome. 
-Furthermore it provides methods to perform quality control of genetic maps. It currently 
-supports different types of inbred populations such as BackCross, F2, Recombinant inbread 
-lines and 4-way RILs. \cite{Broman:2003}
+To include G components into the model Multiple QTL Mapping (MQM) can be used. MQM belongs 
+to a family of QTL mapping methods, that include Haley-Knott regression \cite{Haley:1992} 
+and composite interval mapping CIM \cite{Zeng:1994}. MQM combines the strengths of 
+generalized linear model regression with those of interval mapping \cite{Jansen:1993, Jansen:1994b}. 
 
 \begin{table}[h]
   \centering
@@ -215,6 +220,14 @@ genetics to go from individual QTLs to a system wide approach of analysing QTLs 
 molecular levels called Systems Genetics \cite{Threadgill:2006}. Studies in model organisms 
 have shown high heritabilities for endophenotypes such as gene expression making these phenotypes 
 ideal targets for QTL mapping \cite{Brem:2002}. 
+
+In 2003 R/qtl was developed to provide reference implementations for QTL mapping. R/qtl is 
+an extensible, interactive environment to map quantitative trait loci (QTL) in experimental c
+rosses. It is implemented as an add-on package for the freely available and widely used 
+statistical language/software R \cite{R:2009}. The main focus of R/qtl is to provide 
+the mouse community with different QTL mapping methodologies, and allow to deal with the 
+the aberrant seggregation X chromosome. Furthermore it supports different types of inbred 
+populations such as BackCross, F2, Recombinant inbread lines and 4-way RILs. \cite{Broman:2003}
 
 When mapping gene expression or protein abundance current knowledge of protein and DNA sequence 
 allows us to locate their template on the genome. When QTL mapping resolution allows we can even 
