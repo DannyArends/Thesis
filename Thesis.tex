@@ -7,6 +7,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{tcolorbox}
 \usepackage{lipsum}
+\usepackage{fancyhdr}
 \usepackage[font={small,it}]{caption}
 \usepackage[square,sort,comma,numbers]{natbib}
 \usepackage{subfigure}
@@ -48,7 +49,17 @@
 \newcommand{\molgenis}{Molgenis} % don't use all caps, see journal guidelines
 \newcommand{\xgap}{XGAP} % don't use all caps, see journal guidelines
 
-\pagestyle{headings}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[RO, LE]{\thepage}
+\fancyhead[C]{\leftmark}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[RO, LE]{\thepage}
+}
+
 \renewcommand{\contentsname}{Table of Contents\vspace{-30pt}}
 
 \begin{document}
@@ -109,9 +120,7 @@ Beoordelingcommisie:  & Prof. dr. \\
                       & Prof. dr. \\
 \end{tabular}
 \tableofcontents
-
 \newpage
-\thispagestyle{empty}
 \chapter*{Summary}\vspace{-30pt}
 \addcontentsline{toc}{chapter}{Summary}
 Systems genetics is the inter disciplinairy field which deals with the consequences of genetic 

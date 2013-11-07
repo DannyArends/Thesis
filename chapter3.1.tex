@@ -111,6 +111,35 @@ possible causality. In total this analysis resulted in 327 trait scores over dif
 Evaluation of these high numbers of phenotypes demanded methods of QTL analysis that extended beyond 
 mapping of individual traits and that allowed comprehensive and comprehensible visualization.
 
+\definecolor{C1}{HTML}{2800FF}
+\definecolor{C2}{HTML}{8CB4E1}
+\definecolor{C3}{HTML}{B4DCE1}
+\definecolor{C4}{HTML}{5096B4}
+
+\definecolor{C5}{HTML}{F0F0A0}
+\definecolor{C6}{HTML}{FFFF64}
+
+\definecolor{C7}{HTML}{E6DCF0}
+\definecolor{C8}{HTML}{B4A0C8}
+
+\definecolor{C9}{HTML}{D2E6B4}
+\definecolor{C10}{HTML}{78B478}
+\definecolor{C11}{HTML}{78963C}
+
+\definecolor{C12}{HTML}{FAE6DC}
+\definecolor{C13}{HTML}{FABE8C}
+\definecolor{C14}{HTML}{FA8C32}
+
+\definecolor{C15}{HTML}{DCDCC8}
+\definecolor{C16}{HTML}{C8BE96}
+
+\definecolor{C17}{HTML}{E6B4B4}
+\definecolor{C18}{HTML}{DC9696}
+
+\definecolor{C19}{HTML}{96FF96}
+\definecolor{C20}{HTML}{96C800}
+\definecolor{C21}{HTML}{C8C800}
+
 \begin{table}[h]
   \tiny
   \centering
@@ -118,37 +147,37 @@ mapping of individual traits and that allowed comprehensive and comprehensible v
     \hline
     {\bf Trait Group}    & {\bf Stratification} & & {\bf Harvest} & {\bf Description}                                                                                          & {\bf Codes}               \\
     \hline
-    Germination               & N & & ABCD          & After ripened seed germination                                                                                           & AR.NS                     \\
+    Germination               & N & \cellcolor{C1} & ABCD          & After ripened seed germination                                                                                           & AR.NS                     \\
     \hline
-    After ripening            & N & & ABCD          & Delta between freshly harvested seed germination and after-ripened seed germination                                      & AR.NS - Fresh.NS          \\
+    After ripening            & N & \cellcolor{C2} & ABCD          & Delta between freshly harvested seed germination and after-ripened seed germination                                      & AR.NS - Fresh.NS          \\
     \hline
-    Fresh                     & Y & & ABCD          & Delta between freshly harvested seed germination and freshly harvested seed germination                                  & Fresh.WS -Fresh.NS        \\
+    Fresh                     & Y & \cellcolor{C3} & ABCD          & Delta between freshly harvested seed germination and freshly harvested seed germination                                  & Fresh.WS -Fresh.NS        \\
     \hline
-    AR                        & Y & & ABCD          & Delta between after-ripened seed germination and after-ripened  seed germination                                         & AR.WS - AR.NS             \\
+    AR                        & Y & \cellcolor{C4} & ABCD          & Delta between after-ripened seed germination and after-ripened  seed germination                                         & AR.WS - AR.NS             \\
     \hline
-    NaCl                      & N & & ABCD          & Delta between after-ripened seed germination on 100 mM NaCl and after-ripened  seed germination on water                 & AR.NS - NaCl.             \\
-    NaCl                      & Y & & ABCD          &                                                                                                                          & AR.WS - NaCl.WS.          \\
+    NaCl                      & N & \cellcolor{C5} & ABCD          & Delta between after-ripened seed germination on 100 mM NaCl and after-ripened  seed germination on water                 & AR.NS - NaCl.             \\
+    NaCl                      & Y & \cellcolor{C6} & ABCD          &                                                                                                                          & AR.WS - NaCl.WS.          \\
     \hline
-    Mannitol                  & N & & AD            & Delta between after-ripened seed germination on -0.5 mP Mannitol and after-ripened seed germination on water             & AR.NS - AR.Mann.NS.       \\
-    Mannitol                  & Y & & AD            &                                                                                                                          & AR.WS - AR.Mann.WS.       \\
+    Mannitol                  & N & \cellcolor{C7} & AD            & Delta between after-ripened seed germination on -0.5 mP Mannitol and after-ripened seed germination on water             & AR.NS - AR.Mann.NS.       \\
+    Mannitol                  & Y & \cellcolor{C8} & AD            &                                                                                                                          & AR.WS - AR.Mann.WS.       \\
     \hline
-    Cold Fresh                & N & & D             & Delta between freshly harvested seed germination at 10\degree C and freshly harvested seed germination at 20\degree C    & Fresh.NS - Fresh.Cold.NS  \\
-    Cold                      & N & & AD            & Delta between after-ripened seed germination at 10\degree C and after-ripened seed germination at 20\degree C            & AR.NS - AR.Cold.NS        \\
-    Cold                      & Y & & D             &                                                                                                                          & AR.WS - AR.Cold.WS        \\
+    Cold Fresh                & N & \cellcolor{C9} & D             & Delta between freshly harvested seed germination at 10\degree C and freshly harvested seed germination at 20\degree C    & Fresh.NS - Fresh.Cold.NS  \\
+    Cold                      & N & \cellcolor{C10} & AD            & Delta between after-ripened seed germination at 10\degree C and after-ripened seed germination at 20\degree C            & AR.NS - AR.Cold.NS        \\
+    Cold                      & Y & \cellcolor{C11} & D             &                                                                                                                          & AR.WS - AR.Cold.WS        \\
     \hline
-    Heat Fresh                & N & & D             & Delta between freshly harvested seed germination at 30\degree C and after-ripened seed germination at 20\degree C        & Fresh.NS - Fresh.Heat.NS  \\
-    Heat                      & N & & D             & Delta between after-ripened seed germination at 30\degree C and after ripened seed germination at 20\degree C            & AR.NS - AR.Heat.NS        \\
-    Heat                      & Y & & D             &                                                                                                                          & AR.WS - AR.Heat.WS        \\
+    Heat Fresh                & N & \cellcolor{C12} & D             & Delta between freshly harvested seed germination at 30\degree C and after-ripened seed germination at 20\degree C        & Fresh.NS - Fresh.Heat.NS  \\
+    Heat                      & N & \cellcolor{C13} & D             & Delta between after-ripened seed germination at 30\degree C and after ripened seed germination at 20\degree C            & AR.NS - AR.Heat.NS        \\
+    Heat                      & Y & \cellcolor{C14} & D             &                                                                                                                          & AR.WS - AR.Heat.WS        \\
     \hline
-    CD*                       & N & & D             & Delta between after-ripened seed germination after controlled detoriation and after-ripened seed germination on water    & AR.NS - AR.CD.NS          \\
-    CD*                       & Y & & D             &                                                                                                                          & AR.WS - AR.CD.WS          \\
+    CD*                       & N & \cellcolor{C15} & D             & Delta between after-ripened seed germination after controlled detoriation and after-ripened seed germination on water    & AR.NS - AR.CD.NS          \\
+    CD*                       & Y & \cellcolor{C16} & D             &                                                                                                                          & AR.WS - AR.CD.WS          \\
     \hline
-    ABA                       & N & & D             & Delta between after-ripened seed germination with  0.5 $\mu$M ABA and after-ripened seed germination on water            & AR.NS - AR.ABA.NS         \\
-    ABA                       & Y & & D             &                                                                                                                          & AR.WS - AR.ABA.WS         \\
+    ABA                       & N & \cellcolor{C17}  & D             & Delta between after-ripened seed germination with  0.5 $\mu$M ABA and after-ripened seed germination on water            & AR.NS - AR.ABA.NS         \\
+    ABA                       & Y & \cellcolor{C18}  & D             &                                                                                                                          & AR.WS - AR.ABA.WS         \\
     \hline
-    Seed size                 & N & & ABD           & Seed size and length of dry seeds                                                                                        & Size.Area                 \\
-    Seed size, imbibed        & N & & ABD           & Seed size of imbibed seeds                                                                                               & Size.imbibed              \\
-    Flowering time            & N & & ABD           & First open flower in long day (16D/8N) conditions                                                                        & FTLD                      \\
+    Seed size                 & N & \cellcolor{C19} & ABD           & Seed size and length of dry seeds                                                                                        & Size.Area                 \\
+    Seed size, imbibed        & N & \cellcolor{C20} & ABD           & Seed size of imbibed seeds                                                                                               & Size.imbibed              \\
+    Flowering time            & N & \cellcolor{C21} & ABD           & First open flower in long day (16D/8N) conditions                                                                        & FTLD                      \\
     \hline
   \end{tabular}
   \caption[Trait codes]{Overview of traits in this study and the harvest(s) used for the measurement. The indicated color-code 
