@@ -80,46 +80,48 @@ as a GFF (General Feature Format) file that is supported by most genome browsers
 \begin{figure}[h!]
   \centering
   \includegraphics[keepaspectratio,width=0.8\textwidth]{eps/image_2_1.eps}
-  \caption[Map comparison plot]{ Created with the R/qtl function \emph{plot.map} \cite{Broman:2003, 
-  		  Arends:2010}. For each of the chromosomes the original map (left) and the saturated map (right) 
-  		  are plotted. Lines are drawn to connect markers. Markers that exist in just one map and not the 
-  		  other are indicated by short line segments on the right side. Before plotting, both maps were 
-  		  re-estimated using the R/qtl function \emph{est.map}. The original map consists of 5 chromosomes 
-  		  and 69 markers at an average distance of 7.1 cM. The saturated map consists of the original 69 
-  		  markers plus 497 expression-based markers at an average marker distance of 0.89 cM.}
-  		  \label{fig:mapcomparison}
+  \caption[Map comparison plot drawn using R/qtl function \emph{plot.map} \cite{Broman:2003, Arends:2010}. For 
+          each of the chromosomes the original map (left) and the saturated map (right) are plotted. Lines are drawn
+          to connect markers.  Markers that exist in just one map and not the other are indicated by short line 
+          segments, on one side or the other, that are not connected across. Before plotting, both maps were 
+          re-estimated using the R/qtl function \emph{est.map}. The original map consists of 5 chromosomes and 69 
+          markers at an average distance of 7.1 cM. The saturated map consists of the original 69 markers plus 497 
+          expression-based markers at an average marker distance of 0.89 cM.}}
+          s\label{fig:mapcomparison}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
   \includegraphics[keepaspectratio,width=0.8\textwidth]{eps/image_2_2.eps}
-  \caption[Classical phenotype example.]{Results of single-marker QTL mapping of a classical phenotype on original (red 
-          line) and saturated map (grey line)(left axis). Only chromosome 1 is shown. 
+  \caption[Results of single-marker QTL mapping of a classical phenotype on original (gray line) and saturated map (green line)(left axis). 
+          Only chromosome 1 is shown.
           {\bf Ticks on an X-axis} - positions of the original markers on the genetic map. 
-          {\bf Black dots} - positions of the original markers on the physical map. 
+          {\bf Gray dots} - positions of the original markers on the physical map. 
           {\bf Colored dots and circles} - candidate markers detected by Pheno2Geno.
-  		  {\bf Orange circles} - candidate markers removed because they showed significant environmental influence. 
-  		  {\bf Blue circles} - candidate markers removed because they showed an epistatic interaction with other genetic markers. 
-  		  {\bf Red dots} - markers used for saturation of the original map. The final saturated map consists of all the 
-  		                   orange and black dots.
-  		  Shown here are locations of the new markers on the old map, in this way maps align for better clarity.}
-  		  \label{fig:qtlcomparison}
+          {\bf Orange circles} - candidate markers removed because they showed significant environmental influence.
+          {\bf Red circles} - candidate markers removed because they showed an epistatic interaction with other genetic markers. 
+          {\bf Green dots} - markers used for saturation of the original map. 
+          The final saturated map consists of all the green and gray dots. Shown here are locations of the new markers on the old map, in 
+          this way maps align for better clarity.}
+          \label{fig:qtlcomparison}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
   \includegraphics[keepaspectratio,width=0.8\textwidth]{eps/image_2_3.eps}
-  \caption[LOD changes.]{{\bf A) LOD scores on original and saturated map}. QTL mapping was performed on all 10,801 SNP probes 
-  showing differential expression between parents ($p < 0.01$ Student t-test) using original and saturated map. 5837 probes show 
-  a QTL with a $LOD > 5$ on  the original map. {\bf Orange dots} - 3943 probes (66\%) that show an increased LOD score on the
-  new saturated map.   Moreover, 210 new QTLs were detected on the saturated map. {\bf Black dots} -  probes showing a decrease in LOD score 
-  on the saturated map. {\bf Blue circles} - probes used to saturate the map.
-  {\bf B) Changing LOD scores.} For each of the phenotypes the top QTL  peak was selected. If the peaks measured on original and saturated
-  map shared location, the differences between LOD scores was calculated. {\bf Solid red line} - median of differences between peaks from 
-  chromosome 4, calculated inside a sliding window of 10 cM, moved across chromosome with a step of 1 cM. For each of the windows 
-  the value was plotted in the middle of the compartment (hence no value for the first and the last 5 cM). Ticks on the x axis show the position 
-  of the markers: {\bf black tall ticks} - original markers; {\bf orange short ticks} - markers selected by Pheno2Geno. Only one region, 
-  when no new markers were added (75-80 cM) does not show increase in power. }
+  \caption[LOD changes.]{
+          {\bf A) LOD scores on original and saturated map}. QTL mapping was performed on all 10,801 SNP probes showing differential 
+          expression between parents ($p < 0.01$ Student t-test) using original and saturated map. 5837 probes show   a QTL with a 
+          $LOD > 5$ on  the original map. {\bf Blue dots} - 3943 probes (66\%) that show an increased LOD score on the new saturated map. 
+          Moreover, 210 new QTLs were detected on the saturated map. 
+            {\bf Red dots} -  probes showing a decrease in LOD score on the saturated map. 
+            {\bf Green circles} - probes used to saturate the map.
+          {\bf B) Changing LOD scores.} For each of the phenotypes the top QTL  peak was selected. If the peaks measured on original 
+          and saturated map shared location, the differences between LOD scores was calculated. {\bf Solid green line} - median of 
+          differences between peaks from chromosome 4, calculated inside a sliding window of 10 cM, moved across chromosome with a 
+          step of 1 cM. For each of the windows the value was plotted in the middle of the compartment (hence no value for the first 
+          and the last 5 cM). Ticks on the x axis show the position of the markers: {\bf gray tall ticks} - original markers; 
+          {\bf green short ticks} - markers selected by Pheno2Geno. Only one region, where no new markers were added (75-80 cM) does not show increase in power. }
   		  \label{fig:qtldetection}
 \end{figure}
 
