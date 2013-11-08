@@ -16,11 +16,11 @@ are relevant to this thesis. }
 \newpage
 
 \section{Introduction}
-Systems genetics is the interdisciplinairy field which deals with the effects of 
-pertubation and natural variation measured at a all possible levels of a biological 
-system. In the last 20 years our ability to take large scale measurements from the 
-transcriptome, metabolome and proteome have improved dramatically leading to a virtual 
-avalanch of biological data.
+Systems genetics is the interdisciplinary field which deals with the effects of perturbation 
+and natural variation measured at a all possible levels of a biological system. It takes a 
+more holistic approach to understanding biological systems. In the last 20 years our ability 
+to take large scale measurements from the transcriptome, metabolome and proteome have 
+improved dramatically leading to a virtual avalanche of biological data.
 
 Phenotype variation / diversity observed is the consequence of a mixture of variation 
 originating at the DNA level (DNA), the environment (Env), and an error component (Err).
@@ -41,7 +41,7 @@ within a population and track the origin of DNA through many generation.
 
 At the phenotype end of the spectrum new high throughput technologies have also 
 been developed to mass produce phenotypes measurements using automated phenotyping. 
-Automated phenotyping allow thousands of simultanious measurements at all the 
+Automated phenotyping allow thousands of simultaneous measurements at all the 
 different endophenotype levels such as: metabolome, proteome, transcriptome. These 
 new technologies such as tiling arrays, RNAseq, High throughput proteomics and 
 metabolomics now enable us to measure all levels from the DNA to the observed 
@@ -109,7 +109,7 @@ phenotypes.
 
 \section{DNA and QTLs (1930-1990)}
 
-The dscovery of DNA as the carrier of heritability in 1944 by Avery, MacLeod and McCarty 
+The discovery of DNA as the carrier of heritability in 1944 by Avery, MacLeod and McCarty 
 \cite{Avery:1944} and the discovery of its structure by Watson and Crick.in 1953 
 \cite{Watson:1953} was the long sought after molecular basis for genetics. After the 
 discovery of restriction enzymes by Luria and Human \cite{Luria:1952} it was possible 
@@ -172,7 +172,7 @@ presented in this thesis.
 
 Observed phenotype expression is often more complex than a single causative gene. 
 To model these more complex interactions extension of the basic model for QTL mapping is 
-necessary. Extending the model can be done by incorporting sources of variation. This allows 
+necessary. Extending the model can be done by incorporating sources of variation. This allows 
 us to associate / partition the observed variance to either environmental factors (E) or a 
 genetic loci (G).
 
@@ -215,11 +215,11 @@ generalized linear model regression with those of interval mapping \cite{Jansen:
 
 Genetical Genomics is the concept that views endophenotypes (RNA, Protein and Metabolite abundance) 
 as common phenotypes wich can be mapped in bulk to the genome similar to classical 
-phenotypes \cite{Jansen:2001a}. Using natural occuring variation and new omics tools allows us 
+phenotypes \cite{Jansen:2001a}. Using natural occurring variation and new omics tools allows us 
 to track variation from the genotype all the way up to the classical phenotypes. Allowing 
-genetics to go from individual QTLs to a system wide approach of analysing QTLs at all known 
+genetics to go from individual QTLs to a system wide approach of analyzing QTLs at all known 
 molecular levels called Systems Genetics \cite{Threadgill:2006}. Studies in model organisms 
-have shown high heritabilities for endophenotypes such as gene expression making these phenotypes 
+have shown high heritability's for endophenotypes such as gene expression making these phenotypes 
 ideal targets for QTL mapping \cite{Brem:2002}. 
 
 In 2003 R/qtl was developed to provide reference implementations for QTL mapping. R/qtl is 
@@ -227,8 +227,8 @@ an extensible, interactive environment to map quantitative trait loci (QTL) in e
 rosses. It is implemented as an add-on package for the freely available and widely used 
 statistical language/software R \cite{R:2009}. The main focus of R/qtl is to provide 
 the mouse community with different QTL mapping methodologies, and allow to deal with the 
-the aberrant seggregation X chromosome. Furthermore it supports different types of inbred 
-populations such as BackCross, F2, Recombinant inbread lines and 4-way RILs. \cite{Broman:2003}
+the aberrant segregation X chromosome. Furthermore it supports different types of inbred 
+populations such as BackCross, F2, Recombinant inbred lines and 4-way RILs. \cite{Broman:2003}
 
 When mapping gene expression or protein abundance current knowledge of protein and DNA sequence 
 allows us to locate their template on the genome. When QTL mapping resolution allows we can even 
@@ -237,7 +237,7 @@ or to other regions in the genome (\emph{trans}-eQTL). This information can be s
 so called cis-trans plots, where the X-axis is the location of the eQTL and the Y-axis the genetic 
 location of the trait. Often so called trans-bands are observed, hotspots of many \emph{trans}-
 eQTL mapping to a common region in the genome \cite{Breitling:2008a}, which are used to infer 
-biological meaning and reconstruction co-expression and/or co-reguatory networks.
+biological meaning and reconstruction co-expression and/or co-regulatory networks.
 
 In the last decade Genome Wide Association Study (GWAS) have identified thousands of genetic 
 variants that are associated with human disease\cite{Hindorff:2009}. For reliable results GWAS 
@@ -256,7 +256,7 @@ function for these variants. And it has been shown that many disease-predisposin
 
 \begin{figure}[h!]
  \centering
-    \includegraphics[width=0.4\textwidth]{eps/image_1_3}
+    \includegraphics[width=0.6\textwidth]{eps/image_1_3}
   \caption[ThesisLayout.]
     {Schematic figure showing which chapter is about what molecular level, and how they are tied together by the biological dogma.}
     \label{fig:layout}
@@ -265,14 +265,14 @@ function for these variants. And it has been shown that many disease-predisposin
 \section{Thesis contributions (2010-2014)}
 Chapter \ref{chap:pheno2geno} details how Pheno2Geno is developed for high-throughput generation of genetic markers and maps from 
 molecular phenotypes. Pheno2Geno selects suitable phenotypes that show clear differential expression 
-in the founders. Pheno2Geno uses mixture modelling to select phenotypes showing segregation ratios 
+in the founders. Pheno2Geno uses mixture modeling to select phenotypes showing segregation ratios 
 close to the expected mendelian segregation ratios and transform them into genetic markers suitable 
 for map construction and/or saturation. Pheno2Geno analyses the candidate genetic markers and excludes 
 those showing multiple QTL, epistatically interacting QTL, and QTL by environment interactions to 
 provide a set of robust markers for QTL mapping protecting against genetic markers from a non genetic 
 origin.
 
-Chapter \ref{chap:mqm} highlights the integration of the Multiple QTL mapping algortihm into R/qtl. In sections 
+Chapter \ref{chap:mqm} highlights the integration of the Multiple QTL mapping algorithm into R/qtl. In sections 
 (\ref{chap:mqm}.1 and  \ref{chap:mqm}.2) we show the performance of MQM on experimental data from a cross of \emph{A. thaliana} 
 Bayreuth x Shahdara.
 

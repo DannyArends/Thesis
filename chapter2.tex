@@ -34,7 +34,7 @@ genetic markers.
 
 The Pheno2Geno R package is developed for high-throughput generation of genetic markers and maps from 
 molecular phenotypes. Pheno2Geno selects suitable phenotypes that show clear differential expression 
-in the founders. Pheno2Geno uses mixture modelling to select phenotypes showing segregation ratios 
+in the founders. Pheno2Geno uses mixture modeling to select phenotypes showing segregation ratios 
 close to the expected mendelian segregation ratios and transform them into genetic markers suitable 
 for map construction and/or saturation. Pheno2Geno analyses the candidate genetic markers and excludes 
 those showing multiple QTL, epistatically interacting QTL, and QTL by environment interactions to 
@@ -66,7 +66,7 @@ for de-novo construction of the genetic map or for saturation of a known genetic
 Continuous (non-dichotome) phenotypes can also be used as markers if they show a major QTL: a 
 major QTL will cause the phenotype to show a clear multimodal distribution to which a mixture 
 models can be fitted \cite{Jansen:1993, Jansen:2001a}. Posterior probabilities derived from 
-mixture modelling are used for genotype calling. Such approaches have been used for up to 
+mixture modeling are used for genotype calling. Such approaches have been used for up to 
 1,200 molecular phenotypes \cite{Gort:2010}.
 
 Here, we scale up the mixture model approach for non dichotome phenotypes in order to make 
@@ -75,7 +75,7 @@ analysis of hundreds of thousands of molecular phenotypes feasible e.g. gene exp
 Genetic maps created by Pheno2Geno can be easily used for QTL mapping: the package provides 
 output structures compatible with R/qtl, the leading R package for QTL analysis in 
 experimental crosses \cite{Broman:2003, Arends:2010}. Pheno2Geno allows users to 
-explore and compare resulting maps with their favourite genome browser. Maps can be saved
+explore and compare resulting maps with their favorite genome browser. Maps can be saved
 as a GFF (General Feature Format) file that is supported by most genome browsers.
 
 \begin{figure}[h!]
@@ -144,7 +144,7 @@ of the analysis.
 Phenotypes with a major QTL will show clear multimodal distributions in a segregating 
 population. Pheno2Geno fits a mixture model to the phenotype distribution \cite{Jansen:1993, 
 Jansen:2001a, Benaglia:2009}. Phenotypes are selected as candidate markers when 
-significant multimodality is observed together with mixing proportions close to the expected segregation 
+significant multi modality is observed together with mixing proportions close to the expected segregation 
 frequency, e.g. 1:1 for a bimodal distribution of two homozygous classes in 
 a RIL; 1:2:1 for a trimodal distribution of two homozygous and one heterozygous class in 
 an F2 cross.
@@ -221,7 +221,7 @@ show pairwise epistatic interactions ($LOD >= 7.5$).
 
 Using the remaining 600 candidate markers the original map was saturated, and 103 co-localizing 
 markers were removed. This resulted in 497 new gene expression based markers (720\% increase). 
-ap distances were re-estimated (est.map) using the Kosambi's map function. Map expansion was 
+Map distances were re-estimated (est.map) using the Kosambi's map function. Map expansion was 
 observed on chromosomes 4 and 5 increasing total map length from 480.7 to 501.5 
 cM (Fig. \ref{fig:mapcomparison}). Nonetheless, the saturation resulted in decreasing the average map distance 
 from 7.1 cM to 0.89 cM. This is close to the theoretical resolution limit (0.68 cM) given 
