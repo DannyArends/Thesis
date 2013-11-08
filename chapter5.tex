@@ -6,8 +6,8 @@
 multitude of technologies used. We developed the xQTL workbench system\cite{Arends:2012} to store 
 large amounts of phenotype and genotype data in the XGAP \cite{Swertz:2010a} dataformat. xQTL 
 workbench can easily be adapted to a multitude of input and storage formats using the MOLGENIS 
-\cite{Swertz:2004} generator. xQTL workbench uses the power of distibuted computing to allow 
-massive parrallel QTL analysis and allows new analysis tools to be quickly added to the system, 
+\cite{Swertz:2004} generator. xQTL workbench uses the power of distributed computing to allow 
+massive parallel QTL analysis and allows new analysis tools to be quickly added to the system, 
 an application of the xQTL system is found in the WormQTL database \cite{Snoek:2012}.}
 
 \null
@@ -233,7 +233,7 @@ technology-specific modeling efforts \cite{Brazma:2006}.
 
 Figure \ref{fig:XGAP}b shows the core components of a genotype-to-phenotype investigation: the biological 
 subjects studied (for example, human individuals, mouse strains, plant tissue samples), the 
-biomolecular protocols used (for example, Affymetrix, Illumina, Qiagen, liquid 
+bio molecular protocols used (for example, Affymetrix, Illumina, Qiagen, liquid 
 chromatography/mass spectrometry (LC/MS), Orbitrap, NMR), the trait data generated (usually 
 data matrices with, for example, phenotype or transcript abundance data), the additional 
 information on these traits (for example, genome location of a transcript, masses of LC/MS peaks), 
@@ -257,7 +257,7 @@ network analysis) and the derived data (for example, QTL likelihood curves).
 
 We describe these biological components using FuGE data types and XGAP extensions thereof. 
 Investigation binds all details of an investigation. Each investigation may apply a series 
-of biomolecular \cite{Brown:2005} and computational \cite{Carey:2007,Alberts:2008,Fu:2007,Bhave:2007} 
+of bio molecular \cite{Brown:2005} and computational \cite{Carey:2007,Alberts:2008,Fu:2007,Bhave:2007} 
 Protocols. The applications of such Protocols are termed ProtocolApplications, which in the case 
 of computational Protocols may require 
 input Data and will deliver output Data.These data have the form of matrices, the DataElements 
@@ -265,7 +265,7 @@ of which have a row and a column index. Each row and column refers to a Dimensio
 being a particular Subject or a particular Trait, Table 2 illustrates the usage of these core 
 data types. Figure \ref{fig:XGAP}a and \ref{fig:XGAP}c shows how the XGAP model can be extended to accommodate details on 
 particular types of subjects and traits in a uniform way. A Trait can be a classical phenotype 
-(for example, flowering - the flowering time is stored in the DataElement) or a biomolecular 
+(for example, flowering - the flowering time is stored in the DataElement) or a bio molecular 
 phenotype (for example, Gene X it's transcript abundance is stored in the DataElement). A 
 Trait can also be a genotype (for example, Marker Y is a genomic feature observation that is 
 stored in the DataElement). Genomic traits such as Gene, Marker and Probe all need additional 
@@ -401,7 +401,7 @@ and transporting multi-Gigabyte datasets.
 \item \emph{Customize to research} - Additional modules for new data modalities can be added using 
 MOLGENIS software generator \cite{Swertz:2010b}. The 'look and feel' of \xqtlwb is adaptable to 
 institute or consortium style by changing a simple template which is described in the \xqtlwb 
-documentation enabeling seamless integration into an existing web-site or intranet site, such as 
+documentation enabling seamless integration into an existing web-site or intranet site, such as 
 recently for EU-PANACEA model organism project and LifeLines biobank.
 \end{enumerate}
 
@@ -417,7 +417,7 @@ For data storage, the eXtensible Genotype and Phenotype (XGAP) data model was ad
 and extended for big data. To support the increased demand for computational resources for included 
 mapping routines we added high-level cluster and cloud management functions for computation. The 
 scalable QTL mapping routines of \xqtlwb are written in R and C. The choice of R ties in with the 
-general practise of using R for QTL mapping. The user interface includes direct access to the R 
+general practice of using R for QTL mapping. The user interface includes direct access to the R 
 interpreter. Both \xqtlwb and MOLGENIS are open source software, and source code is transparently
 stored and tracked in online source control repositories.
 
@@ -448,7 +448,7 @@ high throughput analyses to all at http://www.wormqtl.org.
 Over the past 30 years, the metazoan \emph{Caenorhabditis elegans} has become a premier animal model for 
 determining the genetic basis of quantitative traits \cite{Gaertner:2010, Kammenga:2008}. The 
 extensive knowledge of molecular, cellular and neural bases of complex phenotypes makes 
-\emph{C. elegans} an ideal system for the next endeavour: determining the role of natural genetic 
+\emph{C. elegans} an ideal system for the next endeavor: determining the role of natural genetic 
 variation on system variation. These efforts have resulted in an accumulation of a valuable amount 
 of phenotypic, high-throughput molecular and genotypic data across different developmental worm 
 stages and environments in hundreds of strains \cite{Palopoli:2008, Kammenga:2007, Rockman:2010, 
@@ -512,10 +512,10 @@ All the matching genes, markers and traits found in the data sets are returned i
 WormBase and literature. Furthermore, WormQTL is the first portal for any species that allows comparison 
 of eQTLs over multiple experiments and environments, giving insight in the plastic nature of genetic 
 regulation.
-\item \emph{Genome browser} - To find the genes that have a QTL on your favourite position, click 
+\item \emph{Genome browser} - To find the genes that have a QTL on your favorite position, click 
 'Genome browser'. Here, you can select from all the different releases of the University of California, 
 Santa Cruz genome releases. You can add tracks from the designated experiments of interest. Then 
-navigate to your favourite location (tip: use open in new window) and collect significant probe 
+navigate to your favorite location (tip: use open in new window) and collect significant probe 
 identifiers from that region.
 \item \emph{Browse data} - Complete data sets and accompanying gene, sample and trait identifier 
 lists can be browsed via the 'browse data' user interface. External identifiers anywhere in the 
@@ -537,7 +537,7 @@ MOLGENIS toolkit \cite{Swertz:2010a}, and in particular one previously existing 
 extensible xQTL workbench \cite{Arends:2012} and the R/qtl QTL mapping and visualization package for the R 
 language \cite{Broman:2003, Arends:2010}. The MOLGENIS toolkit is a Java-based software to generate tailored research 
 infrastructure on demand \cite{Swertz:2007}. From a single 'blueprint' describing all biological data 
-structures and user interfaces of the whole system, MOLGENIS autogenerates a full application 
+structures and user interfaces of the whole system, MOLGENIS auto generates a full application 
 including user interface, database infrastructure and application programming interfaces 
 (APIs) in R, REST and SOAP.
 
