@@ -8,13 +8,36 @@ dissertation document required for a promotion at the University of Groningen.}
 \newpage
 
 \section*{Conclusions and Future Perspectives}
-\lipsum[1]
-\subsection{QTLs, CTLs and Systems genetics}
-\lipsum[1]
-\subsection{Interaction models and verification}
-We have shown here that interaction models are a very powerful tool in understanding the complex 
+C1. Generating bio markers from micro array and RNAseq data is possible using mixture models, additionally 
+pheno2geno provided highly optimized routines for generating genetics maps de-novo or to saturate existsing genetic maps.
+Its output structures are compatible with R/qtl, which provides many facilities for QTL mapping in inbred populations.
+
+C2. Multiple QTL mapping is a very powerful method to detect QTLs in inbred populations. It is a good 
+addition to the R/qtl toolkit
+
+C3. Using MQM to find QTLs for classical traits related to germination of seeds in \emph{A. thaliana}, shows the an 
+increase in QTL detection power of MQM versus standard single marker QTL mapping. This shows that more genetic loci
+are involved in germination of seeds then previously thought known.
+
+C4. Using a generalized genetical genomics setup for your experiments gives higher statistical power to 
+detect interactions between environmental varition and genetci variation.
+
+C5. We have shown here that interaction models are a very powerful tool in understanding the complex 
 interplay between genetics and (cellular) environments.
-\subsection{High throughput analysis}
+
+C6. There is a need for infrastructure in systems genetics.
+
+\lipsum[1]
+\subsection*{Sequence, QTLs and systems genetics}
+Sequence analysis combined with the association or linkage analysis will continue to be the 
+bread-and-butter analysis tool-set for systems geneticists of the future. However complex already systems 
+geneticists have to cope with the aquisition of data from diverse origins and the analysis of these 
+diverse data types. As such systems genetics itself is always changing and in motion due to innovations 
+in several seemingly unrelated fields: Mathematics, Chemistry, Proteomics, Metabolomics, etc.
+
+\subsection*{Interaction models and verification}
+
+\subsection*{High throughput analysis}
 How this increasing demand for raw computational power can be satistfied remains an unanswered 
 question. Although federate computing (such as Target or EUgrid) can help researcher in the need 
 for big computing solutions in the near future.
