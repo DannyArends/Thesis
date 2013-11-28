@@ -5,9 +5,16 @@ dissertation document required for a promotion at the University of Groningen.}
 \null
 \vfill
 
+\begin{myexampleblock}{Parts of this chapter are adapted from:}
+  \authors{Caroline Durrant, Morris A. Swertz, Rudi Alberts, Danny Arends, ... , Ritsert C. Jansen, Klaus Schughart, et al}\\
+  \emph{ Bioinformatics tools and database resources for systems genetics analysis in mice 
+         - a short review and an evaluation of future needs}\\
+  \bold{Briefings in Bioinformatic} (2011)\\\\
+\end{myexampleblock}
+
 \newpage
 
-\section*{Conclusions and Future Perspectives}
+\section*{Thesis conclusions}
 C1. Generating bio markers from micro array and RNAseq data is possible using mixture models, additionally 
 pheno2geno provided highly optimized routines for generating genetics maps de-novo or to saturate existsing genetic maps.
 Its output structures are compatible with R/qtl, which provides many facilities for QTL mapping in inbred populations.
@@ -32,7 +39,6 @@ a system which systems geneticists can use to keep track of data generation and 
 Using R as computational backend allows them to contribute their methods and algorithms back to 
 the scientific community.
 
-\lipsum[1]
 \subsection*{Sequence, QTLs and systems genetics}
 Sequence analysis combined with the association or linkage analysis will continue to be the 
 bread-and-butter analysis tool-set for systems geneticists of the future. However complex already systems 
@@ -41,11 +47,119 @@ diverse data types. As such systems genetics itself is always changing and in mo
 in several seemingly unrelated fields: Mathematics, Chemistry, Proteomics, Metabolomics, etc.
 
 \subsection*{Interaction models and verification}
+\lipsum[1]
 
 \subsection*{High throughput analysis}
-How this increasing demand for raw computational power can be satistfied remains an unanswered 
-question. Although federate computing (such as Target or EUgrid) can help researcher in the need 
-for big computing solutions in the near future.
+With increasing experimental scale, it will not be sufficient to have analysis software as 
+simple downloads, because the researcher will also need sizable compute and storage power 
+\cite{Schadt:2010}. Thus, researchers will need easy access to 'software as a service' such 
+as cloud computing. 
+
+How this increasing demand for raw computational power can be satistfied remains an 
+unanswered question. Although federate computing (such as Target or EUgrid) can help 
+researcher in their need for big computing solutions in the near future. Two current 
+solutions are highlighted here Cluster and Cloud computing.
+
+\subsubsection*{Cluster computing}
+A cluster is a collection of computers dedicated to solving a computational task by divide 
+and conquer. It basically means to having a basic relatively homogeneous software available 
+on demand, on suitable compute and storage hardware. Hardware resources are divided by an 
+internal scheduling system amongst different tasks form different users. Users in general 
+have little control over the computational environment, because administration of the cluster 
+and the scheduling system put contraints on the usage of cluster. Computing clusters can be 
+fashioned from different types of hardware, such as:
+\begin{itemize}
+  \item Ad-hoc networks Cheap FPGA, and ARM core
+  \item Dedicated computer clusters, PBS
+  \item Video card cluster for linear algebra
+\end{itemize}
+Compute clusters in general do not have to be homogeneous in nature. Though in many cases 
+there will be some homogeneity to provide users with a stable computational environment to 
+perform their tasks. Additionally the use of hardware can limit the usage of a cluster to a 
+certain range of computational tasks.
+
+\subsubsection*{Cloud computing}
+The term cloud is used in many different ways. It basically means to have software available 
+on demand, on suitable compute and storage hardware, with the user being charged for the time 
+that it is being used. Following the concept of the leading cloud provider Amazon, it refers 
+in practice to use of a virtual Linux machine, i.e. a virtualized compute server with Linux 
+pre-installed, hosted within some large compute infrastructure, with complete freedom to be 
+customized by the user although not for free\cite{Trelles:2011}.
+
+Many commercial, national and local compute centres are also increasingly providing computer
+server capacity in cloud fashion. This makes these virtual machines an easy method to distribute 
+software without the need for users to install software. Thus, the infrastructure is specified
+jointly but for the actual computation every partner can be private with their data. This 
+approach grants enormous computational power to everyone with minimal preparation - once that 
+a shared image is finalized.
+
+The setup of such a compute cloud is not trivial but several initiatives are underway to ease 
+this process. At the workshop, the Bioinformatics WG tested the packaging system provided by 
+the Debian Med initiative as a method to create a cloud and could be consider this as a seed 
+for an image to then be publicly shared. Instructions to create such images were prepared for 
+the workshop and made available at:\\
+ http://wiki.debian.org/DebianMed/LiveCD. 
+ 
+Using this method the cloud infrastructure can be transferred to local computer clusters 
+if desired. Every participant has access to the server and can grant access to collaborators 
+without having to pay the hosting fees. When complete, this server image can be ported to 
+cloud providers such as: Amazon, Rackspace to be reused by other researchers.
+
+\subsection*{Git and SVN - software code sharing and versioning}
+
+Access and sharing of software code of all aforementioned tools is essential to avoid 
+duplication of efforts, promote interoperability and to really collaborate within the mouse 
+genetics bioinformatics community. Only then does it really become clear what is available 
+and how there can be data and software flow between projects.
+
+An example tool to facilitate such sharing and collaboration on code level is Git: Git 
+allows users to follow updates (versions) of software packages and easily provide feedback. 
+The most recent stable R version of R/qtl and qtlHD can be found as a Git repository, Git 
+helps to control versions for the authors and facilitate compatibility with other packages 
+like QTL-bim and Pheno2Geno. Although most users will generally find the last stable version 
+(Git master branch) the most useful and user-friendly, it is possible to download a 
+development branch to get familiar with the new features being prepared for the next version.
+
+An alternative to Git is Subversion. (SVN). GeneNetwork code was developed using Subversion with 
+Python as its primary language. GeneNetwork code and a shell (partial) database are available on 
+Source Forge:\\
+www.sourceforge.org/projects/genenetwork
+
+The mapping and permutation code used by GN for real time analysis is based on fast 
+Haley-Knott approximations and is available on Source Forge:\\
+http://qtlreaper.sourceforge.net
+
+xQTL and XGAP code were also developed in Subversion using Java as its primary language and 
+R for its analysis interfaces. XGAP code and binaries are all available as open source at
+http://www.xgap.org and http://www.molgenis.org. From a developer's perspective both Git and
+SVN are equally well-suited for publishing code and may be used in parallel. However recently 
+in 2012 also the entire MOLGENIS software suite (MOLGENIS, XGAP, xQTL workbench) was transfered 
+to Git and moved to http://www.github.com to get more online exposure, and remove the need 
+to host an internal SVN server.
+
+\section*{Future Perspectives}
+In the future, further considerations should include integration of mapping analysis tools 
+with genomic annotation and sequence data. Another goal should be the generalization of 
+analysis frameworks to accommodate not only mouse and human data but also data from model 
+species with different genetic pedigree structures, such as pets (e.g. dogs), farm animals
+(e.g. horses, cattle, pigs) and plants (e.g. arabidopsis, brassica, maize). 
+
+\subsection*{Pheno2Geno}
+\lipsum[1]
+
+\subsection*{xQTL workbench}
+While the xQTL workbench system described in this thesis have the ability to absorb new 
+analysis methods, consideration should be given to allow high flexibility. It will be very 
+difficult to anticipate totally new demands and requirements, or even new developments 
+which could provide a better alternative than databases for data and R for analysis. xQTL 
+workbench is a framework that incorporate appropriate mechanisms to support new demands and 
+developments.
+
+\subsubsection*{wormQTL and wormQTL - Human Disease}
+\lipsum[1]
+
+\subsection*{R/qtlHD}
+\lipsum[1]
 
 \newpage
 
@@ -186,31 +300,35 @@ and good lunches.
 \subsection*{Curriculum Vitae}
 \addcontentsline{toc}{subsection}{Curriculum Vitae}
 
-\begin{wrapfigure}{r}{0.5\textwidth}
+\begin{wrapfigure}{r}{0.4\textwidth}
   \centering
-  \includegraphics[width=0.4\textwidth]{eps/image_6_1.eps}
+  \includegraphics[width=0.3\textwidth]{eps/image_6_1.eps}
 \end{wrapfigure}
 
-Danny Arends was born on the 15th of Juli 1983 in the city of Zwolle located in the heart of the 
-Netherlands. After moving twice, Danny went to an elementary school situated in Heiligerlee, a minuscule 
-hamlet in the north of Holland in the province of Groningen. The small school was a perfect 
-match for small Danny, whom quickly fell in love with mathematics. With the advent of 
-computers at the elementary school, also the love for computer science began to develop. 
-Heiligerlee is located next to a small forrest called 'De Hoogte', this forrest was used 
-by Danny and friends on a daily basis to build tree huts and wage war on kids from the other 
-school in Heiligerlee using snow balls in winter. Combined with growing up amidst the animals 
-on a small farm-like residence also sparked young Danny his intrest in biology 
+Danny Arends was born on the 15th of Juli 1983 in the city of Zwolle located in the heart 
+of the Netherlands. After moving twice, Danny went to an elementary school situated in 
+Heiligerlee, a minuscule hamlet in the north of Holland in the province of Groningen. 
+
+The small school was a perfect match for young Danny during his childhood. Here he quickly 
+fell in love with mathematics, and the wondrous world of numbers and patterns. With the 
+advent of computers at the elementary school, the love for computers and their inner 
+workings also began to develop.
+
+Heiligerlee is located next to a small forest called 'De Hoogte', this forest was used 
+by Danny and friends on a daily basis to build tree huts and by using snow balls in winter 
+wage war on kids from the other school in Heiligerlee. The forest combined with growing up 
+amidst animals on a farm-like residence sparked young Danny his intrests in biology.
 
 After elementary school Danny went to the Ubbo Emmius lyceum in Stadskanaal (Groningen). 
-The large scale VWO was a big change from the small elementary school. Combined with a 
-long bus ride to and from school, made for long days. Fortunately new friends were made in 
-the class room and during the long bus rides. Danny finished high school after 6 years with a 
-Cum Laude, taking mostly exact courses such as mathematics, physics and chemistry.
+The large scale VWO was a big change from the small elementary school. Long hours at school 
+together with a long bus ride to and from school, made for long days. Fortunately new 
+friends were made in the class room and during the long bus rides. Danny finished high 
+school after 6 years, taking mostly exact courses such as mathematics, physics and chemistry.
 
-At 17, Danny thought that a university degree should be the next step in his career.
-Because of his interests in computers, Danny decided that computer science would be a good 
-match. This turned out to be not so true. While deeply devoted to the computational machines, 
-Danny was not satisfied by just studying the workings of a machine build by man.
+At 17, A university degree should be the next step in his career. Because of his interests 
+in computers, Danny decided that computer science would be a good match. This turned out 
+to be not so true. While deeply intrigued by the subject of computational machines, He 
+was not satisfied by just studying the workings of a machine build by man.
 
 After two years of Computer science at the University of Groningen, Danny decided it was time 
 for a change. Computer science was replaced by Life Science \& Technologie, a bachelor which 
