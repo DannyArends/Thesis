@@ -117,7 +117,7 @@ An example tool to facilitate such sharing and collaboration on code level is Gi
 allows users to follow updates (versions) of software packages and easily provide feedback. 
 The most recent stable R version of R/qtl and qtlHD can be found as a Git repository, Git 
 helps to control versions for the authors and facilitate compatibility with other packages 
-like QTL-bim and Pheno2Geno. Although most users will generally find the last stable version 
+such as QTL-bim and Pheno2Geno. Although most users will generally find the last stable version 
 (Git master branch) the most useful and user-friendly, it is possible to download a 
 development branch to get familiar with the new features being prepared for the next version.
 
@@ -168,7 +168,15 @@ developments.
 \lipsum[1]
 
 \subsection*{R/qtlHD}
-\lipsum[1]
+Because of increasing data sizes, R might not be the most suitable platform for the analysis 
+of next generation high throughput data. While the R environment is well suited to scientific 
+computing and performing statistical analysis, it is not the fastest or most optimized 
+language available. This is why for the new version of R/qtl - R/qtlHD another language 
+was chosen to perform the numerical analyses. This upcoming version of R/qtl is being 
+developed which a backend (for computation) mostly written in the D2.0 programming language.
+This switch to a different language should help: improve code quality, maintainability and 
+improved performance of algorithms. R/qtlHD is available for download, a current development 
+version is available from Github at http://github.com/qtlHD/qtlHD
 
 \newpage
 
