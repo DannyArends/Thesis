@@ -14,30 +14,13 @@ dissertation document required for a promotion at the University of Groningen.}
 
 \newpage
 
-\section*{Thesis conclusions}
-C1. Generating bio markers from micro array and RNAseq data is possible using mixture models, additionally 
-pheno2geno provided highly optimized routines for generating genetics maps de-novo or to saturate existsing genetic maps.
-Its output structures are compatible with R/qtl, which provides many facilities for QTL mapping in inbred populations.
-
-C2. Multiple QTL mapping is a very powerful method to detect QTLs in inbred populations. It is a good 
-addition to the R/qtl toolkit
-
-C3. Using MQM to find QTLs for classical traits related to germination of seeds in \emph{A. thaliana}, shows the an 
-increase in QTL detection power of MQM versus standard single marker QTL mapping. This shows that more genetic loci
-are involved in germination of seeds then previously thought known.
-
-C4. Using a generalized genetical genomics setup for your experiments gives higher statistical power to 
-detect interactions between environmental and genetic variation.
-
-C5. We have shown here that interaction models are a very powerful tool in understanding the complex 
-interplay between genetics and (cellular) environments.
-s
-C6. There is a need for reliable but flexible infrastructure in systems genetics. xQTL workbench 
-combines, the flexibility of the MOLGENIS suite with some of the most used computational tools 
-for systems genetics. Together with R as esparanto between the different languages, this creates 
-a system which systems geneticists can use to keep track of data generation and track their analysis. 
-Using R as computational backend allows them to contribute their methods and algorithms back to 
-the scientific community.
+\section*{Conclusion, Discussion and Future perspectives}
+This chapter will highlight the major conclusions of this thesis. There will be a short 
+discussion on the implications of these conclusions.  Finally there will be a short future 
+perspectives part, in which we look forwards to the future of high throughput computing in 
+systems genetics. We highlight some novel innovations since the previous chapters were 
+written, and outline possible issues which might become more relevant to systems genetics 
+research in the coming years.
 
 \subsection*{Sequence, QTLs and systems genetics}
 Sequence analysis combined with the association or linkage analysis will continue to be 
@@ -47,8 +30,19 @@ origins and the analysis of these diverse data types. As such systems genetics i
 always changing and in motion due to innovations in several seemingly unrelated fields: 
 mathematics, chemistry, physics, proteomics, metabolomics, etc.
 
-\subsection*{Interaction models and verification}
-\lipsum[1]
+\subsection*{Multiple QTL mapping and interaction models}
+Using MQM to find QTLs for classical traits related to germination of seeds in \emph{A. 
+thaliana}, shows the an increase in QTL detection power of MQM versus standard single 
+marker QTL mapping. This shows that more genetic loci are involved in germination of 
+seeds then previously known.
+
+Additionally, using a generalized genetical genomics setup for your experiments gives 
+higher statistical power to detect interactions between environmental and genetic 
+variation.
+
+Furthermore, we have shown the application of interaction models to multi environmental 
+experiments. We conclude that interaction models are a very powerful tool in understanding 
+the complex interplay between genetics and (cellular) environments.
 
 \subsection*{High throughput analysis}
 With increasing experimental scale, it will not be sufficient to have analysis software as 
@@ -146,6 +140,11 @@ species with different genetic pedigree structures, such as pets (e.g. dogs), fa
 (e.g. horses, cattle, pigs) and plants (e.g. arabidopsis, brassica, maize). 
 
 \subsection*{Pheno2Geno}
+Generating bio markers from micro array and RNAseq data is possible using mixture models, 
+additionally Pheno2Geno provided highly optimized routines for generating genetics maps 
+de-novo or to saturate existsing genetic maps. Its output structures are compatible with 
+R/qtl, which provides many facilities for QTL mapping in inbred populations.
+
 With the upcoming new version of R/qtl also the pheno2geno package needs to be redesigned 
 to accomodate new requirements. These include expected changes such as: a more standalone package, 
 further optimization of parallelisation, but also support for more cross types such as 
@@ -164,6 +163,13 @@ which could provide a better alternative than databases for data and R for analy
 workbench is a framework that incorporate appropriate mechanisms to support new demands and 
 developments.
 
+There is a need for reliable but flexible infrastructure in systems genetics. xQTL workbench 
+combines, the flexibility of the MOLGENIS suite with some of the most used computational tools 
+for systems genetics. Together with R as esparanto between the different languages, this creates 
+a system which systems geneticists can use to keep track of data generation and track their analysis. 
+Using R as computational backend allows them to contribute their methods and algorithms back to 
+the scientific community.
+
 \subsubsection*{wormQTL and wormQTL - Human Disease}
 \lipsum[1]
 
@@ -177,6 +183,10 @@ developed which a backend (for computation) mostly written in the D2.0 programmi
 This switch to a different language should help: improve code quality, maintainability and 
 improved performance of algorithms. R/qtlHD is available for download, a current development 
 version is available from Github at http://github.com/qtlHD/qtlHD
+
+Multiple QTL mapping is a very powerful method to detect QTLs in inbred populations. It 
+is a useful addition to the R/qtl toolkit, with the advent of R/qtlHD the development team 
+is also committed to adding the Multiple QTL Mapping routine to the R/qtlHD package.
 
 \newpage
 
