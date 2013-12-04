@@ -23,38 +23,45 @@ systems genetics. We highlight some novel innovations since the previous chapter
 written, and outline possible issues which might become more relevant to systems genetics 
 research in the coming years.
 
-\subsection*{Sequence, QTLs and systems genetics}
-Sequence analysis combined with the association or linkage analysis will continue to be 
-the bread-and-butter analysis tool-set for systems geneticists of the future. However 
-complex already systems geneticists have to cope with the aquisition of data from diverse 
-origins and the analysis of these diverse data types. As such systems genetics itself is 
-always changing and in motion due to innovations in several seemingly unrelated fields: 
-mathematics, chemistry, physics, proteomics, metabolomics, etc.
-
 \subsection*{Multiple QTL mapping and interaction models}
-Using MQM to find QTLs for classical traits related to germination of seeds in \emph{A. 
-thaliana}, shows the an increase in QTL detection power of MQM versus standard single 
-marker QTL mapping. This shows that more genetic loci are involved in germination of 
-seeds then previously known.
+Association and / or linkage analysis will continue to be the bread-and-butter analysis 
+tool-set for systems geneticists of the future. However complex systems geneticists have 
+to cope with the aquisition of data from diverse experimental designs and the analysis of 
+these diverse data types. Requiring complex pipelines to analyse new complexity of the incoming data.
 
-Additionally, using a generalized genetical genomics setup for your experiments gives 
-higher statistical power to detect interactions between environmental and genetic 
-variation.
+In chapter XX we compare 3 different designs, the Full design, Random and designGG experimental 
+design. We show that using a generalized genetical genomics experimental design for your 
+experiments gives higher statistical power to detect interactions between environmental and genetic 
+variation. Additionally the amount of raw data produced in this design is 4 times less compared to 
+a full block design, making the post analysis of these kind of experiments less challenging.
+
+Another part of this complex pipeline is the association analysis part which can be performed using 
+different methods, e.g. single marker association mapping in outbred populations, interval 
+mapping in inbred populations, or multiple QTL mapping. In this thesis we used multiple 
+QTL mapping to find QTLs for classical traits related to germination of seeds in 
+\emph{A. thaliana}, shows the an increase in QTL detection power of MQM versus standard 
+single marker QTL mapping. This shows that more genetic loci are involved in germination 
+of seeds then previously known.
 
 Furthermore, we have shown the application of interaction models to multi environmental 
-experiments. We conclude that interaction models are a very powerful tool in understanding 
-the complex interplay between genetics and (cellular) environments.
+experiments in which we used a generalized genetical genomics experimental design. We 
+conclude that interaction models are a very powerful tool in understanding the complex 
+interplay between genetics and (cellular) environments. Additionally, we observe more QTLs 
+are detected by using a designGG experimental design compared to a random design.
 
 \subsection*{High throughput analysis}
-With increasing experimental scale, it will not be sufficient to have analysis software as 
-simple downloads, because the researcher will also need sizable compute and storage power 
-\cite{Schadt:2010}. Thus, researchers will need easy access to 'software as a service' such 
-as cloud computing. 
+With increasing scale of experimental data being produced in the lab, it will not be 
+sufficient to have analysis software as simple downloads, because the researcher will 
+also need sizable compute and storage power \cite{Schadt:2010}. Thus, researchers will 
+need easy access to 'software as a service' such as cloud computing. 
 
-How this increasing demand for raw computational power can be satistfied remains an 
-unanswered question. Although federate computing (such as Target or EUgrid) can help 
-researcher in their need for big computing solutions in the near future. Two current 
-solutions are highlighted here Cluster and Cloud computing.
+How this increasing demand for raw computational power can be satistfied in the future remains 
+an unanswered question. Although federate computing providers (such as Target or EUgrid) can help 
+researcher in their need for big computing solutions in the near future. This is also not a 
+universal solution, while the speed of data production is currently higher then the speed of 
+CPU improvement. Two solutions which are currently already available are highlighted here: 
+Cluster and cloud computing might be able to solve the Big Data questions researchers face 
+now-a-days.
 
 \subsubsection*{Cluster computing}
 A cluster is a collection of computers dedicated to solving a computational task by divide 
