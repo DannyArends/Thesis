@@ -30,10 +30,12 @@ to cope with the aquisition of data from diverse experimental designs and the an
 these diverse data types. Requiring complex pipelines to analyse new complexity of the incoming data.
 
 In chapter \ref{sect:Metabolites} we compare three different experimental designs: full 
-block design, random design and GGG design design. We show that using a generalized genetical genomics experimental design for your 
-experiments gives higher statistical power to detect interactions between environmental and genetic 
-variation. Additionally the amount of raw data produced in this design is 4 times less compared to 
-a full block design, making the post analysis of these kind of experiments less challenging.
+block design, random design and generalized genetical genomics (GGG) design design. We show 
+that using a GGG experimental design for experiments gives higher statistical power to 
+detect interactions between environmental and genetic variation compared to a random. 
+Additionally the amount of raw data produced in this design is 4 times less compared to 
+a full block design, making the post analysis of these kind of experiments less challenging, 
+and less expensive.
 
 Another part of this complex pipeline is the association analysis part which can be performed using 
 different methods, e.g. single marker association mapping in outbred populations, interval 
@@ -126,7 +128,7 @@ development branch to get familiar with the new features being prepared for the 
 An alternative to Git is Subversion. (SVN). GeneNetwork code was developed using Subversion with 
 Python as its primary language. GeneNetwork code and a shell (partial) database are available on 
 Source Forge:\\
-www.sourceforge.org/projects/genenetwork
+http://sourceforge.org/projects/genenetwork
 
 The mapping and permutation code used by GN for real time analysis is based on fast 
 Haley-Knott approximations and is available on Source Forge:\\
@@ -139,6 +141,10 @@ SVN are equally well-suited for publishing code and may be used in parallel. How
 in 2012 also the entire MOLGENIS software suite (MOLGENIS, XGAP, xQTL workbench) was transfered 
 to Git and moved to http://www.github.com to get more online exposure, and remove the need 
 to host an internal SVN server.
+
+Additionally, all software developed described in this thesis was also written and developed 
+using git for source code control. And is available from Github at:
+http://github.com/DannyArends/
 
 \section*{Future Perspectives}
 In the future, further considerations should include integration of mapping analysis tools 
@@ -179,7 +185,40 @@ Using R as computational backend allows them to contribute their methods and alg
 the scientific community.
 
 \subsubsection*{wormQTL and wormQTL - Human Disease}
-\lipsum[1]
+The current version of WormQTLHD (August 2013) is a comprehensive and compendious database that 
+enables molecular model organism data to be studied in the context of human diseases. Just as with 
+WormQTL \cite{Snoek:2012}, we believe that WormQTLHD will be continuously curated by the members of 
+the \emph{C. elegans} community. The results of the 'broad-sweep' disease-enrichment test in combination with the web tool 
+will be of special interest to researchers in the human or worm domain. We believe these results 
+could also be applied to prioritize the pathogenic variants increasingly being produced by next-
+generation sequencing in diagnostic labs. Genetic variants affecting human genes of unknown function 
+may have worm orthologues that are part of human-worm phenologs and these may reveal or imply a role 
+in a human disease. Thus, through functionally conserved networks, missing information can be 
+inferred and candidate genes can be selected via model organisms.
+
+The approach of WormQTLHD is conceptually similar to that described by Smedley et al. 
+\cite{Smedley:2013}. They created an automated method called PhenoDigm to provide evidence about 
+gene–disease associations by analysing phenotypic information. In their case, phenotypes consist of 
+a collection of ontology terms, which are aligned and scored to derive an overall phenotype-similarity score. Using this 
+method, known gene–phenotype associations in model organisms (mouse, zebrafish) can be transferred 
+to other organisms such as man, and help us to understand the genetic cause of disease. This method 
+works best when the model organism is physiologically close to man and has comparable classical 
+phenotypes. It would therefore be less useful for \emph{C. elegans}. However, combining the molecular 
+(WormQTLHD) and phenotypical (PhenoDigm) approaches may result in a very powerful tool to discover 
+novel gene–disease associations in man, especially when using physiologically close model organisms.
+
+We plan to further develop the WormQTLHD data and toolset. There might be more ways in which 
+researchers would like to search through the large amounts of data, for example, based on custom 
+lists of gene identifiers, or by combining tools such as finding QTLs within specific regions. 
+The QTL plots could be improved or replaced with interactive graphs that are more informative and 
+would allow the users to continue ‘drilling down’ in the data instead of returning to the home page 
+for a new analysis with a different tool. Furthermore, we envisage close integration with other data 
+sources and tools such as WormNet, R/qtl and GO Enrichment to provide even more biological context 
+and analytical tools for the user.
+
+Our new database makes this data attractive and easy-to-use for an even wider community of 
+quantitative geneticists working on worms and man. We are committed to maintaining the data and 
+software in the future and invite the community to add and share their new data and ideas. 
 
 \subsection*{R/qtlHD}
 Because of increasing data sizes, R might not be the most suitable platform for the analysis 
@@ -446,11 +485,14 @@ lead to the thesis you are currently reading.\\\\
            Jan E. Kammenga, Ritsert C. Jansen, Morris A. Swertz and Yang Li}\\
   \bold{Nucleic Acids Research} (2014)
 
-\subsection*{Under Review / In Press:}
+\subsection*{In Preparation/ Under Review / In Press:}
   Pheno2Geno - High throughput generation of genetic markers and maps from molecular phenotypes\\
   \authors{Konrad Zych, K. Joeri van der Velde, Ronny V. L. Joosen, Wilco Ligterink, Ritsert C Jansen 
            and Danny Arends}\\
   \bold{BMC Bioinformatics} (201X)\\\\
+  Correlated Traits Locus mapping\\
+  \authors{Danny Arends, Pjotr Prins, Harm-Jan Westra, Yang Li, Lude Franke and Ritsert C. Jansen}\\
+  \bold{Unknown} (201X)\\\\
   TiQS: web environment for expression QTL analysis\\
   \authors{Steffen M\"oller, Ren\'e Sch\"onfelder, Hajo Krabbenh\"oft, Benedikt Bauer, Yask Gupta, 
            Pjotr Prins, Danny Arends, et al.}\\
@@ -458,12 +500,11 @@ lead to the thesis you are currently reading.\\\\
   Multiple QTL mapping of cardiac collagen deposition in an F2 population of Scn5a mutant mice reveals 
   interaction between Fgf1 and Pdlim3, Gpr158 \& Itga6\\
   \authors{Elisabeth M. Lodder, Brendon P. Scicluna, L. Beekman, Danny Arends, et al.}\\
-  \bold{Genome Research} (201X)
-
-\subsection*{In Preparation:}
-  Correlated Traits Locus mapping\\
-  \authors{Danny Arends, Pjotr Prins, Harm-Jan Westra, Yang Li, Lude Franke and Ritsert C. Jansen}\\
-  \bold{Unknown} (201X)
+  \bold{Genome Research} (201X)\\\\
+  Regulatory Network of Secondary Metabolism in Brassica rapa: An Insight In The Glucosinolate Pathway
+  \authors{Dunia Pino del Carpio, Ram Kumar Basnet, Danny Arends, Ke lin, Ric CH de Vos, Dorotha Muth, 
+           Jan Kodde, Kim Boutilier, Johan Bucher, Xiaowu Wang, Ritsert Jansen, Guusje Bonnema}\\
+  \bold{Plos One} (201X)
 
 \subsection*{Acknowledged in:}
   DesignGG: an R-package and web tool for the optimal design of genetical genomics experiments\\
