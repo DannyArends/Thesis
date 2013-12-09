@@ -218,23 +218,23 @@ to correlated expression between a pair of traits, while the other genotype show
   to sort cells and enabling interrogation of cell-types that are difficult to purify.
 
   We investigated whole peripheral blood of 5,683 unrelated individuals, and found that at least 
-  8.5\% of all blood cis-eQTLs are mediated by specific immune cell-types. Additionally, to our 
+  8.5\% of all blood \emph{cis}-eQTLs are mediated by specific immune cell-types. Additionally, to our 
   knowledge, we present the first eQTL results for neutrophil granulocytes, a cell type that is 
   difficult to purify in the laboratory. We validated our findings in eQTL data of six purified 
   cell-types (lymphoblastoid cell-lines, B-cells, monocytes, CD4+ T-cells, CD8+ T-cells and 
   neutrophil granulocytes). Subsequent enrichment analysis of known disease-associated SNPs 
-  revealed that Crohn’s disease SNPs preferentially affect gene expression levels within neutrophil 
-  granulocytes, underscoring the importance of neutrophils in Crohn’s disease pathogenesis.
+  revealed that Crohn's disease SNPs preferentially affect gene expression levels within neutrophil 
+  granulocytes, underscoring the importance of neutrophils in Crohn's disease pathogenesis.
 
   \subsection{Background}
   In the past seven years, genome-wide association studies (GWAS) have identified thousands of genetic 
   variants that are associated with human disease [1]. The realization that many of the disease-
   predisposing variants are noncoding, and that single nucleotide polymorphisms (SNPs) often affect 
-  the expression of nearby genes (i.e. cis-eQTLs)[2–4], suggests these variants predominantly have a 
+  the expression of nearby genes (i.e. \emph{cis}-eQTLs)[2–4], suggests these variants predominantly have a 
   regulatory function. As such it is important to understand in which specific tissues and cell-types 
   these disease-associated variants exert their effect on disease.
 
-  We have previously shown that whole peripheral blood is a suitable tissue to detect cis-eQTL effects, 
+  We have previously shown that whole peripheral blood is a suitable tissue to detect \emph{cis}-eQTL effects, 
   especially for SNPs that are associated with (auto) immune disorders[3,5]. However, recent studies 
   suggest that disease-predisposing variants often exert their regulatory effect in a cell-type dependent 
   manner[6–10]. This is problematic when studying whole peripheral blood, since it is comprised out of 
@@ -242,7 +242,7 @@ to correlated expression between a pair of traits, while the other genotype show
   monocytes) or lymphoid lineage (e.g. B-cells or T-cells). An increase in the percentage of cells 
   within one lineage decreases the percentage of cells in the other (e.g. neutrophil percentage is 
   strongly negatively correlated with lymphocyte percentage; Supplementary Figure 1). Consequently, 
-  cis-eQTLs that have been detected in whole blood may actually reflect an effect within one single 
+  \emph{cis}-eQTLs that have been detected in whole blood may actually reflect an effect within one single 
   cell-type, complicating the functional interpretation of disease predisposing variants. Although 
   several eQTL datasets have recently been presented on individual white blood cell types (for example, 
   monocytes[4,7] and T-cells[7,11]), other white blood cell types (particularly neutrophil granulocytes) 
@@ -250,14 +250,14 @@ to correlated expression between a pair of traits, while the other genotype show
   proportion of circulating white blood cells (e.g. neutrophil granulocytes comprise approximately 62\% 
   of all peripheral blood mononuclear cells). In case eQTL datasets already exist for these individual 
   cell types, their sample-size is typically small, limiting statistical power to study the cell type 
-  mediation of cis-eQTLs in these cell types directly. As such, to our knowledge, we here present the 
+  mediation of \emph{cis}-eQTLs in these cell types directly. As such, to our knowledge, we here present the 
   first eQTL analysis investigating neutrophil granulocytes.
 
   In this paper, we present a method that uses whole peripheral blood to infer in which cell-types these 
   eQTLs manifest themselves. We first estimate for each sample what the specific cell-type proportions 
   are (relying upon individual expression measurements of genes that serve as proxies for these cell-types) 
   and subsequently use a gene x environment interaction (G x E) model. This allows us to predict which 
-  cis-eQTLs are predominantly mediated by specific cell types in peripheral blood datasets that lack 
+  \emph{cis}-eQTLs are predominantly mediated by specific cell types in peripheral blood datasets that lack 
   any actual cell-count measurements. We apply our method to an unprecedented number of samples (5,683 
   unrelated whole peripheral blood samples from seven cohorts: EGCUT[13], InCHIANTI[14], Rotterdam Study[15], 
   Fehrmann[3], SHIP-TREND[16], KORA F[42,17], and DILGOM[18]). We subsequently validate our predicted 
@@ -273,7 +273,7 @@ to correlated expression between a pair of traits, while the other genotype show
   this suggests the eQTL is specific for neutrophil granulocytes. In order to apply this reasoning on 
   a whole blood dataset, the neutrophil percentage of each sample should be known and is used as a 
   covariate in a linear model that includes an interaction term (cell type percentage x genotype). 
-  We applied this strategy to 5,683 samples and determined which of the 13,124 cis-eQTLs that we have 
+  We applied this strategy to 5,683 samples and determined which of the 13,124 \emph{cis}-eQTLs that we have 
   discovered before5 are mediated by individual cell-types. We concentrated on neutrophil granulocytes, 
   since 1) they are the most abundant immune cell type in whole blood, 2) to our knowledge no previous 
   eQTL studies in neutrophil granulocytes have been published before and 3) a strong inverse 
@@ -284,73 +284,73 @@ to correlated expression between a pair of traits, while the other genotype show
   However, neutrophil cell-count percentages were only available for the EGCUT and SHIP-TREND datasets. 
   To that end, we first developed a method that enabled us to approximate the cell type percentages for 
   datasets without cell type information (Figure 1). We used the EGCUT cohort to identify a list of 58 
-  Illumina HT12v3 probes that strongly positively correlated (Spearman’s correlation coefficient > 0.55) 
+  Illumina HT12v3 probes that strongly positively correlated (Spearman's correlation coefficient > 0.55) 
   with neutrophil granulocyte counts. We then summarized the information of these 58 individual probes 
   into a single neutrophil granulocyte count estimate, by applying principal component analysis (PCA) 
   and using the first principal component. We validated the accuracy of this 58 probe neutrophil count 
   predictor, by applying this procedure to the SHIP-TREND cohort and correlating the estimated neutrophil 
-  percentage to the actual neutrophil percentage. We observed a strong correlation (Spearman’s correlation 
+  percentage to the actual neutrophil percentage. We observed a strong correlation (Spearman's correlation 
   coefficient = 0.82; Supplementary Figure 2), indicating that these 58 probes jointly form a reliable 
   proxy for neutrophil percentage, and thus concluded we could use this procedure in the other cohorts 
   as well.
 
-  Every cohort determined the interaction model for 13,124 cis-eQTLs, while using the neutrophil 
+  Every cohort determined the interaction model for 13,124 \emph{cis}-eQTLs, while using the neutrophil 
   percentage proxy x genotype as interaction term. We subsequently meta-analyzed the interaction 
-  terms for each cis-eQTL (up to 5,683 samples were tested per eQTL) and identified 1,117 cis-eQTLs 
+  terms for each \emph{cis}-eQTL (up to 5,683 samples were tested per eQTL) and identified 1,117 \emph{cis}-eQTLs 
   with a significant interaction effect (8.5\% of all tested cis-eQTLs; FDR < 0.05; 1,037 unique SNPs 
   and 836 unique probes; Table 1, Supplementary Table 1). 909 (6.9\%) had a positive direction of 
-  effect, which indicates that these cis-eQTLs show stronger effect sizes in neutrophil granulocytes 
+  effect, which indicates that these \emph{cis}-eQTLs show stronger effect sizes in neutrophil granulocytes 
   (302 eQTLs, 283 unique SNPs and 244 unique probes after a more stringent Bonferroni correction). We 
-  will refer to these as neutrophil mediated cis-eQTLs. Another 208 (1.6\%) had a negative direction of 
+  will refer to these as neutrophil mediated \emph{cis}-eQTLs. Another 208 (1.6\%) had a negative direction of 
   effect (20 eQTLs, 20 unique SNPs and 13 unique probes after a more stringent Bonferroni correction), 
-  indicating a stronger cis-eQTL effect size in lymphoid cells (since lymphocyte percentages are 
+  indicating a stronger \emph{cis}-eQTL effect size in lymphoid cells (since lymphocyte percentages are 
   negatively correlated with neutrophil percentages, Supplementary Figure 1). We will refer to these 
-  as lymphocyte mediated cis-eQTLs. Overall, the directions of the significant interaction effects were 
+  as lymphocyte mediated \emph{cis}-eQTLs. Overall, the directions of the significant interaction effects were 
   consistent across the different cohorts, indicating that our findings are robust (Supplementary 
   Figure 3). We did however observe that a large sample-size is essential in order to find these 
-  cell-type mediated cis-eQTLs (Figure 2): when studying fewer samples (ascertained by systematically 
+  cell-type mediated \emph{cis}-eQTLs (Figure 2): when studying fewer samples (ascertained by systematically 
   excluding more cohorts from our study) the number of significant cell-type mediated eQTLs decreases 
-  quickly. This was particularly important for the lymphoid mediated cis-eQTLs, since in blood, 
+  quickly. This was particularly important for the lymphoid mediated \emph{cis}-eQTLs, since in blood, 
   myeloid cells are approximately twice as abundant as lymphoid cells, and consequently detection of 
-  lymphoid mediated cis-eQTLs is more challenging than detection of myeloid mediated cis-eQTLs.
+  lymphoid mediated \emph{cis}-eQTLs is more challenging than detection of myeloid mediated \emph{cis}-eQTLs.
 
   We validated our findings in four purified cell-type gene expression datasets from the lymphoid 
   lineage (lymphoblastoid cell lines (LCLs), CD4+ T-Cells, CD8+ T-Cells and B-Cells; Figure 3, 
   Supplementary Table 2) and two purified cell-type datasets from the myeloid lineage (monocytes and 
-  neutrophil granulocytes). As expected, compared to cis-eQTLs without a significant interaction term 
-  (generic cis-eQTLs) the 909 neutrophil mediated cis-eQTLs and the 208 lymphoid mediated cis-eQTLs 
-  indeed showed very strong cis-eQTL effects in the myeloid datasets (Wilcoxon P-value < 4.9 x 10-31) 
+  neutrophil granulocytes). As expected, compared to \emph{cis}-eQTLs without a significant interaction term 
+  (generic \emph{cis}-eQTLs) the 909 neutrophil mediated \emph{cis}-eQTLs and the 208 lymphoid mediated \emph{cis}-eQTLs 
+  indeed showed very strong \emph{cis}-eQTL effects in the myeloid datasets (Wilcoxon P-value < 4.9 x 10-31) 
   and lymphoid datasets (Wilcoxon P-value < 7.8 x 10-14), respectively (Figure 3). These results 
-  indicate that our method is able to reliably predict whether a cis-eQTL is mediated by a specific 
+  indicate that our method is able to reliably predict whether a \emph{cis}-eQTL is mediated by a specific 
   cell type. We also assessed whether average gene expression levels within different cell-types might 
-  be useful to predict whether a cis-eQTL is mediated by a specific cell type, as it can be hypothesized 
+  be useful to predict whether a \emph{cis}-eQTL is mediated by a specific cell type, as it can be hypothesized 
   that if a certain gene is highly expressed within one single cell-type while it is only weakly 
   expressed in other cell-types, that the eQTL effect might manifest itself only in the highly expressed 
   cell-type. We indeed observed that, on average, the 909 neutrophil mediated and 208 lymphoid eQTL 
   genes showed slightly higher gene expression levels within the myeloid and lymphoid cell-types, 
   respectively (Supplementary Figure 3). However, for many individual genes that showed a strong 
-  cell-type mediated cis-eQTL effect, the average expression levels within that cell-type were not 
+  cell-type mediated \emph{cis}-eQTL effect, the average expression levels within that cell-type were not 
   higher than the other blood cell-types. As such, it is not possible to predict whether an eQTL is 
   operating in a particular cell-type by solely assessing in which cell-type the gene expression level 
   of this eQTL gene is the highest. 
 
   We next assessed whether there are immune related diseases, for which the associated SNPs 
   preferentially have affect gene expression within neutrophils (i.e. are enriched for neutrophil 
-  mediated cis-eQTLs).  We concentrated on 2 immune related diseases for which at least 30 unique 
+  mediated \emph{cis}-eQTLs).  We concentrated on 2 immune related diseases for which at least 30 unique 
   genome-wide significant (P < 5 x 10-8) loci have been identified before (as reported in the Catalog 
   of Published Genome-Wide Association Studies19, accessed September 23, 2013). Per disease, we tested 
-  whether the associated SNPs were enriched for neutrophil mediated cis-eQTLs by using a binomial test. 
+  whether the associated SNPs were enriched for neutrophil mediated \emph{cis}-eQTLs by using a binomial test. 
   To ensure we tested independent loci, we first pruned the SNPs for linkage disequilibrium (R2 > 0.2). 
   We observed significant enrichment (one-tailed P = 0.001, Table 2) for Crohn's disease. Out of 51 
-  unique SNPs that showed a cis-eQTL effect, 11 were neutrophil mediated. These 11 SNPs affect the 
+  unique SNPs that showed a \emph{cis}-eQTL effect, 11 were neutrophil mediated. These 11 SNPs affect the 
   expression of 14 unique genes (ZGPAT, LIME1, SLC2A4RG, CISD1, IL18RAP, HOTAIRM1, NOD2, AC034220.3, 
   SLC22A4, PLCL1, CPEB4, LGALS9, RP11-514O12.4, RNASET2).
 
   \subsection{Discussion}
-  Here we have shown that it is possible to infer in which cell-types cis-eQTLs are operating, without 
+  Here we have shown that it is possible to infer in which cell-types \emph{cis}-eQTLs are operating, without 
   the actual need to sort cells. We used whole peripheral blood eQTL data of 5,683 unrelated samples. 
   By first estimating cell-type proportions and subsequent use of a G x E (i.e. the estimated cell-type 
-  proportions) interaction model we were able to demonstrate that hundreds of cis-eQTLs show stronger 
+  proportions) interaction model we were able to demonstrate that hundreds of \emph{cis}-eQTLs show stronger 
   effects in myeloid than lymphoid cell-types and vice versa. 
 
   Since we could subsequently replicate these results in 6 individual purified cell-type eQTL datasets 
@@ -363,12 +363,12 @@ to correlated expression between a pair of traits, while the other genotype show
   (5,683 samples), it is clear by sampling subsets of the participating cohorts (Figure 2), that more 
   G x E effects should be detectable with even larger sample sizes. Secondly, choosing the appropriate 
   environmental factor is essential in order to find convincing G x E effects: although we found 1,117 
-  cis-eQTLs that were mediated by myeloid or lymphoid cell-types, a recent G x E study that aimed to 
-  detect cis-eQTLs that were mediated by either gender or age (assessed in 5,254 samples) found only 
+  \emph{cis}-eQTLs that were mediated by myeloid or lymphoid cell-types, a recent G x E study that aimed to 
+  detect \emph{cis}-eQTLs that were mediated by either gender or age (assessed in 5,254 samples) found only 
   five G x E effects that replicated in an independent cohort20. As such the choice of environmental 
   factor is crucial in order to find G x E interaction effects.
 
-  Here, we have concentrated on identifying cis-eQTLs that are preferentially operating in either 
+  Here, we have concentrated on identifying \emph{cis}-eQTLs that are preferentially operating in either 
   myeloid or lymphoid cell-types. We did not attempt to assess this for specialized cell-types within 
   the myeloid or lymphoid lineage. However, this is well possible if cell-counts are available for 
   these cell-types, or if these cell-counts can be estimated by using the expression levels of genes 
@@ -378,17 +378,17 @@ to correlated expression between a pair of traits, while the other genotype show
   within whole blood (e.g. natural killer cells only comprise ~2\% of all circulating white blood 
   cells). As a consequence, in order to have sufficient statistical power to identify eQTLs that are 
   mediated by these cell-types, very large whole blood eQTL sample-sizes are required (analogous to 
-  the substantially lower number of identified lymphoid mediated cis-eQTLs, as compared to the myeloid 
-  mediated cis-eQTLs, since neutrophils are twice as abundant as lymphoid cells in whole blood). 
+  the substantially lower number of identified lymphoid mediated \emph{cis}-eQTLs, as compared to the myeloid 
+  mediated \emph{cis}-eQTLs, since neutrophils are twice as abundant as lymphoid cells in whole blood). 
   Additionally, such cell-types should show differences in abundance across different individuals, 
-  rendering identification of cis-eQTLs that are specific for certain cell-types impossible if those 
+  rendering identification of \emph{cis}-eQTLs that are specific for certain cell-types impossible if those 
   cell-types have a near equal abundance in blood across each of the individuals.
 
   In order to improve statistical power to detect cell-type mediated eQTLs, we corrected the gene 
   expression for technical and batch effects (here we applied principal component analysis and removed 
   per cohort the 40 strongest principal components that affect gene expression). Such procedures are 
-  commonly used when conducting cis-eQTL mapping3,21–25. Although this correction might diminish the 
-  power to detect trans-eQTLs24, this concern does not apply to our G x E cis-eQTL study: we first 
+  commonly used when conducting \emph{cis}-eQTL mapping[3,21-25]. Although this correction might diminish the 
+  power to detect trans-eQTLs[24], this concern does not apply to our G x E \emph{cis}-eQTL study: we first 
   determined the environment effect (i.e. neutrophil count percentage) for each individual samples by 
   combining the expression levels of 58 probes, based on the original expression data that was not 
   corrected for principal components. The subsequent G x E eQTL mapping was conducted on the expression 
@@ -399,27 +399,27 @@ to correlated expression between a pair of traits, while the other genotype show
   gene expression PCs), detection of the G x E effect will only become impossible when the specific 
   G x E effect (i.e. the specific combination of the SNP and environmental effect) would have been 
   captured by any of the first 40 gene expression PCs. We observed that the number of significantly 
-  detected cell-type mediated cis-eQTLs improved approximately two fold when correcting for these PCs, 
+  detected cell-type mediated \emph{cis}-eQTLs improved approximately two fold when correcting for these PCs, 
   without losing G x E effects that only had been detected in the uncorrected data (data not shown).
 
-  We confined our analyses here to a subset of cis-eQTLs for which we had previously identified a main 
-  effect in whole peripheral blood24: for each cis-eQTL gene, we here only studied the most 
-  significantly associated SNP. Considering that for many cis-eQTLs multiple, unlinked SNPs exist that 
+  We confined our analyses here to a subset of \emph{cis}-eQTLs for which we had previously identified a main 
+  effect in whole peripheral blood[24]: for each \emph{cis}-eQTL gene, we here only studied the most 
+  significantly associated SNP. Considering that for many \emph{cis}-eQTLs multiple, unlinked SNPs exist that 
   independently affect the gene expression levels, it is possible that we have missed myeloid or 
-  lymphoid mediation of these secondary cis-EQTLs.
+  lymphoid mediation of these secondary \emph{cis}-EQTLs.
 
   We anticipate that with the (pending) availability of large RNA-seq based eQTL datasets, statistical 
   power to identify cell-type mediated eQTLs will improve further: since RNA-seq enables very accurate 
   gene expression level quantitation and is not limited to a set of preselected probes that interrogate 
   well known genes (as is the case for microarrays), the detection of genes that can serve as reliable 
   proxies for individual cell-types will improve. Secondly, using RNA-seq data, it is possible to 
-  assess whether SNPs that affect the expression of non-coding transcripts, affect splicing25 or result 
-  in alternative polyadenylation23 are mediated by specific cell-types.
+  assess whether SNPs that affect the expression of non-coding transcripts, affect splicing[25] or result 
+  in alternative polyadenylation[23] are mediated by specific cell-types.
 
   Although we applied our method to whole blood gene expression data, our method can be applied to any 
   tissue, alleviating the need to sort cells or to perform laser capture micro dissection. The only 
   prerequisite is that eQTL data in such tissues is available for many samples. However, since an 
   increasing number of eQTL datasets in different tissues are now becoming available and eQTL meta-analyses 
-  have proven successful3,24, our approach provides a cost effective way to identify cell-type 
+  have proven successful[3,24], our approach provides a cost effective way to identify cell-type 
   mediated eQTLs, that is likely to reveal novel biological insight.
 
