@@ -228,25 +228,27 @@ to correlated expression between a pair of traits, while the other genotype show
 
   \subsection{Background}
   In the past seven years, genome-wide association studies (GWAS) have identified thousands of genetic 
-  variants that are associated with human disease [1]. The realization that many of the disease-
-  predisposing variants are noncoding, and that single nucleotide polymorphisms (SNPs) often affect 
-  the expression of nearby genes (i.e. \emph{cis}-eQTLs)[2–4], suggests these variants predominantly have a 
-  regulatory function. As such it is important to understand in which specific tissues and cell-types 
-  these disease-associated variants exert their effect on disease.
+  variants that are associated with human disease\cite{Hindorff:2009}. The realization that many of 
+  the disease-predisposing variants are noncoding, and that single nucleotide polymorphisms (SNPs) 
+  often affect the expression of nearby genes (i.e. \emph{cis}-eQTLs) \cite{Powell:2012, Lude:2011, Zeller:2010}, 
+  suggests these variants predominantly have a regulatory function. As such it is important to understand 
+  in which specific tissues and cell-types these disease-associated variants exert their effect on disease.
 
   We have previously shown that whole peripheral blood is a suitable tissue to detect \emph{cis}-eQTL effects, 
-  especially for SNPs that are associated with (auto) immune disorders[3,5]. However, recent studies 
+  especially for SNPs that are associated with (auto) immune disorders \cite{Lude:2011, Westra:2013}. However, recent studies 
   suggest that disease-predisposing variants often exert their regulatory effect in a cell-type dependent 
-  manner[6–10]. This is problematic when studying whole peripheral blood, since it is comprised out of 
-  many different cell types that originate from either the myeloid (e.g. neutrophil, granulocytes, 
-  monocytes) or lymphoid lineage (e.g. B-cells or T-cells). An increase in the percentage of cells 
-  within one lineage decreases the percentage of cells in the other (e.g. neutrophil percentage is 
-  strongly negatively correlated with lymphocyte percentage; Supplementary Figure 1). Consequently, 
-  \emph{cis}-eQTLs that have been detected in whole blood may actually reflect an effect within one single 
+  manner \cite{Brown:2013, Fairfax:2012, Fu:2012, Dimas:2009, Breitling:2008a}. This is problematic 
+  when studying whole peripheral blood, since it is comprised out of   many different cell types that originate 
+  from either the myeloid (e.g. neutrophil, granulocytes, monocytes) or lymphoid lineage (e.g. 
+  B-cells or T-cells). An increase in the percentage of cells within one lineage decreases the 
+  percentage of cells in the other (e.g. neutrophil percentage is strongly negatively correlated with 
+  lymphocyte percentage; Supplementary Figure 1). Consequently, \emph{cis}-eQTLs that have been 
+  detected in whole blood may actually reflect an effect within one single 
   cell-type, complicating the functional interpretation of disease predisposing variants. Although 
   several eQTL datasets have recently been presented on individual white blood cell types (for example, 
-  monocytes[4,7] and T-cells[7,11]), other white blood cell types (particularly neutrophil granulocytes) 
-  are difficult to purify and culture in the lab[12], even though they can reflect a substantial 
+  monocytes\cite{Zeller:2010, Fairfax:2012} and T-cells \cite{Fairfax:2012, Ding:2010}), other white 
+  blood cell types (particularly neutrophil granulocytes) are difficult to purify and culture in the lab 
+  \cite{Grisham:1985}, even though they can reflect a substantial 
   proportion of circulating white blood cells (e.g. neutrophil granulocytes comprise approximately 62\% 
   of all peripheral blood mononuclear cells). In case eQTL datasets already exist for these individual 
   cell types, their sample-size is typically small, limiting statistical power to study the cell type 
@@ -259,10 +261,12 @@ to correlated expression between a pair of traits, while the other genotype show
   and subsequently use a gene x environment interaction (G x E) model. This allows us to predict which 
   \emph{cis}-eQTLs are predominantly mediated by specific cell types in peripheral blood datasets that lack 
   any actual cell-count measurements. We apply our method to an unprecedented number of samples (5,683 
-  unrelated whole peripheral blood samples from seven cohorts: EGCUT[13], InCHIANTI[14], Rotterdam Study[15], 
-  Fehrmann[3], SHIP-TREND[16], KORA F[42,17], and DILGOM[18]). We subsequently validate our predicted 
-  cell-type mediated eQTLs in six datasets of purified cell-types, and observe that SNPs, associated 
-  with Crohn's disease are enriched for affecting gene expression levels in neutrophil granulocytes.
+  unrelated whole peripheral blood samples from seven cohorts: EGCUT \cite{Metspalu:2004}, InCHIANTI 
+  \cite{Tanaka:2009}, Rotterdam Study \cite{Hofman:2011}, Fehrmann \cite{Lude:2011}, SHIP-TREND 
+  \cite{Teumer:2011}, KORA F4 \cite{Powell:2012, Mehta:2013}, and DILGOM \cite{Inouye:2010}). We 
+  subsequently validate our predicted cell-type mediated eQTLs in six datasets of purified cell-types, and 
+  observe that SNPs, associated with Crohn's disease are enriched for affecting gene expression levels in 
+  neutrophil granulocytes.
 
   \subsection{Results}
   Identification of cell-type specific eQTLs in mixtures (e.g. whole peripheral blood) is most easily 
