@@ -391,8 +391,8 @@ to correlated expression between a pair of traits, while the other genotype show
   In order to improve statistical power to detect cell-type mediated eQTLs, we corrected the gene 
   expression for technical and batch effects (here we applied principal component analysis and removed 
   per cohort the 40 strongest principal components that affect gene expression). Such procedures are 
-  commonly used when conducting \emph{cis}-eQTL mapping[3,21-25]. Although this correction might diminish the 
-  power to detect trans-eQTLs[24], this concern does not apply to our G x E \emph{cis}-eQTL study: we first 
+  commonly used when conducting \emph{cis}-eQTL mapping \cite{Lude:2010, Dubois:2010, Fu:2012, Zhernakova:2013, Westra:2013, Lappalainen:2013}. Although this correction might diminish the 
+  power to detect trans-eQTLs \cite{Westra:2013}, this concern does not apply to our G x E \emph{cis}-eQTL study: we first 
   determined the environment effect (i.e. neutrophil count percentage) for each individual samples by 
   combining the expression levels of 58 probes, based on the original expression data that was not 
   corrected for principal components. The subsequent G x E eQTL mapping was conducted on the expression 
@@ -407,7 +407,7 @@ to correlated expression between a pair of traits, while the other genotype show
   without losing G x E effects that only had been detected in the uncorrected data (data not shown).
 
   We confined our analyses here to a subset of \emph{cis}-eQTLs for which we had previously identified a main 
-  effect in whole peripheral blood[24]: for each \emph{cis}-eQTL gene, we here only studied the most 
+  effect in whole peripheral blood \cite{Westra:2013}: for each \emph{cis}-eQTL gene, we here only studied the most 
   significantly associated SNP. Considering that for many \emph{cis}-eQTLs multiple, unlinked SNPs exist that 
   independently affect the gene expression levels, it is possible that we have missed myeloid or 
   lymphoid mediation of these secondary \emph{cis}-EQTLs.
@@ -417,13 +417,13 @@ to correlated expression between a pair of traits, while the other genotype show
   gene expression level quantitation and is not limited to a set of preselected probes that interrogate 
   well known genes (as is the case for microarrays), the detection of genes that can serve as reliable 
   proxies for individual cell-types will improve. Secondly, using RNA-seq data, it is possible to 
-  assess whether SNPs that affect the expression of non-coding transcripts, affect splicing[25] or result 
-  in alternative polyadenylation[23] are mediated by specific cell-types.
+  assess whether SNPs that affect the expression of non-coding transcripts, affect splicing \cite{Lappalainen:2013} or result 
+  in alternative polyadenylation \cite{Zhernakova:2013} are mediated by specific cell-types.
 
   Although we applied our method to whole blood gene expression data, our method can be applied to any 
   tissue, alleviating the need to sort cells or to perform laser capture micro dissection. The only 
   prerequisite is that eQTL data in such tissues is available for many samples. However, since an 
   increasing number of eQTL datasets in different tissues are now becoming available and eQTL meta-analyses 
-  have proven successful[3,24], our approach provides a cost effective way to identify cell-type 
+  have proven successful \cite{Lude:2011, Westra:2013}, our approach provides a cost effective way to identify cell-type 
   mediated eQTLs, that is likely to reveal novel biological insight.
 
