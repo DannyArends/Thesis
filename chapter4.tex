@@ -295,14 +295,14 @@ to correlated expression between a pair of traits, while the other genotype show
   \begin{figure}[h!]
   \centering
   \includegraphics[width=0.9\textwidth]{eps/image_4_4.eps}
-  \caption[Methods overview]{Overview of the method to detect cell type mediated cis-eQTL in compound 
+  \caption[Methods overview]{Overview of the method to detect cell type mediated \emph{cis}-eQTL in compound 
            tissues. A) Starting with a dataset that has cell count measurements, determine a set of 
            probes strongly positively correlating to the cell count measurements. Calculate the 
            correlation between these specific probes in the other datasets, and apply principal 
            component analysis to combine them into a single proxy for the cell count measurement. B) 
            Apply the neutrophil percentage predictor in the other cohorts. C) Use the proxy as a 
            covariate in a linear model with interaction term in order to distinguish cell type mediated 
-           from non-cell type mediated cis-eQTL effects, and classify each cis-eQTL according to the 
+           from non-cell type mediated \emph{cis}-eQTL effects, and classify each \emph{cis}-eQTL according to the 
            direction of the interaction effect.}
           \label{fig:fig4_4}
   \end{figure}
@@ -332,12 +332,23 @@ to correlated expression between a pair of traits, while the other genotype show
   negatively correlated with neutrophil percentages). We will refer to these 
   as lymphocyte mediated \emph{cis}-eQTLs. Overall, the directions of the significant interaction effects were 
   consistent across the different cohorts, indicating that our findings are robust. We did however observe 
-  that a large sample-size is essential in order to find these 
-  cell-type mediated \emph{cis}-eQTLs (Figure \ref{fig:fig4_5}): when studying fewer samples (ascertained by systematically 
-  excluding more cohorts from our study) the number of significant cell-type mediated eQTLs decreases 
-  quickly. This was particularly important for the lymphoid mediated \emph{cis}-eQTLs, since in blood, 
-  myeloid cells are approximately twice as abundant as lymphoid cells, and consequently detection of 
-  lymphoid mediated \emph{cis}-eQTLs is more challenging than detection of myeloid mediated \emph{cis}-eQTLs.
+  that a large sample-size is essential in order to find these cell-type mediated \emph{cis}-eQTLs (Figure 
+  \ref{fig:fig4_5}): when studying fewer samples (ascertained by systematically excluding more cohorts from 
+  our study) the number of significant cell-type mediated eQTLs decreases quickly. This was particularly 
+  important for the lymphoid mediated \emph{cis}-eQTLs, since in blood, myeloid cells are approximately 
+  twice as abundant as lymphoid cells, and consequently detection of lymphoid mediated \emph{cis}-eQTLs is 
+  more challenging than detection of myeloid mediated \emph{cis}-eQTLs.
+
+  \begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\textwidth]{eps/image_4_5.eps}
+  \caption[Validation]{We systematically excluded datasets from our meta-analysis in order to determine the effect 
+                       of sample size on the ability to detect significant interaction effects. The number of 
+                       significant interaction effects dramatically decreases when the sample sizes becomes smaller. 
+                       In general, lymphoid mediated cis-eQTL effects are harder to detect than neutrophil mediated 
+                       \emph{cis}-eQTL effects, due to their relatively small abundance in whole blood.  }
+          \label{fig:fig4_5}
+  \end{figure}
 
   We validated our findings in four purified cell-type gene expression datasets from the lymphoid 
   lineage (lymphoblastoid cell lines (LCLs), CD4+ T-Cells, CD8+ T-Cells and B-Cells; Figure \ref{fig:fig4_6}, 
@@ -362,14 +373,14 @@ to correlated expression between a pair of traits, while the other genotype show
   \begin{figure}[h!]
   \centering
   \includegraphics[width=0.9\textwidth]{eps/image_4_6.eps}
-  \caption[Validation]{We validated the neutrophil and lymphoid mediated cis-eQTL effects in four purified cell 
+  \caption[Validation]{We validated the neutrophil and lymphoid mediated \emph{cis}-eQTL effects in four purified cell 
                        type datasets from the lymphoid lineage (B-cells, CD4+ T-cells, CD8+ T-cells and 
                        lymphoblastoid cell lines) and two datasets from the myeloid lineage (Monocytes and 
                        neutrophil granulocytes). Compared to generic cis-eQTLs, large effect sizes are observed 
                        for lymphoid mediated cis-eQTLs in lymphoid lineage cell types, while neutrophil mediated 
-                       cis-eQTL effects have large effect sizes specifically in the neutrophil datasets. These 
-                       results indicate that our method is able to reliably predict whether a specific cis-eQTL 
-                       is mediated by cell type.   }
+                       \emph{cis}-eQTL effects have large effect sizes specifically in the neutrophil datasets. These 
+                       results indicate that our method is able to reliably predict whether a specific \emph{cis}-eQTL 
+                       is mediated by cell type. }
           \label{fig:fig4_6}
   \end{figure}
 

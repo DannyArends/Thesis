@@ -188,13 +188,14 @@ the scientific community.
 The current version of WormQTLHD (August 2013) is a comprehensive and compendious database that 
 enables molecular model organism data to be studied in the context of human diseases. Just as with 
 WormQTL \cite{Snoek:2012}, we believe that WormQTLHD will be continuously curated by the members of 
-the \emph{C. elegans} community. The results of the 'broad-sweep' disease-enrichment test in combination with the web tool 
-will be of special interest to researchers in the human or worm domain. We believe these results 
-could also be applied to prioritize the pathogenic variants increasingly being produced by next-
-generation sequencing in diagnostic labs. Genetic variants affecting human genes of unknown function 
-may have worm orthologues that are part of human-worm phenologs and these may reveal or imply a role 
-in a human disease. Thus, through functionally conserved networks, missing information can be 
-inferred and candidate genes can be selected via model organisms.
+the \emph{C. elegans} community. The results of the 'broad-sweep' disease-enrichment test in 
+combination with the web tool will be of special interest to researchers in the human or worm 
+domain. We believe these results could also be applied to prioritize the pathogenic variants 
+increasingly being produced by next-generation sequencing in diagnostic labs. Genetic variants 
+affecting human genes of unknown function may have worm orthologues that are part of human-worm 
+phenologs and these may reveal or imply a role in a human disease. Thus, through functionally 
+conserved networks, missing information can be inferred and candidate genes can be selected via 
+model organisms.
 
 The approach of WormQTLHD is conceptually similar to that described by Smedley et al. 
 \cite{Smedley:2013}. They created an automated method called PhenoDigm to provide evidence about 
@@ -224,16 +225,71 @@ software in the future and invite the community to add and share their new data 
 Because of increasing data sizes, R might not be the most suitable platform for the analysis 
 of next generation high throughput data. While the R environment is well suited to scientific 
 computing and performing statistical analysis, it is not the fastest or most optimized 
-language available. This is why for the new version of R/qtl - R/qtlHD another language 
-was chosen to perform the numerical analyses. This upcoming version of R/qtl is being 
-developed which a backend (for computation) mostly written in the D2.0 programming language.
-This switch to a different language should help: improve code quality, maintainability and 
-improved performance of algorithms. R/qtlHD is available for download, a current development 
-version is available from Github at http://github.com/qtlHD/qtlHD
+language available. When dealing with high throughput data obtained from RNA-seq, exome sequencing 
+or Bi-sulfite sequencing data sizes quickly become the limitation for any software package 
+written in R. Because R/qtl-HD is aimed at QTL analysis of high-density, high-throughput data, 
+R is not a suitable language for the computation parts fo the algorithm.
 
-Multiple QTL mapping is a very powerful method to detect QTLs in inbred populations. It 
-is a useful addition to the R/qtl toolkit, with the advent of R/qtlHD the development team 
-is also committed to adding the Multiple QTL Mapping routine to the R/qtlHD package.
+R/qtlHD is written in the high performance D programming language. D is chosen as primairy language 
+because it is created to perform safe and high throughput numerical analyses using a C like syntax. 
+This C style syntax provides a familiar syntax for people with a C/C++ background. Additional features which according 
+tot the R/qtl development team make D the language f choice include:
+\begin{enumerate}\itemsep1pt
+\item \emph{Improve code quality} - This makes the code more maintainability and more readable code is 
+easier to reason about and optimize leading to improve performance of algorithms.
+\item \emph{D allows to call C} D allows to call C (and a limited subset of C++) functions directly. This 
+allows to re-use previously written R/qtl code (which was written in R and C).
+\item \emph{Unittesting} Unittesting is build into the D programming language, allowing programmers to use the 
+power of unit- and regression testing to build a test suite without the need for external 
+frameworks
+\item \emph{Concurrency and Actors} - The D language provides high level patterns such as Actors and 
+Message Passing to deal with parrallelization of code. Unlike other languages, this is a build in 
+feature of the language
+\item \emph{Static typing} D requires types to be known at compile time, this reduces the risk for 
+run-time errors of the system.
+\item \emph{Compile Time Function Execution} Compile time function execution is a feature that allows 
+building look up tables at compile time. This has the opportunity to greatly reduce the run time of 
+algorithms, by pre-calculating common cases.
+\end{enumerate}
+There are more reasons for the R/qtl development team to favor D, however these are less tangible then 
+the above mentioned reasons.
+
+The current version of R/qtl provides many tools for genetic map construction, but also several historical 
+methods for QTL mapping. R/qtl-HD will not provide a multitude of methods but focus more on the high speed 
+analysis of data using stable and proven methods. such as Haley-Knott regression and analysis of variance.
+Additional features such as genetic map construction and validation are not high priority when converting 
+the current software into a more optimized language. R/qtl-HD mains to mapping huge volumes of traits onto 
+medium to large genetic maps.
+
+Additionally the multiple QTL mapping (MQM) routines from R/qtl will also be converted into the D programming language.
+The MQM routine has proven to be a useful addition to the R/qtl toolkit and with the new implementation of R/qtl as 
+R/qtlHD, we aim to improve the usefulness even more. The major limitation in MQM is the additional computational 
+load when compared to single marker QTL mapping. The R/qtl development team is committed to 1) add the Multiple QTL 
+Mapping routine to the R/qtlHD package and 2) provide further optimization to MQM to allow it to handle even large 
+volumes of trait and genetic data.
+
+An overview of the features planned for the R/qtl-HD package:
+\begin{enumerate}\itemsep1pt
+\item \emph{Universal input format} - Based on our experiences with XGAP and xQTL workbench, QTAB was developed as input 
+                                      format for Rqtl-HD. A testing version of QTAB was implemented in R/qtl-HD by Pjotr 
+                                      Prins. The QTAB format aims to provide a universal solution to the storage of genotype 
+                                      and genetic maps in inbred populations.
+\item \emph{Single marker QTL mapping} - R/qtl HD aims to provide the most common single marker mapping methods. These methods 
+                                         will be optimized to work with huge amounts of phenotype data, created by new technologies 
+                                         such as tilling arrays, RNA-seq and/or exome sequencing.
+\item \emph{Multiple QTL mapping} - We aim to implement multiple QTL mapping and as such benefit from the added advantages of the D 
+                                    language such as: Reduced memory usage during runtime and less run time due to the fact that 
+                                    it is easier to use parrallel computation in D.
+\item \emph{R interface} - Current R/qtl users should be able to switch to R/qtl-HD, while keeping their familiar R interface. in 
+                           an ideal world current users should automatically switch to R/qtl-HD without them noticing
+\item \emph{BioRuby} - Bio-packages are being created for many languages (Python, Perl, etc), Ruby is a new and upcoming language in the 
+                       scientific field. R/qtl HD aims to provide bindings to the BioRuby project as as proof of concept, other BioPackages 
+                       could model their own bindings on these ruby bindings
+\item \emph{Compatibility} - R/qtl-HD aims to be compatible with the following operating systems: Mac OS X, Microsoft Windows and Debian Linux.
+\end{enumerate}
+
+R/qtlHD is developed as open source community software, currently a very limited version is available as preview for
+download. To download a development version, go to Github: http://github.com/qtlHD/qtlHD
 
 \newpage
 
