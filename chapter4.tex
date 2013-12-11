@@ -295,7 +295,15 @@ to correlated expression between a pair of traits, while the other genotype show
   \begin{figure}[h!]
   \centering
   \includegraphics[width=0.9\textwidth]{eps/image_4_4.eps}
-  \caption[Methods overview]{Overview of the method to detect cel type mediated eQTL effects. }
+  \caption[Methods overview]{Overview of the method to detect cell type mediated cis-eQTL in compound 
+           tissues. A) Starting with a dataset that has cell count measurements, determine a set of 
+           probes strongly positively correlating to the cell count measurements. Calculate the 
+           correlation between these specific probes in the other datasets, and apply principal 
+           component analysis to combine them into a single proxy for the cell count measurement. B) 
+           Apply the neutrophil percentage predictor in the other cohorts. C) Use the proxy as a 
+           covariate in a linear model with interaction term in order to distinguish cell type mediated 
+           from non-cell type mediated cis-eQTL effects, and classify each cis-eQTL according to the 
+           direction of the interaction effect.}
           \label{fig:fig4_4}
   \end{figure}
 
@@ -354,7 +362,14 @@ to correlated expression between a pair of traits, while the other genotype show
   \begin{figure}[h!]
   \centering
   \includegraphics[width=0.9\textwidth]{eps/image_4_6.eps}
-  \caption[Validation]{Validation in four purified cell-type gene expression datasets}
+  \caption[Validation]{We validated the neutrophil and lymphoid mediated cis-eQTL effects in four purified cell 
+                       type datasets from the lymphoid lineage (B-cells, CD4+ T-cells, CD8+ T-cells and 
+                       lymphoblastoid cell lines) and two datasets from the myeloid lineage (Monocytes and 
+                       neutrophil granulocytes). Compared to generic cis-eQTLs, large effect sizes are observed 
+                       for lymphoid mediated cis-eQTLs in lymphoid lineage cell types, while neutrophil mediated 
+                       cis-eQTL effects have large effect sizes specifically in the neutrophil datasets. These 
+                       results indicate that our method is able to reliably predict whether a specific cis-eQTL 
+                       is mediated by cell type.   }
           \label{fig:fig4_6}
   \end{figure}
 
