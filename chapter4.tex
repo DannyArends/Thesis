@@ -15,8 +15,8 @@ to correlated expression between a pair of traits, while the other genotype show
 \begin{myexampleblock}{In press:}
   \authors{Danny Arends, Pjotr Prins, Yang Li, Lude Franke and Ritsert C. Jansen}\\
   \emph{CTL mapping}\\
-  \bold{Unknown} (XXXX)
-  \authors{HarmJan Westra*, Danny Arends*, ... ,  Ritsert C. Jansen and Lude Franke}\\
+  \bold{Unknown} (XXXX)\\
+  \authors{Harm-Jan Westra*, Danny Arends*, ... ,  Ritsert C. Jansen and Lude Franke}\\
   \emph{Identification of neutrophil mediated eQTLs from whole blood, without the need to sort cells}\\
   \bold{Nature Methods} (2013)
 \end{myexampleblock}
@@ -32,7 +32,7 @@ to correlated expression between a pair of traits, while the other genotype show
   mQTL, and pQTL are referred to as xQTL \cite{Arends:2012}. Different xQTL can localize to confirm each other, for example, 
   with the \emph{A. thaliana} glucosinolate pathway \cite{Jansen:2009}. Such inference can lead to dissecting pathways and gene networks, 
   currently an active field of research \cite{Prins:2012}.
-  
+
   Advances in QTL mapping focus on increasing QTL detection power and precision by using more and more advanced models to explain 
   observed variance. A higher amount of explained variance will result in a more reliable causal inference \cite{Li:2010}. Methods 
   developed to improve this explained variance are: Bayesian interval mapping, a framework to add prior knowledge \cite{Yandell:2007, 
@@ -135,7 +135,7 @@ to correlated expression between a pair of traits, while the other genotype show
   
   \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.9\textwidth]{eps/image_5_1.eps}
+  \includegraphics[width=0.9\textwidth]{eps/image_4_1.eps}
   \caption[CTLs.]{QTL and CTL analysis of two traits: a schematic of possible scenarios at a given marker. A trait can 
           have a QTL or no QTL at the given marker: there are four possible combinations in QTL analysis with two traits. 
           The trait pair can also have a CTL or no CTL and in the combined QTL and CTL analysis: the total number of possible 
@@ -268,6 +268,13 @@ to correlated expression between a pair of traits, while the other genotype show
   observe that SNPs, associated with Crohn's disease are enriched for affecting gene expression levels in 
   neutrophil granulocytes.
 
+  \begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\textwidth]{eps/image_4_3.eps}
+  \caption[Hematopoiesis overview]{Overview of cells involved in hematopoiesis. }
+          \label{fig:fig4_3}
+  \end{figure}
+
   \subsection{Results}
   Identification of cell-type specific eQTLs in mixtures (e.g. whole peripheral blood) is most easily 
   understood when assuming an extreme situation where in half of all blood samples the proportion of 
@@ -285,18 +292,24 @@ to correlated expression between a pair of traits, while the other genotype show
   blood (Supplementary Figure 1): as such if one is studying neutrophil percentage, one automatically 
   investigates lymphocyte percentage as well.
 
+  \begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\textwidth]{eps/image_4_4.eps}
+  \caption[Methods overview]{Overview of the method to detect cel type mediated eQTL effects. }
+          \label{fig:fig4_4}
+  \end{figure}
+
   However, neutrophil cell-count percentages were only available for the EGCUT and SHIP-TREND datasets. 
   To that end, we first developed a method that enabled us to approximate the cell type percentages for 
-  datasets without cell type information (Figure 1). We used the EGCUT cohort to identify a list of 58 
+  datasets without cell type information (Figure \ref{fig:fig4_4}). We used the EGCUT cohort to identify a list of 58 
   Illumina HT12v3 probes that strongly positively correlated (Spearman's correlation coefficient > 0.55) 
   with neutrophil granulocyte counts. We then summarized the information of these 58 individual probes 
   into a single neutrophil granulocyte count estimate, by applying principal component analysis (PCA) 
   and using the first principal component. We validated the accuracy of this 58 probe neutrophil count 
   predictor, by applying this procedure to the SHIP-TREND cohort and correlating the estimated neutrophil 
   percentage to the actual neutrophil percentage. We observed a strong correlation (Spearman's correlation 
-  coefficient = 0.82; Supplementary Figure 2), indicating that these 58 probes jointly form a reliable 
-  proxy for neutrophil percentage, and thus concluded we could use this procedure in the other cohorts 
-  as well.
+  coefficient = 0.82), indicating that these 58 probes jointly form a reliable proxy for neutrophil 
+  percentage, and thus concluded we could use this procedure in the other cohorts as well.
 
   Every cohort determined the interaction model for 13,124 \emph{cis}-eQTLs, while using the neutrophil 
   percentage proxy x genotype as interaction term. We subsequently meta-analyzed the interaction 
@@ -308,23 +321,23 @@ to correlated expression between a pair of traits, while the other genotype show
   will refer to these as neutrophil mediated \emph{cis}-eQTLs. Another 208 (1.6\%) had a negative direction of 
   effect (20 eQTLs, 20 unique SNPs and 13 unique probes after a more stringent Bonferroni correction), 
   indicating a stronger \emph{cis}-eQTL effect size in lymphoid cells (since lymphocyte percentages are 
-  negatively correlated with neutrophil percentages, Supplementary Figure 1). We will refer to these 
+  negatively correlated with neutrophil percentages). We will refer to these 
   as lymphocyte mediated \emph{cis}-eQTLs. Overall, the directions of the significant interaction effects were 
-  consistent across the different cohorts, indicating that our findings are robust (Supplementary 
-  Figure 3). We did however observe that a large sample-size is essential in order to find these 
-  cell-type mediated \emph{cis}-eQTLs (Figure 2): when studying fewer samples (ascertained by systematically 
+  consistent across the different cohorts, indicating that our findings are robust. We did however observe 
+  that a large sample-size is essential in order to find these 
+  cell-type mediated \emph{cis}-eQTLs (Figure \ref{fig:fig4_5}): when studying fewer samples (ascertained by systematically 
   excluding more cohorts from our study) the number of significant cell-type mediated eQTLs decreases 
   quickly. This was particularly important for the lymphoid mediated \emph{cis}-eQTLs, since in blood, 
   myeloid cells are approximately twice as abundant as lymphoid cells, and consequently detection of 
   lymphoid mediated \emph{cis}-eQTLs is more challenging than detection of myeloid mediated \emph{cis}-eQTLs.
 
   We validated our findings in four purified cell-type gene expression datasets from the lymphoid 
-  lineage (lymphoblastoid cell lines (LCLs), CD4+ T-Cells, CD8+ T-Cells and B-Cells; Figure 3, 
+  lineage (lymphoblastoid cell lines (LCLs), CD4+ T-Cells, CD8+ T-Cells and B-Cells; Figure \ref{fig:fig4_6}, 
   Supplementary Table 2) and two purified cell-type datasets from the myeloid lineage (monocytes and 
   neutrophil granulocytes). As expected, compared to \emph{cis}-eQTLs without a significant interaction term 
   (generic \emph{cis}-eQTLs) the 909 neutrophil mediated \emph{cis}-eQTLs and the 208 lymphoid mediated \emph{cis}-eQTLs 
   indeed showed very strong \emph{cis}-eQTL effects in the myeloid datasets (Wilcoxon P-value < 4.9 x 10-31) 
-  and lymphoid datasets (Wilcoxon P-value < 7.8 x 10-14), respectively (Figure 3). These results 
+  and lymphoid datasets (Wilcoxon P-value < 7.8 x 10-14), respectively (Figure \ref{fig:fig4_6}). These results 
   indicate that our method is able to reliably predict whether a \emph{cis}-eQTL is mediated by a specific 
   cell type. We also assessed whether average gene expression levels within different cell-types might 
   be useful to predict whether a \emph{cis}-eQTL is mediated by a specific cell type, as it can be hypothesized 
@@ -332,11 +345,18 @@ to correlated expression between a pair of traits, while the other genotype show
   expressed in other cell-types, that the eQTL effect might manifest itself only in the highly expressed 
   cell-type. We indeed observed that, on average, the 909 neutrophil mediated and 208 lymphoid eQTL 
   genes showed slightly higher gene expression levels within the myeloid and lymphoid cell-types, 
-  respectively (Supplementary Figure 3). However, for many individual genes that showed a strong 
+  respectively (Supplementary Figure \ref{fig:fig4_6}). However, for many individual genes that showed a strong 
   cell-type mediated \emph{cis}-eQTL effect, the average expression levels within that cell-type were not 
   higher than the other blood cell-types. As such, it is not possible to predict whether an eQTL is 
   operating in a particular cell-type by solely assessing in which cell-type the gene expression level 
-  of this eQTL gene is the highest. 
+  of this eQTL gene is the highest.
+
+  \begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\textwidth]{eps/image_4_6.eps}
+  \caption[Validation]{Validation in four purified cell-type gene expression datasets}
+          \label{fig:fig4_6}
+  \end{figure}
 
   We next assessed whether there are immune related diseases, for which the associated SNPs 
   preferentially have affect gene expression within neutrophils (i.e. are enriched for neutrophil 
@@ -391,7 +411,8 @@ to correlated expression between a pair of traits, while the other genotype show
   In order to improve statistical power to detect cell-type mediated eQTLs, we corrected the gene 
   expression for technical and batch effects (here we applied principal component analysis and removed 
   per cohort the 40 strongest principal components that affect gene expression). Such procedures are 
-  commonly used when conducting \emph{cis}-eQTL mapping \cite{Lude:2011, Dubois:2010, Fu:2012, Zhernakova:2013, Westra:2013, Lappalainen:2013}. Although this correction might diminish the 
+  commonly used when conducting \emph{cis}-eQTL mapping \cite{Lude:2011, Dubois:2010, Fu:2012, 
+  Zhernakova:2013, Westra:2013, Lappalainen:2013}. Although this correction might diminish the 
   power to detect trans-eQTLs \cite{Westra:2013}, this concern does not apply to our G x E \emph{cis}-eQTL study: we first 
   determined the environment effect (i.e. neutrophil count percentage) for each individual samples by 
   combining the expression levels of 58 probes, based on the original expression data that was not 
