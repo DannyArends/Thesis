@@ -10,8 +10,7 @@ the fastest implementation of the MQM algorithm available (This Thesis)
 4) Visualizations such as circle plots are a useful tool for a statistician when 
 talking to a biologist (This thesis, Personal Experience)
 
-5) A database with worm data can (surprisingly) be a valuable resource to study 
-human diseases (This Thesis)
+5) A database with worm data can (surprisingly) be a valuable resource to study human diseases. (This Thesis)
 
 6) Understanding how CTLs and environment specific QTL are caused and have their effect 
 will explain some of the 'missing' heritability observed when studying complex 
@@ -28,9 +27,14 @@ has become a victim of its own success (Danny Arends & Pjotr Prins - CTC 2013 Ma
 10) Standing on the shoulders of giants is only possible when one is bold enough to 
 attract their attention (Philosophical)
 
-11) Why go through the hassle of quitting, when you can just smoke (Personal Experience)
+11) Ontwikkelingen in de genetica gaan zo snel, dat men over 100 jaar de kanker medicijnen van nu 
+net zo barbaars zullen vinden, als wij aderlating in de middel-eeuwen.
 
-12) 'War is not murder' (Danny Arends & Joeri van der Velde - UMCG 2013)
+12) Why go through the hassle of quitting, when you can just smoke (Personal Experience)
 
-13) Doing a PHD is having a dream on the horizon, then trying to get there in four years 
+13) 'War is not murder' (Danny Arends & Joeri van der Velde - UMCG 2013)
+
+14) Doing a PHD is having a dream on the horizon, then trying to get there in four years 
 while taking small to steps to avoid the nightmares
+
+
