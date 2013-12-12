@@ -16,14 +16,14 @@ to correlated expression between a pair of traits, while the other genotype show
   \authors{Danny Arends, Pjotr Prins, Yang Li, Lude Franke and Ritsert C. Jansen}\\
   \emph{CTL mapping}\\
   \bold{Unknown} (XXXX)\\
-  \authors{Harm-Jan Westra*, Danny Arends*, ... ,  Ritsert C. Jansen and Lude Franke}\\
+  \authors{Danny Arends*, Harm-Jan Westra*, ... ,  Ritsert C. Jansen and Lude Franke}\\
   \emph{Identification of neutrophil mediated eQTLs from whole blood, without the need to sort cells}\\
   \bold{Nature Methods} (2013)
 \end{myexampleblock}
 
 \newpage
-
-\section{Introduction}
+\section{CTL mapping}
+\subsection{Introduction}
   QTL mapping of a gene expression identifies regions in the genome at which different genotypes lead to differences in gene
   expression levels. In a similar fashion, abundance of thousands of proteins and metabolites can be measured to map protein 
   QTL (pQTL) and metabolite QTL (mQTL). 
@@ -67,7 +67,7 @@ to correlated expression between a pair of traits, while the other genotype show
   package. This means data and results from R/qtl are directly usable in the R/ctl package. The results section shows a small code 
   example, to show similarities between CTL mapping and QTL mapping using R/qtl.
 
-\section{Calculating a CTL}
+\subsection{Calculating a CTL}
   A CTL is calculated at marker M by analyzing all possible phenotype-phenotype combinations. The input for the calculation is 
   the genotype of marker M and the phenotypes measured on the individuals. Rather than taking the mean phenotype value for each 
   of the genotypes, as is done with QTL mapping, correlation is calculated between p1 and p2 only for individuals with the 
@@ -87,7 +87,7 @@ to correlated expression between a pair of traits, while the other genotype show
   For the sake of simplicity the example given here deals with a cross with only 2 alleles (A and B) CTL mapping however is not 
   limited to only two alleles (see the Discussion section).
 
-  \subsection{Locating genetic markers acting on trait pairs}
+  \subsubsection{Locating genetic markers acting on trait pairs}
   In itself, the difference in phenotype-phenotype correlations observed at specific markers is interesting. The correlation 
   suggests that the pair p1 and p2 are connected phenotypes. For molecular data p1 and p2 could be acting in tandem, they could 
   be in the same pathway, they could have the same regulator or they could be connected in some other way.
@@ -96,7 +96,7 @@ to correlated expression between a pair of traits, while the other genotype show
   meaningful in the context of genetics  But when correlate between expression levels varies significantly between genotype A 
   and B (e.g. $corA >> corB$), some form of regulation at marker M in genotype A in the genotype is implied.
 
-  \subsection{Take the differential}
+  \subsubsection{Take the differential}
   Therefore, to calculate the CTL effect size, we add an extra step. CTL effect size is based on the difference between corAA and 
   corBB, i.e., the CTL effect is the delta of the correlations for the two genotypes AA and BB:
 
@@ -114,7 +114,7 @@ to correlated expression between a pair of traits, while the other genotype show
 
   For calculation of Z and stderr see the section 'CTL analysis on N-genotypes' in the discussion.
 
-  \subsection{Assigning significance}
+  \subsubsection{Assigning significance}
   
   When scaling the difference between two Z-values using the standard error we obtain a T-statistic which follows a 
   normal distribution \cite{Biometry:1995} allowing us to calculate an exact p-value.
@@ -145,7 +145,7 @@ to correlated expression between a pair of traits, while the other genotype show
           \label{fig:ctls}
   \end{figure}
 
-  \subsection{QTL and CTL analysis of two traits}
+  \subsubsection{QTL and CTL analysis of two traits}
   
   To describe the possible relationships between QTL and CTL we generate the possible scenario's as in figure \ref{fig:ctls}.\\
   {\bf(A)} The two traits have a QTL and a CTL at the given marker (1 scenario). This example shows the extreme scenario when the traits are 
@@ -167,8 +167,8 @@ to correlated expression between a pair of traits, while the other genotype show
   or both traits can have a possibly artificial QTL and the two traits have a possibly artificial CTL. The example shows the scenario 
   when only one trait has a QTL.
 
-\section{Inference of hierarchical relationship between traits}
-  \subsection{Using information of co-localized CTL and QTL}
+\subsection{Inference of hierarchical relationship between traits}
+  \subsubsection{Using information of co-localized CTL and QTL}
   Observing a significant CTL between T1 and T2 means that there is a factor (e.g. genetic regulator) located underneath 
   the CTL peak influencing the correlation between T1 and T2. This information of shared genetic control, therefore, 
   indicates that T1 and T2 are involved in the same biological pathway \cite{Tesson:2010}.
@@ -187,7 +187,7 @@ to correlated expression between a pair of traits, while the other genotype show
   information on the distance among them in the network, e.g. higher correlation can indicate a shorter distance 
   between T1 and T2 in the network.\\
 
-  \subsection{Using information of co-localized CTLs}
+  \subsubsection{Using information of co-localized CTLs}
   When the CTLxy of X and Y co-localizes with CTLxz of X and Z and CTLyz of Y and Z, these three traits are possibly 
   involved in the same network. The relative effect sizes of these CTLs can be used to infer the order of X, Y and Z
   in the hierarchical network. For example, when CTLxy and CTLyz are larger than CTLxz, we can conclude that they 
@@ -198,7 +198,7 @@ to correlated expression between a pair of traits, while the other genotype show
   untangled by using methods like hierarchical inference (this paper) or causal inference \cite{Schadt:2005, Li:2006} 
   to obtain en even more detailed view of genetic regulation within the set.
 
-  \subsection{Visualizing CTL information}
+  \subsubsection{Visualizing CTL information}
   Information obtained by CTL mapping can be visualized in several different ways the author found the most accessible 
   representation is a user-customizable network view. User customization helps researchers to add their own and/or 
   literature information to a network allowing for a rich interpretation of the created network. Network generated from 
@@ -208,6 +208,68 @@ to correlated expression between a pair of traits, while the other genotype show
   wiring. To create hierarchical networks we transforming the significant CTLs into network edges. This is done by 
   using a user defined genome wide FDR and then only transforming significant trait-marker-trait interactions into a 
   .sif network file.
+  
+  \subsubsection{CTL analysis on N-genotypes}
+  CTL mapping on crosses with more than two genotypes (e.g. F2 or 4-way) or CTL on GWAS data where SNPs are used to 
+  for association mapping, involves a slightly different approach then outlined in the methods section. Here we 
+  detail our method while we assume not two but $k$ genotypes. For each genotype $i$, a sample size of $n_{i}$ 
+  individuals is available.
+
+  When $k$ independent correlation coefficients are to be compared a Fisher's Z-transformation is applied to each 
+  of the individual correlation coefficients ($R_{i}$):
+
+  $$ Z_{i} = 0.5[\ln(1 + R_{i}) - \ln(1-R_{i})] $$
+
+  To perform CTL mapping when three or more genotypes are present, one may evaluate the Chi-square test statistic
+  \cite{Kullback:1959, Csiszar:2004}, this has the following null hypothesis ($H_{0}$): All correlation coefficients 
+  are almost equal. The test statistic is then calculated summing over all $k$:
+
+  $$ Chi^2 = \sum_{i=1}^{k}[(n_{i} - 3).Z_{i}^2] - \frac{[\sum_{i=1}^{k}(n_{i} - 3).Z_{i}]^2 }{ \sum_{i=1}^{k}(n_{i} - 3) } $$
+  Where i = 1, 2, 3, .., k.\\
+  
+  The Chi-square test statistic has $(k-1)$ degrees of freedom, where $k$ is the number of genotypes. We transform by 
+  using the -$\log_{10}$(p-value) and store the obtained LOD score for this trait-trait combination, then continue to 
+  the next genetic marker.
+
+  \subsubsection{Slope and Correlation}
+
+  There exists a relationship between the slope of the regression line and the correlation:
+
+  $$ cor = \beta * \frac{SD_{x}}{SD_{y}}$$
+
+  From this formula we can see that there is no difference between using correlation and regression when the standard 
+  deviation in x is equal to the standard deviation in y ($\frac{SD_{x}}{SD_{y}} ~= 1$). However when there is a 
+  difference between the standard deviation ratio, correlation and slope have two different interpretations. Meaning 
+  that observed slope differences should be interpreted as different phenomenon then difference in correlation.
+
+  \begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\textwidth]{eps/image_4_2.eps}
+  \caption[Power analysis.]{Power analysis (using simulations done at a single marker) shows how 
+                            much sample size is needed to obtain a given power at $alpha = 0.05$.\newline 
+                            {\bf(left)} Increased effect sizes are detected with more power even at 
+                            low sample sizes. To detect also small difference in correlation 
+                            0.1 - 0.2 we need a large sample size (1000+).\newline
+                            {\bf(right)} The closer the minor allele frequency is to 50\%, the more 
+                            power to detect CTLs. This plot was created using a simulated effect size 
+                            of 0.3 for all genotype ratio's. The effect of genotypes ratios on sample 
+                            size shows that when ratios are close to 5\%, we need a three times larger 
+                            sample size to detect the same effect. }
+          \label{fig:fig4_2}
+  \end{figure}
+
+  \subsection{Power analysis}
+  Using simulations the statistical power of our method can be determined when different effect sizes and/or genotype ratios 
+  are encountered by the algorithm. A summary of the power analysis results are shown in Fig. \ref{fig:fig4_2}, and results 
+  are discussed in the caption of this figure. 
+  Code to simulate different effect sizes and genotype ratios is part of the CTL mapping R-package and can be used 
+  to estimate (beforehand) the required sample size and/or the best breeding strategy to obtain the most power for detecting 
+  CTL.
+
+  \subsection{CTL power calculation applies to QTL and GWA}
+  The power calculation that comes with the CTL method is a measure of the statistical power built into the experimental design 
+  of an experiment. This applies not only to CTL, but has interesting implications for QTL and GWA studies in general. I.e., 
+  the CTL power calculation is a measure of the statistical power of the experiment under analysis (QTL, CTL or GWA).
 
 \section{Cell type specific eQTL mapping in human GAWA data}
 \label{sec:cellspecificeqtl}
