@@ -1,7 +1,7 @@
 \chapter{Introduction}
 \thispagestyle{empty}
 \label{chap:introduction}
-A blank piece of paper is God's way of telling us how hard it to be God\\
+A blank piece of paper is God's way of telling us how hard it is to be God\\
 - Sidney Sheldon (1917 - 2007)\\\\
 
 \emph{This first chapter is to introduce the reader to concepts such as gene, chromosome 
@@ -99,7 +99,7 @@ two beads far apart are less linked and can be separated by meiosis. Different
 strands are independently inherited allowing for Mendelian inheritance by two beads 
 on two different strings.
 
-Sturtevant a student of Morgan used his mentors linkage theory between phenotypes 
+Sturtevant, a student of Morgan used his mentors linkage theory between phenotypes 
 as a distance measurement between units of inheritance. He created the first genetic 
 map of \emph{Drosophila melanogaster} 40 years before the discovery of the DNA molecule, 
 while molecular mechanisms were still unknown. Sturtevant genetic map, based on 
@@ -146,7 +146,7 @@ generally small (20 to 1000 individuals).
 
 Association analysis is done in outbred populations, where tracking of the origin of the 
 DNA is hard or impossible. However molecular markers still allows to get information 
-about the underlying DNA. We can use e.g. Single Nucleotide Polymorphisms (SNPs) and associate 
+about the underlying DNA. We can use \emph{e.g.} Single Nucleotide Polymorphisms (SNPs) and associate 
 a phenotype with this genetic marker. The advantage of this approach is that resolution is 
 very good, because we have a high number of recombinations in outbred populations. However 
 because of this large quantity of markers statistical power to detect effects are limited.
@@ -178,7 +178,7 @@ genetic loci (G).
 
 To include G components into the model Multiple QTL Mapping (MQM) can be used. MQM belongs 
 to a family of QTL mapping methods, that include Haley-Knott regression \cite{Haley:1992} 
-and composite interval mapping CIM \cite{Zeng:1994}. MQM combines the strengths of 
+and composite interval mapping (CIM) \cite{Zeng:1994}. MQM combines the strengths of 
 generalized linear model regression with those of interval mapping \cite{Jansen:1993, Jansen:1994b}. 
 
 \begin{table}[h]
@@ -210,7 +210,7 @@ generalized linear model regression with those of interval mapping \cite{Jansen:
     \hline
   \end{tabular}
   }
-  \caption[Overview]{Overview of current technologies}
+  \caption[Overview]{Overview of current technologies to interogate the molecular basis for life.}
 \end{table}
 
 Genetical Genomics is the concept that views endophenotypes (RNA, Protein and Metabolite abundance) 
@@ -251,14 +251,14 @@ It is known that many factors, such as effects on intermediate molecular phenoty
 the relationship between genotype and the eventual development of disease. It has also been 
 observation that many of the disease-predisposing variant are noncoding, suggesting a regulatory 
 function for these variants. And it has been shown that many disease-predisposing variants 
-(e.g. single nucleotide polymorphisms (SNPs)) affect the expression of nearby genes (i.e. 
+(\emph{e.g.} single nucleotide polymorphisms (SNPs)) affect the expression of nearby genes (\emph{i.e.} 
 \emph{cis}-eQTLs)\cite{Powell:2012, Lude:2011, Zeller:2010}
 
 \begin{figure}[h!]
  \centering
     \includegraphics[width=0.6\textwidth]{eps/image_1_3}
   \caption[ThesisLayout.]
-    {Schematic figure showing to which molecular level each chapter is related. Molecular 
+    {Schematic figure showing to which molecular level each chapter is related. Each molecular 
     level here depicted are drawn from genome (bottom) to phenome (top), arrows indicate 
     how genetic information is transfered from level to the level as by the current by 
     the biological 'dogma'.}
@@ -266,9 +266,12 @@ function for these variants. And it has been shown that many disease-predisposin
 \end{figure}
 
 \section{Thesis contributions (2010-2014)}
-Chapter \ref{chap:pheno2geno} details how Pheno2Geno is developed for high-throughput 
-generation of genetic markers and maps from molecular phenotypes. Pheno2Geno selects 
-suitable phenotypes that show clear differential expression in the founders. Pheno2Geno 
+The following chapters will highlight the contributions made to the field of life 
+sciences during the 4 years of my PHD research at the Univerity of Groningen.
+
+Chapter \ref{chap:pheno2geno} details how Pheno2Geno an R package was developed for 
+the high-throughput generation of genetic markers and maps from molecular phenotypes. 
+Pheno2Geno selects suitable phenotypes that show clear differential expression in the founders. Pheno2Geno 
 uses mixture modeling to select phenotypes showing segregation ratios close to the 
 expected mendelian segregation ratios and transform them into genetic markers suitable 
 for map construction and/or saturation. Pheno2Geno analyses the candidate genetic 
@@ -299,3 +302,5 @@ multiple levels such as gene expression (eQTL), protein abundance (pQTL), metabo
 abundance (mQTL) and phenotype (phQTL) data. Popular QTL mapping methods for model organism 
 and human populations are accessible via the web user interface. Large calculations scale 
 easily on to multi-core computers, clusters and cloud computing.
+
+
