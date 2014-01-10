@@ -293,54 +293,53 @@ download. To download a development version, go to Github: http://github.com/qtl
 
 \newpage
 
-\section*{Dutch Summary}
-\addcontentsline{toc}{section}{Dutch Summary}
-Systems genetics is the inter disciplinairy field which deals with the consequences of genetic 
-variation on a biological system. The goal of systems genetics is to partition this variation 
-into three major categories: Genetic, Environment and Error variation, and explain how complex
-phenotypes arise from a combination of these three major factors.  Natural variation (or 
-genetic pertubation) is used to interogate the genetic component of phenotype variation. 
-Combined with environmental pertubation we can investigate the influence different 
-environments and the interaction between genetics and environment. Experimental design and 
-statistics are used to minimize and estimate error variance.
+\section*{Dutch Summary / Nederlandse Samenvatting}
+\addcontentsline{toc}{section}{Dutch Summary / Nederlandse Samenvatting}
+Systeem genetica is een inter disciplinair veld wat zch bezig houdt met de gevolgen van 
+genetische variatie op een biologisch systeem. Het effect van deze genetische variantie 
+leidt tot verschillen in phenotypes, zoals opbrengt en resistentie. Het doel van systeem 
+genetica is het indelen van deze geobserveerde phenotypische variatie in drie categorieen: 
+Genetische effecten, omgevings effecten en (random) residuele error variantie, en te 
+verklaren hoe complexe phenotypes onstaan uit het samenspel hiervan.
 
-Pheno2Geno (Chapter 2) deals with the creation of genetic maps from large scale omics data. 
-The theory of genetic map construction is ~100 years old. Software available for genetic map 
-construction has not been adapted yet to make use of new technologies such as multi threading 
-or cluster computing. Pheno2Geno aims to provide analysis of data from tilling arrays or RNAseq 
-to generate gene based expression markers and create high density genetic maps.
+Biologie gebruikt natuurlijke variatie en genetische pertubatie om de componenten te ontrafelen
+die phenotypische variatie veroorzaken, deze metingen gecombineert met pertubatie van verschillende 
+omgevingsfactoren staat ons toe om de invloed van verschillende effecten zoals omgeving en 
+omgeving x genotype te bepalen. Experimenteel ontwerp and statistiek kunnen gebruikt worden om 
+de error variantie te minimaliseren
 
-Chapter 3 describes the implementation of the Multiple QTL mapping routine by R. C. Jansen into 
-R/qtl. Adding a 'new' algorithm to the R/qtl toolset which aims to provide a range of QTL 
-mapping tools for inbred crosses. R/qtl is the basis of a toolset build around a unified 
-data structure allowing easy adaptation and extension of the software. R/qtl allows researchers 
-to analyse data from different sources or to quickly compare different approaches.
+Hoofdstuk 2 (Pheno2Geno) gaat over het construeren van genetische kaarten vanuit grootschalige 
+omics datasets. De theory achter het maken van genetische kaarten is ongeveer 100 jaar oud. Maar 
+software beschikbaar voor het maken van genetische kaarten in model organismes is nog 
+vaak nog niet aangepast aan nieuwe ontwikkelingen zoals multicore computers en cluster computing. 
+Pheno2Geno is software voor het maken can genetische kaarten uit Big Data verkregen door 
+experimenten de gebruik maken van tilling arrays of RNA sequence experimenten.
 
-In chapter 4 we show case our ideas for a generic storage and computation platform for systems 
-genetics. Our demo system xQTL workbench is currently being used as a backend to the 
-WormQTL and WormQTL-HD database. xQTL workbench allows users to store and share their data in 
-a local or web environment, and run analysis across datasets using the power of distributed 
-computing. It comes standard with QTL mapping tools such as: R/qtl, PLINK and qtlbim but also
-provides a web inferfaces, data importers, APIs and visualizations.
+Hoofdstuk 3 omschrijft de implementatie van het multiple QTL mapping algorithme ontwikkeld door 
+R. C. Jansen in R/qtl. Hiermee voegen we een nieuw algorithme aan de R/qtl toolset toe, een 
+toolset speciaal ontwikkeld voor het mappen van QTLs in ingeteelde (mouse) populations. R/qtl 
+vormt de basis van meerdere tools die allemaal gebouwd zijn rond een gedeelde datastructuur. 
+Deze structuur maakt het makkelijk om software aan te passen en nieuwe tools toe te voegen.
+Door de vele tools, kunnen onderzoekers snel wisselen van methode wanneer dit vereist is of 
+verschillende methodes vergelijken zonder een nieuw software pakket te hoeven leren.
 
-Current work on using differences in correlation to generate interaction networks and detect 
-cell type specific QTL effects is described in chapter 5. Correlated Traits Locus analysis 
-(or CTL mapping) enables researchers to find genetic loci controlling correlation differences 
-in segregating phenotypes. A variation on this method has proven valuable in discovering cell 
-type specific eQTL effects. These effects can be used to untangle cell mixtures seen in whole 
-blood gene expression data.
+In hoofdstuk 4 presenteren we onze ideeën voor een generieke opslag en berekenings platform 
+voor systeem genetica. Ons demo systeem xQTL workbench wordt momenteel gebruikt als een 
+backend voor de WormQTL en WormQTL-HD databases. In xQTL workbench kunnen gebruikers hun 
+gegevens op slaan en delen in een lokale of webomgeving, en lopen analyse over datasets met 
+behulp van de kracht van gedistribueerde computing. Het wordt standaard geleverd met QTL 
+mapping tools, zoals: R/QTL, Plink en qtlbim maar ook biedt het een web inferface, data 
+importers, API's en visualisaties.
 
-%In short this proposed method creates a proxy for cell counts in an unrelated cohort. this proxy 
-%is then used during meta analysis as artifical cell count across many different cohorts. The 
-%interaction effects between QTL and Proxy are used to assign a cell type to each eQTL. In the final 
-%stage diseases in which cell type enrichment is prominent are tested by using publicly available data.
+Huidige werkzaamheden over het gebruik van \emph{verschillen in correlatie} om interactie 
+netwerken te genereren en celtype specifieke QTL effecten op te sporen wordt beschreven in hoofdstuk 5. 
+Correlated Traits Locus analyse (of CTL mapping) laat onderzoekers toe om genetische loci te vinden die 
+geassocieerd zijn met correlatie verschillen tussen segregerende phenotypes. Een variant op deze 
+methode is waardevol gebleken om cel type-specifieke eQTL effecten te ontdekken. Deze effecten kunnen 
+worden gebruikt om celmengsels te ontwarren zals whole blood gen-expressie data.
 
-Last we have some additional required chapters, such as this summary in Dutch, a CV and publication 
-list and bibliography.\\
-
-I hope you enjoy reading this thesis as much as I enjoyed creating it during the last four years,\\\\
-
-Danny Arends (Aug 2013)
+Ik hoop dat je geniet van het lezen van dit proefschrift, net zo veel als ik genoot van het maken 
+ervan gedurende de afgelopen vier jaar, \\\\
 
 \newpage
 \section*{Abbreviations and Acronyms}
