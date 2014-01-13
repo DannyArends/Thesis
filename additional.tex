@@ -16,40 +16,10 @@ dissertation document required for a promotion at the University of Groningen.}
 
 \section*{Conclusion, Discussion and Future perspectives}
 \addcontentsline{toc}{section}{Conclusion, Discussion and Future perspectives}
-This chapter highlights the conclusions of this thesis. Additionally there is a short 
-discussion on the implications of these conclusions. Finally there is a short future 
-perspectives part, in which we look forward to the future of high throughput computing in 
-systems genetics. We highlight some novel innovations since the previous chapters were 
-written, and outline possible issues which might become more relevant to systems genetics 
-research in the coming years.
-
-\subsection*{Multiple QTL mapping and interaction models}
-Association and / or linkage analysis will continue to be the bread-and-butter analysis 
-tool-set for systems geneticists of the future. However complex systems geneticists have 
-to cope with the aquisition of data from diverse experimental designs and the analysis of 
-these diverse data types. Requiring complex pipelines to analyse new complexity of the incoming data.
-
-In chapter \ref{sect:Metabolites} we compare three different experimental designs: full 
-block design, random design and generalized genetical genomics (GGG) design design. We show 
-that using a GGG experimental design for experiments gives higher statistical power to 
-detect interactions between environmental and genetic variation compared to a random. 
-Additionally the amount of raw data produced in this design is 4 times less compared to 
-a full block design, making the post analysis of these kind of experiments less challenging, 
-and less expensive.
-
-Another part of this complex pipeline is the association analysis part which can be performed using 
-different methods, e.g. single marker association mapping in outbred populations, interval 
-mapping in inbred populations, or multiple QTL mapping. In this thesis we used multiple 
-QTL mapping to find QTLs for classical traits related to germination of seeds in 
-\emph{A. thaliana}, shows the an increase in QTL detection power of MQM versus standard 
-single marker QTL mapping. This shows that more genetic loci are involved in germination 
-of seeds then previously known.
-
-Furthermore, we have shown the application of interaction models to multi environmental 
-experiments in which we used a generalized genetical genomics experimental design. We 
-conclude that interaction models are a very powerful tool in understanding the complex 
-interplay between genetics and (cellular) environments. Additionally, we observe more QTLs 
-are detected by using a designGG experimental design compared to a random design.
+This chapter highlights the conclusions of this thesis and there is a short 
+discussion in which we look forward to the future of high throughput computing in 
+systems genetics. Highlighting some new innovations, and outline possible issues 
+which might become more relevant to systems genetics research in the coming years.
 
 \subsection*{High throughput analysis}
 With increasing scale of experimental data being produced in the lab, it will not be 
@@ -103,7 +73,7 @@ this process. At the workshop, the Bioinformatics WG tested the packaging system
 the Debian Med initiative as a method to create a cloud and could be consider this as a seed 
 for an image to then be publicly shared. Instructions to create such images were prepared for 
 the workshop and made available at:\\
- http://wiki.debian.org/DebianMed/LiveCD. 
+ http://wiki.debian.org/DebianMed/LiveCD.
  
 Using this method the cloud infrastructure can be transferred to local computer clusters 
 if desired. Every participant has access to the server and can grant access to collaborators 
@@ -146,28 +116,22 @@ Additionally, all software developed described in this thesis was also written a
 using git for source code control. And is available from Github at:
 http://github.com/DannyArends/
 
-\section*{Future Perspectives}
-In the future, further considerations should include integration of mapping analysis tools 
-with genomic annotation and sequence data. Another goal should be the generalization of 
-analysis frameworks to accommodate not only mouse and human data but also data from model 
-species with different genetic pedigree structures, such as pets (e.g. dogs), farm animals
-(e.g. horses, cattle, pigs) and plants (e.g. arabidopsis, brassica, maize). 
-
 \subsection*{Pheno2Geno}
-Generating biomarkers from micro array and RNAseq data is possible using mixture models, 
-additionally Pheno2Geno provided highly optimized routines for generating genetics maps 
-de-novo or to saturate existsing genetic maps. Its output structures are compatible with 
-R/qtl, which provides many facilities for QTL mapping in inbred populations.
+Generating biomarkers from micro arrays, tilling arrays and RNAseq data is possible using 
+mixture models. Pheno2Geno provided highly optimized routines for generating genetics maps 
+de-novo or to saturate existsing genetic maps. Pheno2Geno has output structures compatible 
+with R/qtl, which provides further facilities for QTL mapping in inbred populations.
 
-With the upcoming new version of R/qtl also the Pheno2Geno package needs to be redesigned 
+With the upcoming new version of R/qtl also the Pheno2Geno package will need to be redesigned 
 to accomodate new requirements. These include expected changes such as: a more standalone package, 
 further optimization of parallelisation, but also support for more cross types such as 
-diversity outbred and/or collaborative cross mice. But also other more uncertain requirements 
-which might or might not come up: E.g. One of the main developer of Pheno2Geno is currently working 
-on polyploid species. Due to this investment of the first author in polyploid crops such as 
-potatoes and tomatos, we also expect to see basic support for this in upcoming versions of 
-the Pheno2Geno package. The authors are also committed to maintaining the package, and source 
-code is available as open source code making it easier to support future new requirements.
+diversity outbred and/or collaborative cross mice. 
+
+Other more uncertain requirements which might or might not come up are: The main developer 
+of Pheno2Geno is currently working on polyploid species. Due to this investment of the first 
+author in polyploid crops such as potatoes and tomatos, basic support for this could be added 
+in upcoming versions of Pheno2Geno. The authors are committed to maintaining the package, 
+and sourcecode is available open source making it easier to support future new requirements.
 
 \subsection*{xQTL workbench}
 While the xQTL workbench system described in this thesis have the ability to absorb new 
@@ -222,6 +186,34 @@ quantitative geneticists working on worms and man. We are committed to maintaini
 software in the future and invite the community to add and share their new data and ideas. 
 
 \subsection*{R/qtlHD}
+Association and / or linkage analysis will continue to be the bread-and-butter analysis 
+tool-set for systems geneticists of the future. However complex systems geneticists have 
+to cope with the aquisition of data from diverse experimental designs and the analysis of 
+these diverse data types. Requiring complex pipelines to analyse new complexity of the 
+incoming data \cite{Trelles:2011}.
+
+In chapter \ref{sect:Metabolites} we compare three different experimental designs: full 
+block design, random design and generalized genetical genomics (GGG) design design \cite{Joosen:2013, Li:2009}. We show 
+that using a GGG experimental design for experiments gives higher statistical power to 
+detect interactions between environmental and genetic variation compared to a random \cite{Joosen:2013}. 
+Additionally the amount of raw data produced in this design is 4 times less compared to 
+a full block design, making the post analysis of these kind of experiments less challenging, 
+and less expensive.
+
+Another part of this complex pipeline is the association analysis part which can be performed using 
+different methods, e.g. single marker association mapping in outbred populations, interval 
+mapping in inbred populations, or multiple QTL mapping. In this thesis we used multiple 
+QTL mapping to find QTLs for classical traits related to germination of seeds in 
+\emph{A. thaliana}, shows the an increase in QTL detection power of MQM versus standard 
+single marker QTL mapping \cite{Jansen:1994a, Joosen:2011}. This shows that more genetic loci are involved in germination 
+of seeds then previously known.
+
+Furthermore, we have shown the application of interaction models to multi environmental 
+experiments in which we used a generalized genetical genomics experimental design. We 
+conclude that interaction models are a very powerful tool in understanding the complex 
+interplay between genetics and (cellular) environments \cite{Joosen:2013}. Additionally, we observe more QTLs 
+are detected by using a designGG experimental design compared to a random design, as previously hypothesized by Li et al. \cite{Li:2009}.
+
 Because of increasing data sizes, R might not be the most suitable platform for the analysis 
 of next generation high throughput data. While the R environment is well suited to scientific 
 computing and performing statistical analysis, it is not the fastest or most optimized 
@@ -231,14 +223,14 @@ written in R. Because R/qtl-HD is aimed at QTL analysis of high-density, high-th
 R is not a suitable language for the computation parts fo the algorithm.
 
 R/qtlHD is written in the high performance D programming language. D is chosen as primairy language 
-because it is created to perform safe and high throughput numerical analyses using a C like syntax. 
+because it is created to perform safe and high throughput numerical analyses using a C like syntax \cite{Alexandrescu:2011}. 
 This C style syntax provides a familiar syntax for people with a C/C++ background. Additional features which according 
-tot the R/qtl development team make D the language f choice include:
+tot the R/qtl development team make D the language first choice include:
 \begin{enumerate}\itemsep1pt
 \item \emph{Improve code quality} - This makes the code more maintainability and more readable code is 
-easier to reason about and optimize leading to improve performance of algorithms.
+easier to reason about and optimize code, leading to improved performance of algorithms.
 \item \emph{D allows to call C} D allows to call C (and a limited subset of C++) functions directly. This 
-allows to re-use previously written R/qtl code (which was written in R and C).
+allows to re-use previously written R/qtl code (written in R and C) \cite{RQTLGuide:2009}.
 \item \emph{Unittesting} Unittesting is build into the D programming language, allowing programmers to use the 
 power of unit- and regression testing to build a test suite without the need for external 
 frameworks
@@ -288,19 +280,28 @@ An overview of the features planned for the R/qtl-HD package:
 \item \emph{Compatibility} - R/qtl-HD aims to be compatible with the following operating systems: Mac OS X, Microsoft Windows and Debian Linux.
 \end{enumerate}
 
-R/qtlHD is developed as open source community software, currently a very limited version is available as preview for
-download. To download a development version, go to Github: http://github.com/qtlHD/qtlHD
+R/qtlHD is developed as open source community software, currently a very limited version 
+is available as preview for download. To download a development version, go to Github: 
+http://github.com/qtlHD/qtlHD
+
+Further considerations should include integration of mapping analysis tools with genomic 
+annotation and sequence data. Another goal should be the generalization of analysis 
+frameworks to accommodate not only mouse and human data but also data from model species 
+with different genetic pedigree structures, such as pets (e.g. cats, fish, dogs), farm 
+animals (e.g. horses, cattle, pigs) and plants (e.g. arabidopsis, brassica, maize).
 
 \newpage
 
 \section*{Dutch Summary / Nederlandse Samenvatting}
 \addcontentsline{toc}{section}{Dutch Summary / Nederlandse Samenvatting}
 Systeem genetica is een inter disciplinair veld wat zch bezig houdt met de gevolgen van 
-genetische variatie op een biologisch systeem. Het effect van deze genetische variantie 
-leidt tot verschillen in phenotypes, zoals opbrengt en resistentie. Het doel van systeem 
-genetica is het indelen van deze geobserveerde phenotypische variatie in drie categorieen: 
-Genetische effecten, omgevings effecten en (random) residuele error variantie, en te 
-verklaren hoe complexe phenotypes onstaan uit het samenspel hiervan.
+genetische variatie op alle biomoleculaire niveaus een biologisch systeem. Het effect van 
+deze genetische variantie leidt tot verschillen in phenotypes, zoals opbrengt en resistentie. 
+Het doel van systeem genetica is het indelen van de oorzaken van deze geobserveerde 
+phenotypische variatie in drie categorieen: Genetische effecten, omgevings effecten en 
+(random) residuele error variantie. Door netwerken te bouwen van interacties tussen 
+alle biomoleculaire niveaus probeert systeem genetics complexe phenotypes te verklaren uit 
+het samenspel tussen deze niveaus.
 
 Biologie gebruikt natuurlijke variatie en genetische pertubatie om de componenten te ontrafelen
 die phenotypische variatie veroorzaken, deze metingen gecombineert met pertubatie van verschillende 
@@ -323,7 +324,7 @@ Deze structuur maakt het makkelijk om software aan te passen en nieuwe tools toe
 Door de vele tools, kunnen onderzoekers snel wisselen van methode wanneer dit vereist is of 
 verschillende methodes vergelijken zonder een nieuw software pakket te hoeven leren.
 
-In hoofdstuk 4 presenteren we onze ideeën voor een generieke opslag en berekenings platform 
+In hoofdstuk 4 presenteren we onze ideeën voor een generiek opslag en rekenplatform 
 voor systeem genetica. Ons demo systeem xQTL workbench wordt momenteel gebruikt als een 
 backend voor de WormQTL en WormQTL-HD databases. In xQTL workbench kunnen gebruikers hun 
 gegevens op slaan en delen in een lokale of webomgeving, en lopen analyse over datasets met 
