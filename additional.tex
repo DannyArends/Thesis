@@ -227,24 +227,23 @@ because it is created to perform safe and high throughput numerical analyses usi
 This C style syntax provides a familiar syntax for people with a C/C++ background. Additional features which according 
 tot the R/qtl development team make D the language first choice include:
 \begin{enumerate}\itemsep1pt
-\item \emph{Improve code quality} - This makes the code more maintainability and more readable code is 
+\item \emph{Improved code quality} - This makes the code more maintainability and more readable code is 
 easier to reason about and optimize code, leading to improved performance of algorithms.
-\item \emph{D allows to call C} D allows to call C (and a limited subset of C++) functions directly. This 
+\item \emph{D allows to call C} - D allows to call C (and a limited subset of C++) functions directly. This 
 allows to re-use previously written R/qtl code (written in R and C) \cite{RQTLGuide:2009}.
-\item \emph{Unittesting} Unittesting is build into the D programming language, allowing programmers to use the 
+\item \emph{Build in Unit Tests} - Unit testing is build into the D programming language, allowing programmers to use the 
 power of unit- and regression testing to build a test suite without the need for external 
 frameworks
 \item \emph{Concurrency and Actors} - The D language provides high level patterns such as Actors and 
 Message Passing to deal with parrallelization of code. Unlike other languages, this is a build in 
 feature of the language
-\item \emph{Static typing} D requires types to be known at compile time, this reduces the risk for 
-run-time errors of the system.
-\item \emph{Compile Time Function Execution} Compile time function execution is a feature that allows 
-building look up tables at compile time. This has the opportunity to greatly reduce the run time of 
+\item \emph{Static typing} - D requires types (e.g. Integer, Float, Double) to be declared and known 
+at compile time, this improves readability of code and reduces the risk for run-time type errors of the system.
+\item \emph{Compile Time Function Execution} - Compile time function execution (CTFE) is a feature that allows to
+build look up tables at compile time. This has the opportunity to greatly reduce the run time of 
 algorithms, by pre-calculating common cases.
 \end{enumerate}
-There are more reasons for the R/qtl development team to favor D, however these are less tangible then 
-the above mentioned reasons.
+These are the main reasons for the R/qtl development team to favor D over R.
 
 The current version of R/qtl provides many tools for genetic map construction, but also several historical 
 methods for QTL mapping. R/qtl-HD will not provide a multitude of methods but focus more on the high speed 
@@ -253,12 +252,12 @@ Additional features such as genetic map construction and validation are not high
 the current software into a more optimized language. R/qtl-HD mains to mapping huge volumes of traits onto 
 medium to large genetic maps.
 
-Additionally the multiple QTL mapping (MQM) routines from R/qtl will also be converted into the D programming language.
+Additionally multiple QTL mapping (MQM) from R/qtl will also be converted into the D programming language.
 The MQM routine has proven to be a useful addition to the R/qtl toolkit and with the new implementation of R/qtl as 
 R/qtlHD, we aim to improve the usefulness even more. The major limitation in MQM is the additional computational 
-load when compared to single marker QTL mapping. The R/qtl development team is committed to 1) add the Multiple QTL 
+load when compared to single marker QTL mapping \cite{Arends:2010}. The R/qtl development team is committed to 1) add the Multiple QTL 
 Mapping routine to the R/qtlHD package and 2) provide further optimization to MQM to allow it to handle even large 
-volumes of trait and genetic data.
+volumes of trait and genetic data. 
 
 An overview of the features planned for the R/qtl-HD package:
 \begin{enumerate}\itemsep1pt
