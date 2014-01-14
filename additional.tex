@@ -47,7 +47,7 @@ and the scheduling system put constraints on the usage of cluster. Computing clu
 fashioned from different types of hardware, such as:
 \begin{itemize}
   \item Ad-hoc networks composed of many heterogeneous relatively cheap systems such as: FPGA, and/or CPU, ARM core
-  \item Dedicated computer clusters, such as PBS or national GRIDs, where usually a homogenous system of linux machines is used for computational tasks.
+  \item Dedicated computer clusters, such as TARGET or national GRIDs, where usually a homogenous system of linux machines is used for computational tasks.
   \item Video card cluster for linear algebra, utilizing the power of many simple GPU cores for dedicated tasks.
 \end{itemize}
 Compute clusters do not have to be homogeneous in nature. Though in many cases there will 
@@ -57,7 +57,8 @@ computational tasks such as GPUs or dedicated ARM cores.
 
 \subsubsection*{Cloud computing}
 \addcontentsline{toc}{subsubsection}{Cloud computing}
-The term cloud is used in many different ways. It basically means to have software available 
+The term cloud is used in many different ways, and there is little consensus on what a cloud 
+exactly is \cite{Foster:2008}. It essence it means to have software available 
 on demand, on suitable compute and storage hardware, with the user being charged for the time 
 that it is being used. Following the concept of the leading cloud provider Amazon, it refers 
 in practice to use of a virtual Linux machine, i.e. a virtual compute server with Linux 
@@ -65,11 +66,11 @@ preinitialized, hosted within some large compute infrastructure, with complete f
 customized by the user although not for free \cite{Trelles:2011}.
 
 Many commercial, national and local compute centers are also increasingly providing computer
-server capacity in cloud fashion. This makes these virtual machines an easy method to distribute 
-software without the need for users to install software. Thus, the infrastructure is specified
-jointly but for the actual computation every partner can be private with their data. This 
-approach grants enormous computational power to everyone with minimal preparation - once that 
-a shared image is finalized.
+server capacity in a cloud fashion. This makes these virtual machines an easy method to distribute 
+software and computation without the need for all participating computational nodes to install 
+software. Thus, the infrastructure is specified jointly \cite{Foster:2008} but for the actual computation every 
+partner can be private with their data. This approach grants enormous computational power to 
+everyone with minimal preparation - once that a shared image is finalized \cite{Krampis:2012}.
 
 The setup of such a compute cloud is not trivial but several initiatives are underway to ease 
 this process. At the workshop, the bioinformatics work-group tested the packaging system provided by 
@@ -122,9 +123,16 @@ http://github.com/DannyArends/
 \subsection*{Pheno2Geno}
 \addcontentsline{toc}{subsection}{Pheno2Geno}
 Generating biomarkers from micro arrays, tilling arrays and RNAseq data is possible using 
-mixture models. Pheno2Geno provided highly optimized routines for generating genetics maps 
-de-novo or to saturate existsing genetic maps. Pheno2Geno has output structures compatible 
-with R/qtl, which provides further facilities for QTL mapping in inbred populations.
+mixture models. Phenotypes showing a dichotome 0/1 distribution with approximate equal 
+proportions in, say, a RIL population can be used as genetic markers: genotypes can be 
+called by connecting the 0/1 to the parental strains A/B. Such markers can then be used 
+for de-novo construction of the genetic map or for saturation of a known genetic map 
+\cite{West:2006, Truco:2013}.
+
+Pheno2Geno provided highly optimized routines for generating genetics maps de-novo or to 
+saturate existsing genetic maps. Pheno2Geno has output structures compatible with R/qtl 
+\cite{Broman:2003, Arends:2010}, which provides further facilities for QTL mapping in 
+inbred populations.
 
 With the upcoming new version of R/qtl also the Pheno2Geno package will need to be redesigned 
 to accomodate new requirements. These include expected changes such as: a more standalone package, 
@@ -169,14 +177,14 @@ can be selected via model organisms \cite{vanDerVelde:2014}.
 
 The approach of WormQTLHD is conceptually similar to that described by Smedley et al. 
 \cite{Smedley:2013}. They created an automated method called PhenoDigm to provide evidence about 
-gene–disease associations by analysing phenotypic information. In their case, phenotypes consist of 
+gene-disease associations by analysing phenotypic information. In their case, phenotypes consist of 
 a collection of ontology terms, which are aligned and scored to derive an overall phenotype-similarity score. Using this 
-method, known gene–phenotype associations in model organisms (mouse, zebrafish) can be transferred 
+method, known gene-phenotype associations in model organisms (mouse, zebrafish) can be transferred 
 to other organisms such as man, and help us to understand the genetic cause of disease. This method 
 works best when the model organism is physiologically close to man and has comparable classical 
 phenotypes. It would therefore be less useful for \emph{C. elegans}. However, combining the molecular 
-(WormQTLHD) and phenotypical (PhenoDigm) approaches may result in a very powerful tool to discover 
-novel gene–disease associations in man, especially when using physiologically close model organisms.
+(WormQTLHD) and phenotypical (PhenoDigm) approaches results in a very powerful tool to discover 
+novel gene-disease associations in man, especially when using physiologically close model organisms \cite{vanDerVelde:2014}.
 
 We plan to further develop the WormQTLHD data and toolset. There might be more ways in which 
 researchers would like to search through the large amounts of data, for example, based on custom 
@@ -238,63 +246,64 @@ tot the R/qtl development team make D the language first choice include:
 easier to reason about and optimize code, leading to improved performance of algorithms.
 \item \emph{D allows to call C} - D allows to call C (and a limited subset of C++) functions directly. This 
 allows to re-use previously written R/qtl code (written in R and C) \cite{RQTLGuide:2009}.
-\item \emph{Build in Unit Tests} - Unit testing is build into the D programming language, allowing programmers to use the 
-power of unit- and regression testing to build a test suite without the need for external 
-frameworks
+\item \emph{Build in unit testing} - Unit testing is build into the D programming language, allowing 
+programmers to use the power of unit- and regression testing to build a test suite without the need 
+for external tools or frameworks.
 \item \emph{Concurrency and Actors} - The D language provides high level patterns such as Actors and 
 Message Passing to deal with parrallelization of code. Unlike other languages, this is a build in 
-feature of the language
+feature of the language, this allows the standard D library to use safe lock free concurreny mechanisms \cite{Alexandrescu:2011}.
 \item \emph{Static typing} - D requires types (e.g. Integer, Float, Double) to be declared and known 
 at compile time, this improves readability of code and reduces the risk for run-time type errors of the system.
-\item \emph{Compile Time Function Execution} - Compile time function execution (CTFE) is a feature that allows to
-build look up tables at compile time. This has the opportunity to greatly reduce the run time of 
-algorithms, by pre-calculating common cases.
+\item \emph{Compile Time Function Execution} - Compile time function execution (CTFE) is a feature 
+that allows to build look up tables at compile time. This greatly reduces the runtime of algorithms, 
+by pre-calculating common cases \cite{ArendsBlog:2012}.
 \end{enumerate}
 These are the main reasons for the R/qtl development team to favor D over R.
 
 The current version of R/qtl provides many tools for genetic map construction, but also several historical 
 methods for QTL mapping. R/qtl-HD will not provide a multitude of methods but focus more on the high speed 
-analysis of data using stable and proven methods. such as Haley-Knott regression and analysis of variance.
+analysis of data using stable and proven methods such as Haley-Knott regression and analysis of variance.
 Additional features such as genetic map construction and validation are not high priority when converting 
-the current software into a more optimized language. R/qtl-HD mains to mapping huge volumes of traits onto 
-medium to large genetic maps.
+the R/qtl software into a more optimized language. R/qtl-HD is designed for mapping huge volumes of traits 
+onto medium to large genetic maps.
 
-Additionally multiple QTL mapping (MQM) from R/qtl will also be converted into the D programming language.
-The MQM routine has proven to be a useful addition to the R/qtl toolkit and with the new implementation of R/qtl as 
-R/qtlHD, we aim to improve the usefulness even more. The major limitation in MQM is the additional computational 
-load when compared to single marker QTL mapping \cite{Arends:2010}. The R/qtl development team is committed to 1) add the Multiple QTL 
-Mapping routine to the R/qtlHD package and 2) provide further optimization to MQM to allow it to handle even large 
-volumes of trait and genetic data. 
+Furthermore multiple QTL mapping (MQM) from R/qtl will also be converted into the D programming language.
+The MQM routine has proven to be a useful addition to the R/qtl toolkit and with the new implementation 
+of R/qtl as R/qtlHD, we aim to improve the usefulness even more. The major limitation in MQM is the 
+additional computational load when compared to single marker QTL mapping \cite{Arends:2010}. The R/qtl 
+development team is committed to 1) add the MQM routine to the R/qtlHD package and 2) 
+provide further optimization to MQM to allow it to handle even large volumes of trait and genetic data. 
 
 An overview of the features planned for the R/qtl-HD package:
 \begin{enumerate}\itemsep1pt
-\item \emph{Universal input format} - Based on our experiences with XGAP and xQTL workbench, QTAB was developed as input 
-                                      format for Rqtl-HD. A testing version of QTAB was implemented in R/qtl-HD by Pjotr 
-                                      Prins. The QTAB format aims to provide a universal solution to the storage of genotype 
-                                      and genetic maps in inbred populations.
-\item \emph{Single marker QTL mapping} - R/qtl HD aims to provide the most common single marker mapping methods. These methods 
-                                         will be optimized to work with huge amounts of phenotype data, created by new technologies 
-                                         such as tilling arrays, RNA-seq and/or exome sequencing.
-\item \emph{Multiple QTL mapping} - We aim to implement multiple QTL mapping and as such benefit from the added advantages of the D 
-                                    language such as: Reduced memory usage during runtime and less run time due to the fact that 
-                                    it is easier to use parrallel computation in D.
-\item \emph{R interface} - Current R/qtl users should be able to switch to R/qtl-HD, while keeping their familiar R interface. in 
-                           an ideal world current users should automatically switch to R/qtl-HD without them noticing
-\item \emph{BioRuby} - Bio-packages are being created for many languages (Python, Perl, etc), Ruby is a new and upcoming language in the 
-                       scientific field. R/qtl HD aims to provide bindings to the BioRuby project as as proof of concept, other BioPackages 
-                       could model their own bindings on these ruby bindings
-\item \emph{Compatibility} - R/qtl-HD aims to be compatible with the following operating systems: Mac OS X, Microsoft Windows and Debian Linux.
+\item \emph{Universal input format} - Based on our experiences with XGAP \cite{Swertz:2010a} and xQTL workbench 
+\cite{Arends:2012}, QTAB was developed as input format for Rqtl-HD. A testing version of QTAB was implemented in 
+R/qtl-HD by Pjotr Prins. The QTAB format aims to provide a universal solution to the storage of genotype and genetic 
+maps in inbred populations.
+\item \emph{Single marker QTL mapping} - R/qtl HD aims to provide the most common single marker mapping methods. 
+These methods will be optimized to work with huge amounts of phenotype data, created by new technologies such as: 
+Tilling arrays, RNA-seq and/or exome sequencing.
+\item \emph{Multiple QTL mapping} - We aim to implement multiple QTL mapping and as such benefit from the added 
+advantages of the D language such as: Reduced memory usage during runtime and less run time due to the fact that 
+it is easier to use parrallel computation in D.
+\item \emph{R interface} - Current R/qtl users should be able to switch to R/qtl-HD, while keeping their familiar 
+R interface. in an ideal world current users should automatically switch to R/qtl-HD without them noticing.
+\item \emph{BioRuby} - Bio-packages are being created for many languages (Python, Perl, etc), Ruby is a new and 
+upcoming language in the scientific field. R/qtl HD aims to provide bindings to the BioRuby project \cite{Goto:2010} 
+as as proof of concept, other BioPackages could model their own bindings on these Ruby bindings.
+\item \emph{Compatibility} - R/qtl-HD aims to be compatible with the following operating systems: Mac OS X, 
+Microsoft Windows and Debian Linux.
 \end{enumerate}
 
 R/qtlHD is developed as open source community software, currently a very limited version 
 is available as preview for download. To download a development version, go to Github: 
 http://github.com/qtlHD/qtlHD
 
-Further considerations should include integration of mapping analysis tools with genomic 
-annotation and sequence data. Another goal should be the generalization of analysis 
-frameworks to accommodate not only mouse and human data but also data from model species 
-with different genetic pedigree structures, such as pets (e.g. cats, fish, dogs), farm 
-animals (e.g. horses, cattle, pigs) and plants (e.g. arabidopsis, brassica, maize).
+Further considerations currently not being investigated, but interesting opportunities for future work include 
+integration of mapping analysis tools with genomic annotation and sequence data. Another future goal should be 
+the generalization of analysis frameworks to accommodate not only mouse and human data but also data from other 
+model organisms with different (non inbred) genetic pedigree structures, such as pets (e.g. cats, fish, dogs), 
+farm animals (e.g. horses, cattle, pigs) and plants (e.g. arabidopsis, brassica, maize).
 
 \newpage
 
@@ -315,14 +324,14 @@ omgevingsfactoren staat ons toe om de invloed van verschillende effecten zoals o
 omgeving x genotype te bepalen. Experimenteel ontwerp and statistiek kunnen gebruikt worden om 
 de error variantie te minimaliseren
 
-Hoofdstuk 2 (Pheno2Geno) gaat over het construeren van genetische kaarten vanuit grootschalige 
+Hoofdstuk \ref{chap:pheno2geno} (Pheno2Geno) gaat over het construeren van genetische kaarten vanuit grootschalige 
 omics datasets. De theory achter het maken van genetische kaarten is ongeveer 100 jaar oud. Maar 
 software beschikbaar voor het maken van genetische kaarten in model organismes is nog 
 vaak nog niet aangepast aan nieuwe ontwikkelingen zoals multicore computers en cluster computing. 
 Pheno2Geno is software voor het maken can genetische kaarten uit Big Data verkregen door 
 experimenten de gebruik maken van tilling arrays of RNA sequence experimenten.
 
-Hoofdstuk 3 omschrijft de implementatie van het multiple QTL mapping algorithme ontwikkeld door 
+Hoofdstuk \ref{chap:mqm} omschrijft de implementatie van het multiple QTL mapping algorithme ontwikkeld door 
 R. C. Jansen in R/qtl. Hiermee voegen we een nieuw algorithme aan de R/qtl toolset toe, een 
 toolset speciaal ontwikkeld voor het mappen van QTLs in ingeteelde (mouse) populations. R/qtl 
 vormt de basis van meerdere tools die allemaal gebouwd zijn rond een gedeelde datastructuur. 
@@ -330,7 +339,7 @@ Deze structuur maakt het makkelijk om software aan te passen en nieuwe tools toe
 Door de vele tools, kunnen onderzoekers snel wisselen van methode wanneer dit vereist is of 
 verschillende methodes vergelijken zonder een nieuw software pakket te hoeven leren.
 
-In hoofdstuk 4 presenteren we onze ideeën voor een generiek opslag en rekenplatform 
+In hoofdstuk \ref{chap:xqtlwormbench} presenteren we onze ideeën voor een generiek opslag en rekenplatform 
 voor systeem genetica. Ons demo systeem xQTL workbench wordt momenteel gebruikt als een 
 backend voor de WormQTL en WormQTL-HD databases. In xQTL workbench kunnen gebruikers hun 
 gegevens op slaan en delen in een lokale of webomgeving, en lopen analyse over datasets met 
@@ -339,11 +348,12 @@ mapping tools, zoals: R/QTL, Plink en qtlbim maar ook biedt het een web inferfac
 importers, API's en visualisaties.
 
 Huidige werkzaamheden over het gebruik van \emph{verschillen in correlatie} om interactie 
-netwerken te genereren en celtype specifieke QTL effecten op te sporen wordt beschreven in hoofdstuk 5. 
-Correlated Traits Locus analyse (of CTL mapping) laat onderzoekers toe om genetische loci te vinden die 
-geassocieerd zijn met correlatie verschillen tussen segregerende phenotypes. Een variant op deze 
-methode is waardevol gebleken om cel type-specifieke eQTL effecten te ontdekken. Deze effecten kunnen 
-worden gebruikt om celmengsels te ontwarren zals whole blood gen-expressie data.
+netwerken te genereren en celtype specifieke QTL effecten op te sporen wordt beschreven in 
+hoofdstuk \ref{chap:ctlmapping}. Correlated Traits Locus analyse (of CTL mapping) laat 
+onderzoekers toe om genetische loci te vinden die geassocieerd zijn met correlatie verschillen 
+tussen segregerende phenotypes. Een variant op deze methode is waardevol gebleken om cel 
+type specifieke eQTL effecten te ontdekken. Deze effecten kunnen worden gebruikt om mengsels 
+van cellen te ontwarren zo als in geheel bloed gen expressie data.
 
 Ik hoop dat je geniet van het lezen van dit proefschrift, net zo veel als ik genoot van het maken 
 ervan gedurende de afgelopen vier jaar, \\\\
