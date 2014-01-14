@@ -105,7 +105,7 @@ database are available on Source Forge \cite{GeneNetwork:1994, GeneNetwork:2004}
 http://sourceforge.org/projects/genenetwork
 
 The mapping and permutation code used by GeneNetwork for real time analysis is based on fast 
-Haley-Knott approximations and is available on Source Forge:\\
+Haley-Knott approximations \cite{Haley:1992} and is available on Source Forge:\\
 http://qtlreaper.sourceforge.net
 
 xQTL and XGAP code were also developed in Subversion \cite{SVN:2002} using Java as its primary language and 
@@ -262,17 +262,17 @@ These are the main reasons for the R/qtl development team to favor D over R.
 
 The current version of R/qtl provides many tools for genetic map construction, but also several historical 
 methods for QTL mapping. R/qtl-HD will not provide a multitude of methods but focus more on the high speed 
-analysis of data using stable and proven methods such as Haley-Knott regression and analysis of variance.
+analysis of data using stable and proven methods such as Haley-Knott regression \cite{Haley:1992} and analysis of variance.
 Additional features such as genetic map construction and validation are not high priority when converting 
-the R/qtl software into a more optimized language. R/qtl-HD is designed for mapping huge volumes of traits 
-onto medium to large genetic maps.
+the R/qtl software into a more optimized language. R/qtl-HD is designed for mapping huge volumes of phenotypes 
+onto medium to large genetic maps \cite{Trelles:2011}.
 
 Furthermore multiple QTL mapping (MQM) from R/qtl will also be converted into the D programming language.
 The MQM routine has proven to be a useful addition to the R/qtl toolkit and with the new implementation 
 of R/qtl as R/qtlHD, we aim to improve the usefulness even more. The major limitation in MQM is the 
 additional computational load when compared to single marker QTL mapping \cite{Arends:2010}. The R/qtl 
-development team is committed to 1) add the MQM routine to the R/qtlHD package and 2) 
-provide further optimization to MQM to allow it to handle even large volumes of trait and genetic data. 
+development team is committed to 1) add the MQM routine to the R/qtlHD package and 2) provide further 
+optimization to MQM to allow it to handle even large volumes of phenotype and genetic data. 
 
 An overview of the features planned for the R/qtl-HD package:
 \begin{enumerate}\itemsep1pt
