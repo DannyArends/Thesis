@@ -14,15 +14,13 @@ dissertation document required for a promotion at the University of Groningen.}
 
 \newpage
 
-\section*{Conclusion, Discussion and Future perspectives}
-\addcontentsline{toc}{section}{Conclusion, Discussion and Future perspectives}
-This chapter highlights the conclusions of this thesis and there is a short 
-discussion in which we look forward to the future of high throughput computing in 
-systems genetics. Highlighting some new innovations, and outline possible issues 
-which might become more relevant to systems genetics research in the coming years.
+\section{Conclusion, Discussion and Future perspectives}
+This chapter highlights the conclusions of this thesis and there is a short discussion in 
+which we look forward to the future of high throughput computing in systems genetics. 
+Highlighting some new innovations, and outline possible challenges and issues which might 
+become more relevant to systems genetics research in the coming years.
 
-\subsection*{High throughput analysis}
-\addcontentsline{toc}{subsection}{High throughput analysis}
+\subsection{High throughput analysis}
 With increasing scale of experimental data being produced in the lab, it will not be 
 sufficient to have analysis software as simple downloads, because the researcher will 
 also need sizable compute and storage power \cite{Schadt:2010}. Thus, researchers will 
@@ -32,19 +30,18 @@ How this increasing demand for raw computational power can be satisfied in the f
 an unanswered question. Although federate computing providers (such as Target or EU-grid) can help 
 researcher in their need for big computing solutions in the near future. This is also not a 
 universal solution, while the speed of data production is currently higher then the speed of 
-CPU improvement. Two solutions which are currently already available are highlighted here: 
-Cluster and cloud computing might be able to solve the Big Data questions researchers face 
-currently.
+CPU improvement \cite{Moore:1998, Editorial:2009, Shah:2013}. Two solutions which are 
+currently already available are highlighted here: Cluster and cloud computing might be able to 
+solve the Big Data questions researchers currently face.
 
-\subsubsection*{Cluster computing}
-\addcontentsline{toc}{subsubsection}{Cluster computing}
+\subsubsection{Cluster computing}
 A cluster is a collection of computers dedicated to solving a computational task by divide 
-and conquer. It basically means to having a basic relatively homogeneous software available 
-on demand, on suitable compute and storage hardware. Hardware resources are divided by an 
-internal scheduling system amongst different tasks form different users. Users in general 
-have little control over the computational environment, because administration of the cluster 
-and the scheduling system put constraints on the usage of cluster. Computing clusters can be 
-fashioned from different types of hardware, such as:
+and conquer \cite{Silva:1999, Qiu:2010}. It basically means to having a basic relatively 
+homogeneous software available on demand, on suitable compute and storage hardware. Hardware 
+resources are divided by an internal scheduling system amongst different tasks form different 
+users. However, users in general have little control over the computational environment, 
+because administration of the cluster and the scheduling system put constraints on the usage 
+of cluster. Computing clusters can be fashioned from different types of hardware, such as:
 \begin{itemize}
   \item Ad-hoc networks composed of many heterogeneous relatively cheap systems such as: FPGA, and/or CPU, ARM core
   \item Dedicated computer clusters, such as TARGET or national GRIDs, where usually a homogenous system of linux machines is used for computational tasks.
@@ -56,7 +53,6 @@ Additionally the use of hardware can limit the usage of a cluster to a certain r
 computational tasks such as GPUs or dedicated ARM cores.
 
 \subsubsection*{Cloud computing}
-\addcontentsline{toc}{subsubsection}{Cloud computing}
 The term cloud is used in many different ways, and there is little consensus on what a cloud 
 exactly is \cite{Foster:2008}. It essence it means to have software available 
 on demand, on suitable compute and storage hardware, with the user being charged for the time 
@@ -84,8 +80,7 @@ if desired. Every participant has access to the server and can grant access to c
 without having to pay the hosting fees. When complete, this server image can be ported to 
 cloud providers such as: Amazon, Rackspace to be reused by other researchers.
 
-\subsection*{Code sharing and versioning}
-\addcontentsline{toc}{subsection}{Code sharing and versioning}
+\subsubsection*{Code sharing and versioning}
 Access and sharing of software code of all aforementioned tools is essential to avoid 
 duplication of efforts, promote interoperability and to really collaborate within the mouse 
 genetics bioinformatics community. Only then does it really become clear what is available 
@@ -120,8 +115,7 @@ Additionally, all software developed described in this thesis is also written an
 using Git for source code control, and is available from Github at:\\
 http://github.com/DannyArends/
 
-\subsection*{Pheno2Geno}
-\addcontentsline{toc}{subsection}{Pheno2Geno}
+\subsection{Pheno2Geno}
 Generating biomarkers from micro arrays, tilling arrays and RNAseq data is possible using 
 mixture models. Phenotypes showing a dichotome 0/1 distribution with approximate equal 
 proportions in, say, a RIL population can be used as genetic markers: genotypes can be 
@@ -145,8 +139,7 @@ author in polyploid crops such as potatoes and tomatos, basic support for this c
 in upcoming versions of Pheno2Geno. The authors are committed to maintaining the package, 
 and sourcecode is available open source making it easier to support future new requirements.
 
-\subsection*{xQTL workbench}
-\addcontentsline{toc}{subsection}{xQTL workbench}
+\subsection{xQTL workbench}
 While the xQTL workbench system described in this thesis have the ability to absorb new 
 analysis methods, consideration should be given to allow high flexibility. It will be 
 difficult to anticipate new demands, requirements or new developments which could provide 
@@ -161,8 +154,7 @@ use to keep track of data generation and track their analysis. Aditionally using
 backend allows researchers to contribute their methods and algorithms back to the scientific 
 community by uploading them into xQTL workbench.
 
-\subsubsection*{wormQTL and wormQTL - Human Disease}
-\addcontentsline{toc}{subsubsection}{wormQTL and wormQTL - Human Disease}
+\subsubsection{wormQTL and wormQTL - Human Disease}
 The current version of WormQTLHD (August 2013) is a comprehensive and compendious database that 
 enables molecular model organism data to be studied in the context of human diseases. Just as with 
 WormQTL \cite{Snoek:2012}, we believe that WormQTLHD will be continuously curated by the members of 
@@ -199,8 +191,7 @@ Our new database makes this data attractive and easy-to-use for an even wider co
 quantitative geneticists working on worms and man. We are committed to maintaining the data and 
 software in the future and invite the community to add and share their new data and ideas. 
 
-\subsection*{R/qtlHD}
-\addcontentsline{toc}{subsection}{R/qtlHD}
+\subsection{R/qtlHD}
 Association and / or linkage analysis will continue to be the bread-and-butter analysis 
 tool-set for systems geneticists of the future. However complex systems geneticists have 
 to cope with the aquisition of data from diverse experimental designs and the analysis of 
@@ -307,8 +298,7 @@ farm animals (e.g. horses, cattle, pigs) and plants (e.g. arabidopsis, brassica,
 
 \newpage
 
-\section*{Dutch Summary / Nederlandse Samenvatting}
-\addcontentsline{toc}{section}{Dutch Summary / Nederlandse Samenvatting}
+\section{Dutch Summary / Nederlandse Samenvatting}
 Systeem genetica is een inter disciplinair veld wat zch bezig houdt met de gevolgen van 
 genetische variatie op alle biomoleculaire niveaus een biologisch systeem. Het effect van 
 deze genetische variantie leidt tot verschillen in phenotypes, zoals opbrengt en resistentie. 
@@ -359,8 +349,7 @@ Ik hoop dat je geniet van het lezen van dit proefschrift, net zo veel als ik gen
 ervan gedurende de afgelopen vier jaar, \\\\
 
 \newpage
-\section*{Abbreviations and Acronyms}
-\addcontentsline{toc}{section}{Abbreviations and Acronyms}
+\section{Abbreviations and Acronyms}
 {\footnotesize
 \begin{tabular}{ l l }
 API:         & Application Programming Interface\\
@@ -409,8 +398,7 @@ XGAP:        & Extensible genotype and phenotype software platform.
 }
 \newpage
 
-\section*{Acknowledgements}
-\addcontentsline{toc}{section}{Acknowledgements}
+\section{Acknowledgements}
 Knowledge is in the end based on acknowledgement\\
 - Ludwig Wittgenstein (1889 - 1951)\\\\
 
@@ -462,10 +450,8 @@ finally the {\bf University Medical Centre Groningen} (UMCG) for the pleasant wo
 
 \newpage
 
-\section*{About the author}
-\addcontentsline{toc}{section}{About the author}
-\subsection*{Curriculum Vitae}
-\addcontentsline{toc}{subsection}{Curriculum Vitae}
+\section{About the author}
+\subsection{Curriculum Vitae}
 
 \begin{wrapfigure}{r}{0.4\textwidth}
   \centering
@@ -518,10 +504,9 @@ at the GBIC have resulted in the thesis you are currently reading.\\\\
 
 \newpage
 
-\subsection*{List of Publications}
-\addcontentsline{toc}{subsection}{List of Publications}
+\subsection{List of Publications}
 
-\subsection*{Authored:}
+\subsubsection*{Authored:}
    R/qtl: high throughput Multiple QTL mapping\\
   \authors{Danny Arends*, Pjotr Prins*, Ritsert C. Jansen and Karl W. Broman}\\
   \bold{Bioinformatics} (2010)\\\\
@@ -551,7 +536,7 @@ at the GBIC have resulted in the thesis you are currently reading.\\\\
            Ritsert C. Jansen, Henk Hilhorst}\\
   \bold{Plant Physiology} (2013)
 
-\subsection*{Co-Authored:}
+\subsubsection*{Co-Authored:}
   The MOLGENIS toolkit: rapid prototyping of biosoftware at the push of a button\\
   \authors{Morris A Swertz, Martijn Dijkstra, Tomasz Adamusiak,  Joeri K van der Velde, 
            Alexandros Kanterakis, Erik T. Roos, Joris Lops, Gudmundur A. Thorisson, 
@@ -584,7 +569,7 @@ at the GBIC have resulted in the thesis you are currently reading.\\\\
            Jan E. Kammenga, Ritsert C. Jansen, Morris A. Swertz and Yang Li}\\
   \bold{Nucleic Acids Research} (2014)
 
-\subsection*{In Preparation/ Under Review / In Press:}
+\subsubsection*{In Preparation/ Under Review / In Press:}
   Pheno2Geno - High throughput generation of genetic markers and maps from molecular phenotypes\\
   \authors{Konrad Zych, K. Joeri van der Velde, Ronny V. L. Joosen, Wilco Ligterink, Ritsert C Jansen 
            and Danny Arends}\\
@@ -605,7 +590,7 @@ at the GBIC have resulted in the thesis you are currently reading.\\\\
            Jan Kodde, Kim Boutilier, Johan Bucher, Xiaowu Wang, Ritsert Jansen, Guusje Bonnema}\\
   \bold{Plos One} (201X)
 
-\subsection*{Acknowledged in:}
+\subsubsection*{Acknowledged in:}
   Probability genotype imputation method and integrated weighted lasso for QTL identification\\
   \authors{Nino Demetrashvili, Edwin R van den Heuvel and Ernst C Wit}
   \bold{BMC Genetics}, 14:125 (2013)\\\\   
@@ -616,8 +601,7 @@ at the GBIC have resulted in the thesis you are currently reading.\\\\
   \authors{Yang Li, Rainer Breitling and Ritsert C. Jansen}\\
   \bold{Trends in Genetics}, 24:518-524 (2008)
 
-\subsection*{List of Presentations}
-\addcontentsline{toc}{subsection}{List of Presentations}
+\subsection{List of Presentations}
 R/xqtl: High throughput modeling, mapping and exploration of Big Data\\
 SYSGENET meeting - Braunschweig, April 2010\\\\
 Introduction into QTL analysis\\
@@ -641,8 +625,7 @@ Wageningen University, Feb 2012\\\\
 Introduction into R and R/qtl\\
 Summer Course - King's college, Sept 2013\\\\
 
-\subsection*{List of Posters}
-\addcontentsline{toc}{subsection}{List of Posters}
+\subsection{List of Posters}
 User friendly cluster computing for QTL analysis\\
   \authors{Danny Arends, Joeri v/d velde}\\
   \bold{ISMB} July 2010 - Boston, USA\\\\
@@ -659,8 +642,7 @@ GWAS in potato\\
   \authors{Konrad Zych, Danny Arends, Ritsert C. Jansen}\\
   \bold{Kings College} Sept 2013 - London, UK
 
-\subsection*{Awards}
-\addcontentsline{toc}{subsection}{Awards}
+\subsection{Awards}
 1st place Poster Award 'Pheno2Geno' at ESCS2012 Basel (Swiss) (2012)\\
 Travel Grant by NBIC for ISMB in Boston (MA, USA) (2010)\\
 2nd place Poster Award xQTL workbench NBIC Conference (Lunteren) (2010)\\
