@@ -155,15 +155,6 @@ populations provide high statistical power at the cost of reduced resolution for
 This reduction in resolution is caused by the lack of recombinations in populations which are 
 generally small (20 to 1000 individuals).
 
-\begin{wrapfigure}{r}{0.5\textwidth}
-  \centering
-  \includegraphics[width=0.4\textwidth]{eps/image_1_1}
-  \caption[Effect scan across the genome.]
-    {Example of how an effect scan is done using a single phenotype and a matrix of genotypes (A or B).
-    A and B are genetic variants obtained from either parental or maternal line. }
-    \label{fig:effectscan}
-\end{wrapfigure}
-
 Association analysis is done in outbred populations, where tracking of the origin of the 
 DNA is hard or impossible. However molecular markers still allows to get information 
 about the underlying DNA. We can use \emph{e.g.} Single Nucleotide Polymorphisms (SNPs) and associate 
@@ -182,16 +173,23 @@ in the next section to sketch a background for the work presented in this thesis
 
 \section{From Phenotypes to Genetical Omics and GWAS (1990-2010)}
 
-Observed phenotype expression is often more complex than a single causative gene. 
-To model these more complex interactions extension of the basic model for QTL mapping is 
-necessary. Extending the model can be done by incorporating sources of variation. This allows 
-us to associate / partition the observed variance to either environmental factors (E) or a 
-genetic loci (G).
+Observed phenotype expression is often more complex than a single causative gene \cite{Sinha:2006, 
+West:2007}. To model these more complex interactions between multiple regulators on e.g. gene expression 
+extension of the basic model for QTL mapping is necessary. 
 
-To include G components into the model Multiple QTL Mapping (MQM) can be used. MQM belongs 
-to a family of QTL mapping methods, that include Haley-Knott regression \cite{Haley:1992} 
-and composite interval mapping (CIM) \cite{Zeng:1994}. MQM combines the strengths of 
-generalized linear model regression with those of interval mapping \cite{Jansen:1993, Jansen:1994b}. 
+Extending the model can be done by incorporating sources of variation as cofactors. This allows us 
+to associate / partition the observed variance to either environmental factors (E) or genetic loci 
+(G). To include additional genetic components into the model, and then scanning for QTLs conditional 
+on these other genetic effects Multiple QTL Mapping (MQM) can be used. MQM belongs to a family 
+of QTL mapping methods, that include Haley-Knott regression \cite{Haley:1992} and composite 
+interval mapping (CIM) \cite{Zeng:1994}. MQM combines the strengths of generalized linear model 
+regression with those of interval mapping \cite{Jansen:1993, Jansen:1994b}. 
+
+In the beginning of the QTL mapping period genetic maps were of poor quality, with a lot of missing 
+data and large gaps between markers. To overcome this problem interval apping was developed. Interval 
+mapping uses prior knowledge about linkage in inbred populations to map QTLs between genetic markers. 
+Using hidden markov models (HMMs) interval mapping estimates the unobserved genotypes in the population 
+based on the surrounding genotype observations improving QTL mapping resolution \cite{Jansen:1993, Zeng:1994}.
 
 \begin{table}[h]
   \centering
@@ -223,16 +221,18 @@ generalized linear model regression with those of interval mapping \cite{Jansen:
   \end{tabular}
   }
   \caption[Overview]{Overview of current technologies to interrogate the molecular basis for life.}
+    \label{tbl:overview}
 \end{table}
 
 Genetical Genomics is the concept that views endophenotypes (RNA, Protein and Metabolite abundance) 
 as common phenotypes wich can be mapped in bulk to the genome similar to classical 
 phenotypes \cite{Jansen:2001a}. Using natural occurring variation and new omics tools allows us 
-to track variation from the genotype all the way up to the classical phenotypes. Allowing 
-genetics to go from individual QTLs to a system wide approach of analyzing QTLs at all known 
-molecular levels called Systems Genetics \cite{Threadgill:2006}. Studies in model organisms 
-have shown high heritability's for endophenotypes such as gene expression making these phenotypes 
-ideal targets for QTL mapping \cite{Brem:2002}. 
+to track variation from the genotype all the way up to the classical phenotypes (see Table 
+\ref{tbl:overview} for an short overview of methods). Tracing the effects of variation from 
+genome to phenotype allows genetics to go from individual QTLs to a system wide approach of 
+analyzing QTLs at all known molecular levels called Systems Genetics \cite{Threadgill:2006, Nadeau:2011}.
+Studies in model organisms have shown high heritability's for endophenotypes such as gene 
+expression making these phenotypes ideal targets for QTL mapping \cite{Brem:2002, Yvert:2003, Morley:2004}. 
 
 In 2003 R/qtl was developed to provide reference implementations for QTL mapping. R/qtl is 
 an extensible, interactive environment to map quantitative trait loci (QTL) in experimental c
@@ -241,6 +241,15 @@ statistical language/software R \cite{R:2009}. The main focus of R/qtl is to pro
 the mouse community with different QTL mapping methodologies, and allow to deal with the 
 the aberrant segregation X chromosome. Furthermore it supports different types of inbred 
 populations such as BackCross, F2, Recombinant inbred lines and 4-way RILs. \cite{Broman:2003}
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.4\textwidth]{eps/image_1_1}
+  \caption[Effect scan across the genome.]
+    {Example of how an effect scan is done using a single phenotype and a matrix of genotypes (A or B).
+    A and B are genetic variants obtained from either parental or maternal line. }
+    \label{fig:effectscan}
+\end{wrapfigure}
 
 When mapping gene expression or protein abundance current knowledge of protein and DNA sequence 
 allows us to locate their template on the genome. When QTL mapping resolution allows we can even 
@@ -280,7 +289,8 @@ polymorphisms
 
 \section{Thesis contributions (2010-2014)}
 The following chapters will highlight the contributions made to the field of life 
-sciences during the 4 years of my PHD research at the Univerity of Groningen. A schema can be found in Figure \ref{fig:layout}.
+sciences during the 4 years of my PHD research at the Univerity of Groningen. A schema 
+can be found in Figure \ref{fig:layout}.
 
 Chapter \ref{chap:pheno2geno} details how Pheno2Geno an R package was developed for 
 the high-throughput generation of genetic markers and maps from molecular phenotypes. 
