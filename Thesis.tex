@@ -129,11 +129,15 @@ Systems genetics is the inter disciplinairy field which deals with the consequen
 variation on all bio molecular levels of a biological system. The aim of systems genetics is to 
 understand systems by partitioning variation into three major categories: Genetic, Environment 
 and Error variation, and explain how complex phenotypes arise from a combination of these three 
-major factors across bio molecular levels. Natural variation (or genetic pertubation) is used 
-to interogate the genetic component of phenotype variation. Combined with environmental 
-pertubation we can investigate the influence different environments and the interaction between 
-genetics and environment. Experimental design and statistics are used to minimize and estimate 
-error variance. This thesis highlights our contribution to the field of systems genetics.
+major factors across bio molecular levels. 
+
+Natural variation (or genetic pertubation) can be used to interogate the genetic component of 
+phenotype variation. Combined with environmental pertubation we can investigate the influence 
+different environments and the interaction between genetics and environment. Experimental design 
+and statistics are used to minimize and estimate error variance. 
+
+Chapter \ref{chap:introduction} contains a short introduction after which this thesis will 
+continue by highlighting our contributions to the field of systems genetics.
 
 Chapter \ref{chap:pheno2geno} shows Pheno2Geno an R package that deals with the creation of 
 genetic maps from large scale omics data. The theory behind genetic map construction is around 
@@ -149,6 +153,13 @@ build around a unified data structure allowing easy adaptation and extension of 
 R/qtl allows researchers to analyse data from different sources or to quickly compare 
 different approaches.
 
+Chapter \ref{chap:ctlmapping} describes current work on using differences in correlation to 
+generate interaction networks and detect cell type specific QTL effects. Correlated Traits 
+Locus analysis (or CTL mapping) enables researchers to find genetic loci controlling correlation 
+differences in segregating phenotypes. A variation on this method has proven valuable in 
+discovering cell type specific eQTL effects. Using these effects it is possible 
+to untangle cell mixtures seen in whole blood.
+
 Chapter \ref{chap:xqtlwormbench} is to show case our ideas for a generic storage and 
 computation platform for systems genetics. Our demo system xQTL workbench is currently 
 being used as a backend to the WormQTL and WormQTL-HD database. xQTL workbench allows 
@@ -156,13 +167,6 @@ users to store and share their data in a local or web environment, and run analy
 datasets using the power of distributed computing. It comes standard with QTL mapping 
 tools such as: R/qtl, PLINK and qtlbim but also provides a web inferfaces, data importers, 
 APIs and visualizations.
-
-Chapter \ref{chap:ctlmapping} describes current work on using differences in correlation to 
-generate interaction networks and detect cell type specific QTL effects. Correlated Traits 
-Locus analysis (or CTL mapping) enables researchers to find genetic loci controlling correlation 
-differences in segregating phenotypes. A variation on this method has proven valuable in 
-discovering cell type specific eQTL effects. Using these effects it is possible 
-to untangle cell mixtures seen in whole blood.
 
 I trust you enjoy reading this thesis as much as I enjoyed creating it during the last four years,\\\\
 

@@ -224,9 +224,9 @@ Because of increasing data sizes, R might not be the most suitable platform for 
 of next generation high throughput data. While the R environment is well suited to scientific 
 computing and performing statistical analysis, it is not the fastest or most optimized 
 language available. When dealing with high throughput data obtained from RNA-seq, exome sequencing 
-or Bi-sulfite sequencing data sizes quickly become the limitation for any software package 
-written in R. Because R/qtl-HD is aimed at QTL analysis of high-density, high-throughput data, 
-R is not a suitable language for the computation parts fo the algorithm.
+or Bi-sulfite sequencing datasize quickly become the limiting factor for software written in R. 
+Because R/qtl-HD is aimed at QTL analysis of high-density, high-throughput data, R is not a suitable 
+language for the computation parts fo the algorithm.
 
 R/qtlHD is written in the high performance D programming language. D is chosen as primairy language 
 because it is created to perform safe and high throughput numerical analyses using a C like syntax \cite{Alexandrescu:2011}. 
@@ -287,10 +287,10 @@ Microsoft Windows and Debian Linux.
 \end{enumerate}
 
 R/qtlHD is developed as open source community software, currently a very limited version 
-is available as preview for download. To download a development version, go to Github: 
+is available as preview for download. A development version is available from: 
 \url{http://github.com/qtlHD/}
 
-Further considerations currently not being investigated, but interesting opportunities for future work include 
+Further adpatations of the system currently not being considered, but which interesting opportunities for future work include 
 integration of mapping analysis tools with genomic annotation and sequence data. Another future goal should be 
 the generalization of analysis frameworks to accommodate not only mouse and human data but also data from other 
 model organisms with different (non inbred) genetic pedigree structures, such as pets (e.g. cats, fish, dogs), 
@@ -312,7 +312,10 @@ Biologie gebruikt natuurlijke variatie en genetische pertubatie om de componente
 die phenotypische variatie veroorzaken, deze metingen gecombineert met pertubatie van verschillende 
 omgevingsfactoren staat ons toe om de invloed van verschillende effecten zoals omgeving en 
 omgeving x genotype te bepalen. Experimenteel ontwerp and statistiek kunnen gebruikt worden om 
-de error variantie te minimaliseren
+de error variantie te minimaliseren.
+
+Hoofdstuk \ref{chap:introduction} becat een korte historische introductie over systeem genetics, 
+In de volgende hoofdstukken van deze thesis laten de bijdrages zien van deze thesis aan systeem genetics.
 
 Hoofdstuk \ref{chap:pheno2geno} (Pheno2Geno) gaat over het construeren van genetische kaarten vanuit grootschalige 
 omics datasets. De theory achter het maken van genetische kaarten is ongeveer 100 jaar oud. Maar 
