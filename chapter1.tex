@@ -92,16 +92,31 @@ Twenty years after the rediscovery of Mendel's Laws in 1913, careful observation
 Thomas Hunt Morgan introduced an addition to Mendel's theoretical work. He observed 
 that some phenotypes in his \emph{Drosophila melanogaster} mutant flies are inherited 
 together, in conflict with Mendel's Laws (which state independent inheritance of 
-genetic units). He calls this phenomenon genetic linkage. This concept is also commonly 
-explained as beads on a string: in which multiple genetic units linked together. Two beads 
-close together are tightly linked are and almost always inherited together. While 
-two beads far apart are less linked and can be separated by meiosis. Different 
-strands are independently inherited allowing for Mendelian inheritance by two beads 
-on two different strings.
+genetic units). He called this phenomenon genetic linkage and when phenotypes are 
+linked to the sex of the animal sex based inheritance \cite{Morgan:1915, Morgan:1916}.
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.4\textwidth]{eps/image_1_2.eps}
+  \caption[Example of pedigree based linkage analysis.]
+    {Example of a hypothetical pedigree on which linkage analysis can be performed. Here we show a 
+    hypothetical pedigree of individuals within a family (2 generations), squares represent 
+    male individuals while circle are females. The phenotype is shown encoded by the fill 
+    color of the shape (Black = affected, White = not affected).  In this example pedigree, 
+    the "A" allele segregates with the disease. It is shared identical-by-descent in all 
+    affected individuals. }
+    \label{fig:pedigree}
+\end{wrapfigure}
+
+This concept is also commonly explained as beads on a string: in which multiple genetic 
+units linked together. Two beads close together are tightly linked are and almost always 
+inherited together. While two beads far apart are less linked and can be separated by 
+meiosis. Different strands are independently inherited allowing for Mendelian 
+inheritance by two beads on two different strings.
 
 Sturtevant, a student of Morgan used his mentors linkage theory between phenotypes 
 as a distance measurement between units of inheritance. He created the first genetic 
-map of \emph{Drosophila melanogaster} 40 years before the discovery of the DNA molecule, 
+map of \emph{Drosophila melanogaster} 40 years before the discovery of the DNA molecule \cite{Morgan:1915}, 
 while molecular mechanisms were still unknown. Sturtevant genetic map, based on 
 phenotypes, allowed genetics based on careful observation of segregating phenotypes in 
 large populations of flies, and then determining their distance relative to other 
@@ -132,19 +147,6 @@ responsible for variation in quantitative phenotypes. These three papers by Davi
 and Eric Lander \cite{Lander:1986, Lander:1987, Lander:1989} form the basis for modern 
 day linkage analysis and genome wide association studies. 
 
-\begin{wrapfigure}{r}{0.5\textwidth}
-  \centering
-  \includegraphics[width=0.4\textwidth]{eps/image_1_2.eps}
-  \caption[Example of pedigree based linkage analysis.]
-    {Example of a hypothetical pedigree on which linkage analysis can be performed. Here we show a 
-    hypothetical pedigree of individuals within a family (2 generations), squares represent 
-    male individuals while circle are females. The phenotype is shown encoded by the fill 
-    color of the shape (Black = affected, White = not affected).  In this example pedigree, 
-    the "A" allele segregates with the disease. It is shared identical-by-descent in all 
-    affected individuals. }
-    \label{fig:pedigree}
-\end{wrapfigure}
-
 In linkage analysis, DNA is tracked from parents to children. This allows to build so called 
 genetic familie trees or pedigrees (See fig. \ref{fig:pedigree}) in which segregation of a phenotype (or 
 disease) is displayed. If we find a genetic region which co-segregates with the disease we can assume this DNA and 
@@ -154,6 +156,16 @@ retaining the advantage of being able to trace back the DNA to the founder strai
 populations provide high statistical power at the cost of reduced resolution for QTL mapping. 
 This reduction in resolution is caused by the lack of recombinations in populations which are 
 generally small (20 to 1000 individuals).
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.5\textwidth]{eps/image_1_1}
+  \caption[Effect scan across the genome.]
+    {An example of how effect scans are performed using a single phenotype measured on 9 individuals (colored numbers)
+    and geotypes represented by rows in the matrix (A or B). 20 markers (columns) were assesed: A and B are genetic 
+    variants obtained from either parental or maternal line. }
+    \label{fig:effectscan}
+\end{wrapfigure}
 
 Association analysis is done in outbred populations, where tracking of the origin of the 
 DNA is hard or impossible. However molecular markers still allows to get information 
@@ -165,11 +177,15 @@ because of this large quantity of markers statistical power to detect effects ar
 Heritable phenotypes could be mapped to genomic locations using a combination of DNA 
 restriction enzymes, Mendel's inheritance laws and Hunt's linkage theory. Together these 
 methodologies and theories provide the experimental and statistical background to 
-analyse heritability in any population. A basic effect scan example is shown in Figure 
-\ref{fig:effectscan}. Linkage and Association analysis are still the foundation of population 
-genetics research today. More sophisticated tools and algorithms have been developed and are 
-used, but the basic theory remains the same. Some of these more advanced methods are discussed 
-in the next section to sketch a background for the work presented in this thesis.
+analyse heritability in any population. An example of a basic effect scan is shown in Figure 
+\ref{fig:effectscan}. here at each marker the mean of the phenotype for AA and BB are 
+calculated, and the difference plotted per marker. This gives us an idea which markers 
+might be interesting bio markers for our phenotype. 
+
+Linkage and Association analysis are still the foundation of population genetics research 
+today. More sophisticated tools and algorithms have been developed and are used, but the 
+basic theory remains the same. Some of these more advanced methods are discussed in the next 
+section to sketch a background for the work presented in this thesis.
 
 \section{From Phenotypes to Genetical Omics and GWAS (1990-2010)}
 
@@ -242,14 +258,7 @@ the mouse community with different QTL mapping methodologies, and allow to deal 
 the aberrant segregation X chromosome. Furthermore it supports different types of inbred 
 populations such as BackCross, F2, Recombinant inbred lines and 4-way RILs. \cite{Broman:2003}
 
-\begin{wrapfigure}{r}{0.5\textwidth}
-  \centering
-  \includegraphics[width=0.4\textwidth]{eps/image_1_1}
-  \caption[Effect scan across the genome.]
-    {Example of how an effect scan is done using a single phenotype and a matrix of genotypes (A or B).
-    A and B are genetic variants obtained from either parental or maternal line. }
-    \label{fig:effectscan}
-\end{wrapfigure}
+
 
 When mapping gene expression or protein abundance current knowledge of protein and DNA sequence 
 allows us to locate their template on the genome. When QTL mapping resolution allows we can even 
