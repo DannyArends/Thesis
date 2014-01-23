@@ -184,6 +184,9 @@ Tilling arrays, RNA-seq and/or exome sequencing.
 \item \emph{Multiple QTL mapping} - We aim to implement multiple QTL mapping and as such benefit from the added 
 advantages of the D language such as: Reduced memory usage during runtime and less run time due to the fact that 
 it is easier to use parrallel computation in D.
+\item \emph{Gene x Environment} - We aim to implement a generic approach for Gene x Environment analysis, we believe 
+this type of analysis to become more and more important in the future to untangle te relationship between genome and 
+phenome.
 \item \emph{R interface} - Current R/qtl users should be able to switch to R/qtl-HD, while keeping their familiar 
 R interface. in an ideal world current users should automatically switch to R/qtl-HD without them noticing.
 \item \emph{BioRuby} - Bio-packages are being created for many languages (Python, Perl, etc), Ruby is a new and 
@@ -197,17 +200,13 @@ R/qtlHD is developed as open source community software, currently a very limited
 is available as preview for download. A development version is available from: 
 \url{http://github.com/qtlHD/}
 
-Further adpatations of the system currently not being considered, but which interesting opportunities for future work include 
-integration of mapping analysis tools with genomic annotation and sequence data. Another future goal should be 
-the generalization of analysis frameworks to accommodate not only mouse and human data but also data from other 
-model organisms with different (non inbred) genetic pedigree structures, such as pets (e.g. cats, fish, dogs), 
-farm animals (e.g. horses, cattle, pigs) and plants (e.g. arabidopsis, brassica, maize).
-
-
-Additionally possible future challenges such as problems with 
-reproducability of research results in systems genetic are outlined. We urge all readers, 
-also working in the field of systems genetics, to adopt a professional way of analysis, 
-coding and collaboration using data provenenace and repositories to store analysis code.
+Further adaptations of the system currently not being considered, but which might be interesting opportunities for 
+future work include: Integration of mapping analysis tools with genomic annotation and sequence data, generalization 
+of analysis frameworks to accommodate not only mouse and human data but also data from other model organisms with 
+different (non inbred) genetic pedigree structures, such as pets (e.g. cats, fish, dogs), farm animals (e.g. horses, 
+cattle, pigs) and plants (e.g. arabidopsis, brassica, maize). Additional tools for genetic map construction might 
+also be considered for inclusion, but currently are not a priority, since the current R package provides tools for 
+this.
 
 \section{Future perspectives}
 \label{sect:Future}
@@ -218,9 +217,10 @@ need easy access to 'software as a service' such as cloud computing. Additionall
 of raw and pre-processed data is starting to become increasingly more expensive with 
 increasing data sizes involved, this will be discussed in sections \ref{subsect:ClusterComputing} 
 and \ref{sect:CloudComputing}. Additionally reproducability of analysis methodologies which 
-involves a large code base is becoming increasingly more difficult. A small discussion which 
-highlights current solutions to this problem of reproducability is found in section \ref{sect:CodeSharing}
-about sharing code and collaborating on large code bases 
+involves a large code base is proving to be increasingly more difficult, when version of 
+software and dependancies change. A small discussion which highlights current solutions 
+to this problem of reproducability is found in section \ref{sect:CodeSharing} about sharing 
+code and collaborating on large code bases.
 
 How this increasing demand for storage and computational power can be satisfied in the future remains 
 an unanswered question. Although federate computing providers (such as Target or EU-grid) can help 
