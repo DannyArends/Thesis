@@ -216,12 +216,7 @@ also need sizable compute and storage power \cite{Schadt:2010}. Thus, researcher
 need easy access to 'software as a service' such as cloud computing. Additionally storage 
 of raw and pre-processed data is starting to become increasingly more expensive with 
 increasing data sizes involved, this will be discussed in sections \ref{subsect:ClusterComputing} 
-and \ref{sect:CloudComputing}. Additionally reproducability of analysis methodologies which 
-involves a large code base is proving to be increasingly more difficult, when version of 
-software and dependancies change. A small discussion which highlights current solutions 
-to this problem of reproducability is found in section \ref{sect:CodeSharing} about sharing 
-code and collaborating on large code bases.
-
+and \ref{sect:CloudComputing}. 
 How this increasing demand for storage and computational power can be satisfied in the future remains 
 an unanswered question. Although federate computing providers (such as Target or EU-grid) can help 
 researcher in their need for big computing solutions in the near future. This is also not a 
@@ -229,6 +224,12 @@ universal solution, while the speed of data production is currently higher then 
 CPU improvement \cite{Moore:1998, Editorial:2009, Shah:2013}. Two solutions which are 
 currently already available are highlighted here: Cluster and cloud computing might be able to 
 solve the Big Data questions researchers currently face.
+
+Additionally reproducability of analysis methodologies which involves a large code base is proving 
+to be increasingly more difficult. results tend to slightly change when version of software and 
+dependancies differ from the version used in the original analysis. A small discussion which highlights 
+current solutions to this problem of irreproducible results is found in section \ref{sect:CodeSharing} 
+about sharing code and collaborating on (large) code bases.
 
 \subsection{Cluster computing}
 \label{subsect:ClusterComputing}
@@ -310,8 +311,10 @@ in 2012 also the entire MOLGENIS software suite (MOLGENIS, XGAP, xQTL workbench)
 to Git and moved to \url{http://www.github.com/} to get more online exposure, and remove the need 
 to host an internal SVN server.
 
-Additionally, all software developed described in this thesis is also written and developed 
-using Git for source code control, and is available from Github at:\\
+We urge all readers to adopt a professional and reproducible way of data analysis. This requires 
+coding and collaboration using data provenenace and repositories to store analysis code. All 
+software developed for and described in this thesis are also written and developed using Git 
+for source code control, and is available from Github at:\\
 \url{http://github.com/DannyArends/}
 
 
