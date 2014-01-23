@@ -32,11 +32,14 @@ focused on the effect of the environment that a seed perceives during germinatio
 effect of the environment during maternal plant growth, which has been the subject of other 
 studies \cite{Dechaine:2009, Elwell:2011}. 
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \centering
   \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_1.eps}
-  \caption[Germination curve.]
-    {Germination curve.}
+  \caption[Germination curve]{A hypothetical germination curve, $t_{10}$: Time when 10\% of seeds have 
+          germinated, $t_{50}$: Time when 50\% of seeds have germinated. $U_{8416}$,  Uniformity of 
+          germination, time difference between 16\% germination and 84\% germination. $G_{max}$: \% of 
+          germinated seeds, AUC: Area under the curve. }
+  \label{fig:GerminationCurve}
 \end{figure}
 
 Seed content (e.g. oil) is often used as commodity and modifications to the content can therefore be 
@@ -49,7 +52,7 @@ To obtain better germination and field performance, many seed companies rely on 
 such as seed priming and coating and/or pelleting, but these methods are reaching their limits. 
 Dissecting the molecular mechanisms underlying seed germination and its tolerance to the environment 
 may unlock the full genetic potential and enable targeted breeding for seed performance. In this study 
-we used a recombinant inbred line (RIL) population derived from two Arabidopsis thaliana ecotypes: 
+we used a recombinant inbred line (RIL) population derived from two \emph{Arabidopsis thaliana} ecotypes: 
 Bayreuth (Bay-0) which originates from a fallow land habitat in Germany and Shahdara (Sha) which 
 grows at high altitude in the Pamiro-Alay mountains in Tadjikistan \cite{Loudet:2002}. The Bay-0 x 
 Sha RIL population has been used in many previous studies to map QTL positions for root morphology 
@@ -65,7 +68,7 @@ to environmental conditions to which a seed is exposed.
   {\footnotesize
   \begin{tabular}{  l  l  l  l  l  l }
     \hline
-    {\bf Trait} & {\bf Gmax} & {\bf AUC} & {\bf T50}& {\bf T10}& {\bf A8416}\\
+    {\bf Trait} & {\bf $G_{max}$} & {\bf AUC} & {\bf $t_{50}$}& {\bf $t_{10}$}& {\bf $U_{8416}$}\\
     \hline
     AR.NS           & 0.82 & 0.97 & 0.86 & 0.79 & 0.82 \\
     AR.NS.Cold      & 0.51 & 0.77 & 0.73 & 0.66 & 0.48 \\
@@ -78,17 +81,20 @@ to environmental conditions to which a seed is exposed.
     \hline
   \end{tabular}
   }
-  \caption[Heritability Overview]{Overview of the broad sense heritability scores. Included are those traits for which different blocks 
-          were tested (Trait code descriptions can be found in Table \ref{table:codes})}
+  \caption[Heritability Overview]{Overview of the broad sense heritability scores. Included are those traits 
+          for which different blocks were tested (Trait code descriptions can be found in Table \ref{table:codes}, 
+          for germination parameters see Figure \ref{fig:GerminationCurve}). Broad-sense heritability were 
+          calculated with the QTL data analysis tools in Genstat 14, using the preliminary single environment 
+          analysis and adding the block as an additional fixed term.}
 \end{table}
 
-Freshly harvested viable Arabidopsis seeds often don't germinate even when placed under conditions 
+Freshly harvested viable \emph{Arabidopsis} seeds often don't germinate even when placed under conditions 
 favorable for germination. This event, called primary dormancy, is shown to be subject to natural 
-variation \cite{Bentsink:2010}. In many Arabidopsis ecotypes, this primary dormancy is released after 
+variation \cite{Bentsink:2010}. In many \emph{Arabidopsis} ecotypes, this primary dormancy is released after 
 a period of dry storage at room temperature. Another dormancy breaking treatment is cold stratification 
 were seeds are imbibed in water and stored at 4\degree C in the dark for four days before putting them into 
 optimal conditions for germination \cite{Finch-Savage:2006}. Unfavorable conditions during seed 
-germination may result in a changed rate or even failure of germination. In Arabidopsis, it has been 
+germination may result in a changed rate or even failure of germination. In \emph{Arabidopsis}, it has been 
 shown that the responsiveness to temperature is closely related to the level of after-ripening 
 \cite{Tamura:2006}. High salt concentrations induce osmotic stress and ion toxicity resulting in both 
 a delay and reduction of maximum germination \cite{Galpaz:2010}. Often, these different environmental 
@@ -140,28 +146,28 @@ mapping of individual traits and that allowed comprehensive and comprehensible v
 \definecolor{C20}{HTML}{96C800}
 \definecolor{C21}{HTML}{C8C800}
 
-\begin{table}[h]
+\begin{table}[!ht]
   \tiny
   \centering
   \begin{tabular}{ | l | c | l | l | p{4cm} | l | }
     \hline
     {\bf Trait Group}    & {\bf Stratification} & & {\bf Harvest} & {\bf Description}                                                                                          & {\bf Codes}               \\
     \hline
-    Germination               & N & \cellcolor{C1} & ABCD          & After ripened seed germination                                                                                           & AR.NS                     \\
+    Germination               & N & \cellcolor{C1}  & ABCD          & After ripened seed germination                                                                                           & AR.NS                     \\
     \hline
-    After ripening            & N & \cellcolor{C2} & ABCD          & Delta between freshly harvested seed germination and after-ripened seed germination                                      & AR.NS - Fresh.NS          \\
+    After ripening            & N & \cellcolor{C2}  & ABCD          & Delta between freshly harvested seed germination and after-ripened seed germination                                      & AR.NS - Fresh.NS          \\
     \hline
-    Fresh                     & Y & \cellcolor{C3} & ABCD          & Delta between freshly harvested seed germination and freshly harvested seed germination                                  & Fresh.WS -Fresh.NS        \\
+    Fresh                     & Y & \cellcolor{C3}  & ABCD          & Delta between freshly harvested seed germination and freshly harvested seed germination                                  & Fresh.WS -Fresh.NS        \\
     \hline
-    AR                        & Y & \cellcolor{C4} & ABCD          & Delta between after-ripened seed germination and after-ripened  seed germination                                         & AR.WS - AR.NS             \\
+    AR                        & Y & \cellcolor{C4}  & ABCD          & Delta between after-ripened seed germination and after-ripened  seed germination                                         & AR.WS - AR.NS             \\
     \hline
-    NaCl                      & N & \cellcolor{C5} & ABCD          & Delta between after-ripened seed germination on 100 mM NaCl and after-ripened  seed germination on water                 & AR.NS - NaCl.             \\
-    NaCl                      & Y & \cellcolor{C6} & ABCD          &                                                                                                                          & AR.WS - NaCl.WS.          \\
+    NaCl                      & N & \cellcolor{C5}  & ABCD          & Delta between after-ripened seed germination on 100 mM NaCl and after-ripened  seed germination on water                 & AR.NS - NaCl.             \\
+    NaCl                      & Y & \cellcolor{C6}  & ABCD          &                                                                                                                          & AR.WS - NaCl.WS.          \\
     \hline
-    Mannitol                  & N & \cellcolor{C7} & AD            & Delta between after-ripened seed germination on -0.5 mP Mannitol and after-ripened seed germination on water             & AR.NS - AR.Mann.NS.       \\
-    Mannitol                  & Y & \cellcolor{C8} & AD            &                                                                                                                          & AR.WS - AR.Mann.WS.       \\
+    Mannitol                  & N & \cellcolor{C7}  & AD            & Delta between after-ripened seed germination on -0.5 mP Mannitol and after-ripened seed germination on water             & AR.NS - AR.Mann.NS.       \\
+    Mannitol                  & Y & \cellcolor{C8}  & AD            &                                                                                                                          & AR.WS - AR.Mann.WS.       \\
     \hline
-    Cold Fresh                & N & \cellcolor{C9} & D             & Delta between freshly harvested seed germination at 10\degree C and freshly harvested seed germination at 20\degree C    & Fresh.NS - Fresh.Cold.NS  \\
+    Cold Fresh                & N & \cellcolor{C9}  & D             & Delta between freshly harvested seed germination at 10\degree C and freshly harvested seed germination at 20\degree C    & Fresh.NS - Fresh.Cold.NS  \\
     Cold                      & N & \cellcolor{C10} & AD            & Delta between after-ripened seed germination at 10\degree C and after-ripened seed germination at 20\degree C            & AR.NS - AR.Cold.NS        \\
     Cold                      & Y & \cellcolor{C11} & D             &                                                                                                                          & AR.WS - AR.Cold.WS        \\
     \hline
@@ -172,8 +178,8 @@ mapping of individual traits and that allowed comprehensive and comprehensible v
     CD*                       & N & \cellcolor{C15} & D             & Delta between after-ripened seed germination after controlled detoriation and after-ripened seed germination on water    & AR.NS - AR.CD.NS          \\
     CD*                       & Y & \cellcolor{C16} & D             &                                                                                                                          & AR.WS - AR.CD.WS          \\
     \hline
-    ABA                       & N & \cellcolor{C17}  & D             & Delta between after-ripened seed germination with  0.5 $\mu$M ABA and after-ripened seed germination on water            & AR.NS - AR.ABA.NS         \\
-    ABA                       & Y & \cellcolor{C18}  & D             &                                                                                                                          & AR.WS - AR.ABA.WS         \\
+    ABA                       & N & \cellcolor{C17} & D             & Delta between after-ripened seed germination with  0.5 $\mu$M ABA and after-ripened seed germination on water            & AR.NS - AR.ABA.NS         \\
+    ABA                       & Y & \cellcolor{C18} & D             &                                                                                                                          & AR.WS - AR.ABA.WS         \\
     \hline
     Seed size                 & N & \cellcolor{C19} & ABD           & Seed size and length of dry seeds                                                                                        & Size.Area                 \\
     Seed size, imbibed        & N & \cellcolor{C20} & ABD           & Seed size of imbibed seeds                                                                                               & Size.imbibed              \\
@@ -181,11 +187,12 @@ mapping of individual traits and that allowed comprehensive and comprehensible v
     \hline
   \end{tabular}
   \caption[Trait codes]{Overview of traits in this study and the harvest(s) used for the measurement. The indicated color-code 
-          is used in all figures throughout this paper. For each mentioned experiment $G_{max}$, AUC, $t_{50}$, $t_{10}$ and $U_{8416}$ were determined.}
+          is used in all figures throughout this paper. For each mentioned experiment $G_{max}$, AUC, $t_{50}$, $t_{10}$ and $U_{8416}$ were determined. 
+          Abbreviations in codes are as follows: AR, after-ripened; CD, controlled deterioration; NS, no stratification; WS, with stratification; Δ, difference.}
   \label{table:codes}
 \end{table}
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \centering
   \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_2.eps}
   \caption[Generated Output.]{R/QTL output for the effect of 100mM NaCl on the maximum germination without 
@@ -245,7 +252,7 @@ NaCl from Gmax on water. This subtraction was reversed for the rate and uniformi
 correct the reversed nature of these parameters (e.g. slower germination results in a larger t10 
 and t50). Table \ref{table:codes} gives an overview of all corrections that have been applied. 
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \centering
   \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_3.eps}
   \caption[Heatmap of correlation.]{Correlation between all trait values (bottom left panel) and between 
@@ -277,7 +284,7 @@ markers as cofactors, this does not improve mapping and only lowers statistical 
 multiple testing correction in the permutation analysis. The provided cofactor file is used to perform 
 automated backward elimination of cofactors.
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \centering
   \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_4.eps}
   \caption[QTL locations.]{A clustered heat map showing the LOD profiles of the measured traits is automatically 
@@ -305,7 +312,7 @@ Next to the importance of detecting possible interacting loci this QTLxQTL analy
 arguments for co-locating QTL to be of similar genetic origin. Overall, the creation of this type of 
 summarizing figures is greatly facilitating the interpretation of large datasets.
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \centering
   \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_5.eps}
   \caption[Cytoscape marker trait network.]{Cytoscape Marker-Trait network. A) Significant QTL positions are 
@@ -315,7 +322,7 @@ summarizing figures is greatly facilitating the interpretation of large datasets
           NaCl with stratification.}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \centering
   \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_6.eps}
   \caption[Epistatic interaction network.]{Epistatic interaction network created with Cytoscape from the 
@@ -350,9 +357,9 @@ QTLs, including germination at low temperature (top chromosome I) and germinatio
 exogenous ABA (bottom chromosome V) displayed opposite effects on germination when compared to the 
 other treatments.
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \centering
-  \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_7.eps}
+  \includegraphics[keepaspectratio,scale=0.20]{eps/image_3_1_7.eps}
   \caption[G:E genome wide QTL scan.]{Genome scan for QTLxEnvironment effects for seed germination. The P-values for 
           the main effects of the different germination parameters are shown in the top panel. The red horizontal line 
           is the genome wide significance threshold. The 5 bottom panels show the environment specific QTL effects. 
@@ -377,7 +384,7 @@ expansion of the inner mucilage layer. In Sha, which is a natural mutant for the
 \cite{Macquet:2007}, this swelling did not occur. Also the HIF lines at the MUM2 position showed a 
 clear difference in swelling phenotype which was still significant 24 hours after imbibition (Fig. \ref{fig:swelling}).
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \centering
   \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_8.eps}
   \caption[QTL confirmation.]{Example of the confirmations performed with the HIF approach. A) The blue/red bars 
@@ -390,7 +397,7 @@ clear difference in swelling phenotype which was still significant 24 hours afte
           \label{fig:confirmation}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \centering
   \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_9.eps}
   \caption[Seed Swelling.]{Different increases in seed size during the start of imbibition for Bay-0 (green), Sha (blue), 
@@ -483,12 +490,12 @@ is needed to determine whether NIC2 is causal for this QTL.
 
 Detection of epistatic interactions in genetic studies can enhance the understanding of underlying 
 molecular mechanisms. Recently, \cite{Galpaz:2010} showed strong epistasis in the genetic network 
-controlling germination under salt stress in Arabidopsis. Due to careful dissection of the epistatic 
+controlling germination under salt stress in \emph{Arabidopsis}. Due to careful dissection of the epistatic 
 relationships they were able to show that three detected QTL rely on the presence of a Columbia 
 allele at a QTL on top of chromosome 1. This observation led to the hypothesis that RAS1 
 \cite{Ren:2010} functions as a switch of the genetic network by regulating the expression of the 
 other QTL. In another study it was found that epistasis significantly influences both fitness and 
-germination in Arabidopsis \cite{Huang:2010} and novel allele combinations were identified that 
+germination in \emph{Arabidopsis} \cite{Huang:2010} and novel allele combinations were identified that 
 resulted in higher fitness. In our study we detected clear hotspots of epistatic interactions 
 between QTL loci on chromosome 3, 4 and 5 (ATHCHIB2, MSAT332, MSAT435, MSAT520037 + MSAT519, 
 respectively). This observation strengthens the hypothesis that some of the traits with strong 
