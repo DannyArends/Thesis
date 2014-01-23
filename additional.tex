@@ -1,7 +1,6 @@
-\chapter{Additional for Dissertation}
+\chapter{Conclusion, Discussion and Future perspectives}
 \thispagestyle{empty}
-\emph{The last chapter containing some additional things needed for a complete 
-dissertation document required for a promotion at the University of Groningen.}
+\emph{The last chapter we summarize the main themes of this thesis and look forward to the future.}
 \null
 \vfill
 
@@ -14,108 +13,15 @@ dissertation document required for a promotion at the University of Groningen.}
 
 \newpage
 
-\section{Conclusion, Discussion and Future perspectives}
 This chapter highlights the conclusions of this thesis and there is a short discussion in 
-which we look forward to the future of high throughput computing in systems genetics. 
-Highlighting some new innovations, and outline possible challenges and issues which might 
-become more relevant to systems genetics research in the coming years.
+which we look forward to the future of high throughput computing in systems genetics. We 
+highlight the tools created in this thesis such as Pheno2Geno in section \ref{sect:Pheno2Geno} and xQTL 
+workbench (\ref{sect:xQTLworkbench}). One of our current projects a new version of R/qtl called qtlHD 
+is being discussed in section \ref{sect:qtlHD}. We end this chaper by highlighting some future challenges 
+and solutions to these upcoming challenges in section \ref{sect:Future}
 
-\subsection{High throughput analysis}
-With increasing scale of experimental data being produced in the lab, it will not be 
-sufficient to have analysis software as simple downloads, because the researcher will 
-also need sizable compute and storage power \cite{Schadt:2010}. Thus, researchers will 
-need easy access to 'software as a service' such as cloud computing. 
-
-How this increasing demand for raw computational power can be satisfied in the future remains 
-an unanswered question. Although federate computing providers (such as Target or EU-grid) can help 
-researcher in their need for big computing solutions in the near future. This is also not a 
-universal solution, while the speed of data production is currently higher then the speed of 
-CPU improvement \cite{Moore:1998, Editorial:2009, Shah:2013}. Two solutions which are 
-currently already available are highlighted here: Cluster and cloud computing might be able to 
-solve the Big Data questions researchers currently face.
-
-\subsubsection{Cluster computing}
-A cluster is a collection of computers dedicated to solving a computational task by divide 
-and conquer \cite{Silva:1999, Qiu:2010}. It basically means to having a basic relatively 
-homogeneous software available on demand, on suitable compute and storage hardware. Hardware 
-resources are divided by an internal scheduling system amongst different tasks form different 
-users. However, users in general have little control over the computational environment, 
-because administration of the cluster and the scheduling system put constraints on the usage 
-of cluster. Computing clusters can be fashioned from different types of hardware, such as:
-\begin{itemize}
-  \item Ad-hoc networks composed of many heterogeneous relatively cheap systems such as: FPGA, and/or CPU, ARM core
-  \item Dedicated computer clusters, such as TARGET or national GRIDs, where usually a homogenous system of linux machines is used for computational tasks.
-  \item Video card cluster for linear algebra, utilizing the power of many simple GPU cores for dedicated tasks.
-\end{itemize}
-Compute clusters do not have to be homogeneous in nature. Though in many cases there will 
-homogeneity to provide users with a stable computational environment to perform their tasks. 
-Additionally the use of hardware can limit the usage of a cluster to a certain range of 
-computational tasks such as GPUs or dedicated ARM cores.
-
-\subsubsection*{Cloud computing}
-The term cloud is used in many different ways, and there is little consensus on what a cloud 
-exactly is \cite{Foster:2008}. It essence it means to have software available 
-on demand, on suitable compute and storage hardware, with the user being charged for the time 
-that it is being used. Following the concept of the leading cloud provider Amazon, it refers 
-in practice to use of a virtual Linux machine, i.e. a virtual compute server with Linux 
-preinitialized, hosted within some large compute infrastructure, with complete freedom to be 
-customized by the user although not for free \cite{Trelles:2011}.
-
-Many commercial, national and local compute centers are also increasingly providing computer
-server capacity in a cloud fashion. This makes these virtual machines an easy method to distribute 
-software and computation without the need for all participating computational nodes to install 
-software. Thus, the infrastructure is specified jointly \cite{Foster:2008} but for the actual computation every 
-partner can be private with their data. This approach grants enormous computational power to 
-everyone with minimal preparation - once that a shared image is finalized \cite{Krampis:2012}.
-
-The setup of such a compute cloud is not trivial but several initiatives are underway to ease 
-this process. At the workshop, the bioinformatics work-group tested the packaging system provided by 
-the Debian Med initiative as a method to create a cloud and could be consider this as a seed 
-for an image to then be publicly shared. Instructions to create such images were prepared for 
-the workshop and made available at:\\
-\url{http://wiki.debian.org/DebianMed/LiveCD/}
- 
-Using this method the cloud infrastructure can be transferred to local computer clusters 
-if desired. Every participant has access to the server and can grant access to collaborators 
-without having to pay the hosting fees. When complete, this server image can be ported to 
-cloud providers such as: Amazon, Rackspace to be reused by other researchers.
-
-\subsubsection*{Code sharing and versioning}
-Access and sharing of software code of all aforementioned tools is essential to avoid 
-duplication of efforts, promote interoperability and to really collaborate within the mouse 
-genetics bioinformatics community. Only then does it really become clear what is available 
-and how there can be data and software flow between projects.
-
-An example tool to facilitate such sharing and collaboration on code level is Git: Git 
-allows users to follow updates (versions) of software packages and easily provide feedback \cite{Git:2007}. 
-The most recent stable R version of R/qtl and qtlHD can be found as a Git repository, Git 
-helps to control versions for the authors and facilitate compatibility with other packages 
-such as QTL-bim and Pheno2Geno. Although most users will generally find the last stable version 
-(Git master branch) the most useful and user-friendly, it is possible to download a 
-development branch to get familiar with the new features being prepared for the next version.
-
-An alternative to Git is Subversion (SVN) \cite{SVN:2002}. GeneNetwork code was developed 
-using Subversion with Python as its primary language. GeneNetwork code and a shell (partial) 
-database are available on Source Forge \cite{GeneNetwork:1994, GeneNetwork:2004}:\\
-\url{http://sourceforge.org/projects/genenetwork/}
-
-The mapping and permutation code used by GeneNetwork for real time analysis is based on fast 
-Haley-Knott approximations \cite{Haley:1992} and is available on Source Forge:\\
-\url{http://qtlreaper.sourceforge.net}
-
-xQTL and XGAP code were also developed in Subversion \cite{SVN:2002} using Java as its primary language and 
-R for its analysis interfaces. XGAP code and binaries are all available as open source at
-\url{http://www.xgap.org/} and \url{http://www.molgenis.org/}. From a developer's perspective both Git and
-SVN are equally well-suited for publishing code and may be used in parallel. However recently 
-in 2012 also the entire MOLGENIS software suite (MOLGENIS, XGAP, xQTL workbench) was transfered 
-to Git and moved to \url{http://www.github.com/} to get more online exposure, and remove the need 
-to host an internal SVN server.
-
-Additionally, all software developed described in this thesis is also written and developed 
-using Git for source code control, and is available from Github at:\\
-\url{http://github.com/DannyArends/}
-
-\subsection{Pheno2Geno}
+\section{Pheno2Geno}
+\label{sect:Pheno2Geno}
 Generating biomarkers from micro arrays, tilling arrays and RNAseq data is possible using 
 mixture models. Phenotypes showing a dichotome 0/1 distribution with approximate equal 
 proportions in, say, a RIL population can be used as genetic markers: genotypes can be 
@@ -139,7 +45,8 @@ author in polyploid crops such as potatoes and tomatos, basic support for this c
 in upcoming versions of Pheno2Geno. The authors are committed to maintaining the package, 
 and sourcecode is available open source making it easier to support future new requirements.
 
-\subsection{xQTL workbench}
+\section{xQTL workbench}
+\label{sect:xQTLworkbench}
 While the xQTL workbench system described in this thesis have the ability to absorb new 
 analysis methods, consideration should be given to allow high flexibility. It will be 
 difficult to anticipate new demands, requirements or new developments which could provide 
@@ -154,7 +61,7 @@ use to keep track of data generation and track their analysis. Aditionally using
 backend allows researchers to contribute their methods and algorithms back to the scientific 
 community by uploading them into xQTL workbench.
 
-\subsubsection{wormQTL and wormQTL - Human Disease}
+\subsection{wormQTL and wormQTL - Human Disease}
 The current version of WormQTLHD (August 2013) is a comprehensive and compendious database that 
 enables molecular model organism data to be studied in the context of human diseases. Just as with 
 WormQTL \cite{Snoek:2012}, we believe that WormQTLHD will be continuously curated by the members of 
@@ -191,47 +98,47 @@ Our new database makes this data attractive and easy-to-use for an even wider co
 quantitative geneticists working on worms and man. We are committed to maintaining the data and 
 software in the future and invite the community to add and share their new data and ideas. 
 
-\subsection{R/qtlHD}
+\section{R/qtlHD}
+\label{sect:qtlHD}
 Association and / or linkage analysis will continue to be the bread-and-butter analysis 
 tool-set for systems geneticists of the future. However complex systems geneticists have 
 to cope with the aquisition of data from diverse experimental designs and the analysis of 
 these diverse data types. Requiring complex pipelines to analyse new complexity of the 
 incoming data \cite{Trelles:2011}.
 
-In chapter \ref{sect:Metabolites} we compare three different experimental designs: full 
-block design, random design and generalized genetical genomics (GGG) design design \cite{Joosen:2013, Li:2009}. We show 
-that using a GGG experimental design for experiments gives higher statistical power to 
-detect interactions between environmental and genetic variation compared to a random \cite{Joosen:2013}. 
-Additionally the amount of raw data produced in this design is 4 times less compared to 
-a full block design, making the post analysis of these kind of experiments less challenging, 
-and less expensive.
+Environment x Genotype interaction analysis is also a future feature of R/qtl-HD. We looked at 
+different experimental designs in in chapter \ref{sect:Metabolites} comparing three different 
+designs: full block design, random design and generalized genetical genomics (GGG) design design 
+\cite{Joosen:2013, Li:2009}. Besides showing that using a GGG experimental design for experiments 
+gives higher statistical power to detect interactions between environmental and genetic variation 
+compared to a random \cite{Joosen:2013}. We concluded that interaction models are a very powerful 
+tool in understanding the complex interplay between genetics and (cellular) environments 
+\cite{Joosen:2013} an should thus be considered as an important feature for a new version of the 
+R/qtl software package.
 
-Another part of this complex pipeline is the association analysis part which can be performed using 
-different methods, e.g. single marker association mapping in outbred populations, interval 
-mapping in inbred populations, or multiple QTL mapping. In this thesis we used multiple 
-QTL mapping to find QTLs for classical traits related to germination of seeds in 
-\emph{A. thaliana}, shows the an increase in QTL detection power of MQM versus standard 
-single marker QTL mapping \cite{Jansen:1994a, Joosen:2011}. This shows that more genetic loci are involved in germination 
-of seeds then previously known.
+Association analysis can be performed using different methods, e.g. single marker association 
+mapping in outbred populations, interval mapping in inbred populations, or multiple QTL mapping. 
+In this thesis we used multiple QTL mapping to find QTLs for classical traits related to 
+germination of seeds in \emph{A. thaliana}. We have shown an increase in QTL detection power 
+of MQM versus standard single marker QTL mapping \cite{Jansen:1994a, Joosen:2011}. This shows 
+that more genetic loci are involved in germination of seeds then previously known. Additionally 
+Multiple QTL mapping should be implemented into R/qtl-HD besides standard single marker mapping 
+to allow more powerful detection of QTL.
 
-Furthermore, we have shown the application of interaction models to multi environmental 
-experiments in which we used a generalized genetical genomics experimental design. We 
-conclude that interaction models are a very powerful tool in understanding the complex 
-interplay between genetics and (cellular) environments \cite{Joosen:2013}. Additionally, we observe more QTLs 
-are detected by using a designGG experimental design compared to a random design, as previously hypothesized by Li et al. \cite{Li:2009}.
+Increase in data size disqualifies R as main analysis platform. R is  not be the most suitable 
+platform for the analysis of next generation high throughput data. While the R environment is 
+well suited to scientific computing and performing statistical analysis, when big data is involved 
+it is not the fastest or most optimized language available. When dealing with high throughput 
+data obtained from RNA-seq, exome sequencing or Bi-sulfite sequencing datasize quickly become 
+the limiting factor for software written in R. Because R/qtl-HD is aimed at QTL analysis of 
+high-density, high-throughput data, R is not a suitable language for the computation parts of 
+the algorithm.
 
-Because of increasing data sizes, R might not be the most suitable platform for the analysis 
-of next generation high throughput data. While the R environment is well suited to scientific 
-computing and performing statistical analysis, it is not the fastest or most optimized 
-language available. When dealing with high throughput data obtained from RNA-seq, exome sequencing 
-or Bi-sulfite sequencing datasize quickly become the limiting factor for software written in R. 
-Because R/qtl-HD is aimed at QTL analysis of high-density, high-throughput data, R is not a suitable 
-language for the computation parts fo the algorithm.
-
-R/qtlHD is written in the high performance D programming language. D is chosen as primairy language 
-because it is created to perform safe and high throughput numerical analyses using a C like syntax \cite{Alexandrescu:2011}. 
-This C style syntax provides a familiar syntax for people with a C/C++ background. Additional features which according 
-tot the R/qtl development team make D the language first choice include:
+R/qtlHD is written in the high performance D programming language. D is chosen as primairy 
+language because it is created to perform safe and high throughput numerical analyses. D uses 
+a C like syntax \cite{Alexandrescu:2011} providing a familiar syntax for the R/qtl developers, 
+most of which come from a C/C++ background making D the language of choice for R/qtl-HD. 
+Additional features of D include:
 \begin{enumerate}\itemsep1pt
 \item \emph{Improved code quality} - This makes the code more maintainability and more readable code is 
 easier to reason about and optimize code, leading to improved performance of algorithms.
@@ -296,6 +203,124 @@ the generalization of analysis frameworks to accommodate not only mouse and huma
 model organisms with different (non inbred) genetic pedigree structures, such as pets (e.g. cats, fish, dogs), 
 farm animals (e.g. horses, cattle, pigs) and plants (e.g. arabidopsis, brassica, maize).
 
+
+Additionally possible future challenges such as problems with 
+reproducability of research results in systems genetic are outlined. We urge all readers, 
+also working in the field of systems genetics, to adopt a professional way of analysis, 
+coding and collaboration using data provenenace and repositories to store analysis code.
+
+\section{Future perspectives}
+\label{sect:Future}
+With increasing scale of experimental data being produced in the lab, it will not be 
+sufficient to have analysis software as simple downloads, because the researcher will 
+also need sizable compute and storage power \cite{Schadt:2010}. Thus, researchers will 
+need easy access to 'software as a service' such as cloud computing. Additionally storage 
+of raw and pre-processed data is starting to become increasingly more expensive with 
+increasing data sizes involved, this will be discussed in sections \ref{subsect:ClusterComputing} 
+and \ref{sect:CloudComputing}. Additionally reproducability of analysis methodologies which 
+involves a large code base is becoming increasingly more difficult. A small discussion which 
+highlights current solutions to this problem of reproducability is found in section \ref{sect:CodeSharing}
+about sharing code and collaborating on large code bases 
+
+How this increasing demand for storage and computational power can be satisfied in the future remains 
+an unanswered question. Although federate computing providers (such as Target or EU-grid) can help 
+researcher in their need for big computing solutions in the near future. This is also not a 
+universal solution, while the speed of data production is currently higher then the speed of 
+CPU improvement \cite{Moore:1998, Editorial:2009, Shah:2013}. Two solutions which are 
+currently already available are highlighted here: Cluster and cloud computing might be able to 
+solve the Big Data questions researchers currently face.
+
+\subsection{Cluster computing}
+\label{subsect:ClusterComputing}
+A cluster is a collection of computers dedicated to solving a computational task by divide 
+and conquer \cite{Silva:1999, Qiu:2010}. It basically means to having a basic relatively 
+homogeneous software available on demand, on suitable compute and storage hardware. Hardware 
+resources are divided by an internal scheduling system amongst different tasks form different 
+users. However, users in general have little control over the computational environment, 
+because administration of the cluster and the scheduling system put constraints on the usage 
+of cluster. Computing clusters can be fashioned from different types of hardware, such as:
+\begin{itemize}
+  \item Ad-hoc networks composed of many heterogeneous relatively cheap systems such as: FPGA, and/or CPU, ARM core
+  \item Dedicated computer clusters, such as TARGET or national GRIDs, where usually a homogenous system of linux machines is used for computational tasks.
+  \item Video card cluster for linear algebra, utilizing the power of many simple GPU cores for dedicated tasks.
+\end{itemize}
+Compute clusters do not have to be homogeneous in nature. Though in many cases there will 
+homogeneity to provide users with a stable computational environment to perform their tasks. 
+Additionally the use of hardware can limit the usage of a cluster to a certain range of 
+computational tasks such as GPUs or dedicated ARM cores.
+
+\subsection{Cloud computing}
+\label{sect:CloudComputing}
+The term cloud is used in many different ways, and there is little consensus on what a cloud 
+exactly is \cite{Foster:2008}. It essence it means to have software available 
+on demand, on suitable compute and storage hardware, with the user being charged for the time 
+that it is being used. Following the concept of the leading cloud provider Amazon, it refers 
+in practice to use of a virtual Linux machine, i.e. a virtual compute server with Linux 
+preinitialized, hosted within some large compute infrastructure, with complete freedom to be 
+customized by the user although not for free \cite{Trelles:2011}.
+
+Many commercial, national and local compute centers are also increasingly providing computer
+server capacity in a cloud fashion. This makes these virtual machines an easy method to distribute 
+software and computation without the need for all participating computational nodes to install 
+software. Thus, the infrastructure is specified jointly \cite{Foster:2008} but for the actual computation every 
+partner can be private with their data. This approach grants enormous computational power to 
+everyone with minimal preparation - once that a shared image is finalized \cite{Krampis:2012}.
+
+The setup of such a compute cloud is not trivial but several initiatives are underway to ease 
+this process. At the workshop, the bioinformatics work-group tested the packaging system provided by 
+the Debian Med initiative as a method to create a cloud and could be consider this as a seed 
+for an image to then be publicly shared. Instructions to create such images were prepared for 
+the workshop and made available at:\\
+\url{http://wiki.debian.org/DebianMed/LiveCD/}
+ 
+Using this method the cloud infrastructure can be transferred to local computer clusters 
+if desired. Every participant has access to the server and can grant access to collaborators 
+without having to pay the hosting fees. When complete, this server image can be ported to 
+cloud providers such as: Amazon, Rackspace to be reused by other researchers.
+
+\subsection{Code sharing and versioning}
+\label{sect:CodeSharing}
+Access and sharing of software code of all aforementioned tools is essential to avoid 
+duplication of efforts, promote interoperability and to really collaborate within the mouse 
+genetics bioinformatics community. Only then does it really become clear what is available 
+and how there can be data and software flow between projects.
+
+An example tool to facilitate such sharing and collaboration on code level is Git: Git 
+allows users to follow updates (versions) of software packages and easily provide feedback \cite{Git:2007}. 
+The most recent stable R version of R/qtl and qtlHD can be found as a Git repository, Git 
+helps to control versions for the authors and facilitate compatibility with other packages 
+such as QTL-bim and Pheno2Geno. Although most users will generally find the last stable version 
+(Git master branch) the most useful and user-friendly, it is possible to download a 
+development branch to get familiar with the new features being prepared for the next version.
+
+An alternative to Git is Subversion (SVN) \cite{SVN:2002}. GeneNetwork code was developed 
+using Subversion with Python as its primary language. GeneNetwork code and a shell (partial) 
+database are available on Source Forge \cite{GeneNetwork:1994, GeneNetwork:2004}:\\
+\url{http://sourceforge.org/projects/genenetwork/}
+
+The mapping and permutation code used by GeneNetwork for real time analysis is based on fast 
+Haley-Knott approximations \cite{Haley:1992} and is available on Source Forge:\\
+\url{http://qtlreaper.sourceforge.net}
+
+xQTL and XGAP code were also developed in Subversion \cite{SVN:2002} using Java as its primary language and 
+R for its analysis interfaces. XGAP code and binaries are all available as open source at
+\url{http://www.xgap.org/} and \url{http://www.molgenis.org/}. From a developer's perspective both Git and
+SVN are equally well-suited for publishing code and may be used in parallel. However recently 
+in 2012 also the entire MOLGENIS software suite (MOLGENIS, XGAP, xQTL workbench) was transfered 
+to Git and moved to \url{http://www.github.com/} to get more online exposure, and remove the need 
+to host an internal SVN server.
+
+Additionally, all software developed described in this thesis is also written and developed 
+using Git for source code control, and is available from Github at:\\
+\url{http://github.com/DannyArends/}
+
+
+\chapter{Additional for Dissertation}
+\thispagestyle{empty}
+\emph{The last chapter containing some additional things needed for a complete 
+dissertation document required for a promotion at the University of Groningen.}
+\null
+\vfill
 \newpage
 
 \section{Dutch Summary / Nederlandse Samenvatting}
