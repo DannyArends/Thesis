@@ -225,7 +225,7 @@ CPU improvement \cite{Moore:1998, Editorial:2009, Shah:2013}. Two solutions whic
 currently already available are highlighted here: Cluster and cloud computing might be able to 
 solve the Big Data questions researchers currently face.
 
-Additionally reproducability of analysis methodologies which involves a large code base is proving 
+Additionally reproducibility of analysis methodologies which involves a large code base is proving 
 to be increasingly more difficult. results tend to slightly change when version of software and 
 dependancies differ from the version used in the original analysis. A small discussion which highlights 
 current solutions to this problem of irreproducible results is found in section \ref{sect:CodeSharing} 
@@ -299,17 +299,19 @@ using Subversion with Python as its primary language. GeneNetwork code and a she
 database are available on Source Forge \cite{GeneNetwork:1994, GeneNetwork:2004}:\\
 \url{http://sourceforge.org/projects/genenetwork/}
 
-The mapping and permutation code used by GeneNetwork for real time analysis is based on fast 
-Haley-Knott approximations \cite{Haley:1992} and is available on Source Forge:\\
-\url{http://qtlreaper.sourceforge.net}
-
 xQTL and XGAP code were also developed in Subversion \cite{SVN:2002} using Java as its primary language and 
 R for its analysis interfaces. XGAP code and binaries are all available as open source at
 \url{http://www.xgap.org/} and \url{http://www.molgenis.org/}. From a developer's perspective both Git and
-SVN are equally well-suited for publishing code and may be used in parallel. However recently 
-in 2012 also the entire MOLGENIS software suite (MOLGENIS, XGAP, xQTL workbench) was transfered 
-to Git and moved to \url{http://www.github.com/} to get more online exposure, and remove the need 
-to host an internal SVN server.
+SVN are equally well-suited for publishing code and may be used in parallel.
+
+\subsection{Final remarks}
+The Pheno2Geno R package is available from Github, it is maintained by Konrad Zych and can be found at:\\
+\url{https://github.com/KonradZych/phenotypes2genotypes}
+
+In 2012 the MOLGENIS software suite (MOLGENIS, XGAP, xQTL workbench) was transfered to Git and 
+moved to \url{http://www.github.com/} to get more online exposure, and remove the need to host 
+an internal SVN server. Code and software can be found at:\\
+\url{http://www.github.com/Molgenis/}
 
 We urge all readers to adopt a professional and reproducible way of data analysis. This requires 
 coding and collaboration using data provenenace and repositories to store analysis code. All 
