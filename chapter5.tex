@@ -4,11 +4,8 @@
 
 \emph{The major challenge in bioinformatics comes from the huge amount of data collected and the 
 multitude of technologies used. We developed the xQTL workbench system\cite{Arends:2012} to store 
-large amounts of phenotype and genotype data in the XGAP \cite{Swertz:2010a} dataformat. xQTL 
-workbench can easily be adapted to a multitude of input and storage formats using the MOLGENIS 
-\cite{Swertz:2004} generator. xQTL workbench uses the power of distributed computing to allow 
-massive parallel QTL analysis and allows new analysis tools to be quickly added to the system, 
-an application of the xQTL system is found in the WormQTL database \cite{Snoek:2012}.}
+large amounts of phenotype and genotype data in the XGAP \cite{Swertz:2010a} dataformat. An 
+application of the xQTL system is found in the WormQTL database \cite{Snoek:2012}.}
 
 \null
 \vfill
@@ -22,16 +19,32 @@ an application of the xQTL system is found in the WormQTL database \cite{Snoek:2
   \emph{XGAP: a uniform and extensible data model and software platform for genotype and phenotype experiments}\\
   \bold{Genome Biology} (2010)\\\\
 
-  \authors{Danny Arends*, K. Joeri v/d Velde*, Pjotr Prins, Karl W. Broman, Steffen Moller, et al.}\\
+  \authors{Danny Arends*, K. Joeri v/d Velde*, Pjotr Prins, Karl W. Broman, et al.}\\
   \emph{xQTL workbench: a scalable web environment for multi-level QTL analysis}\\
   \bold{Bioinformatics} (2012)\\\\
 
-  \authors{Danny Arends*, L. Basten Snoek*, Joeri v/d Velde*, Yang Li*, Antje Beyer, et al.}\\
+  \authors{Danny Arends*, L. Basten Snoek*, Joeri v/d Velde*, Yang Li*, et al.}\\
   \emph{WormQTL: Public archive and analysis web portal for natural variation data in Caenorhabditis spp}\\
   \bold{Nucleic Acids Research} (2012)
 \end{myexampleblock}
 
 \newpage
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.4\textwidth]{eps/image_5_0.eps}
+  \caption[Overview]
+    {Overview of this chapter and how the different parts of this chapter are related to eachother.}
+    \label{fig:Overview}
+\end{wrapfigure}
+
+This chapter deals with the storage of big data and the need to perform complex analysis in reasonable time on them.
+Imagine a factory, our foundation is MOLGENIS a generator to create 'Create Read Update Delete' (CRUD) database 
+applications on top of several different data storages. XGAP can be seen as the  walls of the factory, the datamodel 
+defines what space is given to each object stored and how it is archived. The combined xQTL workbench system can be 
+seen as the plumbing and electrics making it possible to work with the different kinds of data stored in the factory. 
+The vanilla xQTL workbench comes with several tools for QTL mapping and provides ways for users to add new tools to 
+the system. This chapter end by showing a real life database system actively used in \emph{C. elegans} research (Figure \ref{fig:Overview}).
 
 \section{Reusable software (MOLGENIS)}
 \subsection{Background}
@@ -61,7 +74,7 @@ of features practically unfeasible to produce by hand but not yet provided by re
 conclude by inviting the bioinformatics community to add more MOLGENIS models, components and 
 generators to quickly generate all the software infrastructures biologists want to have.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \centering
   \includegraphics[width=1.0\textwidth]{eps/image_5_1.eps}
   \caption[MOLGENIS]
@@ -152,43 +165,19 @@ and query their biological data that conform to the model, optionally enhanced w
 tools to explore and annotate (depending on the plug-ins).
 
 \subsubsection{Applications}
-Since the earliest MOLGENIS application \cite{Swertz:2004}, we have successfully evaluated use of the MOLGENIS 
-toolkit to build a wide range of biomedical applications \cite{Swertz:2010a, Fredman:2002, Leu:2010, Li:2009, Smedley:2008}, 
-ranging from sequencing to proteomics, including:
-
-\begin{enumerate}\itemsep1pt
-\item \emph{XGAP} - an eXtensible Genotype And Phenotype platform \cite{Swertz:2010a} for systems genetics 
-(GWAS, GWL) to store all kinds of *omics data ranging from genotype to transcript and protein 
-data. XGAP comes with plug-ins to view large data matrices and run processing tools on a cluster.\\
-See \url{http://www.xgap.org/}
-\item \emph{Pheno-OM} - to integrate any phenotype data from locus-specific annotations to 
-rich biobank cohort reports with the help of the OntoCAT ontology toolkit to create semantic 
-mappings between related data items \cite{Kurbatova:2011}.\\
-See: \url{http://www.ebi.ac.uk/microarray-srv/pheno/}
-\item \emph{FINDIS} - a mutation database for monogenic diseases belonging to the Finnish 
-disease heritage.\\ See \url{http://www.findis.org/}
-\item \emph{HGVBaseG2P} - the data management and curation interface complement for HGVbaseG2P, 
-a central database of genotype to phenotype association studies \cite{Fredman:2002}.\\See: \url{http://www.hgvbaseg2p.org/}
-\item \emph{MAGETAB-OM} - a microarray experiment data platform based on the MAGE-TAB data format 
-standard to create a local microarray repository that is compatible with the public ArrayExpress 
-and GEO repositories.\\ See \url{http://magetab-om.sourceforge.net/} 
-\item \emph{NordicDB} - the database of high-density genome-wide SNP information from 5,000 
-controls originating from Finnish, Swedish and Danish studies \cite{Leu:2010}.\\ See \url{http://www.nordicdb.org/}
-\item \emph{DesignGG} - a web tool to optimally design such genetical genomics experiments \cite{Li:2009}.\\
-See \url{http://gbic.biol.rug.nl/designGG/}
-\end{enumerate}
-
-A full list MOLGENIS applications can be found at \url{http://www.molgenis.org/}. Each of these MOLGENIS projects 
-reported major benefits from the short cycle from model to running system to enable quick evaluation 
-(500 lines of model XML replaces 15,000 lines of programming code) and use of the batch loading of 
-data to evaluate how the newly built system works with real data. More often than not, MOLGENIS 
-helped in finding inconsistencies in existing data that would otherwise have gone unnoticed, leading 
-to experimental errors. In our experience, a typical MOLGENIS generator run gives you about 90\% of 
-the application that is desired 'for free', with the remaining 10\% typically filled in using plug-ins 
-that are written by hand. The MOLGENIS toolkit has also been used to extend or replace existing 
-software applications: the ExtractModel tool allows you to generate a MOLGENIS application from an 
-existing database, which can then be run side-by-side with code developed previously, providing the 
-best of both generated and hand-written worlds.
+Since the earliest MOLGENIS application \cite{Swertz:2004}, we have successfully evaluated use of 
+the MOLGENIS toolkit to build a wide range of biomedical applications \cite{Swertz:2010a, Fredman:2002, 
+Leu:2010, Li:2009, Smedley:2008}, ranging from sequencing to proteomics.A full list MOLGENIS applications 
+can be found at \url{http://www.molgenis.org/}. Each of these MOLGENIS projects reported major benefits 
+from the short cycle from model to running system to enable quick evaluation (500 lines of model XML 
+replaces 15,000 lines of programming code) and use of the batch loading of data to evaluate how the newly 
+built system works with real data. More often than not, MOLGENIS helped in finding inconsistencies in 
+existing data that would otherwise have gone unnoticed, leading to experimental errors. In our experience, 
+a typical MOLGENIS generator run gives you about 90\% of the application that is desired 'for free', with the 
+remaining 10\% typically filled in using plug-ins that are written by hand. The MOLGENIS toolkit has also 
+been used to extend or replace existing software applications: the ExtractModel tool allows you to generate 
+a MOLGENIS application from an existing database, which can then be run side-by-side with code developed 
+previously, providing the best of both generated and hand-written worlds.
 
 \subsection{Conclusions and Discussions}
 In a recent perspective paper \cite{Swertz:2007} we evaluated the general benefits and pitfalls of model-driven 
@@ -240,7 +229,7 @@ information on these traits (for example, genome location of a transcript, masse
 the wet-lab or computational protocols used (for example, MetaNetwork \cite{Fu:2007} in the case of QTL and
 network analysis) and the derived data (for example, QTL likelihood curves).
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \centering
   \includegraphics[width=0.81\textwidth]{eps/image_5_3.eps}
   \caption[XGAP.]

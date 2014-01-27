@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="485.46875"
+   height="439.5"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="New document 1">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="553.39653"
+     inkscape:cy="26.068852"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="2"
+     fit-margin-left="2"
+     fit-margin-right="2"
+     fit-margin-bottom="2"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-121.96875,-317)">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.84044981px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect2996"
+       width="374.28571"
+       height="119.07143"
+       x="180.00002"
+       y="470.93359" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="199.99998"
+       y="512.36218"
+       id="text3766"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3768"
+         x="199.99998"
+         y="512.36218">xQTL workbench</tspan><tspan
+         sodipodi:role="line"
+         x="199.99998"
+         y="538.44019"
+         id="tspan3770"
+         style="font-size:16px">Arends, van der Velde, et al. </tspan><tspan
+         sodipodi:role="line"
+         x="199.99998"
+         y="558.44019"
+         style="font-size:16px"
+         id="tspan3774">Bioinformatics (2012)</tspan><tspan
+         sodipodi:role="line"
+         x="199.99998"
+         y="578.44019"
+         id="tspan3772"
+         style="font-size:16px">http://www.xqtl.org</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.85031617px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect2996-3"
+       width="374.28571"
+       height="121.88347"
+       x="180.41846"
+       y="319.43869" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="199.40573"
+       y="362.78058"
+       id="text3794"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3796"
+         x="199.40573"
+         y="362.78058">WormQTL</tspan><tspan
+         sodipodi:role="line"
+         x="199.40573"
+         y="388.85861"
+         id="tspan3798"
+         style="font-size:16px">Arends, van der Velde, et al.</tspan><tspan
+         sodipodi:role="line"
+         x="199.40573"
+         y="408.85861"
+         id="tspan3804"
+         style="font-size:16px">Nucleic Acids Research (2012)</tspan><tspan
+         sodipodi:role="line"
+         x="199.40573"
+         y="428.85861"
+         id="tspan3800"
+         style="font-size:16px">http://www.wormqtl.org</tspan><tspan
+         sodipodi:role="line"
+         x="199.40573"
+         y="448.85861"
+         id="tspan3802" /></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.65164089px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect2996-7"
+       width="224.69215"
+       height="119.23836"
+       x="124.28572"
+       y="633.45392" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="141.42857"
+       y="670.93359"
+       id="text3824"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3826"
+         x="141.42857"
+         y="670.93359">XGAP</tspan><tspan
+         sodipodi:role="line"
+         x="141.42857"
+         y="697.0116"
+         id="tspan3828"
+         style="font-size:16px">Swertz, et al. </tspan><tspan
+         sodipodi:role="line"
+         x="141.42857"
+         y="717.0116"
+         id="tspan3832"
+         style="font-size:16px">Genome Biology (2010)</tspan><tspan
+         sodipodi:role="line"
+         x="141.42857"
+         y="737.0116"
+         id="tspan3830"
+         style="font-size:16px">http://www.xgap.org</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.67876285px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect2996-7-4"
+       width="240.80708"
+       height="120.71301"
+       x="364.28571"
+       y="633.45038" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="377.14285"
+       y="672.36224"
+       id="text3852"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3854"
+         x="377.14285"
+         y="672.36224">MOLGENIS</tspan><tspan
+         sodipodi:role="line"
+         x="377.14285"
+         y="698.44025"
+         id="tspan3856"
+         style="font-size:16px">Swertz, et al. </tspan><tspan
+         sodipodi:role="line"
+         x="377.14285"
+         y="718.44025"
+         id="tspan3860"
+         style="font-size:16px">BMC Bioinformatics (2010)</tspan><tspan
+         sodipodi:role="line"
+         x="377.14285"
+         y="738.44025"
+         id="tspan3858"
+         style="font-size:16px">http://www.molgenis.org</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.46208453px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 222.7799,633.61269 c 15.80511,-2.76027 134.34342,-27.60268 134.34342,-27.60268"
+       id="path3862"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.46208453px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 490.9307,633.31316 C 475.12559,630.55289 356.58728,605.71048 356.58728,605.71048"
+       id="path3862-5"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 356.58385,604.8646 0,-13.63705 0,-2.02031"
+       id="path3882"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 358.60415,471.52447 0,-29.7995"
+       id="path3884"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
