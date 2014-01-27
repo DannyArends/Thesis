@@ -160,26 +160,27 @@ day linkage analysis and genome wide association studies.
 In linkage analysis, DNA is tracked from parents to children. This allows to build so called 
 genetic familie trees or pedigrees (See fig. \ref{fig:pedigree}) in which segregation of a phenotype (or 
 disease) is displayed. If we find a genetic region which co-segregates with the disease we can assume this DNA and 
-disease are linked, and asses the strength of the linkage observed. By using experimental 
+disease are linked, and asses the strength of the linkage observed \cite{Rosyara:2009}. By using experimental 
 crosses derived from inbred parents the need to build up complex pedigrees is avoided, while 
 retaining the advantage of being able to trace back the DNA to the founder strains. Also inbred 
-populations provide high statistical power at the cost of reduced resolution for QTL mapping. 
+populations provide high statistical power at the cost of reduced resolution for QTL mapping \cite{Jansen:2001a}. 
 This reduction in resolution is caused by the lack of recombinations in populations which are 
 generally small (20 to 1000 individuals).
 
 Association analysis is done in outbred populations, where tracking of the origin of the 
 DNA is hard or impossible. However molecular markers still allows to get information 
 about the underlying DNA. We can use \emph{e.g.} Single Nucleotide Polymorphisms (SNPs) and associate 
-a phenotype with this genetic marker. The advantage of this approach is that resolution is 
-very good, because we have a high number of recombinations in outbred populations. However 
-because of this large quantity of markers statistical power to detect effects are limited.
+a phenotype with this genetic marker \cite{Mehta:2013}. The advantage of this approach is that resolution is 
+very high (around 200 - 300 kb in humans \cite{HapMap:2005}). This comes from the fact that outbred populations 
+have a high number of recombinations compared to inbred populations. However because of the large amount of 
+markers statistical power to detect effects are limited because of multiple testing problems.
 
 Heritable phenotypes could be mapped to genomic locations using a combination of DNA 
 restriction enzymes, Mendel's inheritance laws and Hunt's linkage theory. Together these 
 methodologies and theories provide the experimental and statistical background to 
 analyse heritability in any population. An example of a basic effect scan is shown in Figure 
 \ref{fig:effectscan}. here at each marker the mean of the phenotype for AA and BB are 
-calculated, and the difference plotted per marker. This gives us an idea which markers 
+calculated, and the difference plotted per marker. This gives us an initial idea which markers 
 might be interesting bio markers for our phenotype. 
 
 Linkage and Association analysis are still the foundation of population genetics research 
@@ -257,8 +258,6 @@ statistical language/software R \cite{R:2009}. The main focus of R/qtl is to pro
 the mouse community with different QTL mapping methodologies, and allow to deal with the 
 the aberrant segregation X chromosome. Furthermore it supports different types of inbred 
 populations such as BackCross, F2, Recombinant inbred lines and 4-way RILs. \cite{Broman:2003}
-
-
 
 When mapping gene expression or protein abundance current knowledge of protein and DNA sequence 
 allows us to locate their template on the genome. When QTL mapping resolution allows we can even 
