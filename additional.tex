@@ -17,33 +17,33 @@ This chapter highlights the conclusions of this thesis and there is a short disc
 which we look forward to the future of high throughput computing in systems genetics. We 
 highlight the tools created in this thesis such as Pheno2Geno in section \ref{sect:Pheno2Geno} and xQTL 
 workbench (\ref{sect:xQTLworkbench}). One of our current projects a new version of R/qtl called qtlHD 
-is being discussed in section \ref{sect:qtlHD}. We end this chaper by highlighting some future challenges 
+is being discussed in section \ref{sect:qtlHD}. We end this chapter by highlighting some future challenges 
 and solutions to these upcoming challenges in section \ref{sect:Future}
 
 \section{Pheno2Geno}
 \label{sect:Pheno2Geno}
-Generating biomarkers from micro arrays, tilling arrays and RNAseq data is possible using 
-mixture models. Phenotypes showing a dichotome 0/1 distribution with approximate equal 
+Generating bio markers from micro arrays, tilling arrays and RNA-seq data is possible using 
+mixture models. Phenotypes showing a dichotomous 0/1 distribution with approximate equal 
 proportions in, say, a RIL population can be used as genetic markers: genotypes can be 
 called by connecting the 0/1 to the parental strains A/B. Such markers can then be used 
 for de-novo construction of the genetic map or for saturation of a known genetic map 
 \cite{West:2006, Truco:2013}.
 
 Pheno2Geno provided highly optimized routines for generating genetics maps de-novo or to 
-saturate existsing genetic maps. Pheno2Geno has output structures compatible with R/qtl 
+saturate existing genetic maps. Pheno2Geno has output structures compatible with R/qtl 
 \cite{Broman:2003, Arends:2010}, which provides further facilities for QTL mapping in 
 inbred populations.
 
 With the upcoming new version of R/qtl also the Pheno2Geno package will need to be redesigned 
-to accomodate new requirements. These include expected changes such as: a more standalone package, 
+to accommodate new requirements. These include expected changes such as: a more standalone package, 
 further optimization of parallelisation, but also support for more cross types such as 
 diversity outbred and/or collaborative cross mice. 
 
 Other more uncertain requirements which might or might not come up are: The main developer 
 of Pheno2Geno is currently working on polyploid species. Due to this investment of the first 
-author in polyploid crops such as potatoes and tomatos, basic support for this could be added 
+author in polyploid crops such as potatoes and tomatoes, basic support for this could be added 
 in upcoming versions of Pheno2Geno. The authors are committed to maintaining the package, 
-and sourcecode is available open source making it easier to support future new requirements.
+and source code is available open source making it easier to support future new requirements.
 
 \section{xQTL workbench}
 \label{sect:xQTLworkbench}
@@ -56,9 +56,9 @@ The need for reliable but flexible infrastructure in systems genetics lead to th
 xQTL workbench. It combines, the flexibility of the MOLGENIS generator suite \cite{Swertz:2010b} 
 with the most used computational and analytical tools for systems genetics (Such as: R/qtl 
 \cite{Broman:2003, Arends:2010}, Plink \cite{Purcell:2007} and many other tools). Using R as 
-esparanto between the different languages, this creates a system which systems geneticists can 
-use to keep track of data generation and track their analysis. Aditionally using R as computational 
-backend allows researchers to contribute their methods and algorithms back to the scientific 
+Esperanto between the different languages, this creates a system which systems geneticists can 
+use to keep track of data generation and track their analysis. Additionally using R as computational 
+back end allows researchers to contribute their methods and algorithms back to the scientific 
 community by uploading them into xQTL workbench.
 
 \subsection{wormQTL and wormQTL - Human Disease}
@@ -76,16 +76,16 @@ can be selected via model organisms \cite{vanDerVelde:2014}.
 
 The approach of WormQTLHD is conceptually similar to that described by Smedley et al. 
 \cite{Smedley:2013}. They created an automated method called PhenoDigm to provide evidence about 
-gene-disease associations by analysing phenotypic information. In their case, phenotypes consist of 
+gene-disease associations by analyzing phenotype information. In their case, phenotypes consist of 
 a collection of ontology terms, which are aligned and scored to derive an overall phenotype-similarity score. Using this 
-method, known gene-phenotype associations in model organisms (mouse, zebrafish) can be transferred 
+method, known gene-phenotype associations in model organisms (mouse, zebra-fish) can be transferred 
 to other organisms such as man, and help us to understand the genetic cause of disease. This method 
 works best when the model organism is physiologically close to man and has comparable classical 
 phenotypes. It would therefore be less useful for \emph{C. elegans}. However, combining the molecular 
 (WormQTLHD) and phenotypical (PhenoDigm) approaches results in a very powerful tool to discover 
 novel gene-disease associations in man, especially when using physiologically close model organisms \cite{vanDerVelde:2014}.
 
-We plan to further develop the WormQTLHD data and toolset. There might be more ways in which 
+We plan to further develop the WormQTLHD data and tool set. There might be more ways in which 
 researchers would like to search through the large amounts of data, for example, based on custom 
 lists of gene identifiers, or by combining tools such as finding QTLs within specific regions. 
 The QTL plots could be improved or replaced with interactive graphs that are more informative and 
@@ -102,8 +102,8 @@ software in the future and invite the community to add and share their new data 
 \label{sect:qtlHD}
 Association and / or linkage analysis will continue to be the bread-and-butter analysis 
 tool-set for systems geneticists of the future. However complex systems geneticists have 
-to cope with the aquisition of data from diverse experimental designs and the analysis of 
-these diverse data types. Requiring complex pipelines to analyse new complexity of the 
+to cope with the acquisition of data from diverse experimental designs and the analysis of 
+these diverse data types. Requiring complex pipelines to analyze new complexity of the 
 incoming data \cite{Trelles:2011}.
 
 Environment x Genotype interaction analysis is also a future feature of R/qtl-HD. We looked at 
