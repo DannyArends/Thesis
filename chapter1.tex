@@ -43,7 +43,7 @@ At the phenotype end of the spectrum new high throughput technologies have also
 been developed to mass produce phenotypes measurements using automated phenotyping. 
 Automated phenotyping allow thousands of simultaneous measurements at all the 
 different endophenotype levels such as: metabolome, proteome, transcriptome. These 
-new technologies such as tiling arrays, RNAseq, High throughput proteomics and 
+new technologies such as tiling arrays, RNA-seq, High throughput proteomics and 
 metabolomics now enable us to measure all levels from the DNA to the observed 
 phenotype at minimal costs.
 
@@ -54,14 +54,14 @@ field of systems genetics to deal with the large amounts of phenotype and genoty
 
 Variation observed at levels 'further away' from the genome such as: transcriptome, 
 proteome, metabolome, all the way up to classical phenotypes form a complex interplay 
-between DNA and environment. This interplay has proven to be challenging to unravel.The 
-following chapters of this thesis will go into our solutions to these issues, 
+between DNA and environment. This interplay has proven to be challenging to unravel 
+on a genome-wide scale. The following chapters will go into our solutions to these issues, 
 infrastructure created, methodologies developed, and their application in current 
 research. First some (historical) background to provide a solid foundation  and outline
 the context of the following chapters. 
 
-It is by no means ment as an exhaustive account of systems genetics and it I advice the 
-reader to adviced to look up.
+This chapter is by no means meant as an exhaustive account of the history of systems genetics, 
+only a short introduction to highlight previous work which is of use to this thesis.
 
 \section{History (1800-1930)}
 
@@ -134,8 +134,8 @@ the development of population genetics.
 
 \section{DNA and QTLs (1930-1990)}
 In 1930 the book 'The Genetical Theory of Natural Selection' \cite{Fisher:1930} by R. 
-Fisher was published. The book describes how mendelian genetics is consistent with the 
-idea of evolution by natural selection. This removes one of the last barriere for large 
+Fisher was published. The book describes how Mendelian genetics is consistent with the 
+idea of evolution by natural selection. This removes one of the last barrier for large 
 scale adoption of Mendel's theories in biology.
 
 The discovery of DNA as the carrier of heritability in 1944 by Avery, MacLeod and McCarty 
@@ -145,7 +145,7 @@ discovery of restriction enzymes by Luria and Human \cite{Luria:1952} it was pos
 to cut and paste lengths of DNA. This allowed to experimentally work with DNA and 
 investigate the different (lengths of) fragments produced. In 1970 the first techniques 
 were developed to sequence DNA. This was first done by two-dimensional chromatography, 
-and later using fluoresence based sequencing methods \cite{Pettersson:2009}.
+and later using fluorescence based sequencing methods \cite{Pettersson:2009}.
 
 In the end of the 1980s everything was there for the next big step in genetics. Three 
 papers were published which detailed the use of RFLP linkage maps to localize genes 
@@ -158,13 +158,13 @@ day linkage analysis and genome wide association studies.
   \includegraphics[width=0.5\textwidth]{eps/image_1_1}
   \caption[Effect scan across the genome.]
     {An example of how effect scans are performed using a single phenotype measured on 9 individuals (colored numbers)
-    and geotypes represented by rows in the matrix (A or B). 20 markers (columns) were assesed: A and B are genetic 
+    and genotypes represented by rows in the matrix (A or B). 20 markers (columns) were assessed: A and B are genetic 
     variants obtained from either parental or maternal line. }
     \label{fig:effectscan}
 \end{wrapfigure}
 
 In linkage analysis, DNA is tracked from parents to children. This allows to build so called 
-genetic familie trees or pedigrees (See fig. \ref{fig:pedigree}) in which segregation of a phenotype (or 
+genetic family trees or pedigrees (See fig. \ref{fig:pedigree}) in which segregation of a phenotype (or 
 disease) is displayed. If we find a genetic region which co-segregates with the disease we can assume this DNA and 
 disease are linked, and can asses the strength of the linkage observed \cite{Rosyara:2009}. By using experimental 
 crosses derived from inbred parents the need to build up complex pedigrees is avoided, while 
@@ -184,7 +184,7 @@ markers statistical power to detect effects are limited because of multiple test
 Heritable phenotypes could be mapped to genomic locations using a combination of DNA 
 restriction enzymes, Mendel's inheritance laws and Hunt's linkage theory. Together these 
 methodologies and theories provide the experimental and statistical background to 
-analyse heritability in any population. An example of a basic effect scan is shown in Figure 
+analyze heritability in any population. An example of a basic effect scan is shown in Figure 
 \ref{fig:effectscan}. here at each marker the mean of the phenotype for AA and BB are 
 calculated, and the difference plotted per marker. This gives us an initial idea which markers 
 might be interesting bio markers for our phenotype. 
@@ -200,7 +200,7 @@ Observed phenotype expression is often more complex than a single causative gene
 West:2007}. To model these more complex interactions between multiple regulators on e.g. gene expression 
 extension of the basic model for QTL mapping is necessary. 
 
-Extending the model can be done by incorporating sources of variation as cofactors. This allows us 
+Extending the model can be done by incorporating sources of variation as co-factors. This allows us 
 to associate / partition the observed variance to either environmental factors (E) or genetic loci 
 (G). To include additional genetic components into the model, and then scanning for QTLs conditional 
 on these other genetic effects Multiple QTL Mapping (MQM) can be used. MQM belongs to a family 
@@ -209,9 +209,9 @@ interval mapping (CIM) \cite{Zeng:1994}. MQM combines the strengths of generaliz
 regression with those of interval mapping \cite{Jansen:1993, Jansen:1994b}. 
 
 In the beginning of the QTL mapping period genetic maps were of poor quality, with a lot of missing 
-data and large gaps between markers. To overcome this problem interval apping was developed. Interval 
+data and large gaps between markers. To overcome this problem interval mapping was developed. Interval 
 mapping uses prior knowledge about linkage in inbred populations to map QTLs between genetic markers. 
-Using hidden markov models (HMMs) interval mapping estimates the unobserved genotypes in the population 
+Using hidden Markov models (HMMs) interval mapping estimates the unobserved genotypes in the population 
 based on the surrounding genotype observations improving QTL mapping resolution \cite{Jansen:1993, Zeng:1994}.
 
 \begin{table}[h]
@@ -248,7 +248,7 @@ based on the surrounding genotype observations improving QTL mapping resolution 
 \end{table}
 
 Genetical Genomics is the concept that views endophenotypes (RNA, Protein and Metabolite abundance) 
-as common phenotypes wich can be mapped in bulk to the genome similar to classical 
+as common phenotypes which can be mapped in bulk to the genome similar to classical 
 phenotypes \cite{Jansen:2001a}. Using natural occurring variation and new omics tools allows us 
 to track variation from the genotype all the way up to the classical phenotypes (see Table 
 \ref{tbl:overview} for an short overview of methods). Tracing the effects of variation from 
@@ -258,8 +258,8 @@ Studies in model organisms have shown high heritability's for endophenotypes suc
 expression making these phenotypes ideal targets for QTL mapping \cite{Brem:2002, Yvert:2003, Morley:2004}. 
 
 In 2003 R/qtl was developed to provide reference implementations for QTL mapping. R/qtl is 
-an extensible, interactive environment to map quantitative trait loci (QTL) in experimental c
-rosses. It is implemented as an add-on package for the freely available and widely used 
+an extensible, interactive environment to map quantitative trait loci (QTL) in experimental 
+crosses. It is implemented as an add-on package for the freely available and widely used 
 statistical language/software R \cite{R:2009}. The main focus of R/qtl is to provide 
 the mouse community with different QTL mapping methodologies, and allow to deal with the 
 the aberrant segregation X chromosome. Furthermore it supports different types of inbred 
@@ -284,7 +284,7 @@ of new modifiers of human gene expression.
 
 It is known that many factors, such as effects on intermediate molecular phenotypes, influence 
 the relationship between genotype and the eventual development of disease. It has also been 
-observation that many of the disease-predisposing variant are noncoding, which suggests that 
+observation that many of the disease-predisposing variant are non-coding, which suggests that 
 these variants have a regulatory function. Furthermore it has been shown that many disease-predisposing variants 
 (\emph{e.g.} single nucleotide polymorphisms (SNPs)) affect the expression of nearby genes (\emph{i.e.} 
 \emph{cis}-eQTLs) \cite{Powell:2012, Lude:2011, Zeller:2010}. While this could be due to sequence 
@@ -296,21 +296,21 @@ polymorphisms
   \caption[ThesisLayout.]
     {Schematic figure showing to which molecular level each chapter is related. Each molecular 
     level here depicted are drawn from genome (bottom) to phenome (top), arrows indicate 
-    how genetic information is transfered from level to the level as by the current by 
+    how genetic information is transferred from level to the level as by the current by 
     the biological 'dogma'.}
     \label{fig:layout}
 \end{figure}
 
 \section{Thesis contributions (2010-2014)}
 The following chapters will highlight the contributions made to the field of life 
-sciences during the 4 years of my PHD research at the Univerity of Groningen. A schema 
+sciences during the 4 years of my PHD research at the University of Groningen. A schema 
 can be found in Figure \ref{fig:layout}.
 
 Chapter \ref{chap:pheno2geno} details how Pheno2Geno an R package was developed for 
 the high-throughput generation of genetic markers and maps from molecular phenotypes. 
 Pheno2Geno selects suitable phenotypes that show clear differential expression in the founders. Pheno2Geno 
 uses mixture modeling to select phenotypes showing segregation ratios close to the 
-expected mendelian segregation ratios and transform them into genetic markers suitable 
+expected Mendelian segregation ratios and transform them into genetic markers suitable 
 for map construction and/or saturation. Pheno2Geno analyses the candidate genetic 
 markers and excludes those showing multiple QTL, epistatically interacting QTL, and QTL 
 by environment interactions to provide a set of robust markers for QTL mapping protecting 
@@ -332,7 +332,7 @@ power to detect QTLs and enabling us to assign cell type labels to observed \emp
 effects.
 
 Chapter \ref{chap:xqtlwormbench} - Details our work to provide infrastructure for the Life 
-Sciences. We advocate the use of Generators to create software and propose a datamodel (XGAP) 
+Sciences. We advocate the use of Generators to create software and propose a data model (XGAP) 
 to store phenotype and genotype data. Combining these two approaches we developed: xQTL 
 workbench a scalable web platform for the mapping of quantitative trait loci (QTLs) at 
 multiple levels such as gene expression (eQTL), protein abundance (pQTL), metabolite 
@@ -343,5 +343,5 @@ easily on to multi-core computers, clusters and cloud computing.
 Well as you can see enough to cover, we start by improving the genetic map for our model organism 
 \emph{A. thaliana}. We introduce Multiple QTL mapping (MQM), which we use to find genetic loci 
 involved in seed quality traits. We expand our methodology by looking at different environments 
-and realise cell type is just another factors which can be handled in a similar way as environments.
+and realize cell type is just another factors which can be handled in a similar way as environments.
 
