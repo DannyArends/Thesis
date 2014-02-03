@@ -129,13 +129,13 @@ Increase in data size disqualifies R as main analysis platform. R is  not be the
 platform for the analysis of next generation high throughput data. While the R environment is 
 well suited to scientific computing and performing statistical analysis, when big data is involved 
 it is not the fastest or most optimized language available. When dealing with high throughput 
-data obtained from RNA-seq, exome sequencing or Bi-sulfite sequencing datasize quickly become 
+data obtained from RNA-seq, exome sequencing or Bisulfite sequencing data size quickly become 
 the limiting factor for software written in R. Because R/qtl-HD is aimed at QTL analysis of 
 high-density, high-throughput data, R is not a suitable language for the computation parts of 
 the algorithm.
 
-R/qtlHD is written in the high performance D programming language. D is chosen as primairy 
-language because it is created to perform safe and high throughput numerical analyses. D uses 
+R/qtlHD is written in the high performance D programming language. D is chosen as primary 
+language because it is created to perform safe and high throughput numerical analysis. D uses 
 a C like syntax \cite{Alexandrescu:2011} providing a familiar syntax for the R/qtl developers, 
 most of which come from a C/C++ background making D the language of choice for R/qtl-HD. 
 Additional features of D include:
@@ -148,12 +148,12 @@ allows to re-use previously written R/qtl code (written in R and C) \cite{RQTLGu
 programmers to use the power of unit- and regression testing to build a test suite without the need 
 for external tools or frameworks.
 \item \emph{Concurrency and Actors} - The D language provides high level patterns such as Actors and 
-Message Passing to deal with parrallelization of code. Unlike other languages, this is a build in 
-feature of the language, this allows the standard D library to use safe lock free concurreny mechanisms \cite{Alexandrescu:2011}.
+Message Passing to deal with parallelisation of code. Unlike other languages, this is a build in 
+feature of the language, this allows the standard D library to use safe lock free concurrency mechanisms \cite{Alexandrescu:2011}.
 \item \emph{Static typing} - D requires types (e.g. Integer, Float, Double) to be declared and known 
 at compile time, this improves readability of code and reduces the risk for run-time type errors of the system.
 \item \emph{Compile Time Function Execution} - Compile time function execution (CTFE) is a feature 
-that allows to build look up tables at compile time. This greatly reduces the runtime of algorithms, 
+that allows to build look up tables at compile time. This greatly reduces the run time of algorithms, 
 by pre-calculating common cases \cite{ArendsBlog:2012}.
 \end{enumerate}
 These are the main reasons for the R/qtl development team to favor D over R.
@@ -182,16 +182,16 @@ maps in inbred populations.
 These methods will be optimized to work with huge amounts of phenotype data, created by new technologies such as: 
 Tilling arrays, RNA-seq and/or exome sequencing.
 \item \emph{Multiple QTL mapping} - We aim to implement multiple QTL mapping and as such benefit from the added 
-advantages of the D language such as: Reduced memory usage during runtime and less run time due to the fact that 
-it is easier to use parrallel computation in D.
+advantages of the D language such as: Reduced memory usage during run time and less run time due to the fact that 
+it is easier to use parallel computation in D.
 \item \emph{Gene x Environment} - We aim to implement a generic approach for Gene x Environment analysis, we believe 
-this type of analysis to become more and more important in the future to untangle te relationship between genome and 
+this type of analysis to become more and more important in the future to untangle the relationship between genome and 
 phenome.
 \item \emph{R interface} - Current R/qtl users should be able to switch to R/qtl-HD, while keeping their familiar 
 R interface. in an ideal world current users should automatically switch to R/qtl-HD without them noticing.
 \item \emph{BioRuby} - Bio-packages are being created for many languages (Python, Perl, etc), Ruby is a new and 
 upcoming language in the scientific field. R/qtl HD aims to provide bindings to the BioRuby project \cite{Goto:2010} 
-as as proof of concept, other BioPackages could model their own bindings on these Ruby bindings.
+as as proof of concept, other bio packages could model their own bindings on these Ruby bindings.
 \item \emph{Compatibility} - R/qtl-HD aims to be compatible with the following operating systems: Mac OS X, 
 Microsoft Windows and Debian Linux.
 \end{enumerate}
@@ -227,7 +227,7 @@ solve the Big Data questions researchers currently face.
 
 Additionally reproducibility of analysis methodologies which involves a large code base is proving 
 to be increasingly more difficult. results tend to slightly change when version of software and 
-dependancies differ from the version used in the original analysis. A small discussion which highlights 
+dependencies differ from the version used in the original analysis. A small discussion which highlights 
 current solutions to this problem of irreproducible results is found in section \ref{sect:CodeSharing} 
 about sharing code and collaborating on (large) code bases.
 
@@ -242,7 +242,7 @@ because administration of the cluster and the scheduling system put constraints 
 of cluster. Computing clusters can be fashioned from different types of hardware, such as:
 \begin{itemize}
   \item Ad-hoc networks composed of many heterogeneous relatively cheap systems such as: FPGA, and/or CPU, ARM core
-  \item Dedicated computer clusters, such as TARGET or national GRIDs, where usually a homogenous system of linux machines is used for computational tasks.
+  \item Dedicated computer clusters, such as TARGET or national GRIDs, where usually a homogenous system of Linux machines is used for computational tasks.
   \item Video card cluster for linear algebra, utilizing the power of many simple GPU cores for dedicated tasks.
 \end{itemize}
 Compute clusters do not have to be homogeneous in nature. Though in many cases there will 
@@ -268,7 +268,7 @@ partner can be private with their data. This approach grants enormous computatio
 everyone with minimal preparation - once that a shared image is finalized \cite{Krampis:2012}.
 
 The setup of such a compute cloud is not trivial but several initiatives are underway to ease 
-this process. At the workshop, the bioinformatics work-group tested the packaging system provided by 
+this process. At the workshop, the bio informatics work-group tested the packaging system provided by 
 the Debian Med initiative as a method to create a cloud and could be consider this as a seed 
 for an image to then be publicly shared. Instructions to create such images were prepared for 
 the workshop and made available at:\\
@@ -283,7 +283,7 @@ cloud providers such as: Amazon, Rackspace to be reused by other researchers.
 \label{sect:CodeSharing}
 Access and sharing of software code of all aforementioned tools is essential to avoid 
 duplication of efforts, promote interoperability and to really collaborate within the 
-genetics bioinformatics community. Only then does it really become clear what is available 
+genetics bio informatics community. Only then does it really become clear what is available 
 and how there can be data and software flow between projects.
 
 An example tool to facilitate such sharing and collaboration on code level is Git: Git 
@@ -308,13 +308,13 @@ SVN are equally well-suited for publishing code and may be used in parallel.
 The Pheno2Geno R package is available from Github, it is maintained by Konrad Zych and can be found at:\\
 \url{https://github.com/KonradZych/phenotypes2genotypes}
 
-In 2012 the MOLGENIS software suite (MOLGENIS, XGAP, xQTL workbench) was transfered to Git and 
+In 2012 the MOLGENIS software suite (MOLGENIS, XGAP, xQTL workbench) was transferred to Git and 
 moved to \url{http://www.github.com/} to get more online exposure, and remove the need to host 
 an internal SVN server. Code and software can be found at:\\
 \url{http://www.github.com/Molgenis/}
 
 We urge all readers to adopt a professional and reproducible way of data analysis. This requires 
-coding and collaboration using data provenenace and repositories to store analysis code. All 
+coding and collaboration using data provenance and repositories to store analysis code. All 
 software developed for and described in this thesis are also written and developed using Git 
 for source code control, and is available from Github at:\\
 \url{http://github.com/DannyArends/}
