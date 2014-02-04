@@ -1,7 +1,7 @@
 \chapter{High throughput generation of genetic markers}
 \thispagestyle{empty}
 \label{chap:pheno2geno}
-\emph{Using prior knowledge about phenotypes and how they are transfered during 
+\emph{Using prior knowledge about phenotypes and how they are transferred during 
 reproduction allows us to create phenotype based genetic markers. We can use 
 these derived markers to saturate existing genetic maps or create them de-novo 
 when enough data is available. Pheno2Geno was developed to use a sensitive 
@@ -23,7 +23,7 @@ Recombinant Inbred Line (RIL) derived from a Bayreuth (Bay-0) x Shahdara (Sha) c
 
 \section{Pheno2Geno}
 Genetic markers and maps are instrumental for quantitative trait locus (QTL) mapping in segregating 
-populations. The resolution of QTL localisation depends on the number of informative recombinations 
+populations. The resolution of QTL localization depends on the number of informative recombinations 
 in the population and how well these recombinations are tagged by markers. Thus larger populations 
 and denser marker maps perform better at detecting and locating QTLs. In practice, marker maps are 
 often still too sparse. However, maps can be saturated or even be derived \emph{de-novo} from high-
@@ -35,8 +35,8 @@ genetic markers.
 The Pheno2Geno R package is developed for high-throughput generation of genetic markers and maps from 
 molecular phenotypes. Pheno2Geno selects suitable phenotypes that show clear differential expression 
 in the founders. Pheno2Geno uses mixture modeling to select phenotypes showing segregation ratios 
-close to the expected mendelian segregation ratios and transform them into genetic markers suitable 
-for map construction and/or saturation. Pheno2Geno analyses the candidate genetic markers and excludes 
+close to the expected Mendelian segregation ratios and transform them into genetic markers suitable 
+for map construction and/or saturation. Pheno2Geno analyzes the candidate genetic markers and excludes 
 those showing multiple QTL, epistatically interacting QTL, and QTL by environment interactions to 
 provide a set of robust markers for QTL mapping protecting against genetic markers from a non genetic 
 origin.
@@ -49,14 +49,14 @@ to created a \emph{de-novo} map from the gene expression data that is twice as d
 genetic map.
 
 The Pheno2Geno package offers high-throughput \emph{de-novo} map construction and saturation of 
-existing genetic maps. Processing of the showcase dataset takes less than 30 minutes on an average 
+existing genetic maps. Processing of the showcase data set takes less than 30 minutes on an average 
 desktop PC. Pheno2Geno improves QTL mapping results at no additional laboratory cost and with 
 minimum computational effort. Pheno2Geno results are formatted for direct use in R/qtl, the leading 
 R package for QTL studies. Pheno2Geno is freely available on CRAN under GNU GPL version 3.
 
 \section{Background}
 QTL mapping \cite{Lander:1989} is a powerful approach used in population analysis to link 
-genetic variation to phenotypic variation. It requires polymorphic genetic markers positioned 
+genetic variation to phenotype variation. It requires polymorphic genetic markers positioned 
 on a genetic map. Phenotypes showing a dichotome 0/1 distribution with approximate equal 
 proportions in, say, a RIL population can be used as genetic markers: genotypes can be 
 called by connecting the 0/1 to the parental strains A/B. Such markers can then be used 
