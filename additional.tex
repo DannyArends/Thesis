@@ -34,18 +34,20 @@ saturate existing genetic maps. Pheno2Geno has output structures compatible with
 \cite{Broman:2003, Arends:2010}, which provides further facilities for QTL mapping in 
 inbred populations.
 
-With the upcoming new version of R/qtl also the Pheno2Geno package will need to update to 
-accommodate new requirements. These new requirements include expected changes, such as: a 
-more standalone package, further optimization of parallelisation, but also support for 
-more crosses, such as: Diversity outbred and/or collaborative cross mice.
+With the upcoming new version of R/qtl (See section \ref{sect:qtlHD}) also the Pheno2Geno 
+package will need to update to accommodate new requirements. These new requirements include 
+expected changes, such as: a more standalone package, further optimization of parallelisation, 
+performance improvements, support for more crosses, such as: Diversity outbred and/or 
+collaborative cross mice.
 
-Furthermore the main developer of Pheno2Geno is currently working on polyploid species. 
-Due to this investment of the first author in polyploid crops (potatoes), basic support 
-for this could be added in upcoming versions of Pheno2Geno. 
+Furthermore the main developer (Konrad Zych) of Pheno2Geno is currently working on mapping QTLs 
+in polyploid species. Due to this investment of the first author in polyploid crops (potatoes), 
+we expect too see basic support for this kind of data type in upcoming releases of Pheno2Geno.
 
-The authors are committed to maintaining the package, and source code is available open source 
-making it easier to support future new requirements. Pheno2Geno comes with documentation and a 
-test suite to time code performance. The code is maintained at Github, using the GIT versioning 
+The authors are committed to maintaining and upgrading the Pheno2Geno package, source code 
+is available open source making it easier to support future new requirements and allows other 
+researchers to benefit from the code. Pheno2Geno comes with documentation, manual and a test 
+suite to time code performance. Sourcecode is maintained at Github, using the GIT versioning 
 software, and can be found at:\\
 \url{https://github.com/KonradZych/phenotypes2genotypes}
 
@@ -129,14 +131,15 @@ that more genetic loci are involved in germination of seeds then previously know
 Multiple QTL mapping should be implemented into R/qtl-HD besides standard single marker mapping 
 to allow more powerful detection of QTL.
 
-Increase in data size disqualifies R as main analysis platform. R is  not be the most suitable 
-platform for the analysis of next generation high throughput data. While the R environment is 
-well suited to scientific computing and performing statistical analysis, when big data is involved 
-it is not the fastest or most optimized language available. When dealing with high throughput 
-data obtained from RNA-seq, exome sequencing or Bisulfite sequencing data size quickly become 
-the limiting factor for software written in R. Because R/qtl-HD is aimed at QTL analysis of 
-high-density, high-throughput data, R is not a suitable language for the computation parts of 
-the algorithm.
+Increase in data size disqualifies R as main analysis platform. R is not the most suitable 
+platform for the analysis of next generation high throughput data. The R environment is 
+well suited to scientific computing and performing statistical analysis. However when big data 
+is involved R is not the fastest or most optimized language available. 
+
+When dealing with high throughput data obtained from RNA-seq, exome sequencing or Bisulfite 
+sequencing data size quickly become the limiting factor for software written in R. Because 
+R/qtl-HD is aimed at QTL analysis of high-density, high-throughput data, R is not a suitable 
+language for the high throughput computation parts of the algorithms.
 
 R/qtlHD is written in the high performance D programming language. D is chosen as primary 
 language because it is created to perform safe and high throughput numerical analysis. D uses 
@@ -230,7 +233,7 @@ currently already available are highlighted here: Cluster and cloud computing mi
 solve the Big Data questions researchers currently face.
 
 Additionally reproducibility of analysis methodologies which involves a large code base is proving 
-to be increasingly more difficult. results tend to slightly change when version of software and 
+to be increasingly more difficult. Results tend to slightly change when version of software and 
 dependencies differ from the version used in the original analysis. A small discussion which highlights 
 current solutions to this problem of irreproducible results is found in section \ref{sect:CodeSharing} 
 about sharing code and collaborating on (large) code bases.
