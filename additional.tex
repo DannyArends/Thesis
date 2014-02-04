@@ -22,28 +22,32 @@ and solutions to these upcoming challenges in section \ref{sect:Future}
 
 \section{Pheno2Geno}
 \label{sect:Pheno2Geno}
-Generating bio markers from micro arrays, tilling arrays and RNA-seq data is possible using 
-mixture models. Phenotypes showing a dichotomous 0/1 distribution with approximate equal 
-proportions in, say, a RIL population can be used as genetic markers: genotypes can be 
-called by connecting the 0/1 to the parental strains A/B. Such markers can then be used 
-for de-novo construction of the genetic map or for saturation of a known genetic map 
-\cite{West:2006, Truco:2013}.
+Using pheno2geno it is possible to generate bio markers from micro arrays, tilling arrays and 
+RNA-seq data using mixture models. Phenotypes showing a dichotomous 0/1 distribution with 
+approximate equal proportions in, say, a RIL population can be used as genetic markers. After 
+which genotypes can be called by connecting the 0/1 to the parental strains origins A/B. Such 
+markers can then be used for de-novo construction of the genetic map or for saturation of a 
+known genetic map \cite{West:2006, Truco:2013}.
 
 Pheno2Geno provided highly optimized routines for generating genetics maps de-novo or to 
 saturate existing genetic maps. Pheno2Geno has output structures compatible with R/qtl 
 \cite{Broman:2003, Arends:2010}, which provides further facilities for QTL mapping in 
 inbred populations.
 
-With the upcoming new version of R/qtl also the Pheno2Geno package will need to be redesigned 
-to accommodate new requirements. These include expected changes such as: a more standalone package, 
-further optimization of parallelisation, but also support for more cross types such as 
-diversity outbred and/or collaborative cross mice. 
+With the upcoming new version of R/qtl also the Pheno2Geno package will need to update to 
+accommodate new requirements. These new requirements include expected changes, such as: a 
+more standalone package, further optimization of parallelisation, but also support for 
+more crosses, such as: Diversity outbred and/or collaborative cross mice.
 
-Other more uncertain requirements which might or might not come up are: The main developer 
-of Pheno2Geno is currently working on polyploid species. Due to this investment of the first 
-author in polyploid crops such as potatoes and tomatoes, basic support for this could be added 
-in upcoming versions of Pheno2Geno. The authors are committed to maintaining the package, 
-and source code is available open source making it easier to support future new requirements.
+Furthermore the main developer of Pheno2Geno is currently working on polyploid species. 
+Due to this investment of the first author in polyploid crops (potatoes), basic support 
+for this could be added in upcoming versions of Pheno2Geno. 
+
+The authors are committed to maintaining the package, and source code is available open source 
+making it easier to support future new requirements. Pheno2Geno comes with documentation and a 
+test suite to time code performance. The code is maintained at Github, using the GIT versioning 
+software, and can be found at:\\
+\url{https://github.com/KonradZych/phenotypes2genotypes}
 
 \section{xQTL workbench}
 \label{sect:xQTLworkbench}
