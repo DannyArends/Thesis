@@ -16,9 +16,9 @@
 This chapter highlights the conclusions of this thesis and there is a short discussion in 
 which we look forward to the future of high throughput computing in systems genetics. We 
 highlight the tools created in this thesis such as Pheno2Geno in section \ref{sect:Pheno2Geno} and xQTL 
-workbench (\ref{sect:xQTLworkbench}). One of our current projects a new version of R/qtl called qtlHD 
-is being discussed in section \ref{sect:qtlHD}. We end this chapter by highlighting some future challenges 
-and solutions to these upcoming challenges in section \ref{sect:Future}
+workbench (\ref{sect:xQTLworkbench}). Additionally we highlight one of our current projects: A new 
+version of R/qtl called qtlHD is being discussed in section \ref{sect:qtlHD}. We end this chapter by 
+highlighting some future challenges and solutions to these upcoming challenges in section \ref{sect:Future}
 
 \section{Pheno2Geno}
 \label{sect:Pheno2Geno}
@@ -214,7 +214,29 @@ this.
 
 \section{Future perspectives}
 \label{sect:Future}
-With increasing scale of experimental data being produced in the lab, it will not be 
+Currently Biology is in a state of flux, new methodologies are developed, tested and discarded at 
+a rate higher then ever before. This means an increase in data from two sides: One, data from new 
+biomolecular levels such as epigenetics, and two more data from a single sample by e.g. single cell sequencing. 
+This means data will be produced in the near future at speeds unimaginable currently. 
+
+Looking only a little bit further ahead we see the advent of personalized medicine and genomics in hositals 
+and health clinics. Sequencing humans at costs under \$ 1000 a person is already possible, but prices will remain 
+to drop in the near future. This in turn generates a huge amount of data for analists and clinicians to cope with. 
+Let alone the amount of 'knowledge' required from external data sources to interpret this data in a manner which 
+will aid in curing patients.
+
+Additionally besides the reduced costs of sequencing other biomolecular techniques also drop in price. 
+This allows us to collect (endo) phenotypes at a unpresedented scale, which in turn allow us to have a very 
+detailed view of the environment we live in, and how all animals on this planet depend on eachother. 
+However storing and processing this additional phenotype data will put even more pressure on the 
+already burdened infrastructure.
+
+Also just collecting data will not provide us with extra knowledge, for that we need test hypotheses, use 
+models to predict and validate our hypotheses. This all comes with an increasing load on processing data. 
+Leading to a situation when an increasing amount of data creates its own drag, in that multiple testing 
+issues become worse and worse, leading to bigger sample sizes and thus more data collection.
+
+With this increasing scale of experimental data being produced in the lab, it will not be 
 sufficient to have analysis software as simple downloads, because the researcher will 
 also need sizable compute and storage power \cite{Schadt:2010}. Thus, researchers will 
 need easy access to 'software as a service' such as cloud computing. Additionally storage 
