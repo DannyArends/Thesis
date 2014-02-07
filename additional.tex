@@ -17,7 +17,7 @@ This chapter highlights the conclusions of this thesis and there is a short disc
 which we look forward to the future of high throughput computing in systems genetics. We 
 highlight the tools created in this thesis such as Pheno2Geno in section \ref{sect:Pheno2Geno} and xQTL 
 workbench (\ref{sect:xQTLworkbench}). Additionally we highlight one of our current projects: A new 
-version of R/qtl called qtlHD is being discussed in section \ref{sect:qtlHD}. We end this chapter by 
+version of R/qtl called qtlHD is being discussed in section \ref{sect:qtl}. We end this chapter by 
 highlighting some future challenges and solutions to these upcoming challenges in section \ref{sect:Future}
 
 \section{Pheno2Geno}
@@ -29,9 +29,9 @@ use these detected bio markers for de-novo construction of the genetic map or fo
 saturation of a known genetic map \cite{West:2006, Truco:2013}.
 
 Pheno2Geno has output structures compatible with R/qtl \cite{Broman:2003, Arends:2010}, 
-which provides further facilities for QTL mapping in inbred populations.
+which provides further high throughput facilities for QTL mapping in inbred populations.
 
-With the upcoming new version of R/qtl (See section \ref{sect:qtlHD}) also the Pheno2Geno 
+With the upcoming new version of R/qtl (See section \ref{subsect:qtlHD}) also the Pheno2Geno 
 package will need to update to accommodate new requirements. These new requirements include 
 expected changes, such as: a more standalone package, further optimization of parallelisation, 
 performance improvements, support for more crosses, such as: Diversity outbred and/or 
@@ -44,19 +44,14 @@ support for this kind of data type in upcoming releases of Pheno2Geno.
 The authors are committed to maintaining and upgrading the Pheno2Geno package, source code 
 is available open source making it easier to support future new requirements and allows other 
 researchers to benefit from the code. Pheno2Geno comes with documentation, manual and a test 
-suite to time code performance. Source code is maintained at Github, using the GIT versioning 
-software, and can be found at:\\
+suite. Source code is maintained at Github, using the GIT versioning software, and can be 
+found at:\\
 \url{https://github.com/KonradZych/phenotypes2genotypes}
 
 \section{xQTL workbench}
 \label{sect:xQTLworkbench}
-While the xQTL workbench system described in this thesis have the ability to absorb new 
-analysis methods, consideration should be given to allow high flexibility. It will be 
-difficult to anticipate new demands, requirements or new developments which could provide 
-a better alternative than databases for data and R for analysis \cite{Arends:2012}.
-
-The need for reliable but flexible infrastructure in systems genetics lead to the development of 
-xQTL workbench. It combines, the flexibility of the MOLGENIS generator suite \cite{Swertz:2010b} 
+The need for reliable but flexible infrastructure in systems genetics sparked intrest in the 
+development of xQTL workbench. It combines, the flexibility of the MOLGENIS generator suite \cite{Swertz:2010b} 
 with the most used computational and analytical tools for systems genetics (Such as: R/qtl 
 \cite{Broman:2003, Arends:2010}, Plink \cite{Purcell:2007} and many other tools). Using R as 
 Esperanto between the different languages, this creates a system which systems geneticists can 
@@ -64,18 +59,31 @@ use to keep track of data generation and track their analysis. Additionally usin
 back end allows researchers to contribute their methods and algorithms back to the scientific 
 community by uploading them into xQTL workbench.
 
+While the xQTL workbench system described in this thesis has the ability to absorb new 
+analysis methods, consideration should be given to allow high flexibility. It will be 
+difficult to anticipate new demands, requirements or new developments which could provide 
+a better alternative than databases for data and R for analysis \cite{Arends:2012}. However 
+we believe xQTL workbench is well suited to tackle these changing requirements by leveraging 
+the strength of generators and the flexibility of the XGAP data model.
+
+We continue by showing how the xQTL workbench system helps the worm community stores their genetical 
+genomics data. The database and tools bring researchers from different fields together, by providing 
+human and worm researchers a shared startng point.
+
 \subsection{wormQTL and wormQTL - Human Disease}
 The current version of WormQTLHD (August 2013) is a comprehensive and compendious database that 
-enables molecular model organism data to be studied in the context of human diseases. Just as with 
-WormQTL \cite{Snoek:2012}, we believe that WormQTLHD will be continuously curated by the members of 
-the \emph{C. elegans} community. The results of the 'broad-sweep' disease-enrichment test in 
-combination with the web tool will be of special interest to researchers in the human or worm 
-domain. We believe these results could also be applied to prioritize the pathogenic variants 
-increasingly being produced by next-generation sequencing in diagnostic labs. Genetic variants 
-affecting human genes of unknown function may have worm orthologues that are part of human-worm 
-phenologs and these may reveal or imply a role in a human disease \cite{Ostlund:2014}. Thus, 
-through functionally conserved networks, missing information can be inferred and candidate genes 
-can be selected via model organisms \cite{vanDerVelde:2014}.
+enables molecular model organism data to be studied in the context of human diseases. 
+
+It provides a database with worm genetical genomics data combined with worm to human phenotype associations 
+and a 'broad-sweep' disease-enrichment test, the results of the 'broad-sweep' disease-enrichment test in 
+combination with the web tool allows the detection of non-obvious models for human disease and will be of 
+interest to researchers in both the human and the worm domain. 
+
+We believe these results could also be applied to prioritize the pathogenic variants increasingly being 
+produced by next-generation sequencing in diagnostic labs. Genetic variants affecting human genes of 
+unknown function may have worm orthologues that are part of human-worm phenologs and these may reveal or 
+imply a role in a human disease \cite{Ostlund:2014}. Thus, through functionally conserved networks, missing 
+information can be inferred and candidate genes can be selected via model organisms \cite{vanDerVelde:2014}.
 
 The approach of WormQTLHD is conceptually similar to that described by Smedley et al. 
 \cite{Smedley:2013}. They created an automated method called PhenoDigm to provide evidence about 
@@ -97,12 +105,36 @@ for a new analysis with a different tool. Furthermore, we envisage close integra
 sources and tools such as WormNet, R/qtl and GO Enrichment to provide even more biological context 
 and analytical tools for the user.
 
-Our new database makes this data attractive and easy-to-use for an even wider community of 
-quantitative geneticists working on worms and man. We are committed to maintaining the data and 
-software in the future and invite the community to add and share their new data and ideas. 
+Our new database makes this data attractive and easy-to-use for an even wider community of quantitative 
+geneticists working on worms and human. We are committed to maintaining the data and software in the 
+future and invite the community to add and share their new data and ideas. Just as with WormQTL \cite{Snoek:2012}. 
+WormQTLHD will be continuously curated by the members of the \emph{C. elegans} community. 
 
-\section{R/qtlHD}
-\label{sect:qtlHD}
+\section{R/qtl}
+\label{sect:qtl}
+We have shown the contributions made during the last four years to the R/qtl package:
+We implemented MQM into R/qtl, which lets users test different QTL models by elimination 
+of non-significant cofactors. MQM for R/qtl brings the following advantages to QTL mapping:
+\begin{enumerate}\itemsep1pt
+\item Higher power, as long as the QTL explain a reasonable amount of variation.
+\item Protection against over-fitting, because MQM fixes the residual variance from the full 
+model, which allows the use of more cofactors than may be used in, for example, composite 
+interval mapping \cite{Zeng:1994}.
+\item Prevention of ghost QTL detection (between two QTL in coupling phase).
+\item Detection of negating QTL (QTL in repulsion phase). 
+\item MQM gives (compared to CIM) a reduction in type I and type II error \cite{Handbook:Jansen:2007}.
+\item A pragmatic permutation strategy for controlling the false discovery rate (FDR) and 
+prevention of locating false QTL hot spots, as discussed in Breitling et al \cite{Breitling:2008a}. 
+Marker data is permuted, while keeping the correlation structure in the trait data.
+\item High-performance computing by scaling on multi-CPU computers, as well as clustered 
+computers, by calculating phenotypes in parallel, through the Message Passing Interface (MPI) of 
+the SNOW package for R\cite{Tierney:2009}.
+\item Visualizations for exploring interactions in a genomic circle plot (Fig. \ref{fig:circleplot}) and \emph{cis}- 
+and \emph{trans}-regulation (Fig. \ref{fig:cistrans}).
+\end{enumerate}
+
+\subsection{R/qtlHD}
+\label{subsect:qtlHD}
 Association and / or linkage analysis will continue to be the bread-and-butter analysis 
 tool-set for systems geneticists of the future. However complex systems geneticists have 
 to cope with the acquisition of data from diverse experimental designs and the analysis of 
@@ -331,7 +363,7 @@ R for its analysis interfaces. XGAP code and binaries are all available as open 
 SVN are equally well-suited for publishing code and may be used in parallel.
 
 \subsection{Final remarks}
-The Pheno2Geno R package is available from Github, it is maintained by Konrad Zych and can be found at:\\
+The Pheno2Geno R package is available from Github at:\\
 \url{https://github.com/KonradZych/phenotypes2genotypes}
 
 In 2012 the MOLGENIS software suite (MOLGENIS, XGAP, xQTL workbench) were transferred to Git and 
