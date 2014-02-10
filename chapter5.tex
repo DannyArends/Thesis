@@ -81,14 +81,14 @@ lab bioinformaticians can or should do, and result in duplicated efforts between
 source web-based tools for QTL analysis, such as webQTL \cite{Chesler:2004} and QTLNetwork \cite{Yang:2008}, are 
 not easily extendable to different settings and computationally scalable for whole genome analyses.
 
-We here present xQTL workbench and its application in the WormQTL database. WormQTL (http://www.wormqtl.org) is an 
+We here present \xqtlwb and its application in the WormQTL database. WormQTL (http://www.wormqtl.org) is an 
 easily accessible database enabling search, comparative analysis and meta-analysis of all data on variation in \emph{Caenorhabditis spp}.
-All was built on top of xQTL workbench, a generic scalable web platform for the mapping of quantitative trait loci (QTLs)
+All was built on top of \xqtlwb, a generic scalable web platform for the mapping of quantitative trait loci (QTLs)
  at multiple levels: for example gene expression (eQTL), protein abundance (pQTL), metabolite abundance (mQTL) and phenotype 
-(phQTL) data. xQTL workbench supports storing of raw, intermediate and final result data, and analysis protocols and history 
+(phQTL) data. \xqtlwb supports storing of raw, intermediate and final result data, and analysis protocols and history 
 for reproducibility and data provenance using XGAP data model \cite{Swertz:2010a}. Use of Molgenis \cite{Swertz:2010b} helped 
 to build and customize the software. All is conveniently accessible via standard Internet browsers on Windows, Linux or Mac 
-(and using Java, R for the server). xQTL workbench, MOLGENIS, XGAP and WormQTL are related to eachother as outlined in 
+(and using Java, R for the server). \xqtlwb, MOLGENIS, XGAP and WormQTL are related to each other as outlined in 
 Figure \ref{fig:Overview}, and.are described in detail below.
 
 \section{High throughput data analysis (xQTL workbench)}
@@ -549,11 +549,11 @@ This format is documented in the WormQTL manual to ease the submission of new da
 the community. Finally, all the QTL profiles were recalculated according to the specification 
 of the original, or slightly modified when needed, such as to include a previously missing 
 wrongly labelled sample correction. In this process, we greatly benefitted from the integration 
-with xQTL workbench, which enabled us to re-run all these analyses on the computer cluster 
+with \xqtlwb, which enabled us to re-run all these analyses on the computer cluster 
 and add new R analysis procedures when needed, simply from the user interface.
 
 \subsection{Extensions into WormQTL-HD}
-Since its first publication, WormQTL has been expanded into a ‘human disease’ version. Interactions 
+Since its first publication, WormQTL has been expanded into a 'human disease' version. Interactions 
 between proteins are highly conserved across species. As a result, the molecular basis 
 of multiple diseases affecting humans can be studied in model organisms that offer many alternative 
 experimental opportunities. One such organism - \emph{Caenorhabditis elegans} - has been used to produce much 
@@ -567,17 +567,17 @@ and the functions of genes underlying the disease of interest. We created a new 
 Central and NHGRI GWAS Catalogue) based on overlapping sets of orthologous genes associated to 
 phenotypes in these two species. We utilized QTL results, high-throughput molecular phenotypes, 
 classical phenotypes and genotype data covering different developmental stages and environments from 
-WormQTL database. All software is available as open source, built on MOLGENIS and xQTL workbench. 
+WormQTL database. All software is available as open source, built on MOLGENIS and \xqtlwb. 
 
 \subsection{Conclusion}
-xQTL workbench provides a total solution for web-based analysis: major QTL mapping routines are 
+\xqtlwb provides a total solution for web-based analysis: major QTL mapping routines are 
 integrated for use by experienced and inexperienced users. Researchers can upload raw data, run 
 analyses, explore mapped QTL and underlying information, and link-out to important databases. New 
 algorithms can be flexibly added, immediately available to all users. Large analyses can be easily 
 executed on a cluster or in the Cloud. Future work include visualizations and search options to 
 explore the results. We also had an EU-SYSGENET workshop that envisioned further integration of 
-xQTL with analysis tools like HAPPY, databases like GeneNetwork, and the workflow manager TIQS 
-\cite{Durrant:2012}
+xQTL with analysis tools like HAPPY, databases like GeneNetwork \cite{GeneNetwork:2004}, and the 
+workflow manager TIQS \cite{Durrant:2012}
 
 \xqtlwb was built on a minimal and extensible data infrastructure for the management and 
 exchange of genotype-to-phenotype experiments, including an object model for genotype and 
@@ -608,12 +608,12 @@ right, ensuring developers and biologists are thinking along the same lines and 
 and functionality for all. We further evaluated applying this method to both microarray and genetical 
 genomics experiments \cite{Swertz:2004}, \cite{Swertz:2010a}.
 
-Here we have presented MOLGENIS in detail for xQTL workbench and reported the results of using this 
+Here we have presented MOLGENIS in detail for \xqtlwb and reported the results of using this 
 method against a wider range of applications. We conclude that using model-driven methods enables 
 bioinformaticians to build biological software infrastructures faster than before, with the additional 
 benefit of much easier sharing of models, data and components.
 
-Since its first creation, xQTL workbench has spawned a series of useful applications. We described 
+Since its first creation, \xqtlwb has spawned a series of useful applications. We described 
 the richest example to data, WormQTL (http://www.wormqtl.org), an easily accessible database enabling 
 search, comparative analysis and meta-analysis of all data on variation in \emph{Caenorhabditis spp}. 
 
