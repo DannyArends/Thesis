@@ -2,10 +2,13 @@
 \thispagestyle{empty}
 \label{chap:xqtlwormbench}
 
-\emph{The major challenge in bioinformatics comes from the huge amount of data collected and the 
-multitude of technologies used. We developed the xQTL workbench system\cite{Arends:2012} to store 
-large amounts of phenotype and genotype data in the XGAP \cite{Swertz:2010a} dataformat. An 
-application of the xQTL system is found in the WormQTL database \cite{Snoek:2012}.}
+\emph{Modern high-throughput technologies generate large amounts of genomic, transcriptomic, 
+proteomic and metabolomic data, creating a major challenge in bioinformatics from the size 
+of data collected and the multitude of technologies used. We present the xQTL workbench 
+system \cite{Arends:2012}, a flexible and scalable platform to store and analyse all these 
+new phenotype and genotype data using XGAP \cite{Swertz:2010a} dataformat and MOLGENIS software 
+\cite{Swertz:2004}. We evaluated the system in multiple applications of which WormQTL database 
+\cite{Snoek:2012} is presented here.}
 
 \null
 \vfill
@@ -38,6 +41,7 @@ application of the xQTL system is found in the WormQTL database \cite{Snoek:2012
     \label{fig:Overview}
 \end{wrapfigure}
 
+
 This chapter deals with the storage of big data and the need to perform complex analysis in reasonable time on them.
 Imagine a factory, our foundation is MOLGENIS a generator to create 'Create Read Update Delete' (CRUD) database 
 applications on top of several different data storages. XGAP can be seen as the  walls of the factory, the datamodel 
@@ -45,6 +49,123 @@ defines what space is given to each object stored and how it is archived. The co
 seen as the plumbing and electrics making it possible to work with the different kinds of data stored in the factory. 
 The vanilla xQTL workbench comes with several tools for QTL mapping and provides ways for users to add new tools to 
 the system. This chapter end by showing a real life database system actively used in \emph{C. elegans} research (Figure \ref{fig:Overview}).
+
+
+\section{High throughput data analysis (xQTL workbench)}
+xQTL workbench is a scalable web platform for the mapping of quantitative trait loci (QTLs) 
+at multiple levels: for example gene expression (eQTL), protein abundance (pQTL), metabolite 
+abundance (mQTL) and phenotype (phQTL) data. Popular QTL mapping methods for model organism 
+and human populations are accessible via the web user interface. Large calculations scale 
+easily on to multi-core computers, clusters and Cloud. All data involved can be uploaded 
+and queried online: markers, genotypes, microarrays, NGS, LC-MS, GC-MS, NMR, etc. When new 
+data types come available, xQTL workbench is quickly customized using the MOLGENIS software 
+generator.
+
+Modern high throughput technologies generate large amounts of genomic, transcriptomic, proteomic, 
+and metabolomic data. However, existing open source web-based tools for QTL analysis, such as 
+webQTL \cite{Wang:2003} and QTLNetwork \cite{Yang:2008}, are not easily extendable to different 
+settings and computationally scalable for whole genome analyses. \xqtlwb makes it easy to analyse 
+large and complex datasets using state-of-the-art QTL mapping tools and to apply these methods 
+to millions of phenotypes using paralellized 'Big Data' solutions\cite{Trelles:2011}. 
+\xqtlwb also supports storing of raw, intermediate and final result data, and analysis protocols 
+and history for reproducibility and data provenance. Use of MOLGENIS\cite{Swertz:2010b} 
+helps to customize the software. All is conveniently accessible via standard Internet browsers on 
+Windows, Linux or Mac (and using Java, R for the server).
+
+\subsection{Features}
+\xqtlwb provides visualization of QTL profiles, single and multiple QTL mapping methods, easy addition 
+of new QTL analyses, scalable data management and analysis tracking.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{eps/image_5_4.eps}
+  \caption[xQTL workbench.]{Screenshot of xQTL workbench with all features enabled, (1) Import phenotype, genotype 
+          and genetic map data, examples are given per import type; (2) Search through the whole database, explore 
+          and browse your data using MOLGENIS generated web-interfaces; (3) Run R/qtl QTL mapping, the general 
+          plugin allows users to perform not only QTL mapping but also other analyses; (4) Use default (or custom) 
+          plugins to explore results (e.g. Heatmaps, QTL profiles); (5) Add new tools to the workbench (for 
+          Bioinformaticians); (6) User management and access control of the system (Only for admins); (7) Expert 
+          settings can be altered in the admin tab (Only for admins); (8) Connect/share data using generated API's 
+          to R statistics, REST/JSON, SOAP.}
+          \label{fig:xQTLworkbench}
+\end{figure}
+
+\begin{enumerate}\itemsep1pt
+\item \emph{Explore QTL profiles} - Through the web-interface, users can explore mapped QTLs, and 
+underlying information by viewing QTL plots in an interactive scrollable and zoomable window. 
+\xqtlwb has support for other common image formats, such as PNG, JPG, SVG and embedded postscript; 
+useful for publishing scientific results online, and on paper. From the output, main database identifiers, 
+such as gene, protein and/or metabolite identifiers are automatically linked-out to matching external 
+web pages of public database such as NCBI, KEGG, and Wormbase.
+\item \emph{Single and multiple QTL mapping} - \xqtlwb wraps R/qtl \cite{Broman:2003, Arends:2010} in a 
+web-based analysis framework offering all important QTL mapping routines, such as the EM algorithm, 
+imputation, Haley-Knott regression, the extended Haley-Knott method, marker regression, and Multiple 
+QTL mapping. In addition, \xqtlwb includes R/qtlbim, a library which provides a Bayesian model 
+selection approach for mapping multiple interacting QTL \cite{Yandell:2007} and Plink, a library for 
+association QTL mapping on Single Nucleotide Polymorphisms (SNP) in natural populations \cite{Purcell:2007}.
+\item \emph{Add new analysis tools} - \xqtlwb supports flexible adding of more QTL analysis software: 
+any R-based, or command-line tool, can be plugged in. All analysis results are uploaded, stored and 
+tracked, in the \xqtlwb database through an R-API. When new tools are added, they can build on the 
+high-level multi-core computer, cluster and Cloud management functions, based on TORQUE/OpenPBS and 
+BioNode \cite{Prins:2012}. \xqtlwb can be made part of a larger analysis pipeline using interfaces to R, 
+Excel, REST and SOAP web services and Galaxy \cite{Goecks:2010}.
+\item \emph{Track and trace} - When a new analysis protocol or R script is defined, this protocol 
+can easily be applied to new data. Also, \xqtlwb keeps track of history. Re-use of analysis protocols 
+can be done in an automated fashion. Previous analyses can be rerun without resetting parameters. 
+\xqtlwb provides an online overview of past analyses e.g. which analyses were performed, by who, when 
+and display settings applied.
+\item \emph{Scalable data management} - \xqtlwb has a consistency checking database based on XGAP 
+specification \cite{Swertz:2010a}, user interfaces to manage and query genotype and phenotype data 
+sets, and support for various database back-ends including HSQL (standalone) and MySQL. Phenotype, 
+genotype and genetic map data can be imported as text (TXT), comma separated (CSV), and Excel files. 
+\xqtlwb handles and stores large data in a new and efficient binary edition of the XGAP format, named 
+XGAPbin (extension .xbin), documented online. Such binary formats are essential when handling, storing 
+and transporting multi-Gigabyte datasets.
+\item \emph{Customize to research} - Additional modules for new data modalities can be added using 
+MOLGENIS software generator \cite{Swertz:2010b}. The 'look and feel' of \xqtlwb is adaptable to 
+institute or consortium style by changing a simple template which is described in the \xqtlwb 
+documentation enabling seamless integration into an existing web-site or intranet site, such as 
+recently for EU-PANACEA model organism project and LifeLines biobank.
+\end{enumerate}
+
+\subsection{Implementation}
+We built \xqtlwb on top of MOLGENIS \cite{Swertz:2004}, a Java based software to generate tailored 
+research infrastructure on-demand \cite{Swertz:2007}. From a single 'blueprint' describing the whole 
+system, MOLGENIS auto-generates a full application including user interface, database infrastructure, 
+application programming interfaces in R, REST and SOAP (APIs). MOLGENIS' flexibility and robustness 
+is proven by the wide range of research projects, e.g. the Nordic GWAS Control database \cite{Leu:2010}, 
+EB mutation database \cite{Akker:2011}, the Animal observation database \cite{Swertz:2010b}.
+
+For data storage, the eXtensible Genotype and Phenotype (XGAP) data model was adopted \cite{Swertz:2010a} 
+and extended for big data. To support the increased demand for computational resources for included 
+mapping routines we added high-level cluster and cloud management functions for computation. The 
+scalable QTL mapping routines of \xqtlwb are written in R and C. The choice of R ties in with the 
+general practice of using R for QTL mapping. The user interface includes direct access to the R 
+interpreter. Both \xqtlwb and MOLGENIS are open source software, and source code is transparently
+stored and tracked in online source control repositories.
+
+\subsection{Conclusions and Discussion}
+\xqtlwb provides a total-solution for web-based analysis: Major QTL mapping routines are integrated 
+for use by experienced and inexperienced users. Researchers can upload raw data, run analyses, explore 
+mapped QTL and underlying information, and link-out to important databases. New algorithms can be 
+flexibly added, immediately available to all users. Large analyses can be easily executed on a cluster, 
+or in the Cloud. Future work include visualizations and search options to explore the results. We also 
+had an EU-SYSGENET workshop that envisioned further integration of xQTL with analysis tools like HAPPY, 
+databases like GeneNetwork, and the workflow manager TIQS \cite{Durrant:2012}.
+
+\section{A worm database (WormQTL)}
+WormQTL is one of the application developed using the xQTL workbench system. It is a public web portal 
+for the management of all these new data and integrated development of suitable analysis tools. The 
+web server provides a rich set of analysis tools available to use directly, based on R/qtl 
+\cite{Broman:2003, Arends:2010}. Users can upload and share new R scripts as 'plugin' for colleagues 
+in the community to use directly. New data can be uploaded and downloaded using XGAP-extensible 
+text format for genotype and phenotypes\cite{Swertz:2010a}. All data and tools can be accessed 
+via web user interfaces and programming interfaces to R, REST, and SOAP web services. Large 
+consortia as well as individual researchers, can have a private area that is under embargo for 
+publication. All software is free for download as MOLGENIS 'app' \cite{Swertz:2010b}. WormQTL is 
+freely accessible without registration and is hosted on a large computational cluster enabling 
+high throughput analyses to all at:\\
+\url{http://www.wormqtl.org/}.
 
 \section{Reusable software (MOLGENIS)}
 \subsection{Background}
@@ -307,122 +428,6 @@ wiki, mailing list and source code versioning system to evolve and share the bes
 customizations and GUI/API 'plug-in' enhancements, to support the growing range of profiling 
 technologies, create data pipelines between repositories, and to push developments in the 
 directions that will most benefit research
-
-\section{High throughput data analysis (xQTL workbench)}
-xQTL workbench is a scalable web platform for the mapping of quantitative trait loci (QTLs) 
-at multiple levels: for example gene expression (eQTL), protein abundance (pQTL), metabolite 
-abundance (mQTL) and phenotype (phQTL) data. Popular QTL mapping methods for model organism 
-and human populations are accessible via the web user interface. Large calculations scale 
-easily on to multi-core computers, clusters and Cloud. All data involved can be uploaded 
-and queried online: markers, genotypes, microarrays, NGS, LC-MS, GC-MS, NMR, etc. When new 
-data types come available, xQTL workbench is quickly customized using the MOLGENIS software 
-generator.
-
-Modern high throughput technologies generate large amounts of genomic, transcriptomic, proteomic, 
-and metabolomic data. However, existing open source web-based tools for QTL analysis, such as 
-webQTL \cite{Wang:2003} and QTLNetwork \cite{Yang:2008}, are not easily extendable to different 
-settings and computationally scalable for whole genome analyses. \xqtlwb makes it easy to analyse 
-large and complex datasets using state-of-the-art QTL mapping tools and to apply these methods 
-to millions of phenotypes using paralellized 'Big Data' solutions\cite{Trelles:2011}. 
-\xqtlwb also supports storing of raw, intermediate and final result data, and analysis protocols 
-and history for reproducibility and data provenance. Use of MOLGENIS\cite{Swertz:2010b} 
-helps to customize the software. All is conveniently accessible via standard Internet browsers on 
-Windows, Linux or Mac (and using Java, R for the server).
-
-\subsection{Features}
-\xqtlwb provides visualization of QTL profiles, single and multiple QTL mapping methods, easy addition 
-of new QTL analyses, scalable data management and analysis tracking.
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.75\textwidth]{eps/image_5_4.eps}
-  \caption[xQTL workbench.]{Screenshot of xQTL workbench with all features enabled, (1) Import phenotype, genotype 
-          and genetic map data, examples are given per import type; (2) Search through the whole database, explore 
-          and browse your data using MOLGENIS generated web-interfaces; (3) Run R/qtl QTL mapping, the general 
-          plugin allows users to perform not only QTL mapping but also other analyses; (4) Use default (or custom) 
-          plugins to explore results (e.g. Heatmaps, QTL profiles); (5) Add new tools to the workbench (for 
-          Bioinformaticians); (6) User management and access control of the system (Only for admins); (7) Expert 
-          settings can be altered in the admin tab (Only for admins); (8) Connect/share data using generated API's 
-          to R statistics, REST/JSON, SOAP.}
-          \label{fig:xQTLworkbench}
-\end{figure}
-
-\begin{enumerate}\itemsep1pt
-\item \emph{Explore QTL profiles} - Through the web-interface, users can explore mapped QTLs, and 
-underlying information by viewing QTL plots in an interactive scrollable and zoomable window. 
-\xqtlwb has support for other common image formats, such as PNG, JPG, SVG and embedded postscript; 
-useful for publishing scientific results online, and on paper. From the output, main database identifiers, 
-such as gene, protein and/or metabolite identifiers are automatically linked-out to matching external 
-web pages of public database such as NCBI, KEGG, and Wormbase.
-\item \emph{Single and multiple QTL mapping} - \xqtlwb wraps R/qtl \cite{Broman:2003, Arends:2010} in a 
-web-based analysis framework offering all important QTL mapping routines, such as the EM algorithm, 
-imputation, Haley-Knott regression, the extended Haley-Knott method, marker regression, and Multiple 
-QTL mapping. In addition, \xqtlwb includes R/qtlbim, a library which provides a Bayesian model 
-selection approach for mapping multiple interacting QTL \cite{Yandell:2007} and Plink, a library for 
-association QTL mapping on Single Nucleotide Polymorphisms (SNP) in natural populations \cite{Purcell:2007}.
-\item \emph{Add new analysis tools} - \xqtlwb supports flexible adding of more QTL analysis software: 
-any R-based, or command-line tool, can be plugged in. All analysis results are uploaded, stored and 
-tracked, in the \xqtlwb database through an R-API. When new tools are added, they can build on the 
-high-level multi-core computer, cluster and Cloud management functions, based on TORQUE/OpenPBS and 
-BioNode \cite{Prins:2012}. \xqtlwb can be made part of a larger analysis pipeline using interfaces to R, 
-Excel, REST and SOAP web services and Galaxy \cite{Goecks:2010}.
-\item \emph{Track and trace} - When a new analysis protocol or R script is defined, this protocol 
-can easily be applied to new data. Also, \xqtlwb keeps track of history. Re-use of analysis protocols 
-can be done in an automated fashion. Previous analyses can be rerun without resetting parameters. 
-\xqtlwb provides an online overview of past analyses e.g. which analyses were performed, by who, when 
-and display settings applied.
-\item \emph{Scalable data management} - \xqtlwb has a consistency checking database based on XGAP 
-specification \cite{Swertz:2010a}, user interfaces to manage and query genotype and phenotype data 
-sets, and support for various database back-ends including HSQL (standalone) and MySQL. Phenotype, 
-genotype and genetic map data can be imported as text (TXT), comma separated (CSV), and Excel files. 
-\xqtlwb handles and stores large data in a new and efficient binary edition of the XGAP format, named 
-XGAPbin (extension .xbin), documented online. Such binary formats are essential when handling, storing 
-and transporting multi-Gigabyte datasets.
-\item \emph{Customize to research} - Additional modules for new data modalities can be added using 
-MOLGENIS software generator \cite{Swertz:2010b}. The 'look and feel' of \xqtlwb is adaptable to 
-institute or consortium style by changing a simple template which is described in the \xqtlwb 
-documentation enabling seamless integration into an existing web-site or intranet site, such as 
-recently for EU-PANACEA model organism project and LifeLines biobank.
-\end{enumerate}
-
-\subsection{Implementation}
-We built \xqtlwb on top of MOLGENIS \cite{Swertz:2004}, a Java based software to generate tailored 
-research infrastructure on-demand \cite{Swertz:2007}. From a single 'blueprint' describing the whole 
-system, MOLGENIS auto-generates a full application including user interface, database infrastructure, 
-application programming interfaces in R, REST and SOAP (APIs). MOLGENIS' flexibility and robustness 
-is proven by the wide range of research projects, e.g. the Nordic GWAS Control database \cite{Leu:2010}, 
-EB mutation database \cite{Akker:2011}, the Animal observation database \cite{Swertz:2010b}.
-
-For data storage, the eXtensible Genotype and Phenotype (XGAP) data model was adopted \cite{Swertz:2010a} 
-and extended for big data. To support the increased demand for computational resources for included 
-mapping routines we added high-level cluster and cloud management functions for computation. The 
-scalable QTL mapping routines of \xqtlwb are written in R and C. The choice of R ties in with the 
-general practice of using R for QTL mapping. The user interface includes direct access to the R 
-interpreter. Both \xqtlwb and MOLGENIS are open source software, and source code is transparently
-stored and tracked in online source control repositories.
-
-\subsection{Conclusions and Discussion}
-\xqtlwb provides a total-solution for web-based analysis: Major QTL mapping routines are integrated 
-for use by experienced and inexperienced users. Researchers can upload raw data, run analyses, explore 
-mapped QTL and underlying information, and link-out to important databases. New algorithms can be 
-flexibly added, immediately available to all users. Large analyses can be easily executed on a cluster, 
-or in the Cloud. Future work include visualizations and search options to explore the results. We also 
-had an EU-SYSGENET workshop that envisioned further integration of xQTL with analysis tools like HAPPY, 
-databases like GeneNetwork, and the workflow manager TIQS \cite{Durrant:2012}.
-
-\section{A worm database (WormQTL)}
-WormQTL is one of the application developed using the xQTL workbench system. It is a public web portal 
-for the management of all these new data and integrated development of suitable analysis tools. The 
-web server provides a rich set of analysis tools available to use directly, based on R/qtl 
-\cite{Broman:2003, Arends:2010}. Users can upload and share new R scripts as 'plugin' for colleagues 
-in the community to use directly. New data can be uploaded and downloaded using XGAP-extensible 
-text format for genotype and phenotypes\cite{Swertz:2010a}. All data and tools can be accessed 
-via web user interfaces and programming interfaces to R, REST, and SOAP web services. Large 
-consortia as well as individual researchers, can have a private area that is under embargo for 
-publication. All software is free for download as MOLGENIS 'app' \cite{Swertz:2010b}. WormQTL is 
-freely accessible without registration and is hosted on a large computational cluster enabling 
-high throughput analyses to all at:\\
-\url{http://www.wormqtl.org/}.
 
 \subsection{Background}
 
