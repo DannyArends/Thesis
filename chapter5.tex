@@ -162,7 +162,7 @@ genotype and genetic map data can be imported as text (TXT), comma separated (CS
 \xqtlwb handles and stores large data in a new and efficient binary edition of the XGAP format, named 
 XGAPbin (extension .xbin), documented online. Such binary formats are essential when handling, storing 
 and transporting multi-Gigabyte datasets.
-\item \emph{Customize to research} - Additional modules for new data modalities can be added using 
+\item \emph{Customize to research needs} - Additional modules for new data modalities can be added using 
 MOLGENIS software generator \cite{Swertz:2010b}. The 'look and feel' of \xqtlwb is adaptable to 
 institute or consortium style by changing a simple template which is described in the \xqtlwb 
 documentation enabling seamless integration into an existing web-site or intranet site, such as 
@@ -170,32 +170,28 @@ recently for EU-PANACEA model organism project and LifeLines biobank.
 \end{enumerate}
 
 \subsection{Reusable software (MOLGENIS)}
-\subsubsection{Background}
-High throughput technologies have boosted biological and medical research and the need for software 
-infrastructures to manage and process the large datasets produced is widely accepted \cite{Swertz:2007,
-Stein:2008, Thorisson:2009}. Bioinformaticians are under continuous pressure to both tackle the complexity 
-and diversity of new biological systems and analytical methods and to translate these quickly into 
-flexible informatics infrastructures, while keeping up with the unpredictable evolution of molecular 
-biotechnologies and the increasing scale of experiments. While standardization of tools and data formats 
-in open source projects like the Generic Model Organism Database, GMOD \cite{OConnor:2008}, and the 
-Open Bioinformatics Foundation, OBF \cite{OBF:2010:Online}, have been indispensable in reducing the 
-development efforts needed via reusable and easy to integrate components, new research must also be 
-quickly accommodated, for which efficient software variation mechanisms are needed.
+xQTL workbench was implemented using MOLGENIS. MOLGENIS was born from the observation that bioinformaticians 
+are under continuous pressure to both tackle the complexity and diversity of new biological systems and 
+analytical methods and to translate these quickly into flexible informatics infrastructures, while keeping 
+up with the unpredictable evolution of molecular biotechnologies and the increasing scale of experiments.
 
-We present the evolution of MOLGENIS into a generic, model-driven toolkit for the rapid generation of 
-data-intensive biosoftware applications \cite{Swertz:2010a}. Figure \ref{fig:modelDrivenDevelopment} 
-outlines the 'model-driven' development method that several bioinformatics projects adopted in recent 
-years to enable fast and flexible infrastructure development. We demonstrate step-by-
-step how bioinformaticians can use a domain-specific language to efficiently model the biological 
-details of their particular biological system, and use MOLGENIS software generation tools to 
-automatically generate a web application tailored to the experiments of their biologists, 
-building on reusable components. Next, we evaluate the results of these methods in the development 
-of a range of MOLGENIS applications \cite{Swertz:2004, Swertz:2010a, Thorisson:2009, Leu:2010, 
-Li:2009, Smedley:2008}, that is, software applications generated using the MOLGENIS toolkit. We found 
-up to 30 times efficiency improvement compared to hand-writing software, while providing a richness 
-of features practically unfeasible to produce by hand but not yet provided by related projects. We 
-conclude by inviting the bioinformatics community to add more MOLGENIS models, components and 
-generators to quickly generate all the software infrastructures biologists want to have.
+While standardization of tools and data formats in open source projects like the Generic Model Organism 
+Database, GMOD \cite{OConnor:2008}, and the Open Bioinformatics Foundation, OBF \cite{OBF:2010:Online}, have 
+been indispensable in reducing the development efforts needed via reusable and easy to integrate components, 
+new research must also be quickly accommodated, for which efficient software variation mechanisms are needed.
+
+Figure \ref{fig:modelDrivenDevelopment} outlines the 'model-driven' development method that several 
+bioinformatics projects adopted in recent years to enable fast and flexible infrastructure development. 
+We demonstrate step-by-step how bioinformaticians can use a domain-specific language to efficiently model 
+the biological details of their particular biological system, and use MOLGENIS software generation tools to 
+automatically generate a web application tailored to the experiments of their biologists, building on reusable components. 
+
+Next, we evaluate the results of these methods in the development of a range of MOLGENIS applications 
+\cite{Swertz:2004, Swertz:2010a, Thorisson:2009, Leu:2010, Li:2009, Smedley:2008}, that is, software 
+applications generated using the MOLGENIS toolkit. We found up to 30 times efficiency improvement compared 
+to hand-writing software, while providing a richness of features practically unfeasible to produce by 
+hand but not yet provided by related projects. We conclude by inviting the bioinformatics community to 
+add more MOLGENIS models, components and generators to quickly generate all the software infrastructures biologists want to have.
 
 \begin{figure}[ht!]
   \centering
@@ -220,7 +216,9 @@ reusable components.
 \subsubsection{Modeling language}
 A custom MOLGENIS application can be defined in a single file. The file is written in MOLGENIS' 
 modeling language. One can think of MOLGENIS' modeling language as a 'domain-specific language' 
-\cite{Deursen:2002}, in this case to compose biosoftware infrastructures.
+\cite{Deursen:2002}, in this case to compose biosoftware infrastructures. The level of abstraction 
+is raised, so no lengthy, technical or redundant details on how each feature should be implemented 
+in general programming languages have to be given.
 
 In most cases, knowledge of the DSL is all that is needed to produce a custom MOLGENIS application 
 variant. The domain-specific language was implemented using XML so that model files can be edited 
@@ -277,8 +275,7 @@ from \url{http://www.molgenis.org/}, which can be edited using the commonly used
 development environment (IDE) tool (\url{http://www.eclipse.org/}). Extensive manuals are available to 
 help install the Java, MySQL, Tomcat and Eclipse software needed and to learn how to walk through 
 the Eclipse workspace to edit models and generate and run MOLGENIS instances; most new users can 
-complete this part in about three hours. Below we summarize the output you can expect as well 
-as recent experiences from using this toolbox. Detailed examples on how these features can be 
+complete this part in about three hours. Detailed examples on how these features can be 
 used to support actual microarray or genetical genomics experiments can be found in \cite{Swertz:2010a, Li:2009, Smedley:2008}.
 
 After completing a MOLGENIS model and running the generator as described above, you have a 
@@ -286,6 +283,19 @@ ready-to-use software application. The features you get when running the generat
 a web application: a fully functional system where researchers can upload, manage, browse 
 and query their biological data that conform to the model, optionally enhanced with analysis 
 tools to explore and annotate (depending on the plug-ins).
+
+An important feature is human readable and printable documentation of your model, including a graphical 
+overview showing relationships in UML which is of great use when still designing and discussing the model 
+in a team. The next step is typically using the web user interface to populate and test your application 
+with real data. To enable batch loading from a spreadsheet application such as Excel, the system comes with 
+a tab-delimited import/export tool tailored for your data which you can use from the user interface as well 
+as via a command-line tool; i.e., the headers of your Excel file have to match the fields you have defined 
+in the model, In our experience, most computational biologists greatly appreciate the use of the R interface 
+to load, analyze and re-store data from within the R statistical environment with web services to connect 
+to workflow tools. Finally, advanced programmers may want to customize the layout or integrate their own 
+scripts into the user interface, that is, create plug-ins that are seamlessly integrated with the generated 
+software. Typical examples here are the integration of R scripts that produce graphical overviews of the data, 
+enabling them to be run by non-technical research colleagues
 
 \subsubsection{Applications of MOLGENIS}
 Since the earliest MOLGENIS application \cite{Swertz:2004}, we have successfully evaluated use of 
@@ -302,7 +312,7 @@ been used to extend or replace existing software applications: the ExtractModel 
 a MOLGENIS application from an existing database, which can then be run side-by-side with code developed 
 previously, providing the best of both generated and hand-written worlds.
 
-\subsection{Storing extensible data (XGAP)}
+\subsection{Extensible Genotype and Phentype data (XGAP)}
 We present an extensible software model for the genotype and phenotype community, XGAP. Readers 
 can download XGAP (\url{http://www.xgap.org/}) or auto-generate a custom version using 
 MOLGENIS with programming interfaces to R-software and web-services or user interfaces for 
@@ -311,13 +321,22 @@ protein, metabolite or other phenotype data. Current functionality includes tool
 from eQTL analysis in mouse to genome-wide association studies in humans.
 
 \subsubsection{XGAP - A minimal and extensible object model}
-We developed the XGAP objectmodel to uniformly capture the wide variety of (future) genotype 
-and phenotype data, building on generic standard model FuGE (Functional Genomics Experiment) 
-\cite{Jones:2007} for describing the experimental 'metadata' on samples, protocols and experimental variables 
-of functional genomics experiments, the OBO model (of the Open Biological and Biomedical 
-Ontologies foundry for use of standard and controlled vocabularies and ontologies that ease 
-integration \cite{Smith:2007}, and lessons learned from previous, profiling 
-technology-specific modeling efforts \cite{Brazma:2006}.
+Another foundation of xQTL workbench was the development of an extensible data model for genotype 
+and phenotype experiments (XGAP) that is designed as a platform to exchange data and tools and 
+to be easily customized into variants to suit local experimental models.
+
+Use of software domain specific language and auto-generation, implemented using MOLGENIS, aims to ease 
+and speed up customization/variation into new XGAP versions for new biotechnologies and alternative 
+experimental designs while ensuring consistent programming interfaces for the integration and sharing 
+of existing analysis tools. Standardized extension mechanisms should balance between format/interface 
+stability for existing data types and tools, and flexibility to adopt new ones.
+
+We developed the XGAP object model to uniformly capture the wide variety of (future) genotype and phenotype data, building 
+on generic standard model FuGE (Functional Genomics Experiment) \cite{Jones:2007} for describing 
+the experimental 'metadata' on samples, protocols and experimental variables of functional genomics 
+experiments, the OBO model (of the Open Biological and Biomedical Ontologies foundry for use of 
+standard and controlled vocabularies and ontologies that ease integration \cite{Smith:2007}, 
+and lessons learned from previous, profiling technology-specific modeling efforts \cite{Brazma:2006}.
 
 Figure \ref{fig:XGAP}b shows the core components of a genotype-to-phenotype investigation: the biological 
 subjects studied (for example, human individuals, mouse strains, plant tissue samples), the 
@@ -347,52 +366,56 @@ We describe these biological components using FuGE data types and XGAP extension
 Investigation binds all details of an investigation. Each investigation may apply a series 
 of bio molecular \cite{Brown:2005} and computational \cite{Carey:2007,Alberts:2008,Fu:2007,Bhave:2007} 
 Protocols. The applications of such Protocols are termed ProtocolApplications, which in the case 
-of computational Protocols may require 
-input Data and will deliver output Data.These data have the form of matrices, the DataElements 
-of which have a row and a column index. Each row and column refers to a DimensionElement, 
-being a particular Subject or a particular Trait, Table 2 illustrates the usage of these core 
-data types. Figure \ref{fig:XGAP}a and \ref{fig:XGAP}c shows how the XGAP model can be extended to accommodate details on 
+of computational Protocols may require input Data and will deliver output Data.These data have the 
+form of matrices, the DataElements of which have a row and a column index. Each row and column refers to a DimensionElement, 
+being a particular Subject or a particular Trait. 
+
+Figure \ref{fig:XGAP}a and \ref{fig:XGAP}c shows how the XGAP model can be extended to accommodate details on 
 particular types of subjects and traits in a uniform way. A Trait can be a classical phenotype 
 (for example, flowering - the flowering time is stored in the DataElement) or a bio molecular 
 phenotype (for example, Gene X it's transcript abundance is stored in the DataElement). A 
 Trait can also be a genotype (for example, Marker Y is a genomic feature observation that is 
-stored in the DataElement). Genomic traits such as Gene, Marker and Probe all need additional 
-information about their genome Locus to be provided. Similarly, a Subject can be a single 
-Sample (for example, a labeled biomaterial as put on a microarray) and such a sample may 
-originate from one particular Individual. It may also be a PairedSample when biomaterials come 
-from two individuals - for example, if biomaterial has been pooled as in two-color microarrays. 
-An individual belongs to a particular Strain. When new experiments are added new variants of 
-Trait and Subject can be added in a similar way. Table 3 illustrates the generic usage of 
-these extended data types.
+stored in the DataElement). 
+
+Genomic traits such as Gene, Marker and Probe all need additional information about their genome 
+Locus to be provided. Similarly, a Subject can be a single Sample (for example, a labeled 
+biomaterial as put on a microarray) and such a sample may originate from one particular Individual. 
+It may also be a PairedSample when biomaterials come from two individuals - for example, if 
+biomaterial has been pooled as in two-color microarrays. An individual belongs to a particular 
+Strain. When new experiments are added new variants of Trait and Subject can be added in a similar 
+way.
 
 Several standard data types were also inherited from FuGE to enable researchers to provide 
 'Minimum Information' for QTLs and Association Studies such as defined in the MIQAS checklist 
  - a member of the Minimum Information for Biological and Biomedical Investigations (MIBBI) 
 guideline effort \cite{Taylor:2008}
 
-To support the increased demand for computational resources for included mapping routines we added 
-high-level cluster and cloud management functions for computation. The scalable QTL mapping routines of 
-\xqtlwb are written in R and C. The choice of R ties in with the general practice of using R for QTL 
-mapping. The user interface includes direct access to the R interpreter. XGAP, \xqtlwb and MOLGENIS are 
-open source software, and source code is transparentlystored and tracked in online source control 
-repositories.
+\subsubsection{Simple text-file format for data exchange}
+To enable data exchange using the XGAP model, we produced a simple text-file format (XGAP-TAB) based 
+on the experience that for data formats to be used, data files should be easily created using simple 
+Excel and text editor tools and closely resemble existing practices. This format is automatically 
+derived from the model by requiring that all annotations on Investigations, Protocols,Traits, Subjects, 
+and extensions thereof, are described as delimited text files (one file per data type) with columns 
+matching the properties described in the object model and each row describing one data instance. 
+Optionally, sets of DataElements can also be formatted as separate text matrices with row and column 
+names matching these in the Trait and Subject annotation files, and with each matrix value matching 
+one DataElement. The dimensions of each data matrix are then listed by a row in the annotations on Data.
 
-\subsubsection{XGAP - Conclusions and Discussion}
-We present a minimal and extensible data infrastructure for the management and 
-exchange of genotype-to-phenotype experiments, including an object model for genotype and 
-phenotype data (XGAP-OM), a simple file format to exchange data using this model (XGAP-TAB) 
-and easy-to-customize database software (XGAP-DB) that will help groups to directly use and 
-adapt XGAP as a platform for their particular experimental data and analysis protocols. We 
-successfully evaluated the XGAP model and software in a broad range of experiments: array 
-data (gene expression, including tiling arrays for detection of alternative splicing, 
-ChIP-on-chip for methylation, and genotyping arrays for SNP detection); proteomics and 
-metabolomics data (liquid chromatography time of flight mass spectrometry (LC-QTOF MS), NMR); 
-classical phenotype assays \cite{Heap:2009, Bystrykh:2005, Li:2006, Keurentjes:2006, Stranger:2007, Bailey:2008, Beamer:1999}; 
-other assays for detection of genetic markers; and annotation information for panel, gene, 
-sample and clone. 
+
+\subsubsection{Application programming interfaces}
+De facto standard analysis tools are emerging, for example, tools for transcript data [20,21,24] or 
+metabolite abundance data [22] to mention just a few. These tools are typically implemented using the 
+open source software for statistical analysis and graphics named R \cite{Ihaka:1996}. 
+
+Bioinformaticians can connect their particular R or Java programs to the XGAP database using an API 
+with similar functionality to the GUI, that is, using simple commands like 'find', 'add' and 'update' 
+(R/API, Java/API). Scripts in other programming languages and workflow tools like Taverna \cite{Oinn:2004} can 
+use web services (SOAP/API) or a simple hyperlink-based interface (HTTP/API). On top of this, conversion 
+tools have been added to the R interface to read and write XGAP data to the widely used R/qtl package \cite{broman:2003, Arends:2010}.
 
 Based on these experiences, we expect use of XGAP to help the community of genome-to-phenome 
 researchers to share data and tools, notwithstanding large variations in their research aims. 
+
 The XGAP data format can be used to represent and exchange all raw, intermediate and result 
 data associated with an investigation, and an XGAP database, for instance, can be used as a 
 platform to share both data and computational protocols (for example, written in the R 
@@ -413,34 +436,12 @@ much more rapidly. We invite the broader community to join our efforts at the pu
 wiki, mailing list and source code versioning system to evolve and share the best XGAP 
 customizations and GUI/API 'plug-in' enhancements, to support the growing range of profiling 
 technologies, create data pipelines between repositories, and to push developments in the 
-directions that will most benefit research
-
-\subsubsection{xQTL - Conclusions and Discussion}
-\xqtlwb provides a total-solution for web-based analysis: Major QTL mapping routines are integrated 
-for use by experienced and inexperienced users.  Tools such as a two-way communication with R/QTL 
-\cite{Broman:2003, Arends:2010} enabling QTL mapping on XGAP formatted genotypes and phenotypes with 
-QTL results stored back into \xqtlwb. Researchers can upload raw data, run analyses, explore 
-mapped QTL and underlying information, and link-out to important databases. New algorithms can be 
-flexibly added, immediately available to all users. Large analyses can be easily executed on a cluster, 
-or in the Cloud. Future work include visualizations and search options to explore the results. We also 
-had an EU-SYSGENET workshop that envisioned further integration of xQTL with analysis tools like HAPPY, 
-databases like GeneNetwork, and the workflow manager TIQS \cite{Durrant:2012}.
+directions that will most benefit research.
 
 \section{A worm database (WormQTL)}
-WormQTL is one of the application developed using the xQTL workbench system. It is a public web portal 
-for the management of all these new data and integrated development of suitable analysis tools. The 
-web server provides a rich set of analysis tools available to use directly, based on R/qtl 
-\cite{Broman:2003, Arends:2010}. Users can upload and share new R scripts as 'plugin' for colleagues 
-in the community to use directly. New data can be uploaded and downloaded using XGAP-extensible 
-text format for genotype and phenotypes\cite{Swertz:2010a}. All data and tools can be accessed 
-via web user interfaces and programming interfaces to R, REST, and SOAP web services. Large 
-consortia as well as individual researchers, can have a private area that is under embargo for 
-publication. All software is free for download as MOLGENIS 'app' \cite{Swertz:2010b}. WormQTL is 
-freely accessible without registration and is hosted on a large computational cluster enabling 
-high throughput analyses to all at:\\
-\url{http://www.wormqtl.org/}.
-
-\subsection{Background}
+Here, we present an application of xQTL workbench: WormQTL (http://www.wormqtl.org), an 
+easily accessible database enabling search, comparative analysis and meta-analysis of all 
+data on variation in \emph{Caenorhabditis spp}. 
 
 Over the past 30 years, the metazoan \emph{Caenorhabditis elegans} has become a premier animal model for 
 determining the genetic basis of quantitative traits \cite{Gaertner:2010, Kammenga:2008}. The 
@@ -463,24 +464,15 @@ the EU, its design was tuned to the needs of \emph{C. elegans} researchers via a
 series of interactive design and user evaluation sessions on a mission to integrate all 
 available data within the project.
 
-As a result, data that were scattered across different platforms and databases can now be 
-stored, downloaded, analysed and visualized in an easily and comprehensive way in WormQTL. 
-On top, the database provides a set of user interfaced analysis tools to search the database 
-and explore genotype-phenotype mapping based on R/qtl \cite{Broman:2003, Arends:2010}. New 
-data can be uploaded and downloaded using the extensible plain text format for genotype and 
-phenotypes, XGAP \cite{Swertz:2010a}. There is no limit to the type of data (from gene 
-expression to protein, metabolite or cellular data) that can be accommodated because of its 
-extensible design. All data and tools can be accessed via a public web user interface and 
-programming interfaces to R and REST web services, which were built using the MOLGENIS 
-biosoftware toolkit \cite{Swertz:2010b}. Moreover, users can upload and share more R 
-scripts as 'plugin' for the colleagues in the community to use directly and run those on a 
-computer cluster using software modules from xQTL workbench \cite{Arends:2012, Snoek:2012}; this requires 
-login to prevent abuse. All software can be downloaded for free to be used, for example as 
-local mirror of the database, and/or to host new studies.
-
 All the software was built as open source, reusing and building on existing open source components 
 as much as possible. WormQTL is freely accessible without registration and is hosted on a large 
-computational cluster enabling high-throughput analyses. Below we detail the results and future plans.
+computational cluster enabling high-throughput analyses.
+
+As a result, data that were scattered across different platforms and databases can now be 
+stored, downloaded, analysed and visualized in an easily and comprehensive way in WormQTL. 
+Moreover, users can upload and share more R scripts as 'plugin' for the colleagues in the 
+community to use directly and run those on a computer cluster using software modules from 
+\xqtlwb \cite{Arends:2012, Snoek:2012}; this requires login to prevent abuse.
 
 \subsection{Results}
 WormQTL is an online database platform for expression quantitative trait loci (eQTL) exploration 
@@ -526,18 +518,8 @@ speed up download and (parallel) analyses. Alternatively, readers can request a 
 data and new analysis scripts directly.
 \end{enumerate}
 
-\subsection{Conclusions and Discussion}
 \subsubsection{Implementation}
-All the software was implemented using the open source Molecular Genetics Information Systems 
-MOLGENIS toolkit \cite{Swertz:2010a}, and in particular one previously existing MOLGENIS application, the 
-extensible xQTL workbench \cite{Arends:2012} and the R/qtl QTL mapping and visualization package for the R 
-language \cite{Broman:2003, Arends:2010}. The MOLGENIS toolkit is a Java-based software to generate tailored research 
-infrastructure on demand \cite{Swertz:2007}. From a single 'blueprint' describing all biological data 
-structures and user interfaces of the whole system, MOLGENIS auto generates a full application 
-including user interface, database infrastructure and application programming interfaces 
-(APIs) in R, REST and SOAP.
-
-At the push of a button, MOLGENIS 'generators' automatically translates these models into a 
+Using the XGAP data model, MOLGENIS 'generators' automatically translates these models into a 
 database, standard user interfaces for data queries and updates, upload/download tools for 
 tab-delimited data and scriptable interfaces for programmers to users from within R and via 
 web services. This greatly speeded up the initial software development and also enables rapid 
@@ -570,40 +552,9 @@ wrongly labelled sample correction. In this process, we greatly benefitted from 
 with xQTL workbench, which enabled us to re-run all these analyses on the computer cluster 
 and add new R analysis procedures when needed, simply from the user interface.
 
-All software is available as open source on \url{http://github.com/molgenis/} for others to reuse 
-locally, and related technical documentation is available from:\\ \url{http://www.xqtl.org/}, 
-\url{http://www.rqtl.org/} and \url{http://www.molgenis.org/}.
-
-\subsubsection{Future plans}
-The current version of WormQTL (June 2012) is a comprehensive, versatile and flexible package. 
-Follow-up plans of more extended versions with new tools and data depend on the demand by the 
-users of WormQTL. We envisage that in the future, three types of new tools will be developed: 
-(i) visualization tools, (ii) QTL mapping tools and (iii) candidate gene selection tools. Improved 
-visualization tools might include plotting a phenotype against the marker at a certain position; 
-so the two groups become visible at a QTL position. Also plots can be made showing transgression 
-and heritability per microarray probe or gene or histograms of the phenotypic values (and include 
-the parental values if available). Advanced QTL mapping tools might include multi-environment
-/age mapping or genotype-by-environment analyses, developed in collaboration with the R/qtl team 
-to enable automatic links to this software. The candidate gene selection tools would benefit from 
-the most recent stable release of Wormbase \cite{Yook:2012}, the most widely used platform for worm biology. 
-But also other sources of information like MODENCODE \cite{Gerstein:2010} or Wormnet 
-\cite{Lee:2008} are likely to be connected with WormQTL. A candidate gene selection tool might be 
-implemented in a next version 
-of WormQTL as it is less easy to implement and often needs information beyond WormQTL. One can 
-think of (i) which SNPs/genes/polymorphic genes/transcription factor binding sites and so forth 
-are underlying a eQTL; (ii) which gene, underlying my xQTL, is linked to most of the genes 
-having an xQTL; (iii) which genes are polymorphic and (iv) which other genotypes show a difference 
-in expression and do they share polymorphisms with the parental strains of the RIL population 
-that the xQTL was mapped in. Moreover, WormQTL can be easily expanded to other Caenorhabditis 
-species \cite{Ross:2011}.
-
-We believe that WormQTL, which will be continuously curated by the members of this international 
-consortium, is a very attractive database for the growing community of quantitative genetics in 
-worms researchers. We are committed to maintain data and software for the years to come and invite 
-the community to add and share new data and ideas.
-
-\subsection{Januari 2014: Update to wormQTL-HD}
-Interactions between proteins are highly conserved across species. As a result, the molecular basis 
+\subsection{Extensions into WormQTL-HD}
+Since its first publication, WormQTL has been expanded into a ‘human disease’ version. Interactions 
+between proteins are highly conserved across species. As a result, the molecular basis 
 of multiple diseases affecting humans can be studied in model organisms that offer many alternative 
 experimental opportunities. One such organism - \emph{Caenorhabditis elegans} - has been used to produce much 
 molecular quantitative genetics and systems biology data over the past decade. We present WormQTLHD 
@@ -618,4 +569,68 @@ phenotypes in these two species. We utilized QTL results, high-throughput molecu
 classical phenotypes and genotype data covering different developmental stages and environments from 
 WormQTL database. All software is available as open source, built on MOLGENIS and xQTL workbench. 
 
+\subsection{Conclusion}
+xQTL workbench provides a total solution for web-based analysis: major QTL mapping routines are 
+integrated for use by experienced and inexperienced users. Researchers can upload raw data, run 
+analyses, explore mapped QTL and underlying information, and link-out to important databases. New 
+algorithms can be flexibly added, immediately available to all users. Large analyses can be easily 
+executed on a cluster or in the Cloud. Future work include visualizations and search options to 
+explore the results. We also had an EU-SYSGENET workshop that envisioned further integration of 
+xQTL with analysis tools like HAPPY, databases like GeneNetwork, and the workflow manager TIQS 
+\cite{Durrant:2012}
+
+\xqtlwb was built on a minimal and extensible data infrastructure for the management and 
+exchange of genotype-to-phenotype experiments, including an object model for genotype and 
+phenotype data (XGAP-OM), a simple file format to exchange data using this model (XGAP-TAB) 
+and easy-to-customize database software (XGAP-DB) that will help groups to directly use and 
+adapt XGAP as a platform for their particular experimental data and analysis protocols. We 
+successfully evaluated the XGAP model and software in a broad range of experiments: array 
+data (gene expression, including tiling arrays for detection of alternative splicing, 
+ChIP-on-chip for methylation, and genotyping arrays for SNP detection); proteomics and 
+metabolomics data (liquid chromatography time of flight mass spectrometry (LC-QTOF MS), NMR); 
+classical phenotype assays \cite{Heap:2009, Bystrykh:2005, Li:2006, Keurentjes:2006, Stranger:2007, Bailey:2008, Beamer:1999}; 
+other assays for detection of genetic markers; and annotation information for panel, gene, 
+sample and clone. 
+
+Non-technical partners successfully evaluated the practical utility by independently 
+formatting and loading parts of their consortium data: EU-CASIMIR (for mouse), EU-GEN2PHEN (for human), 
+EU-PANACEA (for \emph{C. elegans}) and IOP-Brassica (for plants). A public subset of these data sets 
+is available for download at \url{http://www.xgap.org}. When needed we could quickly add customizations to the 
+model, building on the general schema, and then use MOLGENIS to generate a new version of the 
+software at the push of a button, for example, to support NMR methods as an extended type of 
+Trait \cite{Fu:2009}. Furthermore we successfully integrated processing tools, such as a two-way 
+communication with R/QTL \cite{Broman:2003, Arends:2010} enabling QTL mapping on XGAP 
+stored genotypes and phenotypes with QTL results stored back into XGAP.
+
+In a recent perspective paper \cite{Swertz:2007} we evaluated the general benefits and pitfalls of model-driven 
+development, such as the ability to develop infrastructure in short cycles to get the application 
+right, ensuring developers and biologists are thinking along the same lines and increasing quality 
+and functionality for all. We further evaluated applying this method to both microarray and genetical 
+genomics experiments \cite{Swertz:2004}, \cite{Swertz:2010a}.
+
+Here we have presented MOLGENIS in detail for xQTL workbench and reported the results of using this 
+method against a wider range of applications. We conclude that using model-driven methods enables 
+bioinformaticians to build biological software infrastructures faster than before, with the additional 
+benefit of much easier sharing of models, data and components.
+
+Since its first creation, xQTL workbench has spawned a series of useful applications. We described 
+the richest example to data, WormQTL (http://www.wormqtl.org), an easily accessible database enabling 
+search, comparative analysis and meta-analysis of all data on variation in \emph{Caenorhabditis spp}. 
+
+Recently, WormQTLHD (Januari 2014) is a comprehensive and compendious database that enables molecular 
+model organism data to be studied in the context of human diseases. Just as with WormQTL \cite{Snoek:2012}, 
+we believe that WormQTLHD will be continuously curated by the members of the \emph{C. elegans} community. 
+
+We expect to further develop the \xqtlwb and WormQTL data and toolsets. There might be more ways in which 
+researchers would like to search through the large amounts of data, for example, based on custom lists of 
+gene identifiers, or by combining tools such as finding QTLs within specific regions. The QTL plots could 
+be improved or replaced with interactive graphs that are more informative and would allow the users to 
+continue 'drilling down' in the data instead of returning to the home page for a new analysis with a 
+different tool. Furthermore, we envisage close integration with other data sources and tools such as WormNet, 
+R/qtl and GO Enrichment to provide even more biological context and analytical tools for the user. 
+
+We are committed to maintaining the data and software in the future and invite the community to add and 
+share their new data and ideas. All software is available as open source on \url{http://github.com/molgenis/} 
+for others to reuse locally, and related technical documentation is available from:\\ \url{http://www.xqtl.org/}, 
+\url{http://www.rqtl.org/} and \url{http://www.molgenis.org/}.
 
