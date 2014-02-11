@@ -1,4 +1,4 @@
-1) Phenotypes with major QTL can be used as markers track the flow of DNA segregation within a population, 
+1) Phenotypes showing major QTL can be used as markers to trace the flow of DNA segregation within a population, 
 improve resolution of a genetic map or even derive this map de-novo. (This Thesis)
 
 2) Pinpointing all informative recombinations improves the resolution of any genetic 
