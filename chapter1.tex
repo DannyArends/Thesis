@@ -102,7 +102,7 @@ complex data in a powerful way. The impact of these developments is that all kin
 now be tested. For example, 20 years ago the concept of Multiple QTL Mapping (MQM) was developed. This technique 
 aims to compare all genetic markers to each other. At the time when MQM was conceptualised, it was computational 
 very demanding. Because of the current increase of computational power, we are able to revisit MQM's methodological 
-challenges and demonstrate that using smarter ways of computation will allow us to solve research questions and 
+challenges and demonstrate that using high-throughput computational methodologies will allow us to solve research questions and 
 do this in reasonable time. 
 
 QTL mapping associates phenotype variation with genetic variation using appropriate statistical methods, such as 
@@ -119,13 +119,13 @@ or test new approaches for QTL detection. Furthermore, it comes with a large use
 the mouse QTL mapping community.
 
 High throughput phenotyping provides us with data on thousands of phenotypes. Some of these phenotypes can be used 
-as genetic marker because they show a major QTL effect. This leads to a situation in which we have a low quality genetic 
-map and an abundance of phenotypes which could be used to improve the map quality. This knowledge, combined with a 
-lack of good genetic map creation software in the R/qtl package, has fuelled the development of the sensitive algorithm 
+as genetic marker because they show a major QTL effect. This leads to a situation in which we have a genetic 
+map and an abundance of phenotypes which could be used to improve the map quality, by pinpointing all informative recombinations. 
+This knowledge, combined with a lack of good genetic map creation software in the R/qtl package, has fuelled the development of the sensitive algorithm 
 Pheno2Geno. It uses mixture modelling, combined with a sensitive pre-selection approach. This results in faster 
 genetic map creation as compared to other methods, and is the main reason for our ambition to add Pheno2Geno to R/qtl. 
 
-QTL interactions are a novel area of interest in Systems genetics. For example, in recent years several papers were 
+QTL interactions are an improtant area of interest in Systems genetics. For example, in recent years several papers were 
 published on cell type or sex specificity of QTLs. Detection of these cell type specific QTLs has proven to be extremely 
 difficult because it requires large sample sizes.  Meta-analysis, where we combine the samples from separate studies 
 to improve power, is a prerequisite when studying cell type specific expression-QTLs (eQTLs). We noticed a lack of 
@@ -149,7 +149,7 @@ guide the research:
 \section{The first genetic theories (1800-1930)}
 As this research project approaches 'old' genetic theories with new Bioinformatics tools, it is relevant to place 
 them in their historic context. The research field of genetics is relatively old, as it is founded when Gregor 
-Mendel publishes his work on the inheritance of phenotypes in pea plants. His work, described in 'Versuche über 
+Mendel publishes his work on the inheritance of phenotypes in pea plants. His work, described in 'Versuche \"uber 
 Pflanzen-Hybriden' in 1865-1866 \cite{Mendel:1866}, gives us Mendel's Laws of Inheritance. He observed that crossing 
 two plants with different flower colours leads to an offspring population with predictable colour ratios. He 
 postulated the idea of heredity units and stated that each individual carries two of these, which results in a 
@@ -294,7 +294,7 @@ thesis.
 \section{From phenotypes to genetical omics and GWAS (1990-2010)}
 
 The basis of an observed phenotype expression is often more complex than a single causative gene \cite{Sinha:2006, 
-West:2007}. To model these more complex interactions between multiple regulators of gene expression requires extension of 
+West:2007}. To model these more complex situations where multiple regulators are influencing gene expression levels requires extension of 
 the basic model for QTL mapping. Extending the model is done by incorporating sources of variation as co-factors. This 
 allows us to associate/partition the observed variance to either environmental factors (E) or genetic loci (G). The method 
 is to include additional genetic components into the model, and then scan for QTLs conditional on these other genetic effects. 
