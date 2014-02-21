@@ -20,7 +20,7 @@
 \section{General discussion}
 This thesis advocates that using high-throughput computational methodologies and more optimised algorithms such as Pheno2Geno (P2G), 
 or Multiple QTL mapping (MQM), combined with taking advantage of modern shared computational infrastructure, can provide a solution 
-to the ’Big Data’ challenges in Systems genetics. Federated computing, and collaborative research, require tools such as the xQTL 
+to the 'Big Data' challenges in Systems genetics. Federated computing, and collaborative research, require tools such as the xQTL 
 workbench, to work together and avoid duplicate efforts. This final chapter first provides a short summary of the contents of the 
 research findings, followed by a discussion of some of the relevant scientific issues that were addressed. Also, conclusions are drawn 
 on the impact of the Bioinformatics research and methodologies, presented in this thesis, on insights in the Systems biology. The 
@@ -51,7 +51,7 @@ analysis will improve our power to detect QTLs and enables us to assign cell typ
 
 Chapter 5 details our work to provide computational infrastructure for the Life Sciences. We advocate the use of generators to 
 create software and propose a generic and extensible data model (XGAP) to store phenotype and genotype data. Combining these 
-two approaches we developed several tools for ‘Big Data’ infrastructure. The combination of these tools is the xQTL workbench, 
+two approaches we developed several tools for ‘Big Data' infrastructure. The combination of these tools is the xQTL workbench, 
 a scalable web platform for the mapping of quantitative trait loci (QTLs) at multiple levels such as gene expression (eQTL), 
 protein abundance (pQTL), metabolite abundance (mQTL), and phenotype (phQTL) data. Popular QTL mapping methods for model organism 
 and human populations are accessible via the web user interface. The system also allows researchers to contribute new analytical 
@@ -107,8 +107,8 @@ that future releases of P2G will include support for these species, as the exper
 our group and the topic is subject of ongoing research. 
 
 P2G is written in R. Despite this computer language is frequently used in the analysis of biological data, it is also recognised 
-that R is losing ground because of poor performance on extremely large datasets. We don’t see this as a huge drawback because 
-routines in P2G are designed to minimise memory usage of the algorithm by providing ‘lazy’ equivalents of core functions, in such 
+that R is losing ground because of poor performance on extremely large datasets. We don't see this as a huge drawback because 
+routines in P2G are designed to minimise memory usage of the algorithm by providing ‘lazy' equivalents of core functions, in such 
 a way that data are only brought into RAM when necessary.
 
 \section{MQM revisited}
@@ -126,14 +126,14 @@ QTL mapping consists of two consecutive phases, modeling and mapping. In the mod
 possible number of underlying QTL. We then use genetic loci to explain as much variation as possible. Subsequently, in the next phase 
 of QTL mapping, the model is used and novel loci are included as assessed for their association with the phenotype of interest. We 
 implemented multiple ways to build initial models for mapping analysis, including: forward model selection, backward elimination of 
-cofactors from a full model, and the application of the user’s own custom cofactor model. How precisely the different modeling 
+cofactors from a full model, and the application of the user's own custom cofactor model. How precisely the different modeling 
 techniques of MQM for systems genetics research are used, and their pitfalls, are described in a detailed 40 page manual.
 
 We have chosen to merge MQM with the R/qtl toolkit, as it has already proven itself in the mouse QTL mapping community. It is generally 
 viewed as the standard for QTL mapping in all inbred species, and provides a unified data structure on which algorithms work. This 
 allows quick incorporation of new algorithms and provides a common basis for data exchange between researchers. 
 
-MQM’s core algorithm is written in C/C++ and is brought to R by creating a glue layer. Input to MQM is written in such a way that current 
+MQM's core algorithm is written in C/C++ and is brought to R by creating a glue layer. Input to MQM is written in such a way that current 
 R/qtl users can easily use the new MQM routine without need to reformat the data. However, because the code is mostly written in C/C++  
 it is a trivial exercise to provide/interface MQM to different languages such as R, C/C++ and Ruby. This implies that the MQM routine is 
 much more flexible to future changes in requirements or specifications, and/or language choice. It can also be extended to other tool 
@@ -164,12 +164,12 @@ by calculating phenotypes in parallel, through the Message Passing Interface (MP
 8. Visualisations for exploring interactions in a genomic circle plot (Fig. \ref{fig:circleplot}) and cis- and trans-regulation (Fig. \ref{fig:cistrans}).
 
 The MQM for R/qtl also has drawbacks. It is computational much more intensive than single marker mapping. As it is designed in two languages, i.e. 
-R and C/C++, the programme’s maintenance is more difficult. Additionally, interpretation of the results is more complex when performing a multiple 
+R and C/C++, the programme's maintenance is more difficult. Additionally, interpretation of the results is more complex when performing a multiple 
 QTL scan. This is due to the fact that every phenotype is modelled in a unique way before scanning for QTL. 
 
 \section{Visualising the output}
 As stated above, using MQM may pose problems to the user/biologist, as the complexity of the model makes it much harder to interpret, as compared to 
-the single marker QTL scan, which has a naïve model; one QTL for complex traits is by definition an oversimplification and (therefore) false. To 
+the single marker QTL scan, which has a na\"ive model; one QTL for complex traits is by definition an oversimplification and (therefore) false. To 
 alleviate the need for long and complex tabular output, we created circle plot visualisations (an example is shown in Fig \ref{fig:circleplot}). When 
 scanning for interactions between multiple loci, it is common to compare everything versus everything. Since MQM provides us with a model of the main 
 effect loci, we are able to quickly assess any interactions between them because we only have to analyse a hand full of possible interactions, i.e. 
@@ -244,16 +244,16 @@ as compared to a normal GWAS. This increase in sample size allows us to detect m
 we can use an additional level of information to assess our eQTLs. Looking at the direction of the eQTL effect in different cohorts, allows assessment 
 of the consistency of the direction across multiple datasets. 
 
-Known genetic variants underlying for example Crohn’s disease, IBD (inflammatory bowel disease) or asthma, are available from the literature 
+Known genetic variants underlying for example Crohn's disease, IBD (inflammatory bowel disease) or asthma, are available from the literature 
 \cite{Hindorff:2009}. In our study we demonstrated that using meta-analysis allows to assign cell type labels to all eQTL detected. Combining 
-these two sources of information allows us to test if the eQTLs showing association with a disease (such as Crohn’s disease) are specific for a 
+these two sources of information allows us to test if the eQTLs showing association with a disease (such as Crohn's disease) are specific for a 
 certain cell type. This information can be used in future research to find therapeutic targets for these diseases, or to understand why certain 
 targets which might seem valid at first, turn out not to be effective.
 
-Our study revealed that Crohn's disease indeed has a strong neutrophil component ($P < 0.0018$). While Crohn’s disease showed a significant number of 
-neutrophil specific eQTL, this was not the case for IBD. We conclude that derangements in different cell types are involved in IDB and Crohn’s disease. 
-This is surprising, because Crohn’s disease is classified as a type of IBD \cite{Sandborn:2012}. Here we find supporting evidence that different 
-pathophysiological processes are present in Crohn’s disease, as compared to other IBD conditions such as Colitis ulcerosa. 
+Our study revealed that Crohn's disease indeed has a strong neutrophil component ($P < 0.0018$). While Crohn's disease showed a significant number of 
+neutrophil specific eQTL, this was not the case for IBD. We conclude that derangements in different cell types are involved in IDB and Crohn's disease. 
+This is surprising, because Crohn's disease is classified as a type of IBD \cite{Sandborn:2012}. Here we find supporting evidence that different 
+pathophysiological processes are present in Crohn's disease, as compared to other IBD conditions such as Colitis ulcerosa. 
 
 The methodology for cell type specific eQTL also revealed some disadvantages. The selection of the covariate is very important. Here we used a 
 continuous variable (cell abundance or cell percentage), in a comparable way to the mapping of sex specific eQTL, where the covariate is a 
@@ -282,7 +282,7 @@ difficult to anticipate to new demands, requirements or new developments, that c
 analysis \cite{R:2005}. Despite this, in our opinion the xQTL workbench is well suited to tackle such changing requirements by leveraging the strength of 
 generators and the flexibility of the XGAP data model.
 
-Infrastructure in Systems genetics is created with generators, as it alleviates the need to handwrite most of the system’s common codes. This common 
+Infrastructure in Systems genetics is created with generators, as it alleviates the need to handwrite most of the system's common codes. This common 
 code consists of basic database parts such as: Create, Read, and Update functions for the underlying database system, generated web interfaces to enter 
 and curate data, and application programming interfaces (APIs) to transfer data from one language (e.g. Java) to another (e.g. R). We used the MOLGENIS 
 generator together with the flexible XGAP data model to set up a system capable of handling any genetical genomics experiment 'at the push of a button' 
@@ -361,7 +361,7 @@ or products. Furthermore, by increasing the amount of loci detected MQM (as well
 the genetic basis of heritable traits, such as crop yield, seed quality, and disease susceptibility, for example Crohn's disease. MQM improves our 
 statistical model by adding genetic loci as explanatory variables, while cell type specific eQTL mapping does this by incorporating environmental 
 effects. Although we only applied our cell type specific eQTL mapping to neutrophils and lymphocytes in whole blood as proof of principle, we 
-observed that SNPs associated with Crohn’s disease are present more often than randomly expected to show a neutrophil specific eQTL effect.
+observed that SNPs associated with Crohn's disease are present more often than randomly expected to show a neutrophil specific eQTL effect.
 
 Our system xQTL workbench was used as storage and computation platform in wormQTL and wormQTL-HD databases. Furthermore an Arabidopsis database is 
 presently being developed to contain similar features as the womQTL database. We demonstrated the need for translation analysis in wormQTL-HD and 
