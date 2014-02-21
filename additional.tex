@@ -139,7 +139,7 @@ Earlier work has shown the following advantages of MQM for R/qtl to QTL mapping\
 
 1. Higher power, as long as the QTL explain a reasonable amount of variation.
 
-2. Protection against over-fitting, because MQM fixes the residual variance from the full model, which allows the use of more cofactors than may be used in, for example, composite interval mapping [21].
+2. Protection against over-fitting, because MQM fixes the residual variance from the full model, which allows the use of more cofactors than may be used in, for example, composite interval mapping \cite{Zeng:1994}.
 
 3. Prevention of ghost QTL detection (between two QTL in coupling phase).
 
@@ -184,9 +184,9 @@ plots show main effects for many phenotypes, combined with genetic location info
 
 \section{Limitations of R as analysis platform for R/qtl}
 When dealing with high throughput data obtained from RNA-seq, exome sequencing or Bisulphite sequencing, data size quickly becomes the limiting 
-factor for software written in R. Because R/qtl-HD is aimed at QTL analysis of high-density, high-throughput data, R is not a suitable language 
+factor for software written in R \cite{Ristić:2009, Patel:2012}. Because R/qtl-HD is aimed at QTL analysis of high-density, high-throughput data, R is not a suitable language 
 for the high throughput computational parts of the algorithms. R/qtl-HD is written in the high performance D programming language. D is chosen 
-as primary language because it was developed to perform safe and high throughput numerical analyses. D uses a C like syntax [267], and therefore 
+as primary language because it was developed to perform safe and high throughput numerical analyses. D uses a C like syntax \cite{Alexandrescu:2011}, and therefore 
 provides a familiar syntax to the R/qtl developers, most of whom have a C/C++ background, making D the language of choice for R/qtl-HD. 
 Additional features of D include:
 
@@ -378,7 +378,7 @@ As the interesting and novel developments are created at the interface of the re
 section first looks into the future of both fields separately, after which some ideas about the interdisciplinary domain are presented.  
 
 Genetics research is producing more data than ever before. This leads to an almost exponential increase in data similar to Moore's law of 
-computing, which states that “Every 18 months CPU power doubles” \cite{Moore:1998, Editorial:2009}. Large scale sequencing facilities such as the Sanger Institute (USA) and 
+computing, which states that '\emph{Every 12 to 24 months CPU power doubles}' \cite{Moore:1975, Moore:1998, Editorial:2009}. Large scale sequencing facilities such as the Sanger Institute (USA) and 
 the Beijing Genomics Institute (China) continue to produce an ever increasing stream of sequencing data for still increasing costs per 
 analysis. This allows researchers to collect data on an unprecedented scale, but also triggers the massive re-use of previous data.  
 
