@@ -13,363 +13,434 @@
 
 \newpage
 
-This chapter highlights the conclusions of this thesis and there is a short discussion in 
-which we look forward to the future of high throughput computing in systems genetics. We 
-highlight the tools created in this thesis such as Pheno2Geno in section \ref{sect:Pheno2Geno} and xQTL 
-workbench (\ref{sect:xQTLworkbench}). Additionally we highlight one of our current projects: A new 
-version of R/qtl called qtlHD is being discussed in section \ref{sect:qtl}. We end this chapter by 
-highlighting some future challenges and solutions to these upcoming challenges in section \ref{sect:Future}
 
-\section{Pheno2Geno}
-\label{sect:Pheno2Geno}
-Pheno2Geno provided highly optimized routines for generating genetics maps de-novo or to 
-saturate existing genetic maps. Using Pheno2Geno it is possible to generate bio markers 
-from microarrays, tilling arrays and RNA-seq data using mixture models. Pheno2Geno can 
-use these detected bio markers for de-novo construction of the genetic map or for 
-saturation of a known genetic map \cite{West:2006, Truco:2013}.
 
-Pheno2Geno has output structures compatible with R/qtl \cite{Broman:2003, Arends:2010}, 
-which provides further high throughput facilities for QTL mapping in inbred populations.
 
-With the upcoming new version of R/qtl (See section \ref{subsect:qtlHD}) also the Pheno2Geno 
-package will need to update to accommodate new requirements. These new requirements include 
-expected changes, such as: a more standalone package, further optimization of parallelisation, 
-performance improvements, support for more crosses, such as: Diversity outbred and/or 
-collaborative cross mice.
 
-Furthermore the main developer is currently working on mapping QTLs in polyploid species. Due 
-to this investment of the first author in polyploid crops (potatoes), we expect too see basic 
-support for this kind of data type in upcoming releases of Pheno2Geno.
+\section{General discussion}
+This thesis advocates that using high-throughput computational methodologies and more optimised algorithms such as Pheno2Geno (P2G), 
+or Multiple QTL mapping (MQM), combined with taking advantage of modern shared computational infrastructure, can provide a solution 
+to the ’Big Data’ challenges in Systems genetics. Federated computing, and collaborative research, require tools such as the xQTL 
+workbench, to work together and avoid duplicate efforts. This final chapter first provides a short summary of the contents of the 
+research findings, followed by a discussion of some of the relevant scientific issues that were addressed. Also, conclusions are drawn 
+on the impact of the Bioinformatics research and methodologies, presented in this thesis, on insights in the Systems biology. The 
+chapter concludes with an overview of future perspectives on research themes and methodologies in the interdisciplinary field of 
+Systems biology and Bioinformatics.
 
-The authors are committed to maintaining and upgrading the Pheno2Geno package, source code 
-is available open source making it easier to support future new requirements and allows other 
-researchers to benefit from the code. Pheno2Geno comes with documentation, manual and a test 
-suite. Source code is maintained at Github, using the GIT versioning software, and can be 
-found at:\\
-\url{https://github.com/KonradZych/phenotypes2genotypes}
+\section{Highlight of the results}
+Chapter 2 details how P2G was developed as R-package for the high-throughput generation of genetic markers and maps from molecular 
+phenotypes. P2G selects suitable phenotypes that show clear differential expression in the founders. It uses mixture modeling to 
+select phenotypes showing segregation ratios close to the expected Mendelian segregation ratios, and transforms them into genetic 
+markers that are suitable for map construction and/or saturation. P2G analyses the candidate genetic markers and excludes those 
+showing multiple QTL, epistatically interacting QTLs, and QTL by environment interactions, to provide a set of robust markers for 
+QTL mapping and at the same time protecting against genetic markers from non-genetic origin.
 
-\section{xQTL workbench}
-\label{sect:xQTLworkbench}
-The need for reliable but flexible infrastructure in systems genetics sparked intrest in the 
-development of xQTL workbench. It combines, the flexibility of the MOLGENIS generator suite \cite{Swertz:2010b} 
-with the most used computational and analytical tools for systems genetics (Such as: R/qtl 
-\cite{Broman:2003, Arends:2010}, Plink \cite{Purcell:2007} and many other tools). Using R as 
-Esperanto between the different languages, this creates a system which systems geneticists can 
-use to keep track of data generation and track their analysis. Additionally using R as computational 
-back end allows researchers to contribute their methods and algorithms back to the scientific 
-community by uploading them into xQTL workbench.
+Chapter 3 highlights the integration of the MQM algorithm into R/qtl. We validated the methodology with experimental data from a 
+cross of A. thaliana Bayreuth x Shahdara. Sections 3.1 and 3.2 show the performance of MQM on these experimental data. As the MQM 
+algorithm is highly relevant to seed development, we discuss its use in this cross and try to find genetic factors underlying 
+observed changes in the classical phenotypes and metabolome. We applied a generalised genetical genomics design to optimise the 
+statistical power to detect QTLs and QTL x Environment interactions. This design approach allowed us to pick up more main effects 
+and QTL x Environment interactions as compared to a random design or a full block design.
 
-While the xQTL workbench system described in this thesis has the ability to absorb new 
-analysis methods, consideration should be given to allow high flexibility. It will be 
-difficult to anticipate new demands, requirements or new developments which could provide 
-a better alternative than databases for data and R for analysis \cite{Arends:2012}. However 
-we believe xQTL workbench is well suited to tackle these changing requirements by leveraging 
-the strength of generators and the flexibility of the XGAP data model.
+Chapter 4 describes our current work on the topic concerning correlation differences when mapping two traits onto the genome. Our 
+observations of the patterns when performing CTL mapping on multiple phenotypes, revealed that some of these patterns are similar 
+to those when using a QTL x Environment interaction model. We applied this interaction model to data from a human Genome Wide 
+Association Study (GWAS). We detected cell type specific eQTLs in whole blood for neutrophils, and show that low effect QTLs observed 
+in samples can be explained by compensating for the relative number of neutrophils observed, or predicted. Cell type specific eQTL 
+analysis will improve our power to detect QTLs and enables us to assign cell type labels to observed cis-eQTL effects.
 
-We continue by showing how the xQTL workbench system helps the worm community stores their genetical 
-genomics data. The database and tools bring researchers from different fields together, by providing 
-human and worm researchers a shared startng point.
+Chapter 5 details our work to provide computational infrastructure for the Life Sciences. We advocate the use of generators to 
+create software and propose a generic and extensible data model (XGAP) to store phenotype and genotype data. Combining these 
+two approaches we developed several tools for ‘Big Data’ infrastructure. The combination of these tools is the xQTL workbench, 
+a scalable web platform for the mapping of quantitative trait loci (QTLs) at multiple levels such as gene expression (eQTL), 
+protein abundance (pQTL), metabolite abundance (mQTL), and phenotype (phQTL) data. Popular QTL mapping methods for model organism 
+and human populations are accessible via the web user interface. The system also allows researchers to contribute new analytical 
+routines. We conclude that good software infrastructure is of critical importance when scaling up large calculations to multi-core 
+computers, clusters and cloud computing.
 
-\subsection{wormQTL and wormQTL - Human Disease}
-The current version of WormQTLHD (August 2013) is a comprehensive and compendious database that 
-enables molecular model organism data to be studied in the context of human diseases. 
+\section{P2G performance}
 
-It provides a database with worm genetical genomics data combined with worm to human phenotype associations 
-and a 'broad-sweep' disease-enrichment test, the results of the 'broad-sweep' disease-enrichment test in 
-combination with the web tool allows the detection of non-obvious models for human disease and will be of 
-interest to researchers in both the human and the worm domain. 
+P2G is developed to optimise routines for generating genetics maps de-novo or to saturate existing genetic maps [53, 54]. P2G enables 
+the user to generate bio markers from microarrays, tilling arrays and RNA-sequencing data using mixture models. Important design 
+requirements for P2G include being: 1) as generic as possible; 2) compatible to multi-core machines; and 3) to allow many machine 
+clusters to generate genetic maps.
 
-We believe these results could also be applied to prioritize the pathogenic variants increasingly being 
-produced by next-generation sequencing in diagnostic labs. Genetic variants affecting human genes of 
-unknown function may have worm orthologues that are part of human-worm phenologs and these may reveal or 
-imply a role in a human disease \cite{Ostlund:2014}. Thus, through functionally conserved networks, missing 
-information can be inferred and candidate genes can be selected via model organisms \cite{vanDerVelde:2014}.
+We developed P2G to include a sensitive pre-selection of possible genetic markers with a simple t-test approach. This approach enables 
+the user to quickly discard possible loci that do not show differential expression between parents. The method illustrates the trade-
+off between the risk of missing important markers found by other approaches, and the time consuming computational burden of analysing 
+all loci. P2G was developed in the context that it is better to have a map in reasonable time, then not having a map at all.
 
-The approach of WormQTLHD is conceptually similar to that described by Smedley et al. 
-\cite{Smedley:2013}. They created an automated method called PhenoDigm to provide evidence about 
-gene-disease associations by analyzing phenotype information. In their case, phenotypes consist of 
-a collection of ontology terms, which are aligned and scored to derive an overall phenotype-similarity score. Using this 
-method, known gene-phenotype associations in model organisms (mouse, zebra-fish) can be transferred 
-to other organisms such as man, and help us to understand the genetic cause of disease. This method 
-works best when the model organism is physiologically close to man and has comparable classical 
-phenotypes. It would therefore be less useful for \emph{C. elegans}. However, combining the molecular 
-(WormQTLHD) and phenotypical (PhenoDigm) approaches results in a very powerful tool to discover 
-novel gene-disease associations in man, especially when using physiologically close model organisms \cite{vanDerVelde:2014}.
+We applied mixture models to select good genetic markers that show segregation frequencies comparable to the expected segregation 
+frequencies. We demonstrated that our approach was much more generically applicable to finding genetic markers than the method 
+proposed by Michelmore et al. (2006).
 
-We plan to further develop the WormQTLHD data and tool set. There might be more ways in which 
-researchers would like to search through the large amounts of data, for example, based on custom 
-lists of gene identifiers, or by combining tools such as finding QTLs within specific regions. 
-The QTL plots could be improved or replaced with interactive graphs that are more informative and 
-would allow the users to continue 'drilling down' in the data instead of returning to the home page 
-for a new analysis with a different tool. Furthermore, we envisage close integration with other data 
-sources and tools such as WormNet, R/qtl and GO Enrichment to provide even more biological context 
-and analytical tools for the user.
+There are many tests to estimate a difference between two groups, including t-tests, linear models, mixture models etc. In a t-test 
+only the mean values and variances are calculated. In our view, this provides the fastest way to decide if there is a difference. 
+All other statistical methods mentioned above, come with added computational burdens such as ranking data or calculations that involve 
+more statistics. The P2G algorithm, however, is developed in such a way that is provides the user several other options for statistical 
+testing (Wilcoxon Rank Testing, Mann-Whitney U Testing), and transformation of input signals (Log, Sqrt, Reciprocal, etc).
 
-Our new database makes this data attractive and easy-to-use for an even wider community of quantitative 
-geneticists working on worms and human. We are committed to maintaining the data and software in the 
-future and invite the community to add and share their new data and ideas. Just as with WormQTL \cite{Snoek:2012}. 
-WormQTLHD will be continuously curated by the members of the \emph{C. elegans} community. 
+When creating maps for a Recombinant inbred line (RIL) (or a BackCross) population, in which case there is no parental information 
+present, P2G is still able to saturate a known low quality map. Unlike other methods, P2G does not require such parental information 
+to detect the origins of the chromosomes. This is due to the fact that it flips anti-correlated chromosomes to find the optimal 
+genetic map. A limitation of this procedure is that an initial genetic map has to be provided by the user.
 
-\section{R/qtl}
-\label{sect:qtl}
-We have shown the contributions made during the last four years to the R/qtl package:
-We implemented MQM into R/qtl, which lets users test different QTL models by elimination 
-of non-significant cofactors. MQM for R/qtl brings the following advantages to QTL mapping:
-\begin{enumerate}\itemsep1pt
-\item Higher power, as long as the QTL explain a reasonable amount of variation.
-\item Protection against over-fitting, because MQM fixes the residual variance from the full 
-model, which allows the use of more cofactors than may be used in, for example, composite 
-interval mapping \cite{Zeng:1994}.
-\item Prevention of ghost QTL detection (between two QTL in coupling phase).
-\item Detection of negating QTL (QTL in repulsion phase). 
-\item MQM gives (compared to CIM) a reduction in type I and type II error \cite{Handbook:Jansen:2007}.
-\item A pragmatic permutation strategy for controlling the false discovery rate (FDR) and 
-prevention of locating false QTL hot spots, as discussed in Breitling et al \cite{Breitling:2008a}. 
-Marker data is permuted, while keeping the correlation structure in the trait data.
-\item High-performance computing by scaling on multi-CPU computers, as well as clustered 
-computers, by calculating phenotypes in parallel, through the Message Passing Interface (MPI) of 
-the SNOW package for R\cite{Tierney:2009}.
-\item Visualizations for exploring interactions in a genomic circle plot (Fig. \ref{fig:circleplot}) and \emph{cis}- 
-and \emph{trans}-regulation (Fig. \ref{fig:cistrans}).
-\end{enumerate}
-We applied our methods to the analysis of seed quality traits in \emph{A. thaliana}, and show we 
-increase our ability to detect QTL, and can be more confidence in the QTLs detected when using R/qtl MQM.
-In chapter \ref{sect:classical} we show cased some of the new visualizations provided by R/qtl. Using 
-MQM to analyze a large amount of classical phenotypes is made possible by the optimizations we implemented 
-to support multi-core machines and cluster computation. We will continue with a section about the upcoming 
-new version of R/qtl called R/qtlHD, in which we want to scale up even more the give researchers the tools 
-to analyse thousands to million of phenotypes, while using genetic maps denser then ever before.
+The P2G output structure is compatible with R/qtl \cite{Broman:2003, Arends:2010}. This facilitates an integrated experience between 
+the map creation phase and the QTL mapping phase of the algorithm. Furthermore, when applicable function parameters were harmonised 
+between the two software packages. Compatibility of the outcome structures of P2G and R/qtl also provide further high throughput 
+facilities for QTL mapping in inbred populations. With the upcoming new version of R/qtl (see section 6.3) also the P2G package will 
+require updating to accommodate new specifications. The expected changes include: a standalone package, further optimisation of 
+parallelisation, performance improvements, support for more crosses, e.g. diversity outbred and/or collaborative cross mice.
 
-\subsection{R/qtlHD}
-\label{subsect:qtlHD}
-Association and / or linkage analysis will continue to be the bread-and-butter analysis 
-tool-set for systems geneticists of the future. However complex systems geneticists have 
-to cope with the acquisition of data from diverse experimental designs and the analysis of 
-these diverse data types. Requiring complex pipelines to analyze new complexity of the 
-incoming data \cite{Trelles:2011}.
+Taken together, the abovementioned features , i.e. pre-selection, generic software, optimised performance, R/qtl support, make P2G a 
+competitive package for genetic map creation in inbred populations. 
 
-Environment x Genotype interaction analysis is also a future feature of R/qtl-HD. We looked at 
-different experimental designs in in chapter \ref{sect:Metabolites} comparing three different 
-designs: full block design, random design and generalized genetical genomics (GGG) design design 
-\cite{Joosen:2013, Li:2009}. Besides showing that using a GGG experimental design for experiments 
-gives higher statistical power to detect interactions between environmental and genetic variation 
-compared to a random \cite{Joosen:2013}. We concluded that interaction models are a very powerful 
-tool in understanding the complex interplay between genetics and (cellular) environments 
-\cite{Joosen:2013} an should thus be considered as an important feature for a new version of the 
-R/qtl software package.
+The P2G algorithm also showed several drawbacks, which are discussed here. 
 
-Association analysis can be performed using different methods, e.g. single marker association 
-mapping in outbred populations, interval mapping in inbred populations, or multiple QTL mapping. 
-In this thesis we used multiple QTL mapping to find QTLs for classical traits related to 
-germination of seeds in \emph{A. thaliana}. We have shown an increase in QTL detection power 
-of MQM versus standard single marker QTL mapping \cite{Jansen:1994a, Joosen:2011}. This shows 
-that more genetic loci are involved in germination of seeds then previously known. Additionally 
-Multiple QTL mapping should be implemented into R/qtl-HD besides standard single marker mapping 
-to allow more powerful detection of QTL.
+As a consequence of the pre-selection of possible markers, using P2G may induce that certain markers are missed. This is due to the 
+fact that we discard phenotypes based on parental expression, and not apply mixture modeling to all phenotypes. If mixture models 
+would have been used to analyse all phenotypes, it is possible that more markers would have been detected.
 
-Increase in data size disqualifies R as main analysis platform. R is not the most suitable 
-platform for the analysis of next generation high throughput data. The R environment is 
-well suited to scientific computing and performing statistical analysis. However when big data 
-is involved R is not the fastest or most optimized language available. 
+P2G currently does not support polyploid species such as corn, orchids and potato. For potato fitTetra was recently developed 
+(Vosman et al. 2011). To create genetic maps of this polyploid species, it uses a comparable strategy to P2G. It can be expected 
+that future releases of P2G will include support for these species, as the expertise for polyploid map creation is present in 
+our group and the topic is subject of ongoing research. 
 
-When dealing with high throughput data obtained from RNA-seq, exome sequencing or Bisulfite 
-sequencing data size quickly become the limiting factor for software written in R. Because 
-R/qtl-HD is aimed at QTL analysis of high-density, high-throughput data, R is not a suitable 
-language for the high throughput computation parts of the algorithms.
+P2G is written in R. Despite this computer language is frequently used in the analysis of biological data, it is also recognised 
+that R is losing ground because of poor performance on extremely large datasets. We don’t see this as a huge drawback because 
+routines in P2G are designed to minimise memory usage of the algorithm by providing ‘lazy’ equivalents of core functions, in such 
+a way that data are only brought into RAM when necessary.
 
-R/qtlHD is written in the high performance D programming language. D is chosen as primary 
-language because it is created to perform safe and high throughput numerical analysis. D uses 
-a C like syntax \cite{Alexandrescu:2011} providing a familiar syntax for the R/qtl developers, 
-most of which come from a C/C++ background making D the language of choice for R/qtl-HD. 
+\section{MQM revisited}
+The addition of MQM to the R/qtl toolbox has already shown to pay off in scientific terms: the paper that detailed the implementation 
+has been cited more than 35 times since it was published in Bioinformatics in 2010 (Chapter 3.2). This indicates how much the research 
+community values a comprehensive multiple QTL mapping methodology integrated into an already well-established QTL mapping framework 
+(R/qtl). Several applications of MQM are known to our group. For example, dr. E. Lodder (Academic Medical Center, University of 
+Amsterdam, The Netherlands) used MQM to investigate collagen deposits in mouse left ventricular heart failure (publication in press). 
+She discovered two additional loci which are of interest for further investigated as potential new therapeutic targets for cardiac 
+interventions. In this thesis we also show two examples, concerning the classical phenotypes and metabolites in A. thaliana, in which 
+we profiled MQM versus single marker mapping. Our analysis demonstrated that MQM detected more loci than the single marker mapping 
+method, and the data showed more statistical confidence in the detected loci.
+
+QTL mapping consists of two consecutive phases, modeling and mapping. In the modeling phase we look at the phenotype and assess the 
+possible number of underlying QTL. We then use genetic loci to explain as much variation as possible. Subsequently, in the next phase 
+of QTL mapping, the model is used and novel loci are included as assessed for their association with the phenotype of interest. We 
+implemented multiple ways to build initial models for mapping analysis, including: forward model selection, backward elimination of 
+cofactors from a full model, and the application of the user’s own custom cofactor model. How precisely the different modeling 
+techniques of MQM for systems genetics research are used, and their pitfalls, are described in a detailed 40 page manual.
+
+We have chosen to merge MQM with the R/qtl toolkit, as it has already proven itself in the mouse QTL mapping community. It is generally 
+viewed as the standard for QTL mapping in all inbred species, and provides a unified data structure on which algorithms work. This 
+allows quick incorporation of new algorithms and provides a common basis for data exchange between researchers. 
+
+MQM’s core algorithm is written in C/C++ and is brought to R by creating a glue layer. Input to MQM is written in such a way that current 
+R/qtl users can easily use the new MQM routine without need to reformat the data. However, because the code is mostly written in C/C++  
+it is a trivial exercise to provide/interface MQM to different languages such as R, C/C++ and Ruby. This implies that the MQM routine is 
+much more flexible to future changes in requirements or specifications, and/or language choice. It can also be extended to other tool 
+boxes then R/qtl.
+
+Earlier work has shown the following advantages of MQM for R/qtl to QTL mapping\cite{Jansen:1993, Handbook:Jansen:2007}: 
+
+1. Higher power, as long as the QTL explain a reasonable amount of variation.
+
+2. Protection against over-fitting, because MQM fixes the residual variance from the full model, which allows the use of more cofactors than may be used in, for example, composite interval mapping [21].
+
+3. Prevention of ghost QTL detection (between two QTL in coupling phase).
+
+4. Detection of negating QTL (QTL in repulsion phase).
+
+5. MQM gives (compared to CIM) a reduction in type I and type II error  \cite{Handbook:Jansen:2007}.
+
+The research in this thesis has added several other advantages, most notable:
+
+6. A pragmatic permutation strategy for controlling the false discovery rate (FDR) and prevention of locating false QTL hot 
+spots, as discussed in Breitling et al \cite{Breitling:2008a}. Marker data are permuted, while keeping the correlation structure in the trait 
+data. Because of the unified data structure in R/qtl, this permutation strategy can also be used with all other QTL mapping 
+functions in R/qtl, such as single marker mapping and composite interval mapping (CIM).
+
+7. High-performance computing by leveraging parallel computations using multi-CPU computers, as well as clustered computers, 
+by calculating phenotypes in parallel, through the Message Passing Interface (MPI) of the SNOW package for R \cite{Tierney:2009}.
+
+8. Visualisations for exploring interactions in a genomic circle plot (Fig. \ref{fig:circleplot}) and cis- and trans-regulation (Fig. \ref{fig:cistrans}).
+
+The MQM for R/qtl also has drawbacks. It is computational much more intensive than single marker mapping. As it is designed in two languages, i.e. 
+R and C/C++, the programme’s maintenance is more difficult. Additionally, interpretation of the results is more complex when performing a multiple 
+QTL scan. This is due to the fact that every phenotype is modelled in a unique way before scanning for QTL. 
+
+\section{Visualising the output}
+As stated above, using MQM may pose problems to the user/biologist, as the complexity of the model makes it much harder to interpret, as compared to 
+the single marker QTL scan, which has a naïve model; one QTL for complex traits is by definition an oversimplification and (therefore) false. To 
+alleviate the need for long and complex tabular output, we created circle plot visualisations (an example is shown in Fig \ref{fig:circleplot}). When 
+scanning for interactions between multiple loci, it is common to compare everything versus everything. Since MQM provides us with a model of the main 
+effect loci, we are able to quickly assess any interactions between them because we only have to analyse a hand full of possible interactions, i.e. 
+between main effects. This allows us to quickly build up the circle plot with main QTL effects as well as interactions, which cannot be done for a 
+single marker scan as no such model is present. 
+
+This type of visualisation provides researchers:
+
+Output per trait: an overview of interesting genetic loci (main effects) and the interactions between these main effect loci.
+
+A holistic overview of all traits to identify co-localisation of main effect QTLs on the genome.
+
+Furthermore, we added cis and trans visualisations which allow the same data to be explored in a 2D fashion providing comparable information to the 
+holistic overview circle plot. Circle plots show the main effects and the interactions between genetic loci for a single phenotype, while cis/trans 
+plots show main effects for many phenotypes, combined with genetic location information of the (expression) phenotypes mapped. 
+
+\section{Limitations of R as analysis platform for R/qtl}
+When dealing with high throughput data obtained from RNA-seq, exome sequencing or Bisulphite sequencing, data size quickly becomes the limiting 
+factor for software written in R. Because R/qtl-HD is aimed at QTL analysis of high-density, high-throughput data, R is not a suitable language 
+for the high throughput computational parts of the algorithms. R/qtl-HD is written in the high performance D programming language. D is chosen 
+as primary language because it was developed to perform safe and high throughput numerical analyses. D uses a C like syntax [267], and therefore 
+provides a familiar syntax to the R/qtl developers, most of whom have a C/C++ background, making D the language of choice for R/qtl-HD. 
 Additional features of D include:
-\begin{enumerate}\itemsep1pt
-\item \emph{Improved code quality} - This makes the code more maintainability and more readable code is 
-easier to reason about and optimize code, leading to improved performance of algorithms.
-\item \emph{D allows to call C} - D allows to call C (and a limited subset of C++) functions directly. This 
-allows to re-use previously written R/qtl code (written in R and C) \cite{RQTLGuide:2009}.
-\item \emph{Build in unit testing} - Unit testing is build into the D programming language, allowing 
-programmers to use the power of unit- and regression testing to build a test suite without the need 
-for external tools or frameworks.
-\item \emph{Concurrency and Actors} - The D language provides high level patterns such as Actors and 
-Message Passing to deal with parallelisation of code. Unlike other languages, this is a build in 
-feature of the language, this allows the standard D library to use safe lock free concurrency mechanisms \cite{Alexandrescu:2011}.
-\item \emph{Static typing} - D requires types (e.g. Integer, Float, Double) to be declared and known 
-at compile time, this improves readability of code and reduces the risk for run-time type errors of the system.
-\item \emph{Compile Time Function Execution} - Compile time function execution (CTFE) is a feature 
-that allows to build look up tables at compile time. This greatly reduces the run time of algorithms, 
-by pre-calculating common cases \cite{ArendsBlog:2012}.
-\end{enumerate}
-These are the main reasons for the R/qtl development team to favor D over R.
 
-The current version of R/qtl provides many tools for genetic map construction, but also several historical 
-methods for QTL mapping. R/qtl-HD will not provide a multitude of methods but focus more on the high speed 
-analysis of data using stable and proven methods such as Haley-Knott regression \cite{Haley:1992} and analysis of variance.
-Additional features such as genetic map construction and validation are not high priority when converting 
-the R/qtl software into a more optimized language. R/qtl-HD is designed for mapping huge volumes of phenotypes 
-onto medium to large genetic maps \cite{Trelles:2011}.
+1. Improved code quality. This increases options for maintenance of the code. Also, a more readable code is more open to discussion and reasoning 
+to optimise the code, which results in improved performance of the algorithms.
 
-Furthermore multiple QTL mapping (MQM) from R/qtl will also be converted into the D programming language.
-The MQM routine has proven to be a useful addition to the R/qtl toolkit and with the new implementation 
-of R/qtl as R/qtlHD, we aim to improve the usefulness even more. The major limitation in MQM is the 
-additional computational load when compared to single marker QTL mapping \cite{Arends:2010}. The R/qtl 
-development team is committed to 1) add the MQM routine to the R/qtlHD package and 2) provide further 
-optimization to MQM to allow it to handle even large volumes of phenotype and genetic data. 
+2. D allows to call C. D directly allows to call C functions and a limited subset of C++. This allows to re-use previously written R/qtl code 
+(written in R and C) \cite{RQTLGuide:2009}.
 
-An overview of the features planned for the R/qtl-HD package:
-\begin{enumerate}\itemsep1pt
-\item \emph{Universal input format} - Based on our experiences with XGAP \cite{Swertz:2010a} and xQTL workbench 
-\cite{Arends:2012}, QTAB was developed as input format for Rqtl-HD. A testing version of QTAB was implemented in 
-R/qtl-HD by Pjotr Prins. The QTAB format aims to provide a universal solution to the storage of genotype and genetic 
-maps in inbred populations.
-\item \emph{Single marker QTL mapping} - R/qtl HD aims to provide the most common single marker mapping methods. 
-These methods will be optimized to work with huge amounts of phenotype data, created by new technologies such as: 
-Tilling arrays, RNA-seq and/or exome sequencing.
-\item \emph{Multiple QTL mapping} - We aim to implement multiple QTL mapping and as such benefit from the added 
-advantages of the D language such as: Reduced memory usage during run time and less run time due to the fact that 
-it is easier to use parallel computation in D.
-\item \emph{Gene x Environment} - We aim to implement a generic approach for Gene x Environment analysis, we believe 
-this type of analysis to become more and more important in the future to untangle the relationship between genome and 
-phenome.
-\item \emph{R interface} - Current R/qtl users should be able to switch to R/qtl-HD, while keeping their familiar 
-R interface. in an ideal world current users should automatically switch to R/qtl-HD without them noticing.
-\item \emph{BioRuby} - Bio-packages are being created for many languages (Python, Perl, etc), Ruby is a new and 
-upcoming language in the scientific field. R/qtl HD aims to provide bindings to the BioRuby project \cite{Goto:2010} 
-as as proof of concept, other bio packages could model their own bindings on these Ruby bindings.
-\item \emph{Compatibility} - R/qtl-HD aims to be compatible with the following operating systems: Mac OS X, 
-Microsoft Windows and Debian Linux.
-\end{enumerate}
+3. Built in unit testing. Unit testing is built into the D programming language, which facilitates programmers to use the power of unit- and 
+regression testing to build a test suite without the need for external tools or frameworks.
 
-R/qtlHD is developed as open source community software, currently a very limited version 
-is available as preview for download. A development version is available from: 
-\url{http://github.com/qtlHD/}
+4. Concurrency and Actors. The D language provides high level patterns such as Actors and Message Passing to deal with parallelisation of code. 
+Unlike other languages, this is a built in feature of the language, which allows the standard D library to use safe lock free concurrency mechanisms \cite{Alexandrescu:2011}.
 
-Further adaptations of the system currently not being considered, but which might be interesting opportunities for 
-future work include: Integration of mapping analysis tools with genomic annotation and sequence data, generalization 
-of analysis frameworks to accommodate not only mouse and human data but also data from other model organisms with 
-different (non inbred) genetic pedigree structures, such as pets (e.g. cats, fish, dogs), farm animals (e.g. horses, 
-cattle, pigs) and plants (e.g. arabidopsis, brassica, maize). Additional tools for genetic map construction might 
-also be considered for inclusion, but currently are not a priority, since the current R package provides tools for 
-this.
+5. Static typing. D requires types (e.g. Integer, Float, Double) to be declared and known at compile time. This improves readability of the code 
+and reduces the risk for run-time type errors of the system.
+
+6. Compile Time Function Execution (CTFE). CTFE is a feature that allows to build look up tables at compile time. This greatly reduces the run 
+time of algorithms, by pre-calculating common cases \cite{ArendsBlog:2012}.
+
+These are the main reasons for the R/qtl development team to favour D over R. The current version of R/qtl provides many tools for genetic map 
+construction, but also several historic methods for QTL mapping. R/qtl-HD will not provide a multitude of methods but focuses more on the high 
+speed analysis of data using stable and proven methods such as Haley-Knott regression \cite{Haley:1992} and analysis of variance. Additional features such 
+as genetic map construction and validation are not high priority when converting the R/qtl software into a more optimised language. R/qtl-HD 
+is designed for mapping huge volumes of phenotypes onto medium to large genetic maps \cite{Trelles:2011}.
+
+Furthermore MQM from R/qtl will also be converted into the D programming language. The MQM routine has proven to be a useful addition to the R/qtl 
+toolkit and with the new implementation of R/qtl as R/qtl-HD, we aim to improve its usefulness even more. The major limitation in MQM is the additional 
+computational load when compared to single marker QTL mapping \cite{Arends:2010}. The R/qtl development team is committed to: 1) add the MQM routine to the 
+R/qtl-HD package, and 2) provide further optimisation to MQM allowing it to handle even larger volumes of phenotype and genetic data.
+
+\section{CTL & Cell type specific eQTL}
+Presently, more and more research is being done to understand eQTLs and their effects on phenotypes. Recent papers reported the detection of some sex 
+specific eQTLs \cite{Ramos:1999, Bernatchez:2008, Lusis:2010}, as they were present in females but not in males, or vice versa. Sex is obviously not 
+the only covariate that can be used in these QTL x Environment analyses; other possible covariates are population structure, age, and cell type. Our 
+findings thus indicate the need to add cell type specific covariates in QTL mapping. One of the main advantages of using cell type as covariate is 
+that we can compartmentalise environmental variation. This allows easier detection of associations between genetic loci and observed differences in 
+phenotype, because some of the variation from non-genetic origin has been captured by the cell type covariate.
+
+This method of mapping QTL x Environment interactions is not new, although in our studies we applied it to cell types. However, this procedure was 
+complicated by the fact that cell type abundance was only measured in two cohorts. The available cell counts were: lymphocyte, neutrophil, and RBC 
+counts/percentages. As we used six cohorts in total, we had to infer the cell counts for the remaining four cohorts. Using the predicted cell counts 
+in these four cohorts, we were now able to perform our eQTL meta-analysis. This approach to handling cell type (for an eQTL) is similar to dealing 
+with an environmental factor. When using a basic interaction model, combined with cell type percentages, we can clearly distinguish between eQTLs 
+which seem to be neutrophil specific and lymphocyte specific.
+
+Large sample sizes are required to perform such interaction analyses with reasonable power to detect interaction effects. Currently, we can only 
+obtain the required sample sizes by using meta-analysis of multiple eQTL GWA studies. The meta-analysis method increases our sample size dramatically 
+as compared to a normal GWAS. This increase in sample size allows us to detect more eQTL, but is also helps to reduce false positive eQTLs. Furthermore, 
+we can use an additional level of information to assess our eQTLs. Looking at the direction of the eQTL effect in different cohorts, allows assessment 
+of the consistency of the direction across multiple datasets. 
+
+Known genetic variants underlying for example Crohn’s disease, IBD (inflammatory bowel disease) or asthma, are available from the literature 
+\cite{Hindorff:2009}. In our study we demonstrated that using meta-analysis allows to assign cell type labels to all eQTL detected. Combining 
+these two sources of information allows us to test if the eQTLs showing association with a disease (such as Crohn’s disease) are specific for a 
+certain cell type. This information can be used in future research to find therapeutic targets for these diseases, or to understand why certain 
+targets which might seem valid at first, turn out not to be effective.
+
+Our study revealed that Crohn's disease indeed has a strong neutrophil component ($P < 0.0018$). While Crohn’s disease showed a significant number of 
+neutrophil specific eQTL, this was not the case for IBD. We conclude that derangements in different cell types are involved in IDB and Crohn’s disease. 
+This is surprising, because Crohn’s disease is classified as a type of IBD \cite{Sandborn:2012}. Here we find supporting evidence that different 
+pathophysiological processes are present in Crohn’s disease, as compared to other IBD conditions such as Colitis ulcerosa. 
+
+The methodology for cell type specific eQTL also revealed some disadvantages. The selection of the covariate is very important. Here we used a 
+continuous variable (cell abundance or cell percentage), in a comparable way to the mapping of sex specific eQTL, where the covariate is a 
+dichotomous variable (male or female). As a consequence, in practice it is much harder to detect sex specific eQTL, as compared to cell type-eQTL. 
+We assume this is the reason why so few sex specific eQTLs are reported in the literature.
+
+Another aspect is that large sample sizes are required for analysis. Methodological issues concerning meta-analysis include the usage of multiple 
+platforms (Illumina & Affymetrix) and even multiple versions from the same manufacturer (e.g. Illumina HT8, HT12). All this data needs to be 
+integrated in a comprehensive and precise way.  This creates a need for good infrastructure to keep track of the differences between data sets, 
+and analytical tools which can handle missing or incomplete data \cite{Trelles:2011, Prins:2012}.
+
+Several disadvantages arise in the context of experimental realities. Cell types are hard to purify and identify. In our opinion it is impossible 
+to acquire a 100\% pure fraction of, for example, CD4 T-Helper cells. Despite this, our method assumes that we can identify cell types without 
+much bias. This might not be the case for some cell types which are present in many distinct sub cell types (such as T-cells), and consequently 
+we cannot distinguish between them. Another example of a problematic situation refers to the changing expression patterns of harvested and purified 
+neutrophils. These patterns may differ largely from the patterns when the neutrophils are still circulating in the blood.
+
+\section{xQTL workbench for infrastructural issues}
+The need for reliable and flexible infrastructure in Systems genetics sparked our interest to develop the xQTL workbench. It combines the flexibility 
+of the MOLGENIS generator suite \cite{Swertz:2004} with the most frequently used computational and analytical tools for Systems genetics (i.e. R/qtl 
+\cite{Broman:2003, Arends:2010}, Plink \cite{Purcell:2007} and many other tools). Using R as Esperanto between the different languages creates a system 
+for systems geneticists to keep track of data generation and their analyses. Additionally, using R as computational back end allows researchers to 
+contribute their methods and algorithms back to the scientific community by uploading them into the xQTL workbench. While the xQTL workbench system 
+described in this thesis has the ability to absorb new analytical methods, we also considered the need for high flexibility. We expect it will be 
+difficult to anticipate to new demands, requirements or new developments, that could offer better alternatives than databases for data and R for 
+analysis \cite{R:2005}. Despite this, in our opinion the xQTL workbench is well suited to tackle such changing requirements by leveraging the strength of 
+generators and the flexibility of the XGAP data model.
+
+Infrastructure in Systems genetics is created with generators, as it alleviates the need to handwrite most of the system’s common codes. This common 
+code consists of basic database parts such as: Create, Read, and Update functions for the underlying database system, generated web interfaces to enter 
+and curate data, and application programming interfaces (APIs) to transfer data from one language (e.g. Java) to another (e.g. R). We used the MOLGENIS 
+generator together with the flexible XGAP data model to set up a system capable of handling any genetical genomics experiment 'at the push of a button' 
+as the unofficial slogan states. All our collaborators reported gains on implementation time when using the xQTL workbench, as compared to a handwritten 
+system in which all these components need to be (re)developed or invented. Parts of the system will always require fine tuning, but major parts of 
+functionality do not change from one database system to the other, and thus allow automated generation of these parts.
+
+The xQTL workbench allows R code to automagically use Cluster and Cloud computing for trivial parallelisable algorithms. An example of this is QTL mapping 
+in which every phenotype is analysed independently. With a multi core machine the distribution of computations to separate CPUs is easily achieved without 
+much overhead (such as network latency). When using the xQTL workbench, researchers are able to write algorithms suited for a single 
+phenotype/marker/individual, and test their analysis on their local desktop. When the algorithm is completed the developer uploads the new algorithm into 
+the xQTL workbench and applies it across rows/columns of the stored matrices. The user can then choose to use any available backend (either local host, 
+Cluster or Cloud) to perform his/her computations. The xQTL workbench deals with distributing computations (if the analysis supports distributed computing) 
+to multiple nodes when applicable. 
+
+An ever increasing amount of data and knowledge (in terms of the outcomes of computational analyses) are stored in large databases and are available to 
+biologists for further study. This allows reuse of data by different biologists, decreases the need to regenerate data, and it stimulates collaborations 
+between research groups. Furthermore, translational databases, which store and integrate data across many species, facilitate interactions between 
+research communities, such as Human and Worm genetics, by providing an opportunity to look across the borders of their own species. 
+
+At the same time, storage of raw data is still necessary in many cases. A good example is found in the next generation sequencing platforms. Although the 
+costs for sequencing are being reduced in a high pace, additional funds are required to store and process the raw data coming from the machine. While at 
+the one hand costs of sequencing are dropping, at the other hand sequencing produces more data as the technique is being performed at small hospitals and 
+large sequencing facilities. It can be expected that when the price of sequencing becomes low enough, i.e. the costs of re-sequencing drop below the 
+costs of storage, storage of raw data will probably be replaced by storage of samples (which are also stored now for re-analysis/validation). Such 
+developments are likely to decrease the immediate need for storage space, but increase the computational burden of sequencing.
+
+In this thesis we advocate R \cite{R:2005} as Esperanto language between storage and computational parts of our xQTL workbench platform. Our choice for 
+R is motivated by several reasons including: 
+
+1) MOLGENIS provides a generated R API, that we used to plug in our analysis tools.
+
+2) Many analytical tools are already available for R.
+
+3) Biologists tend to be familiar with R, since the language is frequently used in data analysis. As a consequence, they can share their analysis software through the system.
+
+4) R provides built in support for web browsing and secure connection (using Rcurl).
+
+5) R provides an easy way to start/stop shell scripts.
+
+Despite the realisation that other languages also fulfil (most of) these requirements, our familiarity and experience with R largely 
+contributed to the decision to build the system with these components.
+
+Application examples of the xQTL workbench system are the wormQTL \cite{Snoek:2012}, and the wormQTL-HD \cite{vanDerVelde:2014} databases. These databases 
+contain a lot of worm data and provide the worm research community with tools for analysis. The wormQTL-HD database comes with the added advantage that 
+it couples the worm phenotypes to human phenotypes. Consequently, geneticists working in the human domain can search for non-obvious (worm)-models to test 
+their hypothesis in worm. In other words, the database functions to bring these research communities closer together.
+
+Several issues are relevant to consider in terms of disadvantages of the xQTL workbench. It is a complex system to set up for biologists, as its software 
+is used as basis and requires other infrastructure on top. Therefore, programmers with knowledge of R, Java, and Unix are required for setting up the 
+system and facilitate its maximal use.
+
+Furthermore, the xQTL workbench system only provides several QTL mapping routines that are available as proof of principle. Further adaptation of the 
+system will increase the number of tools available in the workbench. While not a major disadvantage, it implies, for example, that MQM is not yet 
+available to the users although it can easily be added and implemented into the system.
+
+Using a generator requires regular updates. In doing so, introduces the risk to break the code in many (generated) places. A full and extensive test 
+suite is then required to test the generated parts of the software for consistency and stability. Weighing the pros and cons, we consider this not 
+really a drawback because a full test suit also raises confidence in the software, and makes it more reliable. 
+
+\section{Applications in Biology}
+The final research question of this thesis refers to the impact of our contributions and developments  in the field of Bioinformatics on advancements 
+in methodology and knowledge in Systems genetics. During the research project we regularly tested our tools and performed various experiments to 
+validate our computational approaches. 
+
+In this thesis we show the application of P2G on a large dataset containing expression data from tilling arrays. Tilling arrays are a sensitive way to 
+measure genome wide expression levels of RNA transcripts. They produce a large amount of data. P2G uses these expression data to generate new high 
+quality maps for QTL mapping, thereby exploiting the availability of QTL information in high throughput phenotypes. We obtained raw expression data from 
+our collaborators at Wageningen University (RAW 16.8 GB) and were able to analyse these data in less than 30 minutes on an average workstation. Genetic 
+maps obtained were then used by the researchers to improve the resolution of their subsequent eQTL mapping. The observed increase in resolution allows 
+the detection of leads in smaller regions of interest, and lowers costs for follow up analyses of the traits of interest.
+
+Application of MQM has identified new genetic loci of interest in different studies. The benefits are thus more insight in the underlying genetics. 
+This leads to an increase in knowledge about how to improve pathways for production of commercially interesting biological or therapeutic substances 
+or products. Furthermore, by increasing the amount of loci detected MQM (as well as cell type specific eQTL mapping) we are able to better understand 
+the genetic basis of heritable traits, such as crop yield, seed quality, and disease susceptibility, for example Crohn's disease. MQM improves our 
+statistical model by adding genetic loci as explanatory variables, while cell type specific eQTL mapping does this by incorporating environmental 
+effects. Although we only applied our cell type specific eQTL mapping to neutrophils and lymphocytes in whole blood as proof of principle, we 
+observed that SNPs associated with Crohn’s disease are present more often than randomly expected to show a neutrophil specific eQTL effect.
+
+Our system xQTL workbench was used as storage and computation platform in wormQTL and wormQTL-HD databases. Furthermore an Arabidopsis database is 
+presently being developed to contain similar features as the womQTL database. We demonstrated the need for translation analysis in wormQTL-HD and 
+connected worm and human data. This shows (and confirms findings from other studies) that worms can be used as model organism to test in worms certain 
+hypotheses derived from observations in humans. The advantages provided by the xQTL workbench allow other researchers to accomplish the same aim: 
+storage of large amounts of data and performing reliable/traceable analyses while avoiding duplication of efforts.
+
+An illustrative example is the following. When I started my PHD research in 2009, my largest dataset was 100mb (24 mice measured on 30k probe 
+microarrays). This was easily manageable on a single computer and involved no storage or computational issues. Just four years later we cannot 
+perform the same analysis because the size of the data obtained from the same experiment has increased so much, that a database that can handle 
+many gigabytes is required. Such an amount of data can only be stored using dedicated hardware, which also stores the complex relationships 
+between the data. To allow integration of information from worms and humans in less than a minute, computations need to be optimised and 
+distributed across many nodes of a cluster. The knowledge gain of this high throughput data is that biologists are able to develop new 
+hypothesis while browsing data collected by hundreds of people over a time scale of decades. 
 
 \section{Future perspectives}
-\label{sect:Future}
-Currently systems genetics is in a state of flux, new methodologies are developed, tested and discarded at 
-a rate higher then ever before. This means an increase in data from two sides: (1) data from new 
-biomolecular levels such as epigenetics, metabolomics and genetics, and (2) more data from a single 
-sample by e.g. single cell sequencing compared to complex mixtures such as whole blood. This means data 
-will be produced at an ever increasing rate, at speeds currently unimaginable. 
+As the interesting and novel developments are created at the interface of the research fields of Systems genetics and Bioinformatics, this 
+section first looks into the future of both fields separately, after which some ideas about the interdisciplinary domain are presented.  
 
-Looking only a little bit further ahead we see the advent of personalized medicine and genomics in hospitals 
-and health clinics. Sequencing humans at costs under \$ 1000 a person is already possible, but prices will remain 
-to drop in the near future. This in turn generates a huge amount of data for analists and clinicians to cope with. 
-Let alone the amount of 'knowledge' required from external data sources to interpret this data in a manner which 
-will aid in curing patients.
+Genetics research is producing more data than ever before. This leads to an almost exponential increase in data similar to Moore's law of 
+computing, which states that “Every 18 months CPU power doubles” \cite{Moore:1998, Editorial:2009}. Large scale sequencing facilities such as the Sanger Institute (USA) and 
+the Beijing Genomics Institute (China) continue to produce an ever increasing stream of sequencing data for still increasing costs per 
+analysis. This allows researchers to collect data on an unprecedented scale, but also triggers the massive re-use of previous data.  
 
-Additionally besides the reduced costs of sequencing other biomolecular techniques also drop in price. 
-This allows us to collect (endo) phenotypes at a unpresedented scale \cite{Schadt:2010}, which in turn allow us to have a very 
-detailed view of the environment we live in, and how all animals on this planet depend on each other. 
-However storing and processing this additional phenotype data will put even more pressure on the 
-already burdened infrastructure.
+The field of Epigenetics is also gaining more and more attention, in particular the field of DNA methylation. The creation of Epi-RILs \cite{Johannes:2011} means 
+that we have a genetic map to associate our phenotype with, but additionally we can look for epigenetic inheritance of phenotypes using an 
+epigenetic map. This seems trivial, but in fact it describes the easiest situation which already doubles the required amount of effort for 
+mapping QTLs, because we need to map to a genetic map and an epigenetic map. Furthermore, epigenetic map currently available only shows the 
+inheritance of stable epigenetic states in an experimental population without any sequence variation. Therefore, the situation is even more 
+complex in the case of natural populations which have a mixture of genetic and epigenetic variations \cite{Johannes:2014}. At present the 
+stability of Epigenetics is still uncertain and it may lead to a reconsideration of certain genetic theories, in particular those addressing 
+the inheritance of DNA. This daunting challenge of first understanding how epigenetics play its role in inheritance, and then using this 
+knowledge to improve our QTL mapping ability will be a major and exciting challenge in the coming years.
 
-Also just collecting data will not provide us with extra knowledge, for that we need test hypotheses, use 
-models to predict and validate our hypotheses. This all comes with an increasing load on processing data. 
-Leading to a situation when an increasing amount of data creates its own drag, in that multiple testing 
-issues become worse and worse, leading to bigger sample sizes being required and thus more data being 
-collected.
+Cell type specific eQTLs are just one of many possible interaction models to take into account during eQTL mapping. The current trend of 
+performing data driven research in which we increase the amounts of data being collected and connect everything with everything is expected 
+to remain in the future. The statistical downside is that it causes multiple testing issues \cite{Benjamini:2010}, population stratification issues, and 
+spurious associations by hidden factors \cite{Huff:1993} and/or batch effects. 
 
-With this increasing scale of experimental data being produced in the lab, it will not be 
-sufficient to have analysis software as simple downloads, because the researcher will 
-also need sizable compute and storage power \cite{Schadt:2010}. Thus, researchers will 
-need easy access to 'software as a service' such as cloud computing. Additionally storage 
-of raw and pre-processed data is starting to become increasingly more expensive with 
-increasing data sizes involved, this will be discussed in sections \ref{subsect:ClusterComputing} 
-and \ref{sect:CloudComputing}. 
-How this increasing demand for storage and computational power can be satisfied in the future remains 
-an unanswered question. Although federate computing providers (such as Target or EU-grid) can help 
-researcher in their need for big computing solutions in the near future. This is also not a 
-universal solution, while the speed of data production is currently higher then the speed of 
-CPU improvement \cite{Moore:1998, Editorial:2009, Shah:2013}. Two solutions which are 
-currently already available are highlighted here: Cluster and cloud computing might be able to 
-solve the Big Data questions researchers currently face.
+The field of Bioinformatics faces the computational challenges arising from the above trends and expected developments. The question is how we 
+can contribute to solve these issues, demonstrate the added value of our applications, and present our legacy for the coming years.
 
-Additionally reproducibility of analysis methodologies which involves a large code base is proving 
-to be increasingly more difficult. Results tend to slightly change when version of software and 
-dependencies differ from the version used in the original analysis. A small discussion which highlights 
-current solutions to this problem of irreproducible results is found in section \ref{sect:CodeSharing} 
-about sharing code and collaborating on (large) code bases.
+Computational power has always increased exponentially over time. Recently, however, the Intel Company announced that Moore's law is not valid 
+anymore \cite{Editorial:2009, Shah:2013}, and the upcoming years will show a less then exponential growth in power per CPU. It can be expected 
+that the production of new and cheap computers will slightly offset this problem. Therefore, while separate CPUs will fail to show exponential 
+increases in speed, another development is the emergence of new and improved dedicated machines, such as ARM cores, Field Programmable Gate 
+Arrays, and ASICS miners for dedicated computation. Although these machines are less or equally powerful in general, they are designed to excel 
+in just one specific task, compared to a CPU which does many different tasks. Our research showed that several 'smart' algorithms, of which some 
+could be hard coded into an ARM core or FPGA, allows the same computations to be executed much faster compared to a CPU. Taken together, this 
+will still allow scaling up, for example of cell type specific eQTL analysis, to even larger data sizes.
 
-\subsection{Cluster computing}
-\label{subsect:ClusterComputing}
-A cluster is a collection of computers dedicated to solving a computational task by divide 
-and conquer \cite{Silva:1999, Qiu:2010}. It basically means to having a basic relatively 
-homogeneous software available on demand, on suitable compute and storage hardware. Hardware 
-resources are divided by an internal scheduling system amongst different tasks form different 
-users. However, users in general have little control over the computational environment, 
-because administration of the cluster and the scheduling system put constraints on the usage 
-of cluster. Computing clusters can be fashioned from different types of hardware, such as:
-\begin{itemize}
-  \item Ad-hoc networks composed of many heterogeneous relatively cheap systems such as: FPGA, and/or CPU, ARM core
-  \item Dedicated computer clusters, such as TARGET or national GRIDs, where usually a homogenous system of Linux machines is used for computational tasks.
-  \item Video card cluster for linear algebra, utilizing the power of many simple GPU cores for dedicated tasks.
-\end{itemize}
-Compute clusters do not have to be homogeneous in nature. Though in many cases there will 
-homogeneity to provide users with a stable computational environment to perform their tasks. 
-Additionally the use of hardware can limit the usage of a cluster to a certain range of 
-computational tasks such as GPUs or dedicated ARM cores.
+We advocate using linear scaling of multicore machines or large compute clusters. Although this is not the solution to our problems, using these 
+systems such that data are presented in a summarised way to biologists (as is done by wormQTL) will help to relieve some of the immediate need 
+of collaborators. In our opinion the xQTL workbench will continuously be developed to suit emerging new technologies in the field of data storage 
+and computation. Additionally, using R as Esparanto between multiple languages means we are less dependent on a single language, and are able to 
+switch from one storage strategy to another, while the computational part of the system does not 'see' this change because it only sees the R 
+glue layer.
 
-\subsection{Cloud computing}
-\label{sect:CloudComputing}
-The term cloud is used in many different ways, and there is little consensus on what a cloud 
-exactly is \cite{Foster:2008}. It essence it means to have software available 
-on demand, on suitable compute and storage hardware, with the user being charged for the time 
-that it is being used. Following the concept of the leading cloud provider Amazon, it refers 
-in practice to use of a virtual Linux machine, i.e. a virtual compute server with Linux 
-preinitialized, hosted within some large compute infrastructure, with complete freedom to be 
-customized by the user although not for free \cite{Trelles:2011}.
+The computational issues arising from high throughput data can be partly solved with smarter algorithms such as P2G, MQM, CTL and cell type eQTL. 
+Some of these algorithms (P2G, MQM, cell type eQTL) are already being used actively in research, and show that improved tools give either improved 
+performance or improved power to detect results. 
 
-Many commercial, national and local compute centers are also increasingly providing computer
-server capacity in a cloud fashion. This makes these virtual machines an easy method to distribute 
-software and computation without the need for all participating computational nodes to install 
-software. Thus, the infrastructure is specified jointly \cite{Foster:2008} but for the actual computation every 
-partner can be private with their data. This approach grants enormous computational power to 
-everyone with minimal preparation - once that a shared image is finalized \cite{Krampis:2012}.
+The xQTL workbench is a collaborative system in which bioinformaticians and biologists contribute to create a system which can serve both them and 
+the communities to which they belong. Collaborators are curating data and adding new analysis routines to the wormQTL system. P2G connects to R/qtl 
+but we expect other QTL mapping packages without map creation facilities to be also interested to add P2G to their pipeline. Additionally the 
+whole high throughput eQTL mapping pipeline is available for other researchers to use and learn from. We urge all people performing GWAS to perform 
+meta-analysis (when possible) to improve their results and employ a strategy such as cell type specific eQTL mapping. 
 
-The setup of such a compute cloud is not trivial but several initiatives are underway to ease 
-this process. At the workshop, the bioinformatics work-group tested the packaging system provided by 
-the Debian Med initiative as a method to create a cloud and could be consider this as a seed 
-for an image to then be publicly shared. Instructions to create such images were prepared for 
-the workshop and made available at:\\
-\url{http://wiki.debian.org/DebianMed/LiveCD/}
- 
-Using this method the cloud infrastructure can be transferred to local computer clusters 
-if desired. Every participant has access to the server and can grant access to collaborators 
-without having to pay the hosting fees. When complete, this server image can be ported to 
-cloud providers such as: Amazon, Rackspace to be reused by other researchers.
+How and where do Bioinformatics and Systems Genetics come together? High throughput data is the connecting factor between both fields. Systems 
+genetics cannot exist without the help of high throughput methodologies such as whole genome sequencing and automated proteomics, because only 
+with these technologies we are able to build a comprehensive picture of all the bio-molecular levels that compose organisms. To generate 
+biologically relevant knowledge from these large amounts of data, geneticists cannot do without bioinformaticians. 
 
-\subsection{Code sharing and versioning}
-\label{sect:CodeSharing}
-Access and sharing of software code of all aforementioned tools is essential to avoid 
-duplication of efforts, promote interoperability and to really collaborate within the 
-genetics bioinformatics community. Only then does it really become clear what is available 
-and how there can be data and software flow between projects.
+Here we have shown our contributions to the field of bioinformatics such as novel infrastructure, high-throughput computational methodologies and 
+more optimised algorithms. These advances aid faster data processing, reduce redundancy during analysis, and create novel tools to get more out 
+of existing data. New tools and improvements of existing tools, as presented in this thesis, combined with computational advances, creates the 
+opportunity to do new things which were not possible before, such as large scale cell type specific eQTL mapping on 6000+ human GWAS samples. Our 
+tools will help Systems geneticists to do their job better and in less time than before.  
 
-An example tool to facilitate such sharing and collaboration on code level is Git: Git 
-allows users to follow updates (versions) of software packages and easily provide feedback \cite{Git:2007}. 
-The most recent stable R version of R/qtl and qtlHD can be found as a Git repository, Git 
-helps to control versions for the authors and facilitate compatibility with other packages 
-such as QTL-bim and Pheno2Geno. Although most users will generally find the last stable version 
-(Git master branch) the most useful and user-friendly, it is possible to download a 
-development branch to get familiar with the new features being prepared for the next version.
-
-An alternative to Git is Subversion (SVN) \cite{SVN:2002}. GeneNetwork code was developed 
-using Subversion with Python as its primary language. GeneNetwork code and a shell (partial) 
-database are available on Source Forge \cite{GeneNetwork:1994, GeneNetwork:2004}:\\
-\url{http://sourceforge.org/projects/genenetwork/}
-
-xQTL and XGAP code were also developed in Subversion \cite{SVN:2002} using Java as its primary language and 
-R for its analysis interfaces. XGAP code and binaries are all available as open source at
-\url{http://www.xgap.org/} and \url{http://www.molgenis.org/}. From a developer's perspective both Git and
-SVN are equally well-suited for publishing code and may be used in parallel.
 
 \section{Final remarks}
 We urge all readers to adopt a professional and reproducible way of data analysis. This requires 
