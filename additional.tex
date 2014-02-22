@@ -85,7 +85,7 @@ genetic map. A limitation of this procedure is that an initial genetic map has t
 The Pheno2Geno output structure is compatible with R/qtl \cite{Broman:2003, Arends:2010}. This facilitates an integrated experience between 
 the map creation phase and the QTL mapping phase of the algorithm. Furthermore, when applicable function parameters were harmonised 
 between the two software packages. Compatibility of the outcome structures of Pheno2Geno and R/qtl also provide further high throughput 
-facilities for QTL mapping in inbred populations. With the upcoming new version of R/qtl (see section 6.3) also the Pheno2Geno package will 
+facilities for QTL mapping in inbred populations. With the upcoming new version of R/qtl (see section \ref{sect:limitations}) also the Pheno2Geno package will 
 require updating to accommodate new specifications. The expected changes include: a standalone package, further optimisation of 
 parallelisation, performance improvements, support for more crosses, e.g. diversity outbred and/or collaborative cross mice.
 
@@ -99,13 +99,13 @@ fact that we discard phenotypes based on parental expression, and not apply mixt
 would have been used to analyse all phenotypes, it is possible that more markers would have been detected.
 
 Pheno2Geno currently does not support polyploid species such as corn, orchids and potato. For potato fitTetra was recently developed 
-(Vosman et al. 2011). To create genetic maps of this polyploid species, it uses a comparable strategy to Pheno2Geno. It can be expected 
+(Vosman et al. 2011 \cite{Voorrips:2011}). To create genetic maps of this polyploid species, it uses a comparable strategy to Pheno2Geno. It can be expected 
 that future releases of Pheno2Geno will include support for these species, as the expertise for polyploid map creation is present in 
 our group and the topic is subject of ongoing research. 
 
 Pheno2Geno is written in R. Despite this computer language is frequently used in the analysis of biological data, it is also recognised 
 that R is losing ground because of poor performance on extremely large datasets. We don't see this as a huge drawback because 
-routines in Pheno2Geno are designed to minimise memory usage of the algorithm by providing ‘lazy' equivalents of core functions, in such 
+routines in Pheno2Geno are designed to minimise memory usage of the algorithm by providing 'lazy' equivalents of core functions, in such 
 a way that data are only brought into RAM when necessary.
 
 \section{MQM revisited}
@@ -143,7 +143,7 @@ Earlier work has shown the following advantages of MQM for R/qtl to QTL mapping\
 \item Protection against over-fitting, because MQM fixes the residual variance from the full model, which allows the use of more cofactors than may be used in, for example, composite interval mapping \cite{Zeng:1994}.
 \item Prevention of ghost QTL detection (between two QTL in coupling phase).
 \item Detection of negating QTL (QTL in repulsion phase).
-\item MQM gives (compared to CIM) a reduction in type I and type II error  \cite{Handbook:Jansen:2007}.
+\item MQM gives (compared to CIM) a reduction in type I and II errors \cite{Handbook:Jansen:2007}.
 \end{itemize}
 
 The research in this thesis has added several other advantages, most notable:
@@ -183,6 +183,7 @@ holistic overview circle plot. Circle plots show the main effects and the intera
 plots show main effects for many phenotypes, combined with genetic location information of the (expression) phenotypes mapped. 
 
 \section{Limitations of R as analysis platform for R/qtl}
+\label{sect:limitations}
 When dealing with high throughput data obtained from RNA-seq, exome sequencing or Bisulphite sequencing, data size quickly becomes the limiting 
 factor for software written in R \cite{Ristić:2009, Patel:2012}. Because R/qtl-HD is aimed at QTL analysis of high-density, high-throughput data, R is not a suitable language 
 for the high throughput computational parts of the algorithms. R/qtl-HD is written in the high performance D programming language. D is chosen 
@@ -275,10 +276,10 @@ difficult to anticipate to new demands, requirements or new developments, that c
 analysis \cite{R:2005}. Despite this, in our opinion the xQTL workbench is well suited to tackle such changing requirements by leveraging the strength of 
 generators and the flexibility of the XGAP data model.
 
-Infrastructure in Systems genetics is created with generators, as it alleviates the need to handwrite most of the system's common codes. This common 
+Infrastructure in Systems genetics is created with generators, as it alleviates the need to handwrite most of the system's common codes \cite{Swertz:2004}. This common 
 code consists of basic database parts such as: Create, Read, and Update functions for the underlying database system, generated web interfaces to enter 
-and curate data, and application programming interfaces (APIs) to transfer data from one language (e.g. Java) to another (e.g. R). We used the MOLGENIS 
-generator together with the flexible XGAP data model to set up a system capable of handling any genetical genomics experiment 'at the push of a button' 
+and curate data, and application programming interfaces (APIs) \cite{Swertz:2010b} to transfer data from one language (e.g. Java) to another (e.g. R). We used the MOLGENIS 
+generator together with the flexible XGAP data model \cite{Swertz:2010a} to set up a system capable of handling any genetical genomics experiment 'at the push of a button' 
 as the unofficial slogan states. All our collaborators reported gains on implementation time when using the xQTL workbench, as compared to a handwritten 
 system in which all these components need to be (re)developed or invented. Parts of the system will always require fine tuning, but major parts of 
 functionality do not change from one database system to the other, and thus allow automated generation of these parts.
@@ -293,8 +294,9 @@ to multiple nodes when applicable.
 
 An ever increasing amount of data and knowledge (in terms of the outcomes of computational analyses) are stored in large databases and are available to 
 biologists for further study. This allows reuse of data by different biologists, decreases the need to regenerate data, and it stimulates collaborations 
-between research groups. Furthermore, translational databases, which store and integrate data across many species, facilitate interactions between 
-research communities, such as Human and Worm genetics, by providing an opportunity to look across the borders of their own species. 
+between research groups. Furthermore, translational databases (e.g. NCBI DB-GAP \cite{Mailman:2007}, KEGG \cite{Goto:2000}), which store and integrate 
+data across many species, facilitate interactions between research communities, such as Human and Worm genetics, by providing an opportunity to look 
+across the borders of their own species \cite{vanDerVelde:2014}. 
 
 At the same time, storage of raw data is still necessary in many cases. A good example is found in the next generation sequencing platforms. Although the 
 costs for sequencing are being reduced in a high pace, additional funds are required to store and process the raw data coming from the machine. While at 
