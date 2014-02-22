@@ -1,6 +1,7 @@
 \chapter{Conclusion, Discussion and Future perspectives}
 \thispagestyle{empty}
-\emph{The last chapter we summarize the main themes of this thesis and look forward to the future.}
+\emph{This final chapter first provides a short summary of the contents of the research findings, followed by a discussion of 
+some of the relevant scientific issues that were addressed.}
 \null
 \vfill
 
@@ -14,102 +15,102 @@
 \newpage
 
 \section{General discussion}
-This thesis advocates that using high-throughput computational methodologies and more optimised algorithms such as Pheno2Geno (P2G), 
+This thesis advocates that using high-throughput computational methodologies and more optimised algorithms such as Pheno2Geno, 
 or Multiple QTL mapping (MQM), combined with taking advantage of modern shared computational infrastructure, can provide a solution 
-to the 'Big Data' challenges in Systems genetics. Federated computing, and collaborative research, require tools such as the xQTL 
+to the 'Big Data' challenges in Systems Genetics. Federated computing, and collaborative research, require tools such as the xQTL 
 workbench, to work together and avoid duplicate efforts. This final chapter first provides a short summary of the contents of the 
 research findings, followed by a discussion of some of the relevant scientific issues that were addressed. Also, conclusions are drawn 
-on the impact of the Bioinformatics research and methodologies, presented in this thesis, on insights in the Systems biology. The 
+on the impact of the Bioinformatics research and methodologies, presented in this thesis, on insights in Systems Genetics. The 
 chapter concludes with an overview of future perspectives on research themes and methodologies in the interdisciplinary field of 
-Systems biology and Bioinformatics.
+Systems Genetics and Bioinformatics.
 
 \section{Highlight of the results}
-Chapter 2 details how P2G was developed as R-package for the high-throughput generation of genetic markers and maps from molecular 
-phenotypes. P2G selects suitable phenotypes that show clear differential expression in the founders. It uses mixture modeling to 
+Chapter \ref{chap:pheno2geno} details how Pheno2Geno was developed as R-package for the high-throughput generation of genetic markers and maps from molecular 
+phenotypes. Pheno2Geno selects suitable phenotypes that show clear differential expression in the founders. It uses mixture modeling to 
 select phenotypes showing segregation ratios close to the expected Mendelian segregation ratios, and transforms them into genetic 
-markers that are suitable for map construction and/or saturation. P2G analyses the candidate genetic markers and excludes those 
+markers that are suitable for map construction and/or saturation. Pheno2Geno analyses the candidate genetic markers and excludes those 
 showing multiple QTL, epistatically interacting QTLs, and QTL by environment interactions, to provide a set of robust markers for 
 QTL mapping and at the same time protecting against genetic markers from non-genetic origin.
 
-Chapter 3 highlights the integration of the MQM algorithm into R/qtl. We validated the methodology with experimental data from a 
-cross of A. thaliana Bayreuth x Shahdara. Sections 3.1 and 3.2 show the performance of MQM on these experimental data. As the MQM 
+Chapter \ref{chap:mqm} highlights the integration of the MQM algorithm into R/qtl. We validated the methodology with experimental data from a 
+cross of A. thaliana Bayreuth x Shahdara. Sections \ref{sect:classical} and \ref{sect:Metabolites} show the performance of MQM on these experimental data. As the MQM 
 algorithm is highly relevant to seed development, we discuss its use in this cross and try to find genetic factors underlying 
-observed changes in the classical phenotypes and metabolome. We applied a generalised genetical genomics design to optimise the 
+observed changes in the classical phenotypes and metabolome. We applied a generalised genetical genomics design \cite{Li:2009} to optimise the 
 statistical power to detect QTLs and QTL x Environment interactions. This design approach allowed us to pick up more main effects 
 and QTL x Environment interactions as compared to a random design or a full block design.
 
-Chapter 4 describes our current work on the topic concerning correlation differences when mapping two traits onto the genome. Our 
+Chapter \ref{chap:ctlmapping} describes our current work on the topic concerning correlation differences when mapping two traits onto the genome. Our 
 observations of the patterns when performing CTL mapping on multiple phenotypes, revealed that some of these patterns are similar 
 to those when using a QTL x Environment interaction model. We applied this interaction model to data from a human Genome Wide 
 Association Study (GWAS). We detected cell type specific eQTLs in whole blood for neutrophils, and show that low effect QTLs observed 
 in samples can be explained by compensating for the relative number of neutrophils observed, or predicted. Cell type specific eQTL 
 analysis will improve our power to detect QTLs and enables us to assign cell type labels to observed cis-eQTL effects.
 
-Chapter 5 details our work to provide computational infrastructure for the Life Sciences. We advocate the use of generators to 
-create software and propose a generic and extensible data model (XGAP) to store phenotype and genotype data. Combining these 
-two approaches we developed several tools for ‘Big Data' infrastructure. The combination of these tools is the xQTL workbench, 
+Chapter \ref{chap:xqtlwormbench} details our work to provide computational infrastructure for the Life Sciences. We advocate the use of generators to 
+create software and propose a generic and extensible data model (XGAP) \cite{Swertz:2010a} to store phenotype and genotype data. Combining these 
+two approaches we developed several tools for 'Big Data' infrastructure. The combination of these tools is the xQTL workbench, 
 a scalable web platform for the mapping of quantitative trait loci (QTLs) at multiple levels such as gene expression (eQTL), 
 protein abundance (pQTL), metabolite abundance (mQTL), and phenotype (phQTL) data. Popular QTL mapping methods for model organism 
 and human populations are accessible via the web user interface. The system also allows researchers to contribute new analytical 
 routines. We conclude that good software infrastructure is of critical importance when scaling up large calculations to multi-core 
 computers, clusters and cloud computing.
 
-\section{P2G performance}
+\section{Pheno2Geno performance}
 
-P2G is developed to optimise routines for generating genetics maps de-novo or to saturate existing genetic maps [53, 54]. P2G enables 
-the user to generate bio markers from microarrays, tilling arrays and RNA-sequencing data using mixture models. Important design 
-requirements for P2G include being: 1) as generic as possible; 2) compatible to multi-core machines; and 3) to allow many machine 
+Pheno2Geno is developed to optimise routines for generating genetics maps de-novo or to saturate existing genetic maps. Pheno2Geno enables 
+the user to generate bio markers from microarrays, tilling arrays and RNA-sequencing data using mixture models \cite{Gort:2010}. Important design 
+requirements for Pheno2Geno include being: 1) as generic as possible; 2) compatible to multi-core machines; and 3) to allow many machine 
 clusters to generate genetic maps.
 
-We developed P2G to include a sensitive pre-selection of possible genetic markers with a simple t-test approach. This approach enables 
+We developed Pheno2Geno to include a sensitive pre-selection of possible genetic markers with a simple t-test approach. This approach enables 
 the user to quickly discard possible loci that do not show differential expression between parents. The method illustrates the trade-
 off between the risk of missing important markers found by other approaches, and the time consuming computational burden of analysing 
-all loci. P2G was developed in the context that it is better to have a map in reasonable time, then not having a map at all.
+all loci. Pheno2Geno was developed in the context that it is better to have a map in reasonable time, then not having a map at all.
 
 We applied mixture models to select good genetic markers that show segregation frequencies comparable to the expected segregation 
-frequencies. We demonstrated that our approach was much more generically applicable to finding genetic markers than the method 
-proposed by Michelmore et al. (2006).
+frequencies \cite{West:2006, Truco:2013}. We demonstrated that our approach was much more generically applicable to finding genetic markers than the method 
+proposed by Michelmore et al. (2006) \cite{West:2006}.
 
 There are many tests to estimate a difference between two groups, including t-tests, linear models, mixture models etc. In a t-test 
 only the mean values and variances are calculated. In our view, this provides the fastest way to decide if there is a difference. 
 All other statistical methods mentioned above, come with added computational burdens such as ranking data or calculations that involve 
-more statistics. The P2G algorithm, however, is developed in such a way that is provides the user several other options for statistical 
+more statistics. The Pheno2Geno algorithm, however, is developed in such a way that is provides the user several other options for statistical 
 testing (Wilcoxon Rank Testing, Mann-Whitney U Testing), and transformation of input signals (Log, Sqrt, Reciprocal, etc).
 
 When creating maps for a Recombinant inbred line (RIL) (or a BackCross) population, in which case there is no parental information 
-present, P2G is still able to saturate a known low quality map. Unlike other methods, P2G does not require such parental information 
+present, Pheno2Geno is still able to saturate a known low genetic map. Unlike other methods, Pheno2Geno does not require such parental information 
 to detect the origins of the chromosomes. This is due to the fact that it flips anti-correlated chromosomes to find the optimal 
 genetic map. A limitation of this procedure is that an initial genetic map has to be provided by the user.
 
-The P2G output structure is compatible with R/qtl \cite{Broman:2003, Arends:2010}. This facilitates an integrated experience between 
+The Pheno2Geno output structure is compatible with R/qtl \cite{Broman:2003, Arends:2010}. This facilitates an integrated experience between 
 the map creation phase and the QTL mapping phase of the algorithm. Furthermore, when applicable function parameters were harmonised 
-between the two software packages. Compatibility of the outcome structures of P2G and R/qtl also provide further high throughput 
-facilities for QTL mapping in inbred populations. With the upcoming new version of R/qtl (see section 6.3) also the P2G package will 
+between the two software packages. Compatibility of the outcome structures of Pheno2Geno and R/qtl also provide further high throughput 
+facilities for QTL mapping in inbred populations. With the upcoming new version of R/qtl (see section 6.3) also the Pheno2Geno package will 
 require updating to accommodate new specifications. The expected changes include: a standalone package, further optimisation of 
 parallelisation, performance improvements, support for more crosses, e.g. diversity outbred and/or collaborative cross mice.
 
-Taken together, the abovementioned features , i.e. pre-selection, generic software, optimised performance, R/qtl support, make P2G a 
+Taken together, the abovementioned features , i.e. pre-selection, generic software, optimised performance, R/qtl support, make Pheno2Geno a 
 competitive package for genetic map creation in inbred populations. 
 
-The P2G algorithm also showed several drawbacks, which are discussed here. 
+The Pheno2Geno algorithm also showed several drawbacks, which are discussed here. 
 
-As a consequence of the pre-selection of possible markers, using P2G may induce that certain markers are missed. This is due to the 
+As a consequence of the pre-selection of possible markers, using Pheno2Geno may induce that certain markers are missed. This is due to the 
 fact that we discard phenotypes based on parental expression, and not apply mixture modeling to all phenotypes. If mixture models 
 would have been used to analyse all phenotypes, it is possible that more markers would have been detected.
 
-P2G currently does not support polyploid species such as corn, orchids and potato. For potato fitTetra was recently developed 
-(Vosman et al. 2011). To create genetic maps of this polyploid species, it uses a comparable strategy to P2G. It can be expected 
-that future releases of P2G will include support for these species, as the expertise for polyploid map creation is present in 
+Pheno2Geno currently does not support polyploid species such as corn, orchids and potato. For potato fitTetra was recently developed 
+(Vosman et al. 2011). To create genetic maps of this polyploid species, it uses a comparable strategy to Pheno2Geno. It can be expected 
+that future releases of Pheno2Geno will include support for these species, as the expertise for polyploid map creation is present in 
 our group and the topic is subject of ongoing research. 
 
-P2G is written in R. Despite this computer language is frequently used in the analysis of biological data, it is also recognised 
+Pheno2Geno is written in R. Despite this computer language is frequently used in the analysis of biological data, it is also recognised 
 that R is losing ground because of poor performance on extremely large datasets. We don't see this as a huge drawback because 
-routines in P2G are designed to minimise memory usage of the algorithm by providing ‘lazy' equivalents of core functions, in such 
+routines in Pheno2Geno are designed to minimise memory usage of the algorithm by providing ‘lazy' equivalents of core functions, in such 
 a way that data are only brought into RAM when necessary.
 
 \section{MQM revisited}
 The addition of MQM to the R/qtl toolbox has already shown to pay off in scientific terms: the paper that detailed the implementation 
-has been cited more than 35 times since it was published in Bioinformatics in 2010 (Chapter 3.2). This indicates how much the research 
+has been cited more than 35 times since it was published in Bioinformatics in 2010 (Chapter \ref{sect:mqm}). This indicates how much the research 
 community values a comprehensive multiple QTL mapping methodology integrated into an already well-established QTL mapping framework 
 (R/qtl). Several applications of MQM are known to our group. For example, dr. E. Lodder (Academic Medical Center, University of 
 Amsterdam, The Netherlands) used MQM to investigate collagen deposits in mouse left ventricular heart failure (publication in press). 
@@ -137,27 +138,25 @@ boxes then R/qtl.
 
 Earlier work has shown the following advantages of MQM for R/qtl to QTL mapping\cite{Jansen:1993, Handbook:Jansen:2007}: 
 
-1. Higher power, as long as the QTL explain a reasonable amount of variation.
-
-2. Protection against over-fitting, because MQM fixes the residual variance from the full model, which allows the use of more cofactors than may be used in, for example, composite interval mapping \cite{Zeng:1994}.
-
-3. Prevention of ghost QTL detection (between two QTL in coupling phase).
-
-4. Detection of negating QTL (QTL in repulsion phase).
-
-5. MQM gives (compared to CIM) a reduction in type I and type II error  \cite{Handbook:Jansen:2007}.
+\begin{itemize}\itemsep1pt
+\item Higher power, as long as the QTL explain a reasonable amount of variation.
+\item Protection against over-fitting, because MQM fixes the residual variance from the full model, which allows the use of more cofactors than may be used in, for example, composite interval mapping \cite{Zeng:1994}.
+\item Prevention of ghost QTL detection (between two QTL in coupling phase).
+\item Detection of negating QTL (QTL in repulsion phase).
+\item MQM gives (compared to CIM) a reduction in type I and type II error  \cite{Handbook:Jansen:2007}.
+\end{itemize}
 
 The research in this thesis has added several other advantages, most notable:
 
-6. A pragmatic permutation strategy for controlling the false discovery rate (FDR) and prevention of locating false QTL hot 
+\begin{itemize}\itemsep1pt
+\item A pragmatic permutation strategy for controlling the false discovery rate (FDR) and prevention of locating false QTL hot 
 spots, as discussed in Breitling et al \cite{Breitling:2008a}. Marker data are permuted, while keeping the correlation structure in the trait 
 data. Because of the unified data structure in R/qtl, this permutation strategy can also be used with all other QTL mapping 
 functions in R/qtl, such as single marker mapping and composite interval mapping (CIM).
-
-7. High-performance computing by leveraging parallel computations using multi-CPU computers, as well as clustered computers, 
+\item High-performance computing by leveraging parallel computations using multi-CPU computers, as well as clustered computers, 
 by calculating phenotypes in parallel, through the Message Passing Interface (MPI) of the SNOW package for R \cite{Tierney:2009}.
-
-8. Visualisations for exploring interactions in a genomic circle plot (Fig. \ref{fig:circleplot}) and cis- and trans-regulation (Fig. \ref{fig:cistrans}).
+\item Visualisations for exploring interactions in a genomic circle plot (Fig. \ref{fig:circleplot}) and cis- and trans-regulation (Fig. \ref{fig:cistrans}).
+\end{itemize}
 
 The MQM for R/qtl also has drawbacks. It is computational much more intensive than single marker mapping. As it is designed in two languages, i.e. 
 R and C/C++, the programme's maintenance is more difficult. Additionally, interpretation of the results is more complex when performing a multiple 
@@ -174,9 +173,10 @@ single marker scan as no such model is present.
 
 This type of visualisation provides researchers:
 
-Output per trait: an overview of interesting genetic loci (main effects) and the interactions between these main effect loci.
-
-A holistic overview of all traits to identify co-localisation of main effect QTLs on the genome.
+\begin{itemize}\itemsep1pt
+\item Output per trait: an overview of interesting genetic loci (main effects) and the interactions between these main effect loci.
+\item A holistic overview of all traits to identify co-localisation of main effect QTLs on the genome.
+\end{itemize}
 
 Furthermore, we added cis and trans visualisations which allow the same data to be explored in a 2D fashion providing comparable information to the 
 holistic overview circle plot. Circle plots show the main effects and the interactions between genetic loci for a single phenotype, while cis/trans 
@@ -190,23 +190,20 @@ as primary language because it was developed to perform safe and high throughput
 provides a familiar syntax to the R/qtl developers, most of whom have a C/C++ background, making D the language of choice for R/qtl-HD. 
 Additional features of D include:
 
-1. Improved code quality. This increases options for maintenance of the code. Also, a more readable code is more open to discussion and reasoning 
+\begin{enumerate}\itemsep1pt
+\item \emph{Improved code quality} - This increases options for maintenance of the code. Also, a more readable code is more open to discussion and reasoning 
 to optimise the code, which results in improved performance of the algorithms.
-
-2. D allows to call C. D directly allows to call C functions and a limited subset of C++. This allows to re-use previously written R/qtl code 
+\item \emph{C ABI compatble} - D allows to call C. D directly allows to call C functions and a limited subset of C++. This allows to re-use previously written R/qtl code 
 (written in R and C) \cite{RQTLGuide:2009}.
-
-3. Built in unit testing. Unit testing is built into the D programming language, which facilitates programmers to use the power of unit- and 
+\item \emph{Built-in unit testing} - Unit testing is built into the D programming language, which facilitates programmers to use the power of unit- and 
 regression testing to build a test suite without the need for external tools or frameworks.
-
-4. Concurrency and Actors. The D language provides high level patterns such as Actors and Message Passing to deal with parallelisation of code. 
+\item \emph{Concurrency and Actors} - The D language provides high level patterns such as Actors and Message Passing to deal with parallelisation of code. 
 Unlike other languages, this is a built in feature of the language, which allows the standard D library to use safe lock free concurrency mechanisms \cite{Alexandrescu:2011}.
-
-5. Static typing. D requires types (e.g. Integer, Float, Double) to be declared and known at compile time. This improves readability of the code 
+\item \emph{Static typing} - D requires types (e.g. Integer, Float, Double) to be declared and known at compile time. This improves readability of the code 
 and reduces the risk for run-time type errors of the system.
-
-6. Compile Time Function Execution (CTFE). CTFE is a feature that allows to build look up tables at compile time. This greatly reduces the run 
+\item \emph{Compile Time Function Execution (CTFE)} - CTFE is a feature that allows to build look up tables at compile time. This greatly reduces the run 
 time of algorithms, by pre-calculating common cases \cite{ArendsBlog:2012}.
+\end{enumerate}
 
 These are the main reasons for the R/qtl development team to favour D over R. The current version of R/qtl provides many tools for genetic map 
 construction, but also several historic methods for QTL mapping. R/qtl-HD will not provide a multitude of methods but focuses more on the high 
@@ -309,15 +306,13 @@ developments are likely to decrease the immediate need for storage space, but in
 In this thesis we advocate R \cite{R:2005} as Esperanto language between storage and computational parts of our xQTL workbench platform. Our choice for 
 R is motivated by several reasons including: 
 
-1) MOLGENIS provides a generated R API, that we used to plug in our analysis tools.
-
-2) Many analytical tools are already available for R.
-
-3) Biologists tend to be familiar with R, since the language is frequently used in data analysis. As a consequence, they can share their analysis software through the system.
-
-4) R provides built in support for web browsing and secure connection (using Rcurl).
-
-5) R provides an easy way to start/stop shell scripts.
+\begin{enumerate}\itemsep1pt
+\item MOLGENIS provides a generated R API, that we used to plug in our analysis tools.
+\item Many analytical tools are already available for R.
+\item Biologists tend to be familiar with R, since the language is frequently used in data analysis. As a consequence, they can share their analysis software through the system.
+\item R provides built in support for web browsing and secure connection (using Rcurl).
+\item R provides an easy way to start/stop shell scripts.
+\end{enumerate}
 
 Despite the realisation that other languages also fulfil (most of) these requirements, our familiarity and experience with R largely 
 contributed to the decision to build the system with these components.
@@ -344,8 +339,8 @@ The final research question of this thesis refers to the impact of our contribut
 in methodology and knowledge in Systems genetics. During the research project we regularly tested our tools and performed various experiments to 
 validate our computational approaches. 
 
-In this thesis we show the application of P2G on a large dataset containing expression data from tilling arrays. Tilling arrays are a sensitive way to 
-measure genome wide expression levels of RNA transcripts. They produce a large amount of data. P2G uses these expression data to generate new high 
+In this thesis we show the application of Pheno2Geno on a large dataset containing expression data from tilling arrays. Tilling arrays are a sensitive way to 
+measure genome wide expression levels of RNA transcripts. They produce a large amount of data. Pheno2Geno uses these expression data to generate new high 
 quality maps for QTL mapping, thereby exploiting the availability of QTL information in high throughput phenotypes. We obtained raw expression data from 
 our collaborators at Wageningen University (RAW 16.8 GB) and were able to analyse these data in less than 30 minutes on an average workstation. Genetic 
 maps obtained were then used by the researchers to improve the resolution of their subsequent eQTL mapping. The observed increase in resolution allows 
@@ -416,13 +411,13 @@ and computation. Additionally, using R as Esparanto between multiple languages m
 switch from one storage strategy to another, while the computational part of the system does not 'see' this change because it only sees the R 
 glue layer.
 
-The computational issues arising from high throughput data can be partly solved with smarter algorithms such as P2G, MQM, CTL and cell type eQTL. 
-Some of these algorithms (P2G, MQM, cell type eQTL) are already being used actively in research, and show that improved tools give either improved 
+The computational issues arising from high throughput data can be partly solved with smarter algorithms such as Pheno2Geno, MQM, CTL and cell type eQTL. 
+Some of these algorithms (Pheno2Geno, MQM, cell type eQTL) are already being used actively in research, and show that improved tools give either improved 
 performance or improved power to detect results. 
 
 The xQTL workbench is a collaborative system in which bioinformaticians and biologists contribute to create a system which can serve both them and 
-the communities to which they belong. Collaborators are curating data and adding new analysis routines to the wormQTL system. P2G connects to R/qtl 
-but we expect other QTL mapping packages without map creation facilities to be also interested to add P2G to their pipeline. Additionally the 
+the communities to which they belong. Collaborators are curating data and adding new analysis routines to the wormQTL system. Pheno2Geno connects to R/qtl 
+but we expect other QTL mapping packages without map creation facilities to be also interested to add Pheno2Geno to their pipeline. Additionally the 
 whole high throughput eQTL mapping pipeline is available for other researchers to use and learn from. We urge all people performing GWAS to perform 
 meta-analysis (when possible) to improve their results and employ a strategy such as cell type specific eQTL mapping. 
 
@@ -437,26 +432,11 @@ of existing data. New tools and improvements of existing tools, as presented in 
 opportunity to do new things which were not possible before, such as large scale cell type specific eQTL mapping on 6000+ human GWAS samples. Our 
 tools will help Systems geneticists to do their job better and in less time than before.  
 
-
-\section{Final remarks}
-We urge all readers to adopt a professional and reproducible way of data analysis. This requires 
-coding and collaboration using data provenance and repositories to store analysis code.\\\\
-The Pheno2Geno R package is available from Github at:\\
-\url{https://github.com/KonradZych/phenotypes2genotypes}
-R/qtl is available from Github at:\\
-\url{https://github.com/kbroman/qtl}
-A development version of R/qtlHD is available from Github at:\\
-\url{https://github.com/qtlHD/qtlHD}
-The MOLGENIS software suite (MOLGENIS, XGAP, xQTL workbench) can be found at:\\
-\url{http://www.github.com/Molgenis/}
-All software developed for and described in this thesis are also written and developed using Git 
-for source code control, and is available from Github at:\\
-\url{http://github.com/DannyArends/}
-
 \chapter{Additional for Dissertation}
 \thispagestyle{empty}
-\emph{The last chapter containing some additional things needed for a complete 
-dissertation document required for a promotion at the University of Groningen.}
+\emph{This additional chapter containing some additional sections, such as a Dutch summary, 
+list of abbreviation, etc, needed for a complete dissertation required for a promotion at 
+the University of Groningen.}
 \null
 \vfill
 \newpage
