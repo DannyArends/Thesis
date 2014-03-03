@@ -444,20 +444,29 @@ the University of Groningen.}
 \newpage
 
 \section{Dutch Summary / Nederlandse Samenvatting}
-Systeem genetica is een inter disciplinair veld wat zch bezig houdt met de gevolgen van 
-genetische variatie op alle biomoleculaire niveaus een biologisch systeem. Het effect van 
-deze genetische variantie leidt tot verschillen in phenotypes, zoals opbrengt en resistentie. 
+Systeem genetica is een inter disciplinair veld wat zich bezig houdt met de gevolgen van 
+genetische variatie op alle bio moleculaire niveaus een biologisch systeem. Het effect van 
+deze genetische variantie leidt tot verschillen in fenotypen, zoals opbrengt en resistentie. 
 Het doel van systeem genetica is het indelen van de oorzaken van deze geobserveerde 
-phenotypische variatie in drie categorie\"en: Genetische effecten, omgevings effecten en 
+fenotypische variatie in drie categorie\"en: Genetische effecten, omgevings-effecten en 
 (random) residuele error variantie. Door netwerken te bouwen van interacties tussen 
-alle biomoleculaire niveaus probeert systeem genetica complexe phenotypes te verklaren uit 
+alle bio moleculaire niveaus probeert systeem genetica complexe fenotypen te verklaren uit 
 het samenspel tussen deze niveaus.
 
 Biologie gebruikt natuurlijke variatie en genetische perturbatie om de componenten te ontrafelen
-die phenotypische variatie veroorzaken, deze metingen gecombineerd met pertubatie van verschillende 
-omgevingsfactoren staat ons toe om de invloed van verschillende effecten zoals omgeving en 
-omgeving x genotype te bepalen. Experimenteel ontwerp and statistiek kunnen gebruikt worden om 
-de error variantie te minimaliseren.
+die fenotypische variatie veroorzaken op verscheidene bio moleculaire niveaus zoals: genetica, 
+transcriptomics, proteomics en metabolomics. Bio moleculaire metingen gecombineerd met pertubatie 
+van verschillende omgevingsfactoren stellen ons in staat om de invloed van verschillende 
+effecten zoals omgeving en omgeving x genotype te bepalen. Experimenteel ontwerp and statistiek 
+worden gebruikt om error variantie te minimaliseren.
+
+Moderne high-throughput technieken genereren grote hoeveelheden genomische, transcriptomic, proteomic 
+en metabolomic data. Een enorme uitdaging voor bioinformatica zit in de omvang van de data die verzameld 
+wordt en de diversheid aan technieken die worden gebruikt. Deze thesis zal ingaan op onze oplossingen 
+voor deze 'Big Data' uitdaging binnen de systeem genetica. Deze thesis adviseerd om geoptimaliseerde 
+algorithmes te gebruiken zoals: Pheno2Geno of Multiple QTL mapping. We promoten verder een collaboratieve 
+aanpak voor data opslag en gerelateerde computationele aspecten (xQTL workbench) om high throughput data 
+op te slaan en te analyseren binnen de systeem genetica.
 
 Hoofdstuk \ref{chap:introduction} bevat een korte historische introductie over systeem genetica, 
 In de volgende hoofdstukken van deze thesis laten de bijdrages zien van deze thesis aan systeem genetica.
@@ -466,12 +475,12 @@ Hoofdstuk \ref{chap:pheno2geno} (Pheno2Geno) gaat over het construeren van genet
 omics datasets. De theorie achter het maken van genetische kaarten is ongeveer 100 jaar oud. Maar 
 software beschikbaar voor het maken van genetische kaarten in model organismes is nog 
 vaak nog niet aangepast aan nieuwe ontwikkelingen zoals multicore computers en cluster computing. 
-Pheno2Geno is software voor het maken can genetische kaarten uit Big Data verkregen door 
+Pheno2Geno is software voor het maken van genetische kaarten uit Big Data verkregen door 
 experimenten de gebruik maken van tilling arrays of RNA sequence experimenten.
 
-Hoofdstuk \ref{chap:mqm} omschrijft de implementatie van het multiple QTL mapping algoritme ontwikkeld door 
-R. C. Jansen in R/qtl. Hiermee voegen we een nieuw algoritme aan de R/qtl toolset toe, een 
-toolset speciaal ontwikkeld voor het mappen van QTLs in ingeteelde (mouse) populations. R/qtl 
+Hoofdstuk \ref{chap:mqm} omschrijft de implementatie van het multiple QTL mapping algoritme 
+in R/qtl. Hiermee voegen we een nieuw algoritme aan de R/qtl toolset toe, een 
+toolset speciaal ontwikkeld voor het mappen van QTLs in ingeteelde (muis) populaties. R/qtl 
 vormt de basis van meerdere tools die allemaal gebouwd zijn rond een gedeelde datastructuur. 
 Deze structuur maakt het makkelijk om software aan te passen en nieuwe tools toe te voegen.
 Door de vele tools, kunnen onderzoekers snel wisselen van methode wanneer dit vereist is of 
@@ -481,9 +490,11 @@ Huidige werkzaamheden over het gebruik van \emph{verschillen in correlatie} om i
 netwerken te genereren en celtype specifieke eQTL effecten op te sporen wordt beschreven in 
 hoofdstuk \ref{chap:ctlmapping}. Correlated Traits Locus analyse (of CTL mapping) laat 
 onderzoekers toe om genetische loci te vinden die geassocieerd zijn met correlatie verschillen 
-tussen segregerende phenotypes. Een variant op deze methode is waardevol gebleken om cel 
-type specifieke eQTL effecten te ontdekken. Deze effecten kunnen worden gebruikt om mengsels 
-van cellen te ontwarren zo als in geheel bloed gen expressie data.
+tussen segregerende fenotypen. Een variant op deze methode is waardevol gebleken om cel 
+type specifieke expressie QTL (eQTL) effecten te ontdekken. Deze effecten kunnen worden 
+gebruikt om mengsels van cellen te ontwarren. We passen onze nieuwe methode toe op een cel 
+mengsel van geheel bloed gen expressie data en laten zien dat we in staat zijn om cell type 
+specifieke eQTLs te detecteren.
 
 In hoofdstuk \ref{chap:xqtlwormbench} presenteren we onze idee\"en voor een generiek opslag en rekenplatform 
 voor systeem genetica. Ons demo systeem xQTL workbench wordt momenteel gebruikt als een 
