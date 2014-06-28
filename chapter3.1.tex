@@ -39,7 +39,7 @@ studies \cite{Dechaine:2009, Elwell:2011}.
   \caption[Germination curve]{A hypothetical germination curve, $t_{10}$: Time when 10\% of seeds have 
           germinated, $t_{50}$: Time when 50\% of seeds have germinated. $U_{8416}$,  Uniformity of 
           germination, time difference between 16\% germination and 84\% germination. $G_{max}$: \% of 
-          germinated seeds, AUC: Area under the curve. }
+          \rev{total} germinated seeds, AUC: Area under the curve. }
   \label{fig:GerminationCurve}
 \end{figure}
 
@@ -197,10 +197,10 @@ mapping of individual traits and that allowed comprehensive and comprehensible v
   \centering
   \includegraphics[keepaspectratio,scale=0.30]{eps/image_3_1_2.eps}
   \caption[Generated Output.]{R/QTL output for the effect of 100mM NaCl on the maximum germination without 
-          stratification. A) Pairwise recombination fractions; B) Phenotype distribution histogram without 
-          normalization ; B) LOD profile comparison between MQM and Haley-Knott (scan-one) interval mapping; 
-          C) Genome wide additive effect based on raw phenotype data D) Genetic map showing the significant 
-          QTL markers; E) Interaction plot showing the effect size comparison between marker MSAT305754 and 
+          stratification. A) Pairwise recombination fractions; \del{B) Phenotype distribution histogram without 
+          normalization;} B) LOD profile comparison between MQM and Haley-Knott (\rev{scanone}) interval mapping; 
+          C) Genome wide additive \rev{effects} based on raw phenotype data D) Genetic map \rev{with} the significant 
+          QTL markers \rev{labelled}; E) Interaction plot showing the effect size comparison between marker MSAT305754 and 
           MSAT518662 at the Sha (AA) and Bay-0 (BB) alleles; F) Circle plot showing interactions between 
           all significant markers.}
           \label{fig:generatedoutput}
@@ -213,7 +213,7 @@ needed. For this, any programming language can be used which supports statistics
 the statistical language R is often the prime candidate. R is open source, contains the latest in 
 statistical analysis methods and has a large community for help and support (\url{http://www.r-project.org/}). 
 Furthermore, it has the R/qtl package \cite{Broman:2003}, which contains an array of different 
-QTL mapping methods, including Single Marker Mapping, Interval Mapping and Multiple QTL Mapping (MQM) 
+QTL mapping methods, including Single Marker Mapping, \rev{Composite} Interval Mapping \rev{CIM} and Multiple QTL Mapping (MQM) 
 \cite{Arends:2010}. Although all possibilities to perform a detailed QTL analysis including data 
 preprocessing and output formatting are present in R, it requires extensive knowledge of the R-syntax 
 to combine all necessary steps in a single analysis protocol that can loop through hundreds or 
@@ -319,7 +319,7 @@ summarizing figures is greatly facilitating the interpretation of large datasets
   \caption[Cytoscape marker trait network.]{Cytoscape Marker-Trait network. A) Significant QTL positions are 
           indicated by a connection between traits and markers, edge colors indicate the direction of the QTL 
           effect, line width indicates the LOD score; B) Sub- network showing all traits with a significant 
-          QTL at marker MSAT519; C) Sub- network showing all markers with significant QTL for germination on 
+          QTL at marker MSAT519; C) \rev{Sub-network} showing all markers with significant QTL for germination on 
           NaCl with stratification.}
 \end{figure}
 

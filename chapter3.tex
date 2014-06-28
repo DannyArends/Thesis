@@ -72,13 +72,13 @@ strengths of the different methods in future versions of R/qtl.
 These days, with most experimental setups and high density maps, improving precision may be 
 achieved by increasing the population size first. For more information on QTL mapping and 
 Bayesian analysis we refer to the `Handbook of Statistical Genetics` \cite{Handbook:2007}. MQM 
-makes used of generalized linear models, thereby potentially providing unified analysis of 
+makes \rev{use} of generalized linear models, thereby potentially providing unified analysis of 
 non-normal traits.
 
 MQM provides a practical, relevant and sensitive approach for mapping QTL in experimental 
 populations. The theoretical framework of MQM was introduced and explored by R.C. Jansen 
-\cite{Jansen:1994a} and explained in the 'Handbook of Statistical Genetics' 
-\cite{Handbook:Jansen:2007}. MQM has one known commercial implementation \cite{Mapqtl:2002}, 
+\cite{Jansen:1994a} and \rev{is} explained in the 'Handbook of Statistical Genetics' 
+\rev{chapter 21} \cite{Handbook:Jansen:2007}. MQM has one known commercial implementation \cite{Mapqtl:2002}, 
 which has been used effectively in practical research, resulting in hundreds of papers, e.g., 
 in mouse, plant, and fish, respectively \cite{DeMooij:2009, Jeuken:2009, Kitano:2009}. Now, 
 with MQM for R/qtl, we present the first free and open source implementation of MQM, that is 
@@ -119,7 +119,7 @@ prevention of locating false QTL hot spots, as discussed in Breitling et al \cit
 Marker data is permuted, while keeping the correlation structure in the trait data.
 \item High-performance computing by scaling on multi-CPU computers, as well as clustered 
 computers, by calculating phenotypes in parallel, through the Message Passing Interface (MPI) of 
-the SNOW package for R\cite{Tierney:2009}.
+the SNOW package for R\rev{ }\cite{Tierney:2009}.
 \item Visualizations for exploring interactions in a genomic circle plot (Fig. \ref{fig:circleplot}) and \emph{cis}- 
 and \emph{trans}-regulation (Fig. \ref{fig:cistrans}).
 \end{enumerate}
