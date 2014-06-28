@@ -1,12 +1,14 @@
-\documentclass[11pt, twoside]{extbook}
-\usepackage[paperwidth=170mm,paperheight=240mm, top=27mm, bottom=27mm, left=20mm, right=20mm]{geometry}
-\special{papersize=170mm,240mm}
+\documentclass[a4paper, 11pt, twoside]{extbook}
+%\usepackage[paperwidth=170mm,paperheight=240mm, top=27mm, bottom=27mm, left=20mm, right=20mm]{geometry}
+%\special{papersize=170mm,240mm}
+\usepackage{fullpage}
 \usepackage[usenames, dvipsnames, svgnames, table]{xcolor}
 \usepackage{titlesec, blindtext, color, graphicx}
 \usepackage[light,condensed,math]{kurier}
 \usepackage[T1]{fontenc}
 \usepackage{tcolorbox}
 \usepackage{lipsum}
+\usepackage{ulem}
 \usepackage{fancyhdr}
 \usepackage[font={small,it}]{caption}
 \usepackage[square,sort,comma,numbers]{natbib}
@@ -18,6 +20,7 @@
 \tcbuselibrary{skins,breakable}
 \usetikzlibrary{shadings,shadows}
 \definecolor{GREEN}{rgb}{0, 0.5, 0.1}
+\definecolor{RED}{rgb}{0.7, 0.2, 0}
 
 %\renewcommand{\familydefault}{\sfdefault}
 
@@ -48,6 +51,9 @@
 \newcommand{\bold}[1]{{\bfseries #1}}
 \newcommand{\code}[1]{{\tt #1}}
 \newcommand{\mytitle}[1]{{\LARGE #1}}
+
+\newcommand{\rev}[1]{\underline{{\textcolor{RED}{#1}}}}
+\newcommand{\del}[1]{\sout{{\textcolor{RED}{#1}}}}
 
 \newcommand{\xqtlwb}{{\it x}QTL workbench }
 \newcommand{\molgenis}{MOLGENIS} % don't use all caps, see journal guidelines
@@ -133,7 +139,7 @@ Environment and Error variation, and explain how complex phenotypes arise from a
 of these three major factors across biomolecular levels.
 
 Currently natural variation (or genetic pertubation) can be used to interogate the genetic basis 
-of phenotype variation on many biomolecular levels such as:. genetics, transcriptomics, proteomics 
+of phenotype variation on many biomolecular levels such as:. \rev{DNA}, transcriptomics, proteomics 
 and metabolomics. Combined with environmental pertubation we can investigate the influence of 
 different environments and the interaction between genetics and environment. Experimental design 
 and advanced statistics are used to minimize and estimate error variance. To investigate all these 
@@ -153,7 +159,7 @@ causes an increasing complexity when diagnosing patients, or selecting crops for
 
 Chapter \ref{chap:pheno2geno} shows Pheno2Geno an R package that deals with the creation of 
 genetic maps from large scale omics data. The theory behind genetic map construction is around 
-100 years old, most software was witen in the 1980s. Software available for genetic map construction 
+100 years old, most software was \rev{written} in the 1980s. Software available for genetic map construction 
 has not been adapted yet to make use of new technologies such as multi threading or cluster 
 computing. Pheno2Geno aims to provide analysis of data from tiling arrays or RNAseq to generate 
 gene based expression markers (GEMs) and create high density genetic maps.
