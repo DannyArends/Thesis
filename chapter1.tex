@@ -81,7 +81,7 @@ classical phenotypes and a limited number of genetic markers. Now we are able to
 millions of markers, creating not only more data, but also a more diverse kind of biological data. These 
 new data also need to be considered when analysing and interpreting the outcome in terms of clinical and 
 societal relevance. To merge all these inputs and give algorithms a unified view on such diverse data, 
-requires generic data modelling, and generators that use these models to create de-novo (web)-infrastructure, 
+requires generic data \rev{modeling}, and generators that use these models to create de-novo (web)-infrastructure, 
 such as clusters, clouds and multi-core machines. 
 
 The phenomenon of larger sample sizes, more data collection, and more intense computations, is a natural 
@@ -122,10 +122,10 @@ High throughput phenotyping provides us with data on thousands of phenotypes. So
 as genetic marker because they show a major QTL effect. This leads to a situation in which we have a genetic 
 map and an abundance of phenotypes which could be used to improve the map quality, by pinpointing all informative recombinations. 
 This knowledge, combined with a lack of good genetic map creation software in the R/qtl package, has fuelled the development of the sensitive algorithm 
-Pheno2Geno. It uses mixture modelling, combined with a sensitive pre-selection approach. This results in faster 
+Pheno2Geno. It uses mixture \rev{modeling}, combined with a sensitive pre-selection approach. This results in faster 
 genetic map creation as compared to other methods, and is the main reason for our ambition to add Pheno2Geno to R/qtl. 
 
-QTL interactions are an improtant area of interest in Systems genetics. For example, in recent years several papers were 
+QTL interactions are an \rev{important} area of interest in Systems genetics. For example, in recent years several papers were 
 published on cell type or sex specificity of QTLs. Detection of these cell type specific QTLs has proven to be extremely 
 difficult because it requires large sample sizes.  Meta-analysis, where we combine the samples from separate studies 
 to improve power, is a prerequisite when studying cell type specific expression-QTLs (eQTLs). We noticed a lack of 
@@ -189,9 +189,9 @@ the sex of the animal. This is called sex based inheritance \cite{Morgan:1915, M
 
 Mendel worked on plants, while Morgan worked on fruit flies. Although the genetic basics are very similar, the sex 
 linked inheritance is not observed in most plants as they are usually male and female at the same time. Currently 
-four plant families have been discovered that developed sex chromosomes acting similar to the sex chromosomes in 
-animals \cite{Ming:2007}. Interestingly, these phenotypes do not follow Mendel's Second Law, as the traits are not 
-inherited independently, but are linked to the sex phenotype. 
+four plant families \rev{(asparagus, hops, papaya and silene)} have been discovered that developed sex chromosomes acting 
+similar to the sex chromosomes in animals \cite{Ming:2007}. Interestingly, these phenotypes do not follow Mendel's 
+Second Law, as the traits are not inherited independently, but are linked to the sex phenotype. 
 
 The concept of genetic linkage is commonly explained as beads on a string, in which multiple genetic units are 
 linked together.  Two beads close together are tightly linked and almost always inherited together. In contrast, 
@@ -230,6 +230,14 @@ the development of population genetics.
 
 \section{DNA and QTLs (1930-1990)}
 
+
+
+In 1930, Fisher published the book 'The Genetical Theory of Natural Selection' \cite{Fisher:1930}. Fisher describes 
+how Mendelian genetics is consistent with the idea of evolution by natural selection. His reasoning turned out 
+to remove one of the last barriers for large scale adoption of Mendel's theories in Biology. The subsequent discovery 
+of DNA as the carrier of heritability by Avery, MacLeod and McCarty in 1944 \cite{Avery:1944}, and the discovery of 
+its structure by Watson and Crick in 1953 \cite{Watson:1953}, revealed the long sought-after molecular basis for Genetics. 
+
 \begin{wrapfigure}{r}{0.5\textwidth}
   \centering
   \includegraphics[width=0.4\textwidth]{eps/image_1_2.eps}
@@ -243,12 +251,6 @@ the development of population genetics.
     \label{fig:pedigree}
 \end{wrapfigure}
 
-
-In 1930, Fisher published the book 'The Genetical Theory of Natural Selection' \cite{Fisher:1930}. Fisher describes 
-how Mendelian genetics is consistent with the idea of evolution by natural selection. His reasoning turned out 
-to remove one of the last barriers for large scale adoption of Mendel's theories in Biology. The subsequent discovery 
-of DNA as the carrier of heritability by Avery, MacLeod and McCarty in 1944 \cite{Avery:1944}, and the discovery of 
-its structure by Watson and Crick in 1953 \cite{Watson:1953}, revealed the long sought-after molecular basis for Genetics. 
 
 After the discovery of restriction enzymes by Luria and Human \cite{Luria:1952} it was possible to cut and paste pieces 
 of DNA. This allowed to experimentally work with DNA and investigate the different (lengths of) fragments produced, 
@@ -267,15 +269,6 @@ These tools are used by geneticists and bioinformaticians to identify the region
 when improving plant yield), or for developing therapies/drugs for human diseases. Two methods of QTL analysis are applied 
 in searching  DNA regions, i.e. linkage analysis and association analysis. 
 
-\begin{wrapfigure}{r}{0.5\textwidth}
-  \centering
-  \includegraphics[width=0.5\textwidth]{eps/image_1_1}
-  \caption[Effect scan across the genome.]
-    {An example of how effect scans are performed using a single phenotype measured on 9 individuals (colored numbers)
-    and genotypes represented by rows in the matrix (A or B). 20 markers (columns) were assessed: A and B are genetic 
-    variants obtained from either parental or maternal line. }
-    \label{fig:effectscan}
-\end{wrapfigure}
 
 \emph{Linkage analysis} is the DNA technology to trace parents and offspring/children. It is used to build so called genetic 
 family trees or pedigrees (See fig. \ref{fig:pedigree}) in which segregation of a phenotype (for example a disease) is 
@@ -286,6 +279,16 @@ to trace back the DNA to the founder strains. Inbred populations also provide hi
 resolution for QTL mapping \cite{Jansen:2001a}. This reduced resolution is caused by the lack of recombination in small 
 populations (20 to 1000 individuals). 
 
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.5\textwidth]{eps/image_1_1}
+  \caption[Effect scan across the genome.]
+    {An example of how effect scans are performed using a single phenotype measured on 9 individuals (colored numbers)
+    and genotypes represented by rows in the matrix (A or B). 20 markers (columns) were assessed: A and B are genetic 
+    variants obtained from either parental or maternal line. }
+    \label{fig:effectscan}
+\end{wrapfigure}
 
 An example of a basic effect scan using linkage analysis is shown in Figure \ref{fig:effectscan} At each marker the mean of 
 the phenotype for AA and BB is calculated, and the difference is plotted per marker. This gives an initial indication which 
@@ -334,7 +337,7 @@ ideal targets for QTL mapping \cite{Brem:2002, Yvert:2003, Morley:2004}. In 2003
 implementations for QTL mapping. R/qtl is an extensible, interactive Software/R package to map quantitative trait loci (QTL) 
 in experimental crosses. It is implemented as an add-on package for the freely available and widely used statistical 
 language/software R \cite{R:2009} The main focus of R/qtl is to provide the mouse community with different QTL mapping 
-methodologies, and allow to deal with the aberrant segregation X chromosome. Furthermore it supports different types of 
+methodologies, and allow to deal with the aberrant segregation X chromosome. Furthermore\rev{,} it supports different types of 
 inbred populations such as backcross (BC), F2, Recombinant inbred lines (RIL) and 4-way RILs \cite{Broman:2003}.
 
 When mapping gene expression or protein abundance current knowledge of protein and DNA sequence allows us to locate their 
@@ -351,7 +354,7 @@ are then used in meta-analysis leading to eQTL GWA studies with even larger size
 to more reliable results and enabling discovery of new modifiers of human gene expression. It is now recognised that many factors, 
 such as effects on intermediate molecular phenotypes, influence the relationship between genotype and the eventual development 
 of disease. It has also been observation that many of the disease predisposing variants are non-coding, which suggests that 
-these variants have a regulatory function. Furthermore it has been shown that many disease predisposing variants (e.g. single 
+these variants have a regulatory function. Furthermore\rev{,} it has been shown that many disease predisposing variants (e.g. single 
 nucleotide polymorphisms (SNPs)) affect the expression of nearby genes (i.e. cis-eQTLs) \cite{Zeller:2010, Lude:2011, Powell:2012}
 
 Currently data are being produced on all these bio-molecular levels on an unprecedented scale. Advances in sequencing technology, 
@@ -374,9 +377,9 @@ hardware. The hardware resources are divided by an internal scheduling system to
 various users. These users generally have little control over the computational environment, as the cluster administration and the 
 scheduling system constrain its use. Computing clusters are fashioned to serve various types of hardware, such as:
 
-Ad-hoc networks composed of many heterogeneous and relatively cheap systems such as: FPGA, and/or CPU, ARM core
+Ad-hoc networks \rev{are} composed of many heterogeneous and relatively cheap systems such as: \rev{FPGAs, CPUs and/or ARM cores.}
 
-Dedicated computer clusters, such as TARGET or national GRIDs, where usually a homogenous system of Linux machines is used for computational tasks
+Dedicated computer clusters, such as TARGET or national GRIDs, \rev{are} usually a homogenous system of Linux machines is used for computational tasks\rev{.}
 
 Video card cluster for linear algebra, utilizing the power of many simple GPU cores for dedicated tasks.
 
@@ -385,7 +388,7 @@ computational environment to perform their tasks. Additionally the hardware can 
 computational tasks, such as GPUs or dedicated ARM cores.
 
 The term 'cloud' is used in many different ways, and there is little consensus on what a cloud exactly is \cite{Foster:2008}. Essentially 
-it means to a user has software available on demand, on suitable compute and storage hardware, and is charged for the time that it is 
+it \rev{means a user} has software available on demand, on suitable compute and storage hardware, and is charged for the time that it is 
 being used. The leading cloud provider is currently Amazon, who has introduced the concept of a virtual Linux machine. This is a virtual 
 Linux pre-initialised compute server, that is hosted within some large compute infrastructure, providing the user customised freedom for 
 a reasonable price \cite{Trelles:2011}.
@@ -396,8 +399,8 @@ to install software. Thus, the infrastructure is specified jointly \cite{Foster:
 be private with their own data. This approach grants enormous computational power to everyone with minimal preparation - once a shared 
 image is finalised \cite{Krampis:2012}.
 
-he setup of such a compute cloud is not trivial and several initiatives are underway to ease this process. An example is the Debian Med 
-initiative, that organised workshops where bioinformatics tested a packaging system as a method to create a cloud. The initiative is 
+\rev{The} setup of such a compute cloud is not trivial and several initiatives are underway to ease this process. An example is the Debian Med 
+\rev{initiative that} organised workshops where bioinformatics tested a packaging system as a method to create a cloud. The initiative is 
 considered a seed for an image to then be publicly shared.
 
 Using this method the cloud infrastructure can be transferred to local computer clusters when necessary. Every participant has access 
