@@ -38,7 +38,7 @@ to correlated expression between a pair of traits, while the other genotype show
   observed variance. A higher amount of explained variance will result in a more reliable causal inference \cite{Li:2010}. Methods 
   developed to improve this explained variance are: Bayesian interval mapping, a framework to add prior knowledge \cite{Yandell:2007, 
   Hageman:2011}, Multiple QTL model (MQM) mapping tries to improves power by fitting a genetic model using backward elimination of 
-  pre-selected genetic loci\cite{Jansen:1993, Arends:2010} and machine learning approaches, such as randomForest \cite{Bureau:2003}, 
+  pre-selected genetic loci\rev{ }\cite{Jansen:1993, Arends:2010} and machine learning approaches, such as \rev{Random Forest} \cite{Bureau:2003}, 
   support vector machines (SVM), neural networks, and more recently vQTL mapping \cite{Valdar:2011} fall into this class of methods
   developed to improving power and attribute more variance to genetic factors.
 
@@ -94,7 +94,7 @@ to correlated expression between a pair of traits, while the other genotype show
   be in the same pathway, they could have the same regulator or they could be connected in some other way.
   Naturally, there is the possibility the correlation is there by chance, or by sequence polymorphisms \cite{Alberts:2007}.
   When the phenotypes p1 and p2 are highly correlated for both A and B, however, the genomic location at marker M may not be so
-  meaningful in the context of genetics  But when correlate between expression levels varies significantly between genotype A 
+  meaningful in the context of genetics\rev{.}  But when correlate between expression levels varies significantly between genotype A 
   and B (e.g. $corA >> corB$), some form of regulation at marker M in genotype A in the genotype is implied.
 
   \subsubsection{Take the differential}
@@ -120,7 +120,7 @@ to correlated expression between a pair of traits, while the other genotype show
   When scaling the difference between two Z-values using the standard error we obtain a T-statistic which follows a 
   normal distribution \cite{Biometry:1995} allowing us to calculate an exact p-value.
 
-  This p-value still needs to be corrected for multiple testing by using a bonferroni correction or a multi-trait 
+  This p-value still needs to be corrected for multiple testing by using a \rev{Bonferroni} correction or a multi-trait 
   permutation approach \cite{Breitling:2008a} to estimate the null distribution. When doing permutations in each round 
   the link between genotype and trait is broken, by redistributing at random genotypes to the individuals while not 
   allowing for duplicates. After 10.000+ permutations each CTL score is transformed into a p-value.
@@ -228,7 +228,7 @@ to correlated expression between a pair of traits, while the other genotype show
   $$ Chi^2 = \sum_{i=1}^{k}[(n_{i} - 3).Z_{i}^2] - \frac{[\sum_{i=1}^{k}(n_{i} - 3).Z_{i}]^2 }{ \sum_{i=1}^{k}(n_{i} - 3) } $$
   Where i = 1, 2, 3, .., k.\\
   
-  The Chi-square test statistic has $(k-1)$ degrees of freedom, where $k$ is the number of genotypes. We transform by 
+  The Chi-square test statistic has $(k-1)$ degrees of freedom, where $k$ is the number of genotypes. We transform \rev{the obtained p-value} by 
   using the -$\log_{10}$(p-value) and store the obtained LOD score for this trait-trait combination, then continue to 
   the next genetic marker.
 
